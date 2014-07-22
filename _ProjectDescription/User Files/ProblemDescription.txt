@@ -1,0 +1,5 @@
+This model tries to meet multiple destination's demand for product or residual volume.  Haulcosts are associated with delivery.
+
+As shown in the diagram, initial growing stock volume (on MU) is havested and assigned (Delivered) to destinations with demand for the product.  Some destinations produce residual products which can be used by other destinations.  The process can continue as destinations that use residual products can produce other products (e.g. power)
+
+Note: the solution will be infeasible if residuals are produced and there is no valid destination for the residuals.

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<UserColors LastKnownInternalId="58">
+	<UserColor Name="default background" RGB="#f0f0f0" IsSystemBackground="true" UUID="4C29CF98-3E51-4BAA-8563-90FCE3E3DF3B" InternalID="1" />
+	<UserColor Name="default foreground" RGB="#000000" UUID="701D5E4D-A50B-4FD8-B7AD-7ED61961A523" InternalID="2" />
+	<UserColor Name="default selection" RGB="#000080" UUID="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" InternalID="3" />
+	<UserColor Name="black" RGB="#000000" UUID="9043B6BC-F2E6-4015-A940-74CD05E6AD57" InternalID="4" />
+	<UserColor Name="white" RGB="#ffffff" UUID="33BB2465-9D09-4035-9765-4D4D12BABAAE" InternalID="5" />
+	<UserColor Name="red" RGB="#ff0000" UUID="8C1FFC91-A781-4272-831D-2D86F23592E4" InternalID="6" />
+	<UserColor Name="green" RGB="#00ff00" UUID="ABB4A8BD-7798-41D3-BA43-C629DFC98735" InternalID="7" />
+	<UserColor Name="blue" RGB="#0000ff" UUID="257CED91-8909-41AC-BED6-911268D7BBCE" InternalID="8" />
+	<UserColor Name="yellow" RGB="#ffff00" UUID="6557880F-CCE8-4670-958C-5DDF32842E87" InternalID="9" />
+	<UserColor Name="magenta" RGB="#ff00ff" UUID="490FB697-56FA-496E-B396-D141DA8918B4" InternalID="10" />
+	<UserColor Name="cyan" RGB="#00ffff" UUID="E185A605-0CD0-44C0-913D-FDDB4E18CFE5" InternalID="11" />
+	<UserColor Name="navy blue" RGB="#000080" UUID="8387D389-3F4A-4D87-9199-53B0EDCD0359" InternalID="12" />
+	<UserColor Name="light grey" RGB="#c0c0c0" UUID="486FBD8D-1F7C-467B-9130-D05049EA3E34" InternalID="13" />
+	<UserColor Name="grey" RGB="#808080" UUID="9E91AFF7-0C42-4624-9450-66E75C74B1AB" InternalID="14" />
+	<UserColor Name="dark grey" RGB="#404040" UUID="BDFE7E86-A7C8-4FA3-BEA3-FA3B7D1374B7" InternalID="15" />
+	<UserColor Name="brown" RGB="#804000" UUID="8E4451BD-195C-4B9D-A00A-78A45D6AF976" InternalID="16" />
+	<UserColor Name="Threshold Low" RGB="#00ff00" UUID="DF19EA64-02F3-4815-8A98-90420B36DBC1" InternalID="17" />
+	<UserColor Name="Threshold Moderate" RGB="#ffff80" UUID="BACB9EDD-50FE-42BC-B33B-00A723E39C2C" InternalID="18" />
+	<UserColor Name="Threshold Significant" RGB="#ff8040" UUID="7B48485D-C0A1-4D30-8E8D-9BF3191B25D9" InternalID="19" />
+	<UserColor Name="Threshold High" RGB="#ff0000" UUID="44CBC382-5153-4BD0-847F-3296BE04BBE4" InternalID="20" />
+	<UserColor Name="NA" RGB="#e1e1e1" UUID="1E723443-762A-4E17-A105-340906806B0F" InternalID="21" />
+	<UserColor Name="TooFar" RGB="#804000" UUID="D87D07A7-88B7-48DB-9D87-27097B75FE41" InternalID="22" />
+	<UserColor Name="Q1" RGB="#00ff00" UUID="B1334671-B92C-441B-8D85-D55A01F7BE92" InternalID="23" />
+	<UserColor Name="Q2" RGB="#80ffff" UUID="AD757F25-A61B-4813-9D66-D13984D92A69" InternalID="24" />
+	<UserColor Name="Q3" RGB="#ffff80" UUID="470A30E0-896D-4F7B-9B8B-F271CA97686B" InternalID="25" />
+	<UserColor Name="Q4" RGB="#ff8040" UUID="85429270-D38E-4BE2-A871-280AEA84A85E" InternalID="26" />
+	<UserColor Name="Q5" RGB="#ff00ff" UUID="2CE1EB75-7443-49ED-A23C-65CFFD10A2E1" InternalID="27" />
+	<UserColor Name="Q6" RGB="#ff0000" UUID="AF2A8F71-2E7A-4A99-9A51-825C09979098" InternalID="28" />
+	<UserColor Name="Res1" RGB="#ffff00" UUID="2CBC70D6-6A1E-41CD-8BAC-8FB8A1F19D7F" InternalID="29" />
+	<UserColor Name="Res2" RGB="#80ffff" UUID="CC5B50C3-5882-4E4A-84A6-8F653F459BE6" InternalID="30" />
+	<UserColor Name="Res3" RGB="#804000" UUID="23F1ED8B-8088-40ED-9EBB-20ABD585894E" InternalID="31" />
+	<UserColor Name="NoDemand" RGB="#ff8040" UUID="C7C20B10-9637-4715-BF9E-3B9AEBD2E7CE" InternalID="45" />
+	<UserColor Name="NoSupply" RGB="#ff0000" UUID="5D4E93DF-2AE7-42ED-9747-9CB7AF033459" InternalID="46" />
+</UserColors>

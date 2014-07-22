@@ -1,0 +1,577 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="29" left="4" bottom="696" right="1072" />
+	<PageEditSize Type="Inherited">
+		<Size Width="900" Height="706" />
+	</PageEditSize>
+	<ProjectUUID>B2FACAE1-6EEE-4497-BF6D-B115323573E2</ProjectUUID>
+	<TemplatesTabOrderPosition>7</TemplatesTabOrderPosition>
+	<ResizeData>
+		<MainArea Line="FixedFromTop" Value="76">
+			<TopArea Line="FixedFromRight" Value="74">
+				<LeftArea Line="FixedFromLeft" Value="323" />
+			</TopArea>
+			<BottomArea Line="FixedFromTop" Value="48">
+				<BottomArea Line="FixedFromLeft" Value="135" />
+			</BottomArea>
+		</MainArea>
+	</ResizeData>
+	<Background>
+		<UserColor GUID="F9BBB2FB-E950-4D01-84F6-C90EA058632E">Has Help Background</UserColor>
+	</Background>
+	<HelpTopic>"Regions"</HelpTopic>
+	<Action>
+		<EntryProcedure>SetLastViewedChildPage</EntryProcedure>
+	</Action>
+	<PageObject Type="Text">
+		<Location top="126" left="146" bottom="150" right="312" />
+		<HelpTag>"General MUs"</HelpTag>
+		<StaticText>Regions</StaticText>
+		<Font GUID="98B1D76A-C11C-4BD0-B6AE-5B5A18B4A7B2" Name="Page Title" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="126" left="408" bottom="150" right="557" />
+		<HelpTag>"General MUs"</HelpTag>
+		<StaticText>Scenarios</StaticText>
+		<Font GUID="98B1D76A-C11C-4BD0-B6AE-5B5A18B4A7B2" Name="Page Title" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="132" left="603" bottom="150" right="622" />
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>21</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Bitmap</ButtonType>
+		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\Add_sign.bmp"</BitmapFile>
+		<TooltipText>"Add Block"</TooltipText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>SetName</Identifier>
+				<AssignedValue>"Scenarios"</AssignedValue>
+			</Action>
+			<Action Type="Assignment">
+				<Identifier>NewElementName</Identifier>
+				<AssignedValue>""</AssignedValue>
+			</Action>
+			<Action Type="LinkedPage">
+				<Page PageGUID="2578A002-E78B-47F3-A1EC-11CED6B8032C" Name="Add_SetElement" />
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="132" left="628" bottom="150" right="648" />
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>23</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Bitmap</ButtonType>
+		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\minus_sign.bmp"</BitmapFile>
+		<TooltipText>"Remove Scenario"</TooltipText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>SetName</Identifier>
+				<AssignedValue>"Scenarios"</AssignedValue>
+			</Action>
+			<Action Type="LinkedPage">
+				<Page PageGUID="ACB0B287-352F-4619-A745-CEFF3E11F7C0" Name="Delete_SetElement" />
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="132" left="331" bottom="150" right="351" />
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>17</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Bitmap</ButtonType>
+		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\Add_sign.bmp"</BitmapFile>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>SetName</Identifier>
+				<AssignedValue>"Regions"</AssignedValue>
+			</Action>
+			<Action Type="Assignment">
+				<Identifier>NewElementName</Identifier>
+				<AssignedValue>""</AssignedValue>
+			</Action>
+			<Action Type="LinkedPage">
+				<Page PageGUID="2578A002-E78B-47F3-A1EC-11CED6B8032C" Name="Add_SetElement" />
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="132" left="357" bottom="150" right="377" />
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>22</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Bitmap</ButtonType>
+		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\minus_sign.bmp"</BitmapFile>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>SetName</Identifier>
+				<AssignedValue>"Regions"</AssignedValue>
+			</Action>
+			<Action Type="LinkedPage">
+				<Page PageGUID="ACB0B287-352F-4619-A745-CEFF3E11F7C0" Name="Delete_SetElement" />
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Pivot Table" Tag="Regions">
+		<Location top="180" left="138" bottom="696" right="390" />
+		<HelpTag>"Regions"</HelpTag>
+		<TabOrder>25</TabOrder>
+		<PopupMenu ProjectUUID="B2FACAE1-6EEE-4497-BF6D-B115323573E2" MenuUUID="354E72B1-3F40-42DB-8A38-823A01BD0472" />
+		<ObjectUUID>2D11EA00-F841-4209-92E9-7EBD2E11B617</ObjectUUID>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<Contents>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::regNam( nsm::r )</Identifier>
+				<Title ID="4120">"Description"</Title>
+			</Explicit_Identifier>
+		</Contents>
+		<Indices>
+			<Explicit_Index>
+				<Index ID="6510">mu_s</Index>
+				<Header_Title ID="6530">"MU"</Header_Title>
+			</Explicit_Index>
+			<Identifier_Index>
+				<Header_Title ID="6230">""</Header_Title>
+				<Location_in_Initial_View ID="6260">"In Columns"</Location_in_Initial_View>
+				<Hide_if_Single_Identifier ID="6270">"No"</Hide_if_Single_Identifier>
+			</Identifier_Index>
+		</Indices>
+		<General>
+			<Dense_Aggregation_restricts_to_Domain ID="1022">"Yes"</Dense_Aggregation_restricts_to_Domain>
+		</General>
+		<Row_Area>
+			<Background_Color ID="2010">RGB&lt;255,255,200&gt;</Background_Color>
+			<Text_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2020">"default selection"</Text_Color>
+			<Headers>
+				<Background_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2120">"default selection"</Background_Color>
+				<Text_Color ID="2130">RGB&lt;255,255,255&gt;</Text_Color>
+			</Headers>
+			<Grid_Focus_Indicator>
+				<Background_Color ID="2270">RGB&lt;0,0,168&gt;</Background_Color>
+				<Text_Color ID="2280">RGB&lt;255,255,200&gt;</Text_Color>
+			</Grid_Focus_Indicator>
+		</Row_Area>
+		<Grid_Area>
+			<Background_Color ID="5010">RGB&lt;255,255,255&gt;</Background_Color>
+			<Alternating_Background_Color ID="5011">RGB&lt;225,225,225&gt;</Alternating_Background_Color>
+			<Aggregators>
+				<Background_Color ID="5220">RGB&lt;255,128,128&gt;</Background_Color>
+			</Aggregators>
+			<Sub_Header_Row_or_Column>
+				<Background_Color ID="5320">RGB&lt;255,255,200&gt;</Background_Color>
+			</Sub_Header_Row_or_Column>
+		</Grid_Area>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="156" left="138" bottom="174" right="273" />
+		<Hidden>"Yes"</Hidden>
+		<TabOrder>26</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Set Block Availability..."</Title>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>SetMuBlksAvailability</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="156" left="370" bottom="174" right="390" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>16</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"Available and Associated with Block(s)"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="ABB4A8BD-7798-41D3-BA43-C629DFC98735">green</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="156" left="344" bottom="174" right="364" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>14</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"Only partly available"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="FC1F3FC6-60B3-4FB3-9165-795D7981C6FF">Corresponding</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="156" left="318" bottom="174" right="338" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>18</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"No associated blocks"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="8C1FFC91-A781-4272-831D-2D86F23592E4">red</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="156" left="628" bottom="174" right="648" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>9</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"Block not totally available"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="FC1F3FC6-60B3-4FB3-9165-795D7981C6FF">Corresponding</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="156" left="603" bottom="174" right="622" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>19</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"No associated MU"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="8C1FFC91-A781-4272-831D-2D86F23592E4">red</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="156" left="577" bottom="174" right="596" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>20</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"Corresponds to selected MU(s)"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="D4F48705-BFDF-4DF8-8E1F-D38EFF981024">default selection</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="156" left="506" bottom="174" right="570" />
+		<Hidden>"Yes"</Hidden>
+		<HelpTag>"GeneralBlocks"</HelpTag>
+		<TabOrder>11</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Check"</Title>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>MakeSet_MuBlkCheck</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+			<Action Type="AssertionCheck">
+				<DoDelayedAssertions>true</DoDelayedAssertions>
+				<Assertion>Assert_MusPerBlock( blk )</Assertion>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="132" left="674" bottom="168" right="712" />
+		<Hidden>"Yes"</Hidden>
+		<TabOrder>13</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Bitmap</ButtonType>
+		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:MyBitmaps\open-icon.png"</BitmapFile>
+		<TooltipText>"Load MU definitions from saved Dataset"</TooltipText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>cad::_DataCategory</Identifier>
+				<AssignedValue>'MU Definitions'</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>cad::LoadDataset</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="132" left="719" bottom="168" right="757" />
+		<Hidden>"Yes"</Hidden>
+		<TabOrder>4</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Bitmap</ButtonType>
+		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:MyBitmaps\save-icon.png"</BitmapFile>
+		<TooltipText>"Save current MU definitions to Dataset"</TooltipText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>cad::_DataCategory</Identifier>
+				<AssignedValue>'MU Definitions'</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>cad::SaveDataset</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Selection Object">
+		<SelectionType>CheckBoxes</SelectionType>
+		<Location top="180" left="661" bottom="198" right="900" />
+		<Hidden>"Yes"</Hidden>
+		<TabOrder>27</TabOrder>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextShown>IdentifierText</TextShown>
+		<Border Style="None" />
+		<BackgroundColor>
+			<UserColor GUID="F9BBB2FB-E950-4D01-84F6-C90EA058632E">Has Help Background</UserColor>
+		</BackgroundColor>
+		<ExplicitIdentifier>
+			<Identifier>IsSelected( 'Include Only Available Blocks' )</Identifier>
+			<Description>"Use only Available Blocks"</Description>
+		</ExplicitIdentifier>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="198" left="661" bottom="258" right="828" />
+		<Hidden>"Yes"</Hidden>
+		<SourceType>StringParameter</SourceType>
+		<StringParameter>STRING := FormatString("%5i\tCompletely available\n%5i\tPartly available\n%5i\tUnavailable\n%5i\tTotal Blocks"
+,count(blk | PercentBlockAvailable(blk) = 1)
+,count(blk | 0 &lt; PercentBlockAvailable(blk) &lt;1)
+,count(blk | PercentBlockAvailable(blk) = 0)
+,count(blk)
+)</StringParameter>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Pivot Table" Tag="Scenarios">
+		<Location top="180" left="402" bottom="336" right="654" />
+		<HelpTag>"Scenarios"</HelpTag>
+		<TabOrder>24</TabOrder>
+		<PopupMenu ProjectUUID="B2FACAE1-6EEE-4497-BF6D-B115323573E2" MenuUUID="354E72B1-3F40-42DB-8A38-823A01BD0472" />
+		<ObjectUUID>61F95115-289C-4463-BE48-0A61B141A496</ObjectUUID>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<Contents>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::ScNam( nsm::s )</Identifier>
+				<Title ID="4120">"Description"</Title>
+			</Explicit_Identifier>
+		</Contents>
+		<Indices>
+			<Explicit_Index>
+				<Index ID="6510">mu_s</Index>
+				<Header_Title ID="6530">"MU"</Header_Title>
+			</Explicit_Index>
+			<Identifier_Index>
+				<Header_Title ID="6230">""</Header_Title>
+				<Location_in_Initial_View ID="6260">"In Columns"</Location_in_Initial_View>
+				<Hide_if_Single_Identifier ID="6270">"No"</Hide_if_Single_Identifier>
+			</Identifier_Index>
+		</Indices>
+		<General>
+			<Dense_Aggregation_restricts_to_Domain ID="1022">"Yes"</Dense_Aggregation_restricts_to_Domain>
+		</General>
+		<Row_Area>
+			<Background_Color ID="2010">RGB&lt;255,255,200&gt;</Background_Color>
+			<Text_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2020">"default selection"</Text_Color>
+			<Headers>
+				<Background_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2120">"default selection"</Background_Color>
+				<Text_Color ID="2130">RGB&lt;255,255,255&gt;</Text_Color>
+			</Headers>
+			<Grid_Focus_Indicator>
+				<Background_Color ID="2270">RGB&lt;0,0,168&gt;</Background_Color>
+				<Text_Color ID="2280">RGB&lt;255,255,200&gt;</Text_Color>
+			</Grid_Focus_Indicator>
+		</Row_Area>
+		<Grid_Area>
+			<Background_Color ID="5010">RGB&lt;255,255,255&gt;</Background_Color>
+			<Alternating_Background_Color ID="5011">RGB&lt;225,225,225&gt;</Alternating_Background_Color>
+			<Aggregators>
+				<Background_Color ID="5220">RGB&lt;255,128,128&gt;</Background_Color>
+			</Aggregators>
+			<Sub_Header_Row_or_Column>
+				<Background_Color ID="5320">RGB&lt;255,255,200&gt;</Background_Color>
+			</Sub_Header_Row_or_Column>
+		</Grid_Area>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="354" left="402" bottom="378" right="577" />
+		<HelpTag>"General MUs"</HelpTag>
+		<StaticText>Bioform In Regions</StaticText>
+		<Font GUID="98B1D76A-C11C-4BD0-B6AE-5B5A18B4A7B2" Name="Page Title" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="354" left="596" bottom="372" right="615" />
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>8</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Bitmap</ButtonType>
+		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\Add_sign.bmp"</BitmapFile>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>SetName</Identifier>
+				<AssignedValue>"GUIRegionBioforms"</AssignedValue>
+			</Action>
+			<Action Type="Assignment">
+				<Identifier>NewElementName</Identifier>
+				<AssignedValue>""</AssignedValue>
+			</Action>
+			<Action Type="LinkedPage">
+				<Page PageGUID="2578A002-E78B-47F3-A1EC-11CED6B8032C" Name="Add_SetElement" />
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="354" left="622" bottom="372" right="641" />
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>12</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Bitmap</ButtonType>
+		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\minus_sign.bmp"</BitmapFile>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>SetName</Identifier>
+				<AssignedValue>"GUIRegionBioforms"</AssignedValue>
+			</Action>
+			<Action Type="LinkedPage">
+				<Page PageGUID="ACB0B287-352F-4619-A745-CEFF3E11F7C0" Name="Delete_SetElement" />
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Pivot Table" Tag="Bioforms">
+		<Location top="408" left="402" bottom="600" right="828" />
+		<HelpTag>"Bioforms"</HelpTag>
+		<TabOrder>15</TabOrder>
+		<PopupMenu ProjectUUID="B2FACAE1-6EEE-4497-BF6D-B115323573E2" MenuUUID="354E72B1-3F40-42DB-8A38-823A01BD0472" />
+		<ObjectUUID>B695292D-C628-49F2-BD2E-2E8698A72CA0</ObjectUUID>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<Contents>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::bfNam( nsm::br )</Identifier>
+				<Title ID="4120">"Description"</Title>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::BioformUnit( nsm::br )</Identifier>
+				<Format>
+					<Show_default_values ID="4320">"Yes"</Show_default_values>
+				</Format>
+			</Explicit_Identifier>
+		</Contents>
+		<Indices>
+			<Explicit_Index>
+				<Index ID="6510">mu_s</Index>
+				<Header_Title ID="6530">"MU"</Header_Title>
+			</Explicit_Index>
+			<Identifier_Index>
+				<Header_Title ID="6230">""</Header_Title>
+				<Location_in_Initial_View ID="6260">"In Columns"</Location_in_Initial_View>
+				<Hide_if_Single_Identifier ID="6270">"No"</Hide_if_Single_Identifier>
+			</Identifier_Index>
+		</Indices>
+		<General>
+			<Dense_Aggregation_restricts_to_Domain ID="1022">"Yes"</Dense_Aggregation_restricts_to_Domain>
+		</General>
+		<Row_Area>
+			<Background_Color ID="2010">RGB&lt;255,255,200&gt;</Background_Color>
+			<Text_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2020">"default selection"</Text_Color>
+			<Headers>
+				<Background_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2120">"default selection"</Background_Color>
+				<Text_Color ID="2130">RGB&lt;255,255,255&gt;</Text_Color>
+			</Headers>
+			<Grid_Focus_Indicator>
+				<Background_Color ID="2270">RGB&lt;0,0,168&gt;</Background_Color>
+				<Text_Color ID="2280">RGB&lt;255,255,200&gt;</Text_Color>
+			</Grid_Focus_Indicator>
+		</Row_Area>
+		<Grid_Area>
+			<Background_Color ID="5010">RGB&lt;255,255,255&gt;</Background_Color>
+			<Alternating_Background_Color ID="5011">RGB&lt;225,225,225&gt;</Alternating_Background_Color>
+			<Aggregators>
+				<Background_Color ID="5220">RGB&lt;255,128,128&gt;</Background_Color>
+			</Aggregators>
+			<Sub_Header_Row_or_Column>
+				<Background_Color ID="5320">RGB&lt;255,255,200&gt;</Background_Color>
+			</Sub_Header_Row_or_Column>
+		</Grid_Area>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="384" left="635" bottom="402" right="654" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>6</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"Available and Associated with Block(s)"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="ABB4A8BD-7798-41D3-BA43-C629DFC98735">green</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="384" left="609" bottom="402" right="628" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>5</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"Only partly available"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="FC1F3FC6-60B3-4FB3-9165-795D7981C6FF">Corresponding</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="384" left="583" bottom="402" right="603" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>10</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"No associated blocks"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="8C1FFC91-A781-4272-831D-2D86F23592E4">red</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>blk</Symbol>
+			<Symbol>SetMuBlksAvailability</Symbol>
+			<Symbol>NewElementName</Symbol>
+			<Symbol>SetName</Symbol>
+			<Symbol>SetLastViewedChildPage</Symbol>
+			<Symbol>MakeSet_MuBlkCheck</Symbol>
+			<Symbol>IsSelected</Symbol>
+			<Symbol>mu_s</Symbol>
+			<Symbol>Assert_MusPerBlock</Symbol>
+			<Symbol>PercentBlockAvailable</Symbol>
+			<Symbol>cad::LoadDataset</Symbol>
+			<Symbol>cad::_DataCategory</Symbol>
+			<Symbol>cad::SaveDataset</Symbol>
+			<Symbol>nsm::regNam</Symbol>
+			<Symbol>nsm::r</Symbol>
+			<Symbol>nsm::s</Symbol>
+			<Symbol>nsm::br</Symbol>
+			<Symbol>nsm::BioformUnit</Symbol>
+			<Symbol>nsm::ScNam</Symbol>
+			<Symbol>nsm::bfNam</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

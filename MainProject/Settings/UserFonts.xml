@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<UserFonts>
+	<UserFont Name="Main Font" FaceName="Arial" PointSize="80" UUID="00000000-0000-0000-0000-000000000001" />
+	<UserFont Name="Page Title" FaceName="Arial" PointSize="120" Bold="true" UUID="98B1D76A-C11C-4BD0-B6AE-5B5A18B4A7B2" InternalID="1" />
+	<UserFont Name="Button Text" FaceName="Arial" PointSize="100" Bold="true" UUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" InternalID="2" />
+	<UserFont Name="Small Tab Text - Blue" FaceName="Comic Sans MS" PointSize="100" Bold="true" UUID="C6287254-5EED-4429-B21C-38B0B36E3211" InternalID="3" />
+	<UserFont Name="Main Tab Text - Blue" FaceName="Comic Sans MS" PointSize="110" Bold="true" UUID="5B3F8155-439E-450A-B2B4-1C05629031A6" InternalID="4" />
+	<UserFont Name="Main Button Text" FaceName="Comic Sans MS" PointSize="100" Bold="true" UUID="52DB758F-6678-4679-88AE-B237437EE7AD" InternalID="5" />
+	<UserFont Name="Button Text - small" FaceName="Comic Sans MS" PointSize="90" UUID="6FE37651-7EC5-4E8D-AB97-567B36B673BB" InternalID="6" />
+	<UserFont Name="Page Title Huge (maroon)" FaceName="Garamond" PointSize="480" Bold="true" UUID="22EF92FC-995D-4297-9D7F-E3A2DBC4512F" InternalID="7" />
+	<UserFont Name="Map_Destination" FaceName="Comic Sans MS" PointSize="100" Bold="true" UUID="18968E78-55C8-4F37-B9CF-F3E2AB601C1E" InternalID="8" />
+</UserFonts>

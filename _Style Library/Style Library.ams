@@ -1,0 +1,26 @@
+## ams_version=1.0
+
+LibraryModule Style_Library {
+    Prefix: style;
+    Parameter InactiveIfOpenedInAIMMSVIewer {
+        Property: NoSave;
+        Definition: 1 onlyif IsRunningAsViewer;
+    }
+    ElementParameter ButtonColour {
+        Range: AllColors;
+        Property: NoSave;
+        Definition: {
+            if IsRunningAsViewer Then
+                'Grey'
+            else
+                'Text Blue'
+            endif;
+        }
+    }
+    Procedure LibraryInitialization;
+    Procedure LibraryTermination {
+        Body: {
+            return 1 ;
+        }
+    }
+}

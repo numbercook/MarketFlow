@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="29" left="4" bottom="696" right="1072" />
+	<PageEditSize Type="Inherited">
+		<Size Width="900" Height="706" />
+	</PageEditSize>
+	<ProjectUUID>B2FACAE1-6EEE-4497-BF6D-B115323573E2</ProjectUUID>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<ResizeData>
+		<MainArea Line="FixedFromTop" Value="76">
+			<TopArea Line="FixedFromRight" Value="74">
+				<LeftArea Line="FixedFromLeft" Value="323" />
+			</TopArea>
+			<BottomArea Line="FixedFromTop" Value="48">
+				<BottomArea Line="FixedFromLeft" Value="135" />
+			</BottomArea>
+		</MainArea>
+	</ResizeData>
+	<Background Inherited="true" />
+	<PageObject Type="Button">
+		<Location top="138" left="738" bottom="192" right="880" />
+		<TabOrder>2</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Solve"</Title>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>nsm::SolveNSModel</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Pivot Table">
+		<Location top="144" left="144" bottom="504" right="338" />
+		<TabOrder>3</TabOrder>
+		<ObjectUUID>234EB1A1-0E27-4D91-8A2C-E89C2C9BC71A</ObjectUUID>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<Contents>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::obj</Identifier>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::MarkRev</Identifier>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::Scencost</Identifier>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::tcostRF</Identifier>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::tcostRM</Identifier>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::tcostFF</Identifier>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::tcostFM</Identifier>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::fFxCst</Identifier>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::rVarCst</Identifier>
+			</Explicit_Identifier>
+			<Defaults>
+				<Show_Unit>
+					<Show_Unit ID="4051">"Show per value"</Show_Unit>
+				</Show_Unit>
+				<Format>
+					<Decimal_Places ID="4212">1</Decimal_Places>
+					<Show_1000_seperator ID="4213">"Yes"</Show_1000_seperator>
+				</Format>
+			</Defaults>
+		</Contents>
+		<Indices>
+			<Identifier_Index>
+				<Link_to_Element_Parameter ID="6215">nsm::_Exec_SelVar</Link_to_Element_Parameter>
+				<Header_Title ID="6230">"Variable"</Header_Title>
+				<Location_in_Initial_View ID="6260">"In Rows"</Location_in_Initial_View>
+				<Hide_if_Single_Identifier ID="6270">"No"</Hide_if_Single_Identifier>
+			</Identifier_Index>
+		</Indices>
+		<General>
+			<Dense_Aggregation_restricts_to_Domain ID="1022">"Yes"</Dense_Aggregation_restricts_to_Domain>
+		</General>
+		<Row_Area>
+			<Background_Color ID="2010">RGB&lt;255,255,200&gt;</Background_Color>
+			<Text_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2020">"default selection"</Text_Color>
+			<Headers>
+				<Background_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2120">"default selection"</Background_Color>
+				<Text_Color ID="2130">RGB&lt;255,255,255&gt;</Text_Color>
+				<Show_Sub_Headers ID="2150">"No"</Show_Sub_Headers>
+			</Headers>
+			<Grid_Focus_Indicator>
+				<Background_Color ID="2270">RGB&lt;0,0,168&gt;</Background_Color>
+				<Text_Color ID="2280">RGB&lt;255,255,200&gt;</Text_Color>
+			</Grid_Focus_Indicator>
+		</Row_Area>
+		<Grid_Area>
+			<Background_Color ID="5010">RGB&lt;255,255,255&gt;</Background_Color>
+			<Alternating_Background_Color ID="5011">RGB&lt;225,225,225&gt;</Alternating_Background_Color>
+			<Aggregators>
+				<Background_Color ID="5220">RGB&lt;255,128,128&gt;</Background_Color>
+			</Aggregators>
+			<Sub_Header_Row_or_Column>
+				<Background_Color ID="5320">RGB&lt;255,255,200&gt;</Background_Color>
+			</Sub_Header_Row_or_Column>
+		</Grid_Area>
+	</PageObject>
+	<PageObject Type="Pivot Table">
+		<Location top="204" left="351" bottom="528" right="893" />
+		<TabOrder>4</TabOrder>
+		<ObjectUUID>70375B9F-8FBE-479E-A4E4-D4B7AB70C77A</ObjectUUID>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<Contents>
+			<Implicit_Identifiers ID="4010">nsm::Exec_ParamToDisplay( AllIdentifiers )</Implicit_Identifiers>
+			<Defaults>
+				<Format>
+					<Decimal_Places ID="4212">0</Decimal_Places>
+					<Show_1000_seperator ID="4213">"Yes"</Show_1000_seperator>
+				</Format>
+			</Defaults>
+		</Contents>
+		<Indices>
+			<Identifier_Index>
+				<Link_to_Element_Parameter ID="6215">nsm::_iExecParam</Link_to_Element_Parameter>
+				<Hide_if_Single_Identifier ID="6270">"No"</Hide_if_Single_Identifier>
+			</Identifier_Index>
+		</Indices>
+		<General>
+			<Dense_Aggregation_restricts_to_Domain ID="1022">"Yes"</Dense_Aggregation_restricts_to_Domain>
+		</General>
+		<Row_Area>
+			<Background_Color ID="2010">RGB&lt;255,255,200&gt;</Background_Color>
+			<Text_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2020">"default selection"</Text_Color>
+			<Headers>
+				<Background_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2120">"default selection"</Background_Color>
+				<Text_Color ID="2130">RGB&lt;255,255,255&gt;</Text_Color>
+				<Show_Sub_Headers ID="2150">"No"</Show_Sub_Headers>
+			</Headers>
+			<Grid_Focus_Indicator>
+				<Background_Color ID="2270">RGB&lt;0,0,168&gt;</Background_Color>
+				<Text_Color ID="2280">RGB&lt;255,255,200&gt;</Text_Color>
+			</Grid_Focus_Indicator>
+		</Row_Area>
+		<Grid_Area>
+			<Background_Color ID="5010">RGB&lt;255,255,255&gt;</Background_Color>
+			<Alternating_Background_Color ID="5011">RGB&lt;225,225,225&gt;</Alternating_Background_Color>
+			<Aggregators>
+				<Background_Color ID="5220">RGB&lt;255,128,128&gt;</Background_Color>
+			</Aggregators>
+			<Sub_Header_Row_or_Column>
+				<Background_Color ID="5320">RGB&lt;255,255,200&gt;</Background_Color>
+			</Sub_Header_Row_or_Column>
+		</Grid_Area>
+	</PageObject>
+	<PageObject Type="Selection Object">
+		<SelectionType>DropDownList</SelectionType>
+		<Location top="138" left="364" bottom="168" right="712" />
+		<TabOrder>5</TabOrder>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextShown>ElementName</TextShown>
+		<Border Style="None" />
+		<BackgroundColor RGB="#c0c0c0" />
+		<ExplicitIdentifier>
+			<Identifier>nsm::_Exec_SelVar</Identifier>
+		</ExplicitIdentifier>
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>AllIdentifiers</Symbol>
+			<Symbol>nsm::Scencost</Symbol>
+			<Symbol>nsm::obj</Symbol>
+			<Symbol>nsm::Exec_ParamToDisplay</Symbol>
+			<Symbol>nsm::MarkRev</Symbol>
+			<Symbol>nsm::SolveNSModel</Symbol>
+			<Symbol>nsm::rVarCst</Symbol>
+			<Symbol>nsm::_Exec_SelVar</Symbol>
+			<Symbol>nsm::_iExecParam</Symbol>
+			<Symbol>nsm::Exec_Variables</Symbol>
+			<Symbol>nsm::fFxCst</Symbol>
+			<Symbol>nsm::tcostFF</Symbol>
+			<Symbol>nsm::tcostFM</Symbol>
+			<Symbol>nsm::tcostRF</Symbol>
+			<Symbol>nsm::tcostRM</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

@@ -1,0 +1,114 @@
+## ams_version=1.0
+
+LibraryModule Library_ExcelReadME {
+    Prefix: XLrm;
+    Interface: data { Params_From_Excel, WorkbookName };
+    Comment: {
+        "from google group post
+        
+        https://groups.google.com/d/msg/aimms/wnwvGi3EKXM/19ZkirFOx8AJ"
+    }
+    Set Params_From_Excel {
+        SubsetOf: AllParameters;
+        Index: pfe;
+        InitialData: {
+            { 'nsm::FC_Ex'	,	'nsm::FC_Cap'	,	'nsm::fxOpCst'	}
+        }
+    }
+    Parameter ParamsToRead {
+        IndexDomain: (pfe);
+        Range: binary;
+        Unit: 1;
+        Default: 1;
+    }
+    StringParameter WorkbookName;
+    StringParameter DataRange {
+        IndexDomain: pfe;
+    }
+    StringParameter RowsRange {
+        IndexDomain: pfe;
+    }
+    StringParameter ColsRange {
+        IndexDomain: pfe;
+    }
+    StringParameter runtime_body_code;
+    ElementParameter erp {
+        Range: AllIdentifiers;
+        Default: 'XLrm::CreateRuntimeBodyForExcel_Read';
+    }
+    Procedure LibraryInitialization;
+    Procedure LibraryTermination {
+        Body: {
+            return 1 ;
+        }
+    }
+    Procedure CreateRuntimeBodyForExcel_Read {
+        Body: {
+            block ! Data validation
+            	if runtime_body_code = "" then
+            		halt with "Runtime library not defined"; endif;
+            
+            	if WorkbookName = "" then
+            		halt with "Workbook not defined"; endif;
+            
+            	if not FileExists(WorkbookName) then
+            		halt with "Cannot find file '"+WorkbookName+"'" ; endif;
+            endblock;
+            
+            !pfe is the index of the set params_from_excel, which is a subset of AllParameters. These are the parameters that I want to populate from excel.
+            
+            !The loop below constructs a string called runtime_body_code which contains the code to perform a number of consecutive spreadsheet::RetrieveTable commands.
+            
+            !-------------
+            for(pfe | pfe in params_from_excel and ParamsToRead(pfe) ) do
+            !
+            !	dataRange := formatstring(<snip - code to determine where the data is in the excel sheet>)
+            !
+            !	rowsRange := formatstring(<snip - code to determine where the rows range is in the excel sheet>)
+            !
+            !	colsRange := formatstring(<snip - code to determine where the columns range is in the excel sheet>
+            
+            	!construct the line of code that will read in this parameter
+            	runtime_body_code += FormatString("Spreadsheet::RetrieveTable(\"%s\", %s, DataRange:\"%s\", RowsRange:\"%s\", ColumnsRange:\"%s\", AutomaticallyExtendSets: 1);\n",
+            						WorkbookName,
+            						pfe,
+            						DataRange(pfe),
+            						RowsRange(pfe),
+            						ColsRange(pfe) );
+            endfor;
+        }
+    }
+    Procedure CreateRuntimeLibrary {
+        Body: {
+            block ! Data validation
+            	if runtime_body_code = "" then
+            		halt with "Runtime library not defined"; endif;
+            
+            	if WorkbookName = "" then
+            		halt with "Workbook not defined"; endif;
+            
+            	if not FileExists(WorkbookName) then
+            		halt with "Cannot find file '"+WorkbookName+"'" ; endif;
+            endblock;
+            
+            
+            !create a new runtime library called "excel_read"
+            erp := me::CreateLibrary("excel_read", "er");
+            
+            !create a procedure called "import" in the excel_read library
+            erp := me::Create("import",'procedure','excel_read',0);
+            
+            !erp is the procedure created above. set the body of the procedure to the string runtime_body_code
+            me::SetAttribute(erp, 'body', runtime_body_code);
+            
+            !compile the library before running
+            me::Compile('excel_read');
+            
+            !execute the procedure
+            Apply(erp);
+            
+            !delete the library once we are done
+            me::Delete('excel_read');
+        }
+    }
+}

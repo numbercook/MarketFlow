@@ -1,0 +1,5 @@
+* The timestamps in this namechange file are stored in Coordinated universal time (UTC).
+"PTStateManager::EnterNameBox" "PTStateManager::HideEnterNameBox" "2009-06-02 16:12:31"
+"PTStateManager::Copy_CurrentPage" "PTStateManager::SourcePage" "2011-01-04 19:55:58"
+"PTStateManager::Copy_CurrentTag" "PTStateManager::SourceTag" "2011-01-04 20:07:40"
+"PTStateManager::Copy_SaveState" "PTStateManager::SaveState_DK" "2011-01-05 16:11:09"

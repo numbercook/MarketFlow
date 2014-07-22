@@ -1,0 +1,17 @@
+MAIN DATA
+The critical inputs (i.e. to define the problem and not related to GUI) are obtained via a link to Access.  A table on the Database Link page shows these inputs.  Note:  Encumbered supply is not input.
+
+CASES
+Only simple cases are used in this project (i.e. all identifiers are saved, not explicit datasets)
+
+DATASETS
+In order to facilitate the creation editting of scenarios under consistent inputs (e.g. execution options) a number of datasets have been specified.  These datasets can be loaded/saved in various pages in the GUI.  For example, the Execution Options can be loaded from the Optimization Dashboard.
+
+MU Definitions:		Contain supply information
+Mill Definitions:		contain project (demand) information
+Execution Options:		contain execution options, penalty weights etc.
+Cost Data:		Contain haulcosts
+TREES Targets		contain supply targets to simulate actual wood flow (mu to dest)
+			
+CASE WIZARD
+From the Case Management Page, users can run the Case Creation Wizard which allows the user to load a data set from each of the above (except other defaults) and save the resulting case.

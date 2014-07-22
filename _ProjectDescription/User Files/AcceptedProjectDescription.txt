@@ -1,0 +1,36 @@
+TOLERANCES
+Demand must be met within acceptable tolerances for the items below.  These tolerances are implemented as violation penalties.
+-MeetTotalDemand	Total Project Demand not met (by species) ... usually 0 tolerance
+-MeetDemandMatrix	Project Demand not met by MU as requested
+-SupplyCostIncrease	Cost of Supply exceeds requested supply
+-SupplyCostDecrease	Cost of Supply is lower than requested supply
+-SupplyCostPerM3Increase	Cost per m3 of Supply exceeds requested supply
+-SupplyCostPerM3Decrease	Cost per m3 of Supply is lower than requested supply
+
+In order to keep cost for each project as low as possible the following constraint and penalty are introduced.  This constraint has the effect of "sharing" penalties among all projects.  This counteracts the usual tendancy of LPs/MIPs to violate small projects.
+
+-MinCost		Cost of supply is as low as possible .... usually zero or very small
+
+ACCEPTING AND MODIFYING MODEL RESULTS
+In order to reflect information external to the model (e.g. product quality), users need the ability to modify model results (allocations) and re-solve.  In addition users need the ability to specify, prior to re-solving, which projects are selected.
+
+This functionality as been incorporated in the Accepted Projects section (Results, Accepted Projects in GUI).
+
+  AcceptedProjects(p)	specifies which projects have been accepted (i.e. will be `fixed`).
+  AcceptedAllocations(p,da,mu,spg,ft)
+  			-contains the 'fixed' volumes allocated for accepted projects
+  			-originally set to solution (Variable AllocNotGrouped), including 'zero'
+  			-can be editted by user
+  AcceptedAllocations_NonVar 
+  			-specifies the Nonvar status of the variable, AllocNotGrouped(p,da,mu,spg,ft).
+  			-defined only for AcceptedProjects with defined AcceptedAllocations
+  			
+The parameters AllocationModified(p) and ResolveRequired track which allocations are modified and if the model must be re-solved.  The solve procedures reset these parameters.
+  			
+TRANSACTION LOG
+FindWood maintains a transaction log for all changes related to Accepted Projects, including:
+
+- Accept / Unaccept	- change the Accepted status of a project/demand alternative
+- Edit			- change AcceptedAllocations
+
+The transaction log can be exported to MS-Access

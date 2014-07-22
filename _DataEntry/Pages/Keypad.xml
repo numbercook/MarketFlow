@@ -1,0 +1,341 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="155" left="338" bottom="410" right="624" />
+	<PageEditSize Type="Inherited" />
+	<ProjectUUID>AFA0D913-C22D-4DA9-9393-F1CA3807DAA9</ProjectUUID>
+	<IsDialogPage>true</IsDialogPage>
+	<Positioning>Save Last Position</Positioning>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<Background Inherited="true" />
+	<Action>
+		<PageProcedure>de::AddCharToString</PageProcedure>
+	</Action>
+	<PageObject Type="Button">
+		<Location top="96" left="96" bottom="126" right="126" />
+		<TabOrder>1</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"7"</Title>
+		<Font GUID="5B3F8155-439E-450A-B2B4-1C05629031A6" Name="Main Tab Text - Blue" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>de::C</Identifier>
+				<AssignedValue>"7"</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>PageProcedure</RunWhat>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="96" left="138" bottom="126" right="168" />
+		<TabOrder>2</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"8"</Title>
+		<Font GUID="5B3F8155-439E-450A-B2B4-1C05629031A6" Name="Main Tab Text - Blue" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>de::C</Identifier>
+				<AssignedValue>"8"</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>PageProcedure</RunWhat>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="96" left="180" bottom="126" right="210" />
+		<TabOrder>3</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"9"</Title>
+		<Font GUID="5B3F8155-439E-450A-B2B4-1C05629031A6" Name="Main Tab Text - Blue" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>de::C</Identifier>
+				<AssignedValue>"9"</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>PageProcedure</RunWhat>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="132" left="96" bottom="162" right="126" />
+		<TabOrder>4</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"4"</Title>
+		<Font GUID="5B3F8155-439E-450A-B2B4-1C05629031A6" Name="Main Tab Text - Blue" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>de::C</Identifier>
+				<AssignedValue>"4"</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>PageProcedure</RunWhat>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="132" left="138" bottom="162" right="168" />
+		<TabOrder>5</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"5"</Title>
+		<Font GUID="5B3F8155-439E-450A-B2B4-1C05629031A6" Name="Main Tab Text - Blue" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>de::C</Identifier>
+				<AssignedValue>"5"</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>PageProcedure</RunWhat>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="132" left="180" bottom="162" right="210" />
+		<TabOrder>6</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"6"</Title>
+		<Font GUID="5B3F8155-439E-450A-B2B4-1C05629031A6" Name="Main Tab Text - Blue" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>de::C</Identifier>
+				<AssignedValue>"6"</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>PageProcedure</RunWhat>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="168" left="96" bottom="198" right="126" />
+		<TabOrder>7</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"1"</Title>
+		<Font GUID="5B3F8155-439E-450A-B2B4-1C05629031A6" Name="Main Tab Text - Blue" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>de::C</Identifier>
+				<AssignedValue>"1"</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>PageProcedure</RunWhat>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="168" left="138" bottom="198" right="168" />
+		<TabOrder>8</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"2"</Title>
+		<Font GUID="5B3F8155-439E-450A-B2B4-1C05629031A6" Name="Main Tab Text - Blue" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>de::C</Identifier>
+				<AssignedValue>"2"</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>PageProcedure</RunWhat>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="168" left="180" bottom="198" right="210" />
+		<TabOrder>10</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"3"</Title>
+		<Font GUID="5B3F8155-439E-450A-B2B4-1C05629031A6" Name="Main Tab Text - Blue" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>de::C</Identifier>
+				<AssignedValue>"3"</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>PageProcedure</RunWhat>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="204" left="138" bottom="234" right="168" />
+		<TabOrder>11</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"0"</Title>
+		<Font GUID="5B3F8155-439E-450A-B2B4-1C05629031A6" Name="Main Tab Text - Blue" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>de::C</Identifier>
+				<AssignedValue>"0"</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>PageProcedure</RunWhat>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="204" left="96" bottom="234" right="126" />
+		<ReadOnly>VALUE := not CanClickDecimal</ReadOnly>
+		<TabOrder>12</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"."</Title>
+		<Font GUID="5B3F8155-439E-450A-B2B4-1C05629031A6" Name="Main Tab Text - Blue" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>de::C</Identifier>
+				<AssignedValue>"."</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>PageProcedure</RunWhat>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="96" left="222" bottom="126" right="252" />
+		<TabOrder>13</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"E"</Title>
+		<Font GUID="5B3F8155-439E-450A-B2B4-1C05629031A6" Name="Main Tab Text - Blue" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>de::C</Identifier>
+				<AssignedValue>"e"</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>PageProcedure</RunWhat>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="132" left="222" bottom="162" right="252" />
+		<ReadOnly>VALUE := not CanClickMinus</ReadOnly>
+		<TabOrder>14</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"-"</Title>
+		<Font GUID="5B3F8155-439E-450A-B2B4-1C05629031A6" Name="Main Tab Text - Blue" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>de::C</Identifier>
+				<AssignedValue>"-"</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>PageProcedure</RunWhat>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="54" left="96" bottom="84" right="168" />
+		<TabOrder>16</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Clear"</Title>
+		<Font GUID="5B3F8155-439E-450A-B2B4-1C05629031A6" Name="Main Tab Text - Blue" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>de::CanClickDecimal</Identifier>
+				<AssignedValue>1</AssignedValue>
+			</Action>
+			<Action Type="Assignment">
+				<Identifier>de::CanClickMinus</Identifier>
+				<AssignedValue>1</AssignedValue>
+			</Action>
+			<Action Type="Assignment">
+				<Identifier>de::EntryString</Identifier>
+				<AssignedValue>""</AssignedValue>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Scalar">
+		<Location top="18" left="96" bottom="48" right="252" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<TabOrder>17</TabOrder>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<BackgroundColor RGB="#c0c0c0" />
+		<Layout>Value</Layout>
+		<SeparatorSign>=</SeparatorSign>
+		<ExplicitIdentifier>
+			<Identifier>de::EntryString</Identifier>
+			<NumberFormat Width="15" Decimals="0" Alignment="Left" ShowDefaults="true" />
+		</ExplicitIdentifier>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="54" left="180" bottom="84" right="252" />
+		<TabOrder>18</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Bitmap</ButtonType>
+		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\previous.bmp"</BitmapFile>
+		<Font GUID="5B3F8155-439E-450A-B2B4-1C05629031A6" Name="Main Tab Text - Blue" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>de::BackSpace</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="54" left="18" bottom="84" right="72" />
+		<TabOrder>9</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"OK"</Title>
+		<Font GUID="5B3F8155-439E-450A-B2B4-1C05629031A6" Name="Main Tab Text - Blue" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>de::_ButtonAction</Identifier>
+				<AssignedValue>'OK'</AssignedValue>
+			</Action>
+			<Action Type="ClosePage" />
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="18" left="18" bottom="48" right="72" />
+		<TabOrder>15</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Cancel"</Title>
+		<Font GUID="5B3F8155-439E-450A-B2B4-1C05629031A6" Name="Main Tab Text - Blue" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>de::_ButtonAction</Identifier>
+				<AssignedValue>'Cancel'</AssignedValue>
+			</Action>
+			<Action Type="ClosePage" />
+		</ActionSequence>
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>de::C</Symbol>
+			<Symbol>de::EntryString</Symbol>
+			<Symbol>de::CanClickMinus</Symbol>
+			<Symbol>de::AddCharToString</Symbol>
+			<Symbol>de::CanClickDecimal</Symbol>
+			<Symbol>de::_ButtonAction</Symbol>
+			<Symbol>de::BackSpace</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

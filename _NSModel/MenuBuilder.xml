@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<UserMenuTree Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Menu Name="Manage Set Members" UUID="354E72B1-3F40-42DB-8A38-823A01BD0472">
+		<MenuItem Name="Rename" UUID="51552C1E-80C1-4558-8E61-3C3B9201B449">
+			<ActionSequence>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>nsm::RenameSetMember</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+			</ActionSequence>
+		</MenuItem>
+	</Menu>
+</UserMenuTree>

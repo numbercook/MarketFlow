@@ -1,0 +1,3112 @@
+<?xml version="1.0"?>
+<UserMenuTree Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Menubar Name="WoodFlow Page Menubar" UUID="A84E348C-8D95-435F-AE4B-A1785446BC26">
+		<Menu Name="&amp;File" UUID="83C56E07-FFC4-4F64-AD92-9798C51A4B35">
+			<MenuItem Name="C&amp;lose Project" UUID="4C86CEB5-73F4-45DB-B92C-D2401F307716">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>File-Close Project</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Closes the current project"</StatusLineText>
+					<Tooltip>"Close Project"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Sa&amp;ve Project" UUID="6B54B5BE-0647-4EBE-950D-0C94FFD3EA13" BitmapIndex="2">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>File-Save All</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Saves all changes in the current project"</StatusLineText>
+					<Tooltip>"Save Project"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="Library &amp;Manager..." UUID="D96EA970-EF21-4217-B3E9-5E61A65D134A" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<Menu Name="&amp;New" UUID="1A906052-2BAF-423B-9B21-5AC97C640A3B">
+				<MenuItem Name="&amp;Model..." UUID="C3A693E8-4EB4-444A-9D41-D60E55BA2D4E" BitmapIndex="1">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-New Model</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Creates a new, empty model and makes it the current model"</StatusLineText>
+						<Tooltip>"New Model"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Page" UUID="26266093-CC76-4097-AF71-DF18AAF3DACC" BitmapIndex="51">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-New Page</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Creates a new, empty page and opens it in edit mode"</StatusLineText>
+						<Tooltip>"New Page"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Data File..." UUID="0BD00D58-4341-4566-A5A1-89E937B29F42" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-New Data File</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Creates a new data file, to be used in the Data Manager"</StatusLineText>
+						<Tooltip>"New Data Manager file"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Text File" UUID="DF3DCF99-3334-485D-9FF4-FEB70F64B27D" BitmapIndex="3">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-New Text File</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Creates a new, empty text file and opens it in the text editor"</StatusLineText>
+						<Tooltip>"New File"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<Menu Name="&amp;Open" UUID="3B65267E-D8B7-4FB3-8737-0914A7C66F8F">
+				<MenuItem Name="&amp;Model..." UUID="195A30FB-ADA0-4794-86A6-BB32E3BE7855" BitmapIndex="4">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Open Model</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Opens an existing model and makes it the current model"</StatusLineText>
+						<Tooltip>"Open Model"</Tooltip>
+					</Help>
+				</MenuItem>
+				<Separator />
+				<MenuItem Name="&amp;Page..." UUID="D402DF40-5C65-4D10-B241-ADDE48D18EA8" BitmapIndex="5">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Open Page</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Opens an existing page in user mode"</StatusLineText>
+						<Tooltip>"Open Page"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;First Page" UUID="75347891-07E7-4369-92CD-5688ABE19461" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand" />
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Opens the First page"</StatusLineText>
+						<Tooltip>"Open First Page"</Tooltip>
+					</Help>
+				</MenuItem>
+				<Separator />
+				<MenuItem Name="&amp;Data File..." UUID="F01202CB-5BAD-4046-A809-5FC1F2CF3499" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Open Data File</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Opens an existing data file, to be used in the Data Manager"</StatusLineText>
+						<Tooltip>"Open Data Manager file"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Text File..." UUID="966D0B71-3AD9-4B0A-9067-021CB9606A40" BitmapIndex="6">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Open Text File</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Opens an existing file in the text editor"</StatusLineText>
+						<Tooltip>"Open File"</Tooltip>
+					</Help>
+				</MenuItem>
+				<Separator />
+				<MenuItem Name="&amp;Listing File" UUID="7B546E00-FE2C-413E-B9C3-3DD48900492E" BitmapIndex="7">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Open Listing File</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Opens the listing file of the current project in the text editor"</StatusLineText>
+						<Tooltip>"Open Listing File"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="Pu&amp;t File..." UUID="CC4E4653-AA8B-4BF7-B9B0-E3E5C3CA5886" BitmapIndex="8">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Open PUT File</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Opens a put file of the current project in a text editor"</StatusLineText>
+						<Tooltip>"Open Put File"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<MenuItem Name="&amp;Close" UUID="EB4CEF73-0D0A-43F4-BFB0-6B8D6FCB5B5E" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>File-Close</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Closes the active window"</StatusLineText>
+					<Tooltip>"Close"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Save" UUID="2AEB0E12-47BD-4D15-9188-4CC0FE3455D8" BitmapIndex="9">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>File-Save</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Saves the contents of the active window"</StatusLineText>
+					<Tooltip>"Save"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Save &amp;As..." UUID="27AF59C4-3F33-4A94-9B76-3271DE1BC0DC" BitmapIndex="10">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>File-Save As</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Saves the contents of the active window under a different name"</StatusLineText>
+					<Tooltip>"Save As"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Export..." UUID="CF09282D-F482-4F39-8FBE-EB0C78BE49BC" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Export Viewer Project..." UUID="D6D260D7-19CB-4E90-AB53-1F9DE04F00B7" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Menu Name="&amp;Backups" UUID="80547126-A437-44E2-8242-A895BB37D8B1">
+				<Menu Name="&amp;Project" UUID="2109A204-2982-4E06-A92F-A81AE883D795">
+					<MenuItem Name="&amp;Create..." UUID="50ECB8AF-A294-4BF4-AC79-D9B0B39CBD34" BitmapIndex="31">
+						<ActionSequence>
+							<Action Type="MenuCommand" />
+						</ActionSequence>
+						<Help>
+							<StatusLineText>"Creates a backup file of the current project"</StatusLineText>
+							<Tooltip>"Create Project Backup"</Tooltip>
+						</Help>
+					</MenuItem>
+					<MenuItem Name="&amp;Restore..." UUID="22BBF70E-5D77-4B36-BC5E-AB600373DDA1" BitmapIndex="31">
+						<ActionSequence>
+							<Action Type="MenuCommand" />
+						</ActionSequence>
+						<Help>
+							<StatusLineText>"Restores a backup of a previous project version"</StatusLineText>
+							<Tooltip>"Restore Project Backup"</Tooltip>
+						</Help>
+					</MenuItem>
+				</Menu>
+				<Menu Name="&amp;Data" UUID="63D2E565-E944-4BDC-BBBF-5F9509D752CE">
+					<MenuItem Name="&amp;Create..." UUID="B1B74D4B-02A8-4FFF-936C-88F32C12BD5C" BitmapIndex="31">
+						<ActionSequence>
+							<Action Type="MenuCommand">
+								<Command>File-Backup-Data-Create</Command>
+							</Action>
+						</ActionSequence>
+						<Help>
+							<StatusLineText>"Creates a backup file of the current data"</StatusLineText>
+							<Tooltip>"Create Data Backup"</Tooltip>
+						</Help>
+					</MenuItem>
+					<MenuItem Name="&amp;Restore..." UUID="70EDB480-4EF0-4F52-9D1F-0F57132D0D5F" BitmapIndex="31">
+						<ActionSequence>
+							<Action Type="MenuCommand">
+								<Command>File-Backup-Data-Restore</Command>
+							</Action>
+						</ActionSequence>
+						<Help>
+							<StatusLineText>"Restores a previously created data backup"</StatusLineText>
+							<Tooltip>"Restore Data Backup"</Tooltip>
+						</Help>
+					</MenuItem>
+				</Menu>
+			</Menu>
+			<Separator />
+			<Menu Name="Aut&amp;horization" UUID="74059F2C-628C-4D5D-9415-8C69D8582CD4">
+				<MenuItem Name="&amp;User..." UUID="DF696CB0-ED08-405F-BDE3-6AA57FF6A35D" BitmapIndex="31">
+					<Control>
+						<Disable>HIDE_IsAuthorized( CurrentAuthorizationLevel, 'Change Authorization' )</Disable>
+					</Control>
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Authorization-Change User</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Changes the current user"</StatusLineText>
+						<Tooltip>"Change Current User"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Group..." UUID="6EB1B77E-F9CE-454B-A325-A342E78C06F9" BitmapIndex="31">
+					<Control>
+						<Disable>HIDE_IsAuthorized( CurrentAuthorizationLevel, 'Change Authorization' )</Disable>
+					</Control>
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Authorization-Change Group</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Changes the current group"</StatusLineText>
+						<Tooltip>"Change Current Group"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="Le&amp;vel..." UUID="6A47AEDF-3B94-4D38-9CF2-175CD0EEF5F9" BitmapIndex="31">
+					<Control>
+						<Disable>HIDE_IsAuthorized( CurrentAuthorizationLevel, 'Change Authorization' )</Disable>
+					</Control>
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Authorization-Change Level</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Changes the current authorization level"</StatusLineText>
+						<Tooltip>"Change Current Authorization Level"</Tooltip>
+					</Help>
+				</MenuItem>
+				<Separator />
+				<MenuItem Name="&amp;Change User Password..." UUID="54CE6520-E1F3-4705-922D-91204F6F419F" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Authorization-Change Password</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Allows the current user to changes his/her password"</StatusLineText>
+						<Tooltip>"Change Password"</Tooltip>
+					</Help>
+				</MenuItem>
+				<Separator />
+				<MenuItem Name="&amp;Logoff..." UUID="F8FB51CA-9E38-4CA9-9224-A683C28B6266" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Authorization-Logoff</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Logs the current user off and display a logon dialog"</StatusLineText>
+						<Tooltip>"Logoff"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<Separator />
+			<MenuItem Name="Print Set&amp;up..." UUID="8EDA8DD3-5F38-4044-B1EA-08D1BFFEC745" BitmapIndex="12">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>File-Print Setup</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the Windows Print Setup dialog"</StatusLineText>
+					<Tooltip>"Print Setup"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Print" UUID="6632189C-44A5-47DB-BC51-AA4D3CEF87B8" BitmapIndex="11">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>File-Print</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Prints the contents of the active window"</StatusLineText>
+					<Tooltip>"Print"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="E&amp;xit" UUID="34FA8466-CA64-4539-A978-B7B32BE27FF9" BitmapIndex="13">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>File-Exit</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Closes the current project and exits AIMMS"</StatusLineText>
+					<Tooltip>"Exit"</Tooltip>
+				</Help>
+			</MenuItem>
+		</Menu>
+		<Menu Name="&amp;Edit" UUID="9954A13D-804A-4133-99F0-42F05B52D846">
+			<MenuItem Name="Undo &amp;Last" UUID="61D5C497-926C-43CC-BF2A-408B2A6826CD" BitmapIndex="14">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Edit-Undo Last</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Undoes the last data change"</StatusLineText>
+					<Tooltip>"Undo Last"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Undo..." UUID="5BB627F6-423F-4440-BC39-FC68DCE4C9F1" BitmapIndex="15">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Edit-Undo</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Undoes a set of data changes"</StatusLineText>
+					<Tooltip>"Undo"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="Cu&amp;t" UUID="44EE6D0F-2CCA-4960-9BAF-65544E4071CC" BitmapIndex="16">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Edit-Cut</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Cuts the selected data and puts it onto the clipboard"</StatusLineText>
+					<Tooltip>"Cut"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Copy" UUID="8672F223-3F21-444D-BBAC-5C1BD1F4788E" BitmapIndex="17">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Edit-Copy</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Copies the selected data onto the clipboard"</StatusLineText>
+					<Tooltip>"Copy"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Paste" UUID="6536DCC1-DB04-41B5-9659-A516A6810BD3" BitmapIndex="18">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Edit-Paste</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Paste the data from the clipboard into the current object"</StatusLineText>
+					<Tooltip>"Paste"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Delete" UUID="31D03147-DEC8-4F4F-9BA8-3FEF7CFCF051" BitmapIndex="19">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Edit-Delete</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Deletes the selected object"</StatusLineText>
+					<Tooltip>"Delete"</Tooltip>
+				</Help>
+			</MenuItem>
+		</Menu>
+		<Menu Name="&amp;View" UUID="7159B90E-313B-43DF-A77E-CEAA51D1025E">
+			<MenuItem Name="&amp;User Mode" UUID="5BE48226-8195-42EA-A89F-671B61A88B7B" BitmapIndex="98">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Page-Edit Mode</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Sets the current page in edit mode"</StatusLineText>
+					<Tooltip>"Page Edit Mode"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Edit Mode" UUID="8104A295-5CC8-489F-94DA-BB9386E5CC8C" BitmapIndex="98">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Page-Edit Mode</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Sets the current page in edit mode"</StatusLineText>
+					<Tooltip>"Page Edit Mode"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Save Developer State" UUID="DD8ABE15-95B0-4CCB-B8A9-F0774363EB94" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Save User State" UUID="D36B65BB-89AE-4C7A-8132-E8D45707494F" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>View-Save User State</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Keep Page Opened" UUID="6400B64C-1E1C-4F90-8AA0-F653553E307C" BitmapIndex="52">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Page-Keep</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Prevents the current page from being closed automatically"</StatusLineText>
+					<Tooltip>"Keep Page"</Tooltip>
+				</Help>
+			</MenuItem>
+		</Menu>
+		<Menu Name="&amp;Data" UUID="BBC5BB20-11A9-480B-902B-F22FE48ACB2A">
+			<Menu Name="Load &amp;Case" UUID="054C7E1C-2B62-47C5-9A64-98F19047EBE7">
+				<Control>
+					<Disable>IsNotAuthorized( __AMillNames )</Disable>
+				</Control>
+				<MenuItem Name="As &amp;Active..." UUID="467324E3-D3E6-49C7-9314-45A902AFCC1B" BitmapIndex="21">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Case-Load As Active</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Loads an existing case and makes it the current case"</StatusLineText>
+						<Tooltip>"Load Case"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="In&amp;to Active..." UUID="26F86807-394E-4E41-85F8-8FB9A530DAD7" BitmapIndex="24">
+					<Control>
+						<Disable>1</Disable>
+					</Control>
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Case-Load into Active</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Loads the data from an existing case into the current case"</StatusLineText>
+						<Tooltip>"Load Case into Current"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Merging Into Active..." UUID="FFD40590-EF4F-4EE3-A94D-3846C345AA8C" BitmapIndex="31">
+					<Control>
+						<Disable>1</Disable>
+					</Control>
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Case-Merging into Active</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Merges the data from an existing case with the the current case"</StatusLineText>
+						<Tooltip>"Merge Case into Current"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<MenuItem Name="&amp;New Case" UUID="08673390-CAD5-41A1-9212-EE9AED142748" BitmapIndex="20">
+				<Control>
+					<Disable>HIDE_IsAuthorized( CurrentAuthorizationLevel, 'Solve' )</Disable>
+				</Control>
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Case-New</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Creates a new, empty case and makes it the current case"</StatusLineText>
+					<Tooltip>"New Case"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Save Case" UUID="1E90D5DC-9FE1-4D34-900E-BC4E862572AE" BitmapIndex="22">
+				<Control>
+					<Disable>HIDE_IsAuthorized( CurrentAuthorizationLevel, 'Solve' )</Disable>
+				</Control>
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Case-Save</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Saves all data to the current case"</StatusLineText>
+					<Tooltip>"Save Case"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Save Case &amp;As..." UUID="AACFF585-CA2D-40D2-8AA3-8AF98A37392C" BitmapIndex="23">
+				<Control>
+					<Disable>HIDE_IsAuthorized( CurrentAuthorizationLevel, 'Solve' )</Disable>
+				</Control>
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Case-Save As</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Saves all data to a new case"</StatusLineText>
+					<Tooltip>"Save Case As"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<Menu Name="&amp;Load Dataset" UUID="50BB2621-6306-4176-886B-FA155DBB866B">
+				<Control>
+					<Disable>HIDE_IsAuthorized( CurrentAuthorizationLevel, 'Load Data' )</Disable>
+					<Hide>IsNotAuthorized( __AMillNames )</Hide>
+				</Control>
+				<MenuItem Name="As &amp;Active..." UUID="BEDFD535-7A3A-4B5B-B335-2AEB8EBDD38A" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Data-Load As Active</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Loads an existing dataset and makes it the current dataset"</StatusLineText>
+						<Tooltip>"Load Dataset"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="In&amp;to Active..." UUID="5B8B6487-A55C-4B39-B862-2FC85A1AD309" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Data-Load into Active</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Loads the data in an existing dataset into the current dataset"</StatusLineText>
+						<Tooltip>"Load Dataset into Current"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Merging Into Active..." UUID="04EB57E1-5B98-4B0D-A20A-B2AFEC3E2D91" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Data-Merging into Active</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Merges the data in an existing dataset with the the current dataset"</StatusLineText>
+						<Tooltip>"Merge Dataset into Current"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<MenuItem Name="N&amp;ew Dataset..." UUID="28299ADB-9760-46DA-94F4-413864D79663" BitmapIndex="31">
+				<Control>
+					<Disable>HIDE_IsAuthorized( CurrentAuthorizationLevel, 'Save Data' )</Disable>
+				</Control>
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Data-New</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Creates a new, empty dataset and makes it the current dataset"</StatusLineText>
+					<Tooltip>"New dataset"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Sa&amp;ve Dataset" UUID="D2EC05E1-7D62-49A5-A59B-696C640FEE39" BitmapIndex="31">
+				<Control>
+					<Disable>HIDE_IsAuthorized( CurrentAuthorizationLevel, 'Save Data' )</Disable>
+				</Control>
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Data-Save</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Saves all data to the current dataset"</StatusLineText>
+					<Tooltip>"Save Dataset"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Save Da&amp;taset As..." UUID="418325A5-F0E9-4126-BF9C-3079B3DF80F6" BitmapIndex="31">
+				<Control>
+					<Disable>HIDE_IsAuthorized( CurrentAuthorizationLevel, 'Save Data' )</Disable>
+				</Control>
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Data-Save As</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Saves all data to a new dataset"</StatusLineText>
+					<Tooltip>"Save Dataset As"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Multiple Cases..." UUID="9A368A6C-69FC-47BD-8DE7-FA2D63B65AA6" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Data-Multiple Cases</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+		</Menu>
+		<Menu Name="&amp;Run" UUID="99398E71-13A2-4756-A7E2-4D7E131CF793">
+			<Control>
+				<Disable>HIDE_IsAuthorized( CurrentAuthorizationLevel, 'Solve' )</Disable>
+			</Control>
+			<MenuItem Name="&amp;Compile All" UUID="745A07E9-10E1-4B31-9F48-EA37DDA0F148" BitmapIndex="28">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Run-Compile</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Compiles the whole model"</StatusLineText>
+					<Tooltip>"Compile All"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Main Execution" UUID="3924CDE4-DFEB-4276-89D2-01954461848A" BitmapIndex="29">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Run-Model</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Executes the whole model"</StatusLineText>
+					<Tooltip>"Run Model"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Procedure..." UUID="60C7D89B-5B76-4D8F-BF4A-0CE41A441027" BitmapIndex="30">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Run-Procedure</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Executes a specified procedure"</StatusLineText>
+					<Tooltip>"Run Procedure"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Delete Listing File" UUID="0EA6F868-0C02-499F-8A94-98FC01A5854B" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Run-Delete Listing File</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Stop" UUID="F8516753-5056-4BC6-A9C4-2095C75479D3" ShortcutKey="851" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Run-Stop</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Aborts the current execution"</StatusLineText>
+					<Tooltip>"Run Stop"</Tooltip>
+				</Help>
+			</MenuItem>
+		</Menu>
+		<Menu Name="&amp;Settings" UUID="BC66A2D7-3BBC-45CF-A62B-9E1EAAC20208">
+			<Control>
+				<Disable>HIDE_IsAuthorized( CurrentAuthorizationLevel, 'Develop' )</Disable>
+			</Control>
+			<MenuItem Name="Project &amp;Options..." UUID="22132C25-44EE-4950-8201-AF15D7F60073" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Settings-Project Options</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Sets AIMMS and solver options"</StatusLineText>
+					<Tooltip>"Project Settings"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Project Se&amp;curity..." UUID="B83AA428-4EB9-447E-90A6-54E2F15A42AF" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Protect your project against unauthorized use or changes"</StatusLineText>
+					<Tooltip>"Project Security"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Menu Name="AutoSave &amp;&amp; &amp;Backups" UUID="72C8182E-24BA-4093-BD5C-60C507BCD9D0">
+				<MenuItem Name="&amp;Project..." UUID="ADE53AF0-5EE9-4E87-B441-0A9D0EF76602" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Settings-Autosave &amp; Backup-Project</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Specify settings for automatic project saves and backups"</StatusLineText>
+						<Tooltip>"Setup Automatic Project Saves and Backups"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Data..." UUID="3FD40A0D-B302-4FE4-9E82-D019F92EB28A" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Settings-Autosave &amp; Backup-Data</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Specify settings for automatic data backups"</StatusLineText>
+						<Tooltip>"Setup Automatic Data Backup"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<Separator />
+			<Menu Name="&amp;User Setup" UUID="01191D23-C4CC-4AD9-9BC5-F182D46C2A7F">
+				<MenuItem Name="&amp;Edit..." UUID="AE94316A-6DCE-4A6B-B9A3-F78260E5543C" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Settings-User Setup-Edit</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Opens the current user database"</StatusLineText>
+						<Tooltip>"Edit User database"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Link..." UUID="CB40D72E-006C-4B30-801C-0F771116FB9E" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Settings-User Setup-Link</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Links a new or existing user database to the current project"</StatusLineText>
+						<Tooltip>"Link a New or Existing User Database"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Unlink" UUID="95F4470A-0A6F-476E-AA8B-DA8B2C490020" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Settings-User Setup-Unlink</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Unlink the current user database"</StatusLineText>
+						<Tooltip>"Unlink User Database"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<MenuItem Name="Aut&amp;horization Level Setup..." UUID="86E85BA1-52BC-4B1C-943E-A7BDF5212D55" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Settings-Authorization Level Setup</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the current set of authorization levels"</StatusLineText>
+					<Tooltip>"Edit Authorization Levels"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Solver Configuration..." UUID="906DB6AC-3B5A-475B-BFDF-E1E1969FD667" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Settings-Solver Configuration</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Sets the available and default solvers for AIMMS"</StatusLineText>
+					<Tooltip>"Solver Configuration"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Editor Settings ..." UUID="28D37F43-9960-4EA0-BEF6-16BA9C06D6BF" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Text Printing..." UUID="13798F1B-1BE5-4B54-A945-8CE2B59C34CD" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Settings-Text Printing</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Specifies the properties for printing text files"</StatusLineText>
+					<Tooltip>"Text Printing"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="Install S&amp;ystem Module..." UUID="D64EAB28-7A26-4FC1-BDBD-2ACE39F066EF" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<Menu Name="&amp;Multi Agent" UUID="6C90063C-A3A4-4A3D-B10C-31BC65062B33">
+				<MenuItem Name="&amp;Install Agent Module" UUID="A484B30F-769B-4DB7-83A1-216E947E2499" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Settings-Multi Agent-Install/Uninstall</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="Select Community Setup &amp;File..." UUID="A50D6B7F-8F76-48D7-A5F5-BF848C2B313A" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand" />
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="Community Setup &amp;Password..." UUID="D91BDCD2-7B76-437D-9E8C-83F960022F42" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand" />
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<Separator />
+				<MenuItem Name="&amp;Community Setup..." UUID="0DB04ED9-BD6B-442E-AAE9-783EBD3E232B" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Settings-Multi Agent-Community Setup</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Agent Setup..." UUID="D456EAE7-B98E-4090-998F-758072314DBE" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Settings-Multi Agent-Agent Setup</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+		</Menu>
+		<Menu Name="&amp;Tools" UUID="14406CF7-5F54-4E5C-ABE1-6079D030DFEE">
+			<MenuItem Name="Model &amp;Explorer" UUID="CC1321F7-DCDF-4A71-9289-C2F3DA701F57" ShortcutKey="119" BitmapIndex="103">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Model Explorer</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the model explorer window"</StatusLineText>
+					<Tooltip>"Model Explorer"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Identifier Selector" UUID="5AFA1BEF-799B-40F3-954F-51FD010D87A9" ShortcutKey="631" BitmapIndex="117">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Identifier Selector</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the Identifier Selector window"</StatusLineText>
+					<Tooltip>"Identifier Selector"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Page Manager" UUID="73AFF872-4998-489E-A87D-23F4CF0147A7" ShortcutKey="120" BitmapIndex="104">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Page Manager</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the page manager window"</StatusLineText>
+					<Tooltip>"Page Manager"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Template Manager" UUID="B85B49B8-83E6-4776-887A-0139918E39E8" ShortcutKey="1144" BitmapIndex="105">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Template Manager</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the template manager window"</StatusLineText>
+					<Tooltip>"Template Manager"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Menu Builder" UUID="97D9A4C3-A76F-4D90-B574-E902D156C8F7" ShortcutKey="632" BitmapIndex="108">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Menu Builder</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the menu builder window"</StatusLineText>
+					<Tooltip>"Menu Builder"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Data Manager" UUID="40B1C50A-5F35-468A-B15D-E42F9DB4B12E" ShortcutKey="121" BitmapIndex="109">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Data Manager</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the data manager window"</StatusLineText>
+					<Tooltip>"Data Manager"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Data Management Setup" UUID="BDCFF803-0592-4CEE-BFEB-4334155C21A6" ShortcutKey="633" BitmapIndex="110">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Data Management Setup</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the Data Management Setup window"</StatusLineText>
+					<Tooltip>"Data Management Setup"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="Identifier Info..." UUID="31C74864-0CA7-4E18-BD4E-3510CB62DD1A" ShortcutKey="122" BitmapIndex="37">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Identifier Info</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Cross Library &amp;References..." UUID="587DB5D5-792D-4457-AB90-BC20AC34FD49" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Cross Library References</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<Menu Name="Di&amp;agnostic Tools" UUID="E0A3E099-7037-4C11-AF7B-7D707CBE8627">
+				<MenuItem Name="&amp;Debugger" UUID="7E4184E2-F6EC-4AE1-B7E3-7172FE88A1B1" ShortcutKey="1141" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Tools-Diagnostic Tools-Debugger</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Starts a debugging session"</StatusLineText>
+						<Tooltip>"Start Debugger"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Profiler" UUID="05A8C1CE-38E0-418C-BADE-7C78EE0D619F" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Tools-Diagnostic Tools-Profiler</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Start Profiler Tool"</StatusLineText>
+						<Tooltip>"Start Profiler"</Tooltip>
+					</Help>
+				</MenuItem>
+				<Separator />
+				<MenuItem Name="&amp;Identifier Cardinalities..." UUID="042069FD-0C50-4B09-A79C-035C7CB4A255" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Tools-Diagnostic Tools-Identifier Cardinalities</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Shows a dialog box with cardinalities of all identifiers"</StatusLineText>
+						<Tooltip>"Identifier Cardinalities"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Math Program Inspector..." UUID="D06AB711-88A6-4F32-8CFB-662D313D74F5" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Tools-Diagnostic Tools-Math Program Inspector</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Opens the math program inspector window"</StatusLineText>
+						<Tooltip>"Math Program Inspector"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<MenuItem Name="AIMMS &amp;Viewer Test Mode" UUID="E34316EF-EB89-418B-93F2-CF4BBE77C3CB" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="User &amp;Colors..." UUID="AD911480-E7EA-4FE8-BCC0-5EFF43AD3292" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-User Colors</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the dialog to create and modify the User Colors"</StatusLineText>
+					<Tooltip>"Define User Colors"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Project User &amp;Files..." UUID="DE9282EB-FB52-4015-A221-854AD71E2EC2" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Project user Files</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Helps you to manage the storage of user files within the project file"</StatusLineText>
+					<Tooltip>"User Files Storage"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;XML Schema Mappings..." UUID="B0CA4A05-7ED8-4139-A90E-0FC81DF56B3A" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-XML Schema Mappings</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<Menu Name="Locali&amp;zation" UUID="F0094008-3CA0-4B96-86DA-9E1FE398C8A4">
+				<MenuItem Name="Set&amp;up..." UUID="2129E726-79DF-4EF2-B8E6-B05D08AD921F" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Tools-Localization-Setup</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Sets up your model to use Localized text string (multiple languages)"</StatusLineText>
+						<Tooltip>"Localization Setup"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Show Strings..." UUID="B0A40BB7-A312-456D-AABD-66E866A863E3" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Tools-Localization-Show Strings</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Shows a dialog box to view and edit the Localized text strings"</StatusLineText>
+						<Tooltip>"Localization Strings"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Convert..." UUID="2A641F93-1AE7-4A7A-BB39-79EED8FA4BB6" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Tools-Localization-Convert</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Converts static strings in pages and menus to Localized text strings"</StatusLineText>
+						<Tooltip>"Localization Convert"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<MenuItem Name="C&amp;ompact Files..." UUID="D8BF2943-937D-4C68-B763-1BB80044E9CA" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Tries to compact the project (PRJ) and model (AMB) file"</StatusLineText>
+					<Tooltip>"Compacts the project and model file"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;State File Manager..." UUID="06541DD0-CF5D-4EE4-8A1F-F69ED3864AEC" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Commit &amp;Name Changes..." UUID="56F76194-010E-4E8C-B49A-9DFD8E846745" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Commit Name Changes</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Grab Screen Area" UUID="32DE1A67-316B-4307-BEBE-32F31FA5836C" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Grab Screen Area</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Grabs screen area and copies it onto the Windows clipboard"</StatusLineText>
+					<Tooltip>"Grab Screen Area"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<Menu Name="&amp;License" UUID="276E8348-5F3E-484A-B721-A51F3EABE7DC">
+				<MenuItem Name="&amp;License Configuration..." UUID="CAE4C648-F4BD-454F-9421-3C85FC16A064" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Tools-License-View AIMMS License</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Displays information about the current license"</StatusLineText>
+						<Tooltip>"View Licence"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Upgrade VAR License Expiration Date" UUID="19732C5B-E9E0-4A11-8BF8-27B36D932018" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Tools-License-Upgrade VAR License Expiration Date</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Lets you select a VAR license file and opens a dialog to enter your VAR license expiration date upgrade code"</StatusLineText>
+						<Tooltip>"Upgrade VAR license expiration date"</Tooltip>
+					</Help>
+				</MenuItem>
+				<Separator />
+				<MenuItem Name="&amp;VAR License Manager" UUID="8DCA07B1-8D78-4DEA-9E6B-8BFABDC2A89B" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Tools-License-VAR License Manager</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Opens the VAR license tool to manage VAR licenses"</StatusLineText>
+						<Tooltip>"VAR License Tool"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+		</Menu>
+		<Menu Name="&amp;Map" UUID="ECBA9E21-9BEC-4D3D-826F-38E6E3649C7A" />
+		<Menu Name="&amp;Window" UUID="97B59281-FC6C-4B0D-A193-FB8836F4E22B">
+			<Control>
+				<ShowWindowList>true</ShowWindowList>
+			</Control>
+			<Menu Name="&amp;IDE Style" UUID="E017BE80-E6F4-4511-8002-360B498FE0A0">
+				<MenuItem Name="&amp;Tabbed MDI mode" UUID="F487E967-2939-4238-B81C-DE09E7004CD2" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand" />
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="Use &amp;Docking Windows" UUID="3D9F2BDF-7196-441F-AD4A-8F2FCEC47040" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand" />
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<Separator />
+			<MenuItem Name="&amp;Next Window" UUID="36C60F6B-4359-42CA-A145-AF64A9488FB1" BitmapIndex="44">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Window-Next Window</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Sets the next window as the active window"</StatusLineText>
+					<Tooltip>"Next Window"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Close All Windows" UUID="3A51795C-CF97-43E4-9638-9DD327AE786F" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>File-Close All</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<DefaultMenuItem InternalID="132" />
+			<Separator />
+			<MenuItem Name="&amp;Progress Window" UUID="E612E9CF-493A-40AA-AE40-56969979952A" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Window-Progress Window</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the Progress window containing AIMMS and solver statistics"</StatusLineText>
+					<Tooltip>"Progress Window"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Message Window" UUID="4D08E959-385E-45F6-B48C-9248C85533B8" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Window-Message Window</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the Message window containing AIMMS and solver messages"</StatusLineText>
+					<Tooltip>"Message Window"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+		</Menu>
+		<Menu Name="&amp;Help" UUID="A5495CA0-37B1-4428-8797-7C7DCAF8D40C">
+			<MenuItem Name="&amp;Help On Window" UUID="E279D0E2-BE8B-4BEC-A233-D227B090443B" BitmapIndex="47">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-Help on Window</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Displays the Help page for the current window"</StatusLineText>
+					<Tooltip>"Help on Window"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Contents And Index" UUID="CCED1E6A-4330-43E4-9E4B-AB936F19FC6F" BitmapIndex="48">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-Contents and Index</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Displays the index page of the Help file"</StatusLineText>
+					<Tooltip>"Help Index"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;What's This?" UUID="DB7BCB16-661C-4FEE-98A5-8F5363B9AD94" BitmapIndex="68">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-Context Help</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Sets the cursor in the context help mode"</StatusLineText>
+					<Tooltip>"Context Help"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Search All Documents..." UUID="FF24DEAB-A3B3-4917-A5BB-AAD24D62BF41" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-Search All Documents</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="AIMMS &amp;Getting Started" UUID="4DD3F36F-8894-4525-AAD1-667056D14821" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-AIMMS Getting Started</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="AIMMS &amp;User's Guide" UUID="0D4B6568-50C8-43A5-B83F-49856F8AFFA7" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-AIMMS User's Guide</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the AIMMS User's Guide documentation"</StatusLineText>
+					<Tooltip>"AIMMS Users Guide"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="AIMMS &amp;Language Reference" UUID="3169BD24-6EE3-4F32-8FC6-A8754F2BBEA8" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-AIMMS Language Reference</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the AIMMS Language Reference documentation"</StatusLineText>
+					<Tooltip>"AIMMS Language Reference"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="AIMMS &amp;Optimization Modeling" UUID="AFE142C9-3C1D-4FE5-847B-B9C4E7EE02BC" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-AIMMS Optimization Modeling</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the AIMMS Optimization Modeling documentation"</StatusLineText>
+					<Tooltip>"AIMMS Optimization Modeling"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="AIMMS &amp;Function Reference" UUID="30243F4A-6985-4106-8FD4-3A78F19084B3" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-AIMMS Function Reference</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Menu Name="Additional &amp;Documentation" UUID="501657FE-3A57-4C6C-9FC7-C1453660C2E5">
+				<MenuItem Name="AIMMS &amp;COM Object" UUID="C8E53186-C444-4F47-AAC6-339CC91FCC52" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand" />
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="AIMMS &amp;Excel Add-In" UUID="A230821C-BD8B-4C7E-B7B6-2FEFAB46001A" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Help-AIMMS Excel Add-In</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="AIMMS &amp;Multi-Agent &amp;&amp; Web Services" UUID="6166A08E-DA3E-4547-9E80-E95A3E9D8528" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand" />
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="AIMMS &amp;Solvers Overview" UUID="17329DB2-67E9-4376-8636-19736CC12489" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand" />
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="AIMMS &amp;Open Solver Interface" UUID="830047C2-D2C5-4EA7-BA9B-1D5F3C8EB846" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Help-AIMMS Open Solver Interface</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<Separator />
+				<MenuItem Name="AIMMS Tutorial For &amp;Beginners" UUID="8DBE8C15-1C5A-445A-84E3-F72A2322BA34" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Help-AIMMS Tutorial for Students</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="AIMMS Tutorial For &amp;Professionals" UUID="4F860BD7-8D21-4397-BD49-5F30B159F76B" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Help-AIMMS Tutorial for Professionals</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<Separator />
+				<MenuItem Name="AIMMS &amp;Release Notes" UUID="041314CB-069A-4663-9AE3-D2CF1589CE94" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Help-AIMMS Release Notes</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<Separator />
+			<MenuItem Name="&amp;Project Documentation" UUID="FF94B82D-86ED-4FED-805C-9B9E1A8059C8" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-Project Documentation</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Tip Of The Day..." UUID="C0624FD8-B073-472E-B5BB-A957B8EA5D38" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-Tip of the Day</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;About AIMMS..." UUID="3C8A56BC-5989-45C0-8A67-AE010074981C" BitmapIndex="49">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-About AIMMS</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Displays AIMMS version information"</StatusLineText>
+					<Tooltip>"About AIMMS"</Tooltip>
+				</Help>
+			</MenuItem>
+		</Menu>
+	</Menubar>
+	<Menubar Name="Data Manager Menubar" UUID="C9CD96E9-740E-4F17-A6A8-928BCF9ABF6E">
+		<Menu Name="&amp;File" UUID="D43459AF-D7E1-49FF-9C91-E8F1896FA228">
+			<MenuItem Name="C&amp;lose Project" UUID="1F959695-BBB5-4DE3-83C0-EF1859F5F9AA">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>File-Close Project</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Closes the current project"</StatusLineText>
+					<Tooltip>"Close Project"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Sa&amp;ve Project" UUID="F5B23333-29B1-4C5F-97A2-74BC147B028D" BitmapIndex="2">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>File-Save All</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Saves all changes in the current project"</StatusLineText>
+					<Tooltip>"Save Project"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="Library &amp;Manager..." UUID="8047C3BB-6C01-44A7-9B1C-C2FE00A3A37E" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<Menu Name="&amp;New" UUID="E1A1B217-9ADF-4BD4-AEB3-C57886D9CFC2">
+				<MenuItem Name="&amp;Model..." UUID="5E8F8D9E-5E65-479C-9226-BDBF3838477A" BitmapIndex="1">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-New Model</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Creates a new, empty model and makes it the current model"</StatusLineText>
+						<Tooltip>"New Model"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Page" UUID="30407A20-993A-4EF0-87DC-A829B6B16B86" BitmapIndex="51">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-New Page</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Creates a new, empty page and opens it in edit mode"</StatusLineText>
+						<Tooltip>"New Page"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Data File..." UUID="CEDCF89E-F730-4FFB-90D2-58A421CAD375" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-New Data File</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Creates a new data file, to be used in the Data Manager"</StatusLineText>
+						<Tooltip>"New Data Manager file"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Text File" UUID="74574DFA-3139-433A-ACE7-7BA70B34EE2A" BitmapIndex="3">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-New Text File</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Creates a new, empty text file and opens it in the text editor"</StatusLineText>
+						<Tooltip>"New File"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<Menu Name="&amp;Open" UUID="388CE67C-631A-4838-8011-560F5E47AB77">
+				<MenuItem Name="&amp;Model..." UUID="D5DB04A1-C906-4D2B-922A-21996BE78FC5" BitmapIndex="4">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Open Model</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Opens an existing model and makes it the current model"</StatusLineText>
+						<Tooltip>"Open Model"</Tooltip>
+					</Help>
+				</MenuItem>
+				<Separator />
+				<MenuItem Name="&amp;Page..." UUID="620D7A13-F8F2-4F02-AC81-69F05DEB44E8" BitmapIndex="5">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Open Page</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Opens an existing page in user mode"</StatusLineText>
+						<Tooltip>"Open Page"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;First Page" UUID="178BA9F2-B423-47A5-AC9C-140055B9BCDD" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand" />
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Opens the First page"</StatusLineText>
+						<Tooltip>"Open First Page"</Tooltip>
+					</Help>
+				</MenuItem>
+				<Separator />
+				<MenuItem Name="&amp;Data File..." UUID="A6024FF3-DDA3-4795-BE8D-5314CA9C8BC1" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Open Data File</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Opens an existing data file, to be used in the Data Manager"</StatusLineText>
+						<Tooltip>"Open Data Manager file"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Text File..." UUID="E7896FD7-57E5-47BF-875C-BDED645B9153" BitmapIndex="6">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Open Text File</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Opens an existing file in the text editor"</StatusLineText>
+						<Tooltip>"Open File"</Tooltip>
+					</Help>
+				</MenuItem>
+				<Separator />
+				<MenuItem Name="&amp;Listing File" UUID="18B4B319-92A2-4D46-9387-DD93E108FEBC" BitmapIndex="7">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Open Listing File</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Opens the listing file of the current project in the text editor"</StatusLineText>
+						<Tooltip>"Open Listing File"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="Pu&amp;t File..." UUID="97DCA054-B05E-48B2-8B76-E3840CCFABB3" BitmapIndex="8">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Open PUT File</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Opens a put file of the current project in a text editor"</StatusLineText>
+						<Tooltip>"Open Put File"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<MenuItem Name="&amp;Close" UUID="FF8F225B-1C43-42DF-9588-EAAD17E71F04" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>File-Close</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Closes the active window"</StatusLineText>
+					<Tooltip>"Close"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Save" UUID="87CAA1E4-80EE-4FDA-823F-8A653DB17DA8" BitmapIndex="9">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>File-Save</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Saves the contents of the active window"</StatusLineText>
+					<Tooltip>"Save"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Save &amp;As..." UUID="30B83E3A-05AB-4118-BA6E-F9906F0C2652" BitmapIndex="10">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>File-Save As</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Saves the contents of the active window under a different name"</StatusLineText>
+					<Tooltip>"Save As"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Export..." UUID="E15A71D2-E85A-4444-96E5-95CC0BE16557" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Export Viewer Project..." UUID="4261AD08-464B-43EE-90BC-382323575BDB" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Menu Name="&amp;Backups" UUID="0BFF6BE1-B7D3-4C4F-A393-3ECE066BDA3D">
+				<Menu Name="&amp;Project" UUID="EADED344-22BE-401C-858D-667B94755EB7">
+					<MenuItem Name="&amp;Create..." UUID="D3F377CC-EFC6-4BBD-AC20-E7D003A8715B" BitmapIndex="31">
+						<ActionSequence>
+							<Action Type="MenuCommand" />
+						</ActionSequence>
+						<Help>
+							<StatusLineText>"Creates a backup file of the current project"</StatusLineText>
+							<Tooltip>"Create Project Backup"</Tooltip>
+						</Help>
+					</MenuItem>
+					<MenuItem Name="&amp;Restore..." UUID="5BE4F812-1191-4D7B-99CE-D8518CCB1D3A" BitmapIndex="31">
+						<ActionSequence>
+							<Action Type="MenuCommand" />
+						</ActionSequence>
+						<Help>
+							<StatusLineText>"Restores a backup of a previous project version"</StatusLineText>
+							<Tooltip>"Restore Project Backup"</Tooltip>
+						</Help>
+					</MenuItem>
+				</Menu>
+				<Menu Name="&amp;Data" UUID="9C501C1A-8593-45E5-9787-1F2CB2890E09">
+					<MenuItem Name="&amp;Create..." UUID="98419EF3-0011-4F61-AB10-9BBA9D7A4387" BitmapIndex="31">
+						<ActionSequence>
+							<Action Type="MenuCommand">
+								<Command>File-Backup-Data-Create</Command>
+							</Action>
+						</ActionSequence>
+						<Help>
+							<StatusLineText>"Creates a backup file of the current data"</StatusLineText>
+							<Tooltip>"Create Data Backup"</Tooltip>
+						</Help>
+					</MenuItem>
+					<MenuItem Name="&amp;Restore..." UUID="FCB81044-4F46-4F3B-90C8-2C401292427A" BitmapIndex="31">
+						<ActionSequence>
+							<Action Type="MenuCommand">
+								<Command>File-Backup-Data-Restore</Command>
+							</Action>
+						</ActionSequence>
+						<Help>
+							<StatusLineText>"Restores a previously created data backup"</StatusLineText>
+							<Tooltip>"Restore Data Backup"</Tooltip>
+						</Help>
+					</MenuItem>
+				</Menu>
+			</Menu>
+			<Separator />
+			<Menu Name="Aut&amp;horization" UUID="E4F888BA-3DD2-45BE-B601-BBA69AF4F19E">
+				<MenuItem Name="&amp;User..." UUID="B7EC38DA-4CE3-4DA6-9E9E-0C5ABC0F7C51" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Authorization-Change User</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Changes the current user"</StatusLineText>
+						<Tooltip>"Change Current User"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Group..." UUID="E228EDA3-6A50-40D4-B3F4-B075ACB81F19" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Authorization-Change Group</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Changes the current group"</StatusLineText>
+						<Tooltip>"Change Current Group"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="Le&amp;vel..." UUID="3F37FBB1-73FE-4CB9-8162-1F1BA430C5B4" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Authorization-Change Level</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Changes the current authorization level"</StatusLineText>
+						<Tooltip>"Change Current Authorization Level"</Tooltip>
+					</Help>
+				</MenuItem>
+				<Separator />
+				<MenuItem Name="&amp;Change User Password..." UUID="C385221D-36BF-4D48-9262-16BDFEC1AA5F" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Authorization-Change Password</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Allows the current user to changes his/her password"</StatusLineText>
+						<Tooltip>"Change Password"</Tooltip>
+					</Help>
+				</MenuItem>
+				<Separator />
+				<MenuItem Name="&amp;Logoff..." UUID="92081E69-9177-468B-8106-AB89233E37F1" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>File-Authorization-Logoff</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Logs the current user off and display a logon dialog"</StatusLineText>
+						<Tooltip>"Logoff"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<Separator />
+			<MenuItem Name="Print Set&amp;up..." UUID="1E2DBD11-624C-45FA-B7C7-576A61CD132E" BitmapIndex="12">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>File-Print Setup</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the Windows Print Setup dialog"</StatusLineText>
+					<Tooltip>"Print Setup"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Print" UUID="A5339210-9E60-43C2-92E4-997831706783" BitmapIndex="11">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>File-Print</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Prints the contents of the active window"</StatusLineText>
+					<Tooltip>"Print"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="E&amp;xit" UUID="26A30ED1-E465-4A0C-8051-D8782B36B1B5" BitmapIndex="13">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>File-Exit</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Closes the current project and exits AIMMS"</StatusLineText>
+					<Tooltip>"Exit"</Tooltip>
+				</Help>
+			</MenuItem>
+		</Menu>
+		<Menu Name="&amp;Edit" UUID="BD6B17E8-95B9-43E5-9C04-D4059AE191B9">
+			<MenuItem Name="Cu&amp;t" UUID="CB6E7E96-6094-4988-90B8-2D6AB2F26D90" BitmapIndex="16">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Edit-Cut</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Cuts the selected data and puts it onto the clipboard"</StatusLineText>
+					<Tooltip>"Cut"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Copy" UUID="73DD20D7-00AC-4EA7-AC84-876E2CA7715A" BitmapIndex="17">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Edit-Copy</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Copies the selected data onto the clipboard"</StatusLineText>
+					<Tooltip>"Copy"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Paste" UUID="DDED2402-C387-494B-9AB2-2CFA49745379" BitmapIndex="18">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Edit-Paste</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Paste the data from the clipboard into the current object"</StatusLineText>
+					<Tooltip>"Paste"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Delete" UUID="0EBF7755-EF45-4510-8758-B3C3E2EFB704" BitmapIndex="19">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Edit-Delete</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Deletes the selected object"</StatusLineText>
+					<Tooltip>"Delete"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="Propert&amp;ies..." UUID="22B2C8AC-2E3A-4D36-9A87-D4DCDCAE89AD" BitmapIndex="69">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Edit-Properties</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Shows the properties of the selected object"</StatusLineText>
+					<Tooltip>"Properties"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="R&amp;ename" UUID="F37860B8-6FDE-490F-9E99-C96F0317669A" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Edit-Rename</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Renames the currently selected object"</StatusLineText>
+					<Tooltip>"Rename"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Menu Name="&amp;New" UUID="359F7F08-7B7A-4064-869F-9403CAD4D27A">
+				<MenuItem Name="&amp;Case" UUID="D07909AA-241B-48EE-9958-69BF6274020A" BitmapIndex="32">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>DataManager-New Case</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Creates a new case"</StatusLineText>
+						<Tooltip>"New Case"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Dataset" UUID="EB788806-6561-4094-B509-554677CB4F70" BitmapIndex="33">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>DataManager-New Dataset</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Creates a new dataset"</StatusLineText>
+						<Tooltip>"New Dataset"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Folder" UUID="EC542B06-49F2-4BB9-9AA1-4993D2DB67C8" BitmapIndex="34">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>DataManager-New Folder</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Creates a new folder"</StatusLineText>
+						<Tooltip>"New Folder"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<Separator />
+			<Menu Name="&amp;Add To" UUID="0ABE2CCD-8EDF-4A8F-811B-71E412F6ABDC">
+				<MenuItem Name="&amp;Multiple Cases" UUID="1562D753-7DDF-47C1-813B-D89FB47E624F" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand" />
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Adds the selected case/dataset to the list of multiple cases/datasets"</StatusLineText>
+						<Tooltip>"Add to Multiple Cases"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Batch" UUID="53FDB7C6-CEA9-48A5-BC61-68E7F5BC991E" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Data-Add to Batch Run</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Adds the selected case/dataset to the list of batch cases/datasets"</StatusLineText>
+						<Tooltip>"Add to Batch Run"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<MenuItem Name="&amp;Show References" UUID="DB1A18D8-B9CE-4E18-BF2E-4A261275B1E2" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="I&amp;mport..." UUID="F1067654-9247-4840-B332-A5280BBC8572" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="E&amp;xport..." UUID="52F19BD8-72DA-41FC-89BC-DE8B69CEA42F" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+		</Menu>
+		<Menu Name="&amp;View" UUID="7D6A147D-F43D-4CE4-B169-155FB71CEF40">
+			<MenuItem Name="&amp;Multiple Cases..." UUID="E39A8987-AE34-4426-9A5F-BBA031999ABF" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>DataManager-View-Multiple Cases</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the list of multiple cases/datasets"</StatusLineText>
+					<Tooltip>"Multiple Cases"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Batch Run..." UUID="240997BA-425B-45B3-AE84-21E51678DB55" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>DataManager-View-Batch Cases</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the list of batch cases/datasets"</StatusLineText>
+					<Tooltip>"Batch Cases"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Show Case Types" UUID="7E162EF1-0812-4262-ACDB-D4043972F1CB" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+		</Menu>
+		<Menu Name="&amp;Data" UUID="F485220E-A54F-4A07-BAB0-D240892CF14C">
+			<Menu Name="Load &amp;Case" UUID="5250DF08-6E7A-4395-8B0F-73AD16CDE866">
+				<Control>
+					<Disable>IsNotAuthorized( __AMillNames )</Disable>
+				</Control>
+				<MenuItem Name="As &amp;Active" UUID="486B42DC-DF8D-4517-A5A3-BA6023AEC71D" BitmapIndex="21">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Data-Load Case</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Loads the selected case and makes it the current case"</StatusLineText>
+						<Tooltip>"Load Case"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="In&amp;to Active" UUID="BF482596-F6BA-4D15-B803-96B2E6C0E2FC" BitmapIndex="24">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Data-Import Case</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Loads the data from the selected case into the current case"</StatusLineText>
+						<Tooltip>"Load Case into Current"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Merging Into Active" UUID="57476D83-AF28-4093-B40A-7A9DCB2DE233" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Data-Merge Case</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Merges the data from the selected case with the the current case"</StatusLineText>
+						<Tooltip>"Merge Case into Current"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<Menu Name="Load &amp;Dataset" UUID="EBED4808-7F32-48D9-B5FE-26368FD76884">
+				<Control>
+					<Disable>IsNotAuthorized( __AMillNames )</Disable>
+				</Control>
+				<MenuItem Name="As &amp;Active" UUID="34DE86F7-05A0-4F58-8D20-8F522EA7F59F" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Data-Load Dataset</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Loads the selected dataset and makes it the current dataset"</StatusLineText>
+						<Tooltip>"Load Dataset"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="In&amp;to Active" UUID="1A2848E4-B1E8-4E75-8A96-3DA676693FAC" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Data-Import Dataset</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Loads the data from the selected dataset into the current dataset"</StatusLineText>
+						<Tooltip>"Load Dataset into Current"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Merging Into Active" UUID="006FC01F-FEE4-43FD-829F-239D4C34C35B" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Data-Merge Dataset</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Merges the data from the selected dataset with the the current datatset"</StatusLineText>
+						<Tooltip>"Merge Dataset into Current"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<MenuItem Name="&amp;Save Into Selected Node" UUID="4AD5657D-27EF-41A8-B1AD-84868A4F861B" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Data-Save Into</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Saves the data into the currently selected Case or Dataset"</StatusLineText>
+					<Tooltip>"Save into selected Case/Dataset"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="Save &amp;All" UUID="96D47074-ACD8-400B-901C-20D5DD52F812" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Data-Save All</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="I&amp;mport 2.20 Case..." UUID="264A14CB-B94F-4C74-A5E9-5C4863D746BF" BitmapIndex="31">
+				<Control>
+					<Hide>1</Hide>
+				</Control>
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Data-Import 2.20 Case</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+		</Menu>
+		<Menu Name="&amp;Run" UUID="F3F55578-A2CB-4359-8785-3BFFA3545A3E">
+			<MenuItem Name="&amp;Start Batch..." UUID="68AE49D3-33F7-47A4-B41D-0852D8AD0B3D" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>DataManager-Run-Start Batch</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Start the batch run for all cases/datasets in the batch list"</StatusLineText>
+					<Tooltip>"Start Batch"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Default Procedure..." UUID="B76BDFD2-4238-442C-A7BD-2E79856885AB" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>DataManager-Run-Default Batch Procedure</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Specified the default procedure to be run for all cases/datasets in the batch list"</StatusLineText>
+					<Tooltip>"Default Batch Procedure"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Procedure..." UUID="776179C4-6B45-47A9-B8E5-05FB541F00D3" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>DataManager-Run-Batch Procedure</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Specifies the procedure to be run for the selected case/dataset"</StatusLineText>
+					<Tooltip>"Batch Procedure"</Tooltip>
+				</Help>
+			</MenuItem>
+		</Menu>
+		<Menu Name="&amp;Settings" UUID="A1E5D40A-CC3E-4972-9E41-6D1C99A39119">
+			<MenuItem Name="Project &amp;Options..." UUID="8CF56268-0109-4B6D-A7CD-C5721A78CCD6" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Settings-Project Options</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Sets AIMMS and solver options"</StatusLineText>
+					<Tooltip>"Project Settings"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Project Se&amp;curity..." UUID="38C50327-1160-4406-AAF1-6A345EC383F1" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Protect your project against unauthorized use or changes"</StatusLineText>
+					<Tooltip>"Project Security"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Menu Name="AutoSave &amp;&amp; &amp;Backups" UUID="04D808B7-4682-4728-B651-F5DB48C27D5A">
+				<MenuItem Name="&amp;Project..." UUID="0744095C-8CF5-4AB1-8956-5048F8477628" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Settings-Autosave &amp; Backup-Project</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Specify settings for automatic project saves and backups"</StatusLineText>
+						<Tooltip>"Setup Automatic Project Saves and Backups"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Data..." UUID="6E61D67F-CB3F-42A0-BCEA-A42DF86EE39E" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Settings-Autosave &amp; Backup-Data</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Specify settings for automatic data backups"</StatusLineText>
+						<Tooltip>"Setup Automatic Data Backup"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<Separator />
+			<Menu Name="&amp;User Setup" UUID="1A8CF4DC-36A6-4237-B570-B629E9F23F8C">
+				<MenuItem Name="&amp;Edit..." UUID="276AFF46-32A5-40A5-8470-0FBE968EE261" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Settings-User Setup-Edit</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Opens the current user database"</StatusLineText>
+						<Tooltip>"Edit User database"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Link..." UUID="99E9B4C9-934F-480C-A59D-91A8F3B2BA25" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Settings-User Setup-Link</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Links a new or existing user database to the current project"</StatusLineText>
+						<Tooltip>"Link a New or Existing User Database"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Unlink" UUID="09913B8E-EBB0-4D26-82DB-07F104C7A97A" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Settings-User Setup-Unlink</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Unlink the current user database"</StatusLineText>
+						<Tooltip>"Unlink User Database"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<MenuItem Name="Aut&amp;horization Level Setup..." UUID="D7128965-D75D-4C59-BBFC-6F56DCB0829E" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Settings-Authorization Level Setup</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the current set of authorization levels"</StatusLineText>
+					<Tooltip>"Edit Authorization Levels"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Solver Configuration..." UUID="E2D9B617-87BB-4F41-803C-2087714E9650" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Settings-Solver Configuration</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Sets the available and default solvers for AIMMS"</StatusLineText>
+					<Tooltip>"Solver Configuration"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Editor Settings ..." UUID="268658E9-A2F4-43D4-B036-FACF0AAE9E0C" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Text Printing..." UUID="CA5A9503-3C11-4A03-9153-671E17F9C91F" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Settings-Text Printing</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Specifies the properties for printing text files"</StatusLineText>
+					<Tooltip>"Text Printing"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="Install S&amp;ystem Module..." UUID="0F51C759-2BCE-4B27-93F0-0F3D38241E2C" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<Menu Name="&amp;Multi Agent" UUID="2A869BBF-7274-4692-9B33-F5E1823FB1D5">
+				<MenuItem Name="&amp;Install Agent Module" UUID="0AD5A2FB-5E0D-476B-8B7F-2A47660040CB" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Settings-Multi Agent-Install/Uninstall</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="Select Community Setup &amp;File..." UUID="E0C0D114-3CE4-4761-895D-D3DACB154864" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand" />
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="Community Setup &amp;Password..." UUID="67386952-2D33-4879-9B59-F408E9FC8790" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand" />
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<Separator />
+				<MenuItem Name="&amp;Community Setup..." UUID="18BB48A9-0DA6-4445-890C-14A1A67CCDCA" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Settings-Multi Agent-Community Setup</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Agent Setup..." UUID="FB24091F-996A-4480-AD36-CACB6AC5A787" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Settings-Multi Agent-Agent Setup</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+		</Menu>
+		<Menu Name="&amp;Tools" UUID="C91C1409-A549-4CE4-A7E8-04E94B23E7A1">
+			<MenuItem Name="Model &amp;Explorer" UUID="5418013D-97D2-4B0E-BABD-0AD6DBC6962C" BitmapIndex="103">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Model Explorer</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the model explorer window"</StatusLineText>
+					<Tooltip>"Model Explorer"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Identifier Selector" UUID="1D9C8F3B-5F31-4AEB-8A66-F6F43C3657C2" BitmapIndex="117">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Identifier Selector</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the Identifier Selector window"</StatusLineText>
+					<Tooltip>"Identifier Selector"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Page Manager" UUID="519663E3-E344-4113-8E77-79B1F9818A89" BitmapIndex="104">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Page Manager</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the page manager window"</StatusLineText>
+					<Tooltip>"Page Manager"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Template Manager" UUID="F7A60877-FC54-4449-B4F8-F073BA9FC499" BitmapIndex="105">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Template Manager</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the template manager window"</StatusLineText>
+					<Tooltip>"Template Manager"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Menu Builder" UUID="DE7AEE1B-5942-4724-8CB6-1865E97636BD" BitmapIndex="108">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Menu Builder</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the menu builder window"</StatusLineText>
+					<Tooltip>"Menu Builder"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Data Manager" UUID="BC0E47AC-3647-40AB-B84B-FD4132C00FD4" BitmapIndex="109">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Data Manager</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the data manager window"</StatusLineText>
+					<Tooltip>"Data Manager"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Data Management Setup" UUID="CCB4F465-33E1-4220-BE8A-D646ED84EF32" BitmapIndex="110">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Data Management Setup</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the Data Management Setup window"</StatusLineText>
+					<Tooltip>"Data Management Setup"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="Identifier Info..." UUID="19E3FA5D-ACBA-4779-BFE6-C264F8FC6A3B" BitmapIndex="37">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Identifier Info</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Cross Library &amp;References..." UUID="44E44418-21A2-4059-ABE4-C8A191AEF5EB" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Cross Library References</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<Menu Name="Di&amp;agnostic Tools" UUID="0C1CE913-A335-4BFF-A5C2-929AAB1A10A8">
+				<MenuItem Name="&amp;Debugger" UUID="965B6C02-731F-42E2-9BD8-ABE069A26B51" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Tools-Diagnostic Tools-Debugger</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Starts a debugging session"</StatusLineText>
+						<Tooltip>"Start Debugger"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Profiler" UUID="ABB209DB-A05B-4040-96DE-B925CCB90BD2" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Tools-Diagnostic Tools-Profiler</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Start Profiler Tool"</StatusLineText>
+						<Tooltip>"Start Profiler"</Tooltip>
+					</Help>
+				</MenuItem>
+				<Separator />
+				<MenuItem Name="&amp;Identifier Cardinalities..." UUID="856000F7-8D91-477A-9249-E66B83B052E0" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Tools-Diagnostic Tools-Identifier Cardinalities</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Shows a dialog box with cardinalities of all identifiers"</StatusLineText>
+						<Tooltip>"Identifier Cardinalities"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Math Program Inspector..." UUID="A712710D-90D0-403A-8595-C3ABDAE6F36B" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Tools-Diagnostic Tools-Math Program Inspector</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Opens the math program inspector window"</StatusLineText>
+						<Tooltip>"Math Program Inspector"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<MenuItem Name="AIMMS &amp;Viewer Test Mode" UUID="3E46CF3F-4D78-41F7-8872-DD98A2116318" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="User &amp;Colors..." UUID="DF700F06-F4E2-42A1-B7CF-F6678F9E79AD" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-User Colors</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the dialog to create and modify the User Colors"</StatusLineText>
+					<Tooltip>"Define User Colors"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Project User &amp;Files..." UUID="9B2D27FA-9685-452C-B9FE-86B80271C432" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Project user Files</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Helps you to manage the storage of user files within the project file"</StatusLineText>
+					<Tooltip>"User Files Storage"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;XML Schema Mappings..." UUID="0480E21C-F4C2-457D-AC43-2073D0D81726" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-XML Schema Mappings</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<Menu Name="Locali&amp;zation" UUID="86E732B0-6B9D-4FA5-BE25-E8CE048BBDE6">
+				<MenuItem Name="Set&amp;up..." UUID="7BC8C74F-83B8-4A0B-848C-C54C0962AE1E" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Tools-Localization-Setup</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Sets up your model to use Localized text string (multiple languages)"</StatusLineText>
+						<Tooltip>"Localization Setup"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Show Strings..." UUID="13F4760F-4AA4-4EE0-97E9-49EC81AD6EE5" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Tools-Localization-Show Strings</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Shows a dialog box to view and edit the Localized text strings"</StatusLineText>
+						<Tooltip>"Localization Strings"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Convert..." UUID="D48C2F27-2E1A-4196-8E78-5DA011B2DC8E" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Tools-Localization-Convert</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Converts static strings in pages and menus to Localized text strings"</StatusLineText>
+						<Tooltip>"Localization Convert"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<MenuItem Name="C&amp;ompact Files..." UUID="5ED7DF35-6DDB-4050-AE5C-682F202D92B1" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Tries to compact the project (PRJ) and model (AMB) file"</StatusLineText>
+					<Tooltip>"Compacts the project and model file"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;State File Manager..." UUID="E312F965-5BFB-4007-BEA7-C040E2BE6CCB" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Commit &amp;Name Changes..." UUID="0380F4B3-B47C-4698-9DCC-C03503107E60" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Commit Name Changes</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Grab Screen Area" UUID="93DDF04D-6F1B-4805-9AEE-7E0B95F880E6" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Tools-Grab Screen Area</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Grabs screen area and copies it onto the Windows clipboard"</StatusLineText>
+					<Tooltip>"Grab Screen Area"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<Menu Name="&amp;License" UUID="704B7B34-4584-48E7-AE8E-992BF3FEEDEB">
+				<MenuItem Name="&amp;License Configuration..." UUID="373A7DC7-AFC6-4A7F-9844-C07FDF2815AD" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Tools-License-View AIMMS License</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Displays information about the current license"</StatusLineText>
+						<Tooltip>"View Licence"</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="&amp;Upgrade VAR License Expiration Date" UUID="CAF56BDB-5FCA-461B-9FEB-8B34C46253E8" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Tools-License-Upgrade VAR License Expiration Date</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Lets you select a VAR license file and opens a dialog to enter your VAR license expiration date upgrade code"</StatusLineText>
+						<Tooltip>"Upgrade VAR license expiration date"</Tooltip>
+					</Help>
+				</MenuItem>
+				<Separator />
+				<MenuItem Name="&amp;VAR License Manager" UUID="7C384AD9-7CFB-45FF-9FDD-54E5F6B7CA9B" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Tools-License-VAR License Manager</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>"Opens the VAR license tool to manage VAR licenses"</StatusLineText>
+						<Tooltip>"VAR License Tool"</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+		</Menu>
+		<Menu Name="&amp;Window" UUID="57B4CF12-A426-4391-9D90-502B9C68A381">
+			<Control>
+				<ShowWindowList>true</ShowWindowList>
+			</Control>
+			<Menu Name="&amp;IDE Style" UUID="8766EE5A-AD27-4692-BD0F-094D78E3E4CA">
+				<MenuItem Name="&amp;Tabbed MDI mode" UUID="565EAD88-8741-4D35-895B-E86E85BFF925" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand" />
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="Use &amp;Docking Windows" UUID="B33E5234-D1FE-4126-97AF-8E501AD40EFC" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand" />
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<Separator />
+			<MenuItem Name="&amp;Next Window" UUID="7914DFA3-D72E-4D21-8947-81109E54E193" BitmapIndex="44">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Window-Next Window</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Sets the next window as the active window"</StatusLineText>
+					<Tooltip>"Next Window"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Close &amp;All Windows" UUID="7552D200-3F88-4D45-BB9A-795577C023EA" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>File-Close All</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="Close All &amp;Other Windows" UUID="5450A1CF-0741-4D60-A317-4500CBEC0D5A" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand" />
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Progress Window" UUID="BC15948E-F5BA-4D49-8867-3B13CCA16062" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Window-Progress Window</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the Progress window containing AIMMS and solver statistics"</StatusLineText>
+					<Tooltip>"Progress Window"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Message Window" UUID="737748A2-E7EE-4B9F-86A0-7C7F8DA405D6" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Window-Message Window</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the Message window containing AIMMS and solver messages"</StatusLineText>
+					<Tooltip>"Message Window"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+		</Menu>
+		<Menu Name="&amp;Help" UUID="E6E0E4CA-9856-4706-8291-0E72F43114CA">
+			<MenuItem Name="&amp;Help On Window" UUID="F1A50D85-2202-4DCB-A3B5-06061099DADA" BitmapIndex="47">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-Help on Window</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Displays the Help page for the current window"</StatusLineText>
+					<Tooltip>"Help on Window"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;Contents And Index" UUID="28E67CA6-4280-45E8-8C37-91183B3EAC09" BitmapIndex="48">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-Contents and Index</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Displays the index page of the Help file"</StatusLineText>
+					<Tooltip>"Help Index"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="&amp;What's This?" UUID="0D077AD9-0435-47A0-88A2-9FB65D1A3284" BitmapIndex="68">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-Context Help</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Sets the cursor in the context help mode"</StatusLineText>
+					<Tooltip>"Context Help"</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Search All Documents..." UUID="4EF0C23E-2461-45BE-B5A1-4E3510FD2881" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-Search All Documents</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="AIMMS &amp;Getting Started" UUID="326B5CC0-0CED-4E59-B557-FB81463A050C" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-AIMMS Getting Started</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="AIMMS &amp;User's Guide" UUID="3A48F78E-2146-416F-A700-E94CD3CCC0E2" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-AIMMS User's Guide</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the AIMMS User's Guide documentation"</StatusLineText>
+					<Tooltip>"AIMMS Users Guide"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="AIMMS &amp;Language Reference" UUID="709B5498-F43D-4A31-945F-FC49DA8C6B90" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-AIMMS Language Reference</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the AIMMS Language Reference documentation"</StatusLineText>
+					<Tooltip>"AIMMS Language Reference"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="AIMMS &amp;Optimization Modeling" UUID="C9B1E62C-354B-43DA-BE7D-83F808A0F202" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-AIMMS Optimization Modeling</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Opens the AIMMS Optimization Modeling documentation"</StatusLineText>
+					<Tooltip>"AIMMS Optimization Modeling"</Tooltip>
+				</Help>
+			</MenuItem>
+			<MenuItem Name="AIMMS &amp;Function Reference" UUID="F76299CB-457D-48ED-B23C-BCFC857C021B" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-AIMMS Function Reference</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Menu Name="Additional &amp;Documentation" UUID="EF401939-C491-4F6F-BE28-89D74DD09AD6">
+				<MenuItem Name="AIMMS &amp;COM Object" UUID="D83BA809-4FC6-41C6-9F80-567FB049B975" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand" />
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="AIMMS &amp;Excel Add-In" UUID="D6B24D85-7F70-453D-BF2C-869C0AB8A8F2" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Help-AIMMS Excel Add-In</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="AIMMS &amp;Multi-Agent &amp;&amp; Web Services" UUID="40B6EDFA-441A-4D53-B582-0D5E95D50050" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand" />
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="AIMMS &amp;Solvers Overview" UUID="DD956359-0BC0-4759-A839-C0BC0A6CC1BB" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand" />
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="AIMMS &amp;Open Solver Interface" UUID="C3B9C699-B21E-4E9A-8F1D-588B22DFD72C" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Help-AIMMS Open Solver Interface</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<Separator />
+				<MenuItem Name="AIMMS Tutorial For &amp;Beginners" UUID="4AFBEB79-9643-4EF0-8A0E-1386B754BD7B" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Help-AIMMS Tutorial for Students</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<MenuItem Name="AIMMS Tutorial For &amp;Professionals" UUID="D3F33AC3-6599-4121-A771-B025C4EF120A" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Help-AIMMS Tutorial for Professionals</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+				<Separator />
+				<MenuItem Name="AIMMS &amp;Release Notes" UUID="68DAF1F5-823A-4AE3-96B3-0405B6367DFA" BitmapIndex="31">
+					<ActionSequence>
+						<Action Type="MenuCommand">
+							<Command>Help-AIMMS Release Notes</Command>
+						</Action>
+					</ActionSequence>
+					<Help>
+						<StatusLineText>""</StatusLineText>
+						<Tooltip>""</Tooltip>
+					</Help>
+				</MenuItem>
+			</Menu>
+			<Separator />
+			<MenuItem Name="&amp;Project Documentation" UUID="11E660A2-17CD-4E7F-A09C-EE983258B64B" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-Project Documentation</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;Tip Of The Day..." UUID="C7418C0C-9CF7-4CAD-9E9E-AFE2A52F9714" BitmapIndex="31">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-Tip of the Day</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>""</StatusLineText>
+					<Tooltip>""</Tooltip>
+				</Help>
+			</MenuItem>
+			<Separator />
+			<MenuItem Name="&amp;About AIMMS..." UUID="B9C643D9-2DD5-4CDA-9E2D-B177D8FF6857" BitmapIndex="49">
+				<ActionSequence>
+					<Action Type="MenuCommand">
+						<Command>Help-About AIMMS</Command>
+					</Action>
+				</ActionSequence>
+				<Help>
+					<StatusLineText>"Displays AIMMS version information"</StatusLineText>
+					<Tooltip>"About AIMMS"</Tooltip>
+				</Help>
+			</MenuItem>
+		</Menu>
+	</Menubar>
+	<Menu Name="Block Availability" UUID="00783290-9BED-44D1-BF7E-4567B2D82494">
+		<MenuItem Name="Make Associated Blocks Available" UUID="D722657E-A08A-4F7C-9B42-202EE41617B6">
+			<ActionSequence>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>SetMuBlksAvailability</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+			</ActionSequence>
+		</MenuItem>
+	</Menu>
+	<Menu Name="Change Authorization" UUID="29E672F1-17F5-42F7-BAEF-36F8B45AF46C">
+		<DefaultMenuItem InternalID="171" />
+		<DefaultMenuItem InternalID="172" />
+		<DefaultMenuItem InternalID="173" />
+	</Menu>
+	<Menu Name="Load Case" UUID="DAD9D031-77CA-4A52-AD88-FB268FE09AA2">
+		<DefaultMenuItem InternalID="1281" />
+	</Menu>
+	<Menu Name="AccessData" UUID="C80CBFB5-2ED2-4F6C-8309-18528AE2C044">
+		<MenuItem Name="View Data ..." UUID="F6560CC7-22F8-420A-A278-CC62EBE63F31">
+			<ActionSequence>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>ViewData</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+			</ActionSequence>
+		</MenuItem>
+	</Menu>
+	<Menu Name="Edit Product Values" UUID="ABE3934C-0227-4DB6-BAC9-88B959916CC4">
+		<MenuItem Name="Change Product Values" UUID="92011B1E-C91E-4F08-8CA8-0C302BBB313A" IsDefaultItem="true">
+			<ActionSequence>
+				<Action Type="Assignment">
+					<Identifier>_ChangeParameter</Identifier>
+					<AssignedValue>'ProductValue'</AssignedValue>
+				</Action>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>GetNewValue</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+			</ActionSequence>
+		</MenuItem>
+	</Menu>
+	<Menu Name="Edit Values General" UUID="391DE96B-46DF-4ACE-BB01-46B0A81F3F79">
+		<MenuItem Name="Change" UUID="8913E773-9B5C-4F24-83C6-E02F1D00D407">
+			<ActionSequence>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>GetNewValue</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+			</ActionSequence>
+		</MenuItem>
+	</Menu>
+	<Menu Name="Select Shapefile Menu" UUID="B9CDE662-908C-42BD-B20F-CD858E590FC2">
+		<MenuItem Name="Select Shapefile" UUID="83B52481-427A-49F3-9ABB-7EB1DD67F7D9" IsDefaultItem="true">
+			<ActionSequence>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>GetShapefileName</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+			</ActionSequence>
+		</MenuItem>
+	</Menu>
+</UserMenuTree>

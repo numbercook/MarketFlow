@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<PageManager>
+	<Page Name="Case Management" PageGUID="4D54B265-112E-434A-B60C-97F846F40576">
+		<Page Name="Case File Summary" PageGUID="B0154D0E-B8DB-4BCC-B5A4-8F1F635144E0" />
+		<Page Name="Dataset Summary" PageGUID="1E7B0A74-0D81-40B7-A523-045C5E80753D" />
+	</Page>
+	<Page Name="DialogPages" PageGUID="4CCF6314-02D8-4D1C-8826-ECC85FA5703D">
+		<Page Name="Create Scenario Wizard" PageGUID="13CA113E-5531-4F40-A0C9-FDECFEC56CAC" />
+		<Page Name="Show Data Categories" PageGUID="E58950C0-4760-4C9C-A505-EF9EB1115724" />
+	</Page>
+	<Page Name="Default" PageGUID="F3C5391B-4B9D-4E8C-97A3-4AEB22882D8A" />
+</PageManager>

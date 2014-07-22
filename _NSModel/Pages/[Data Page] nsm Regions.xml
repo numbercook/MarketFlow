@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="30" left="30" bottom="540" right="600" />
+	<PageEditSize Type="Inherited">
+		<Size Width="600" Height="540" />
+	</PageEditSize>
+	<ProjectUUID>B2FACAE1-6EEE-4497-BF6D-B115323573E2</ProjectUUID>
+	<Title>"[Data Page] nsm::Regions"</Title>
+	<ResizeData>
+		<MainArea Line="FixedFromRight" Value="81">
+			<LeftArea Line="FixedFromTop" Value="8" />
+			<RightArea Line="FixedFromTop" Value="35">
+				<BottomArea Line="FixedFromBottom" Value="106" />
+			</RightArea>
+		</MainArea>
+	</ResizeData>
+	<Background Inherited="true" />
+	<PageObject Type="Button">
+		<Location top="10" left="520" bottom="35" right="590" />
+		<TabOrder>2</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Close"</Title>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="ClosePage" />
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="435" left="520" bottom="460" right="590" />
+		<TabOrder>3</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Undo"</Title>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="MenuCommand">
+				<Command>Edit-Undo Last</Command>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="470" left="520" bottom="495" right="590" />
+		<TabOrder>4</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Bitmap</ButtonType>
+		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\totree.bmp"</BitmapFile>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="DataPageSpecific">
+				<DoWhat>LocationInTree</DoWhat>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="505" left="520" bottom="530" right="555" />
+		<TabOrder>5</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Bitmap</ButtonType>
+		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\previous.bmp"</BitmapFile>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="DataPageSpecific">
+				<DoWhat>GotoPreviousSymbol</DoWhat>
+			</Action>
+			<Action Type="ClosePage" />
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="505" left="555" bottom="530" right="590" />
+		<TabOrder>6</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Bitmap</ButtonType>
+		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\next.bmp"</BitmapFile>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="DataPageSpecific">
+				<DoWhat>GotoNextSymbol</DoWhat>
+			</Action>
+			<Action Type="ClosePage" />
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Selection Object">
+		<SelectionType>ListBox</SelectionType>
+		<Location top="10" left="10" bottom="530" right="510" />
+		<TabOrder>1</TabOrder>
+		<UseTabInObject>true</UseTabInObject>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextShown>ElementName</TextShown>
+		<EditField>AtTop</EditField>
+		<AddAndRemoveButtons>true</AddAndRemoveButtons>
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<BackgroundColor RGB="#ffffff" />
+		<MultipleColumns>true</MultipleColumns>
+		<ExplicitIdentifier>
+			<Identifier>nsm::Regions(nsm::Regions)</Identifier>
+		</ExplicitIdentifier>
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>nsm::Regions</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

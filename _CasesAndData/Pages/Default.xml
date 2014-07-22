@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="22" left="4" bottom="876" right="1024" />
+	<PageEditSize Type="Inherited">
+		<Size Width="1104" Height="800" />
+	</PageEditSize>
+	<ProjectUUID>A3D1EE48-DA66-4320-8819-5B8DAAA33B9E</ProjectUUID>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<ResizeData>
+		<MainArea Line="FixedFromTop" Value="62">
+			<TopArea Line="FixedFromRight" Value="188" />
+		</MainArea>
+	</ResizeData>
+	<Background Inherited="true" />
+	<PageObject Type="Rectangle">
+		<Location top="0" left="0" bottom="60" right="1104" />
+		<FillColor RGB="#ff8040" />
+		<LineColor RGB="#ff8000" />
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="0" left="252" bottom="42" right="600" />
+		<StaticText>Harvest Block Selector</StaticText>
+		<Alignment>Center</Alignment>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="30" left="84" bottom="54" right="846" />
+		<StaticText>Another MNR for MNDMF project -- by FAMU</StaticText>
+		<Alignment>Center</Alignment>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="6" left="996" bottom="30" right="1098" />
+		<TabOrder>6</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Solve (F6)"</Title>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>MainExecution</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="30" left="996" bottom="54" right="1098" />
+		<TabOrder>4</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"GMP Solve"</Title>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="6" left="924" bottom="54" right="990" />
+		<TabOrder>3</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"MPI"</Title>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="MenuCommand">
+				<Command>Tools-Diagnostic Tools-Math Program Inspector</Command>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>MainExecution</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

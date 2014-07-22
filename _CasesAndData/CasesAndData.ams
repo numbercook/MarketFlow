@@ -1,0 +1,1079 @@
+## ams_version=1.0
+
+LibraryModule CasesAndDatasets {
+    Prefix: cad;
+    Interface: {
+        data { GetDatafileAttributes, LoadDataset, SaveDataset, CurrentDataFile, CurrentDirectory,
+               DatafileNames, FilePathNames, FileFolderNames, FileCategories, FileAcronym,
+               FileComments, CaseIsSelected, DataFileHasChanged, FileOwner, FileGroup, FileReadWrite,
+               IsCurrentDataset, _CaseCategory, _CaseType, _DataCategory, _DataSet, FileTime }
+    }
+    DeclarationSection Case_Data {
+        Parameter Flag_FormChanged {
+            Range: binary;
+            Property: NoSave;
+            InitialData: 0;
+            Comment: "dk: May 2007 - tracks if case Data has changed in form";
+        }
+        Parameter Hide_ApplyChangesButton {
+            Range: binary;
+            Property: NoSave;
+            Definition: not Flag_FormChanged;
+            Comment: "dk: May 2007 - tracks if case Data has changed in form";
+        }
+        Set CaseIndex {
+            SubsetOf: AllCases;
+            Parameter: ActiveCase;
+            Property: NoSave;
+            Definition: AllCases;
+            Comment: "dk: May 2007 - suggested by Ximena";
+        }
+        StringParameter CurrentDataFile {
+            Text: "Current Data File";
+            Property: NoSave;
+        }
+        StringParameter CurrentDirectory {
+            Text: "Current Directory";
+            Property: NoSave;
+        }
+        StringParameter DatafileNames {
+            IndexDomain: IndexDataFiles;
+            Property: NoSave;
+            Comment: "dk: May 2007";
+        }
+        StringParameter FilePathNames {
+            IndexDomain: IndexDataFiles;
+            Property: NoSave;
+            Comment: "dk: May 2007";
+        }
+        StringParameter FileFolderNames {
+            IndexDomain: IndexDataFiles;
+            Property: NoSave;
+            Comment: "dk: May 2007";
+        }
+        StringParameter FileCategories {
+            IndexDomain: IndexDataFiles;
+            Property: NoSave;
+            Comment: "dk: May 2007";
+        }
+        StringParameter FileAcronym {
+            IndexDomain: IndexDataFiles;
+            Property: NoSave;
+            Comment: "dk: May 2007";
+        }
+        StringParameter FileComments {
+            IndexDomain: IndexDataFiles;
+            Property: NoSave;
+            Comment: "dk: May 2007";
+        }
+        Parameter CaseIsSelected {
+            IndexDomain: (IndexCases);
+            Range: binary;
+            Property: NoSave;
+            Definition: {
+                ! Initialized by procedure GetCaseDataSelected and GetCaseData
+                !for IndexCurrentCaseSelection in CurrentCaseSelection do
+                !       CaseIsSelected(IndexCurrentCaseSelection) := 1;
+                !endfor;
+                ! CaseIsSelected(IndexCurrentCaseSelection ) := 1 IndexCurrentCaseSelection
+            }
+            Comment: "dk: July 2007 - true (1) if case is currently selected (Multiple Cases)";
+        }
+        Parameter DataFileHasChanged {
+            IndexDomain: (IndexCases);
+            Range: binary;
+            Property: NoSave;
+            Comment: "dk: July 2007 - true (1) if case is currently selected (Multiple Cases)";
+        }
+        StringParameter FileOwner {
+            IndexDomain: (IndexDataFiles);
+            Property: NoSave;
+        }
+        StringParameter FileGroup {
+            IndexDomain: (IndexDataFiles);
+            Property: NoSave;
+        }
+        StringParameter FileReadWrite {
+            IndexDomain: (IndexDataFiles);
+            Property: NoSave;
+        }
+        StringParameter FileTime {
+            IndexDomain: (IndexDataFiles);
+            Text: "Time IndexDataFiles was modified";
+            Property: NoSave;
+            Comment: "dk: May 2011";
+        }
+        Parameter IsCurrentDataset {
+            IndexDomain: (IndexDataSets);
+            Range: binary;
+            Property: NoSave;
+            Comment: "dk: July 2007 - true (1) if case is currently selected (Multiple Cases)";
+        }
+        Parameter CaseInBatch {
+            IndexDomain: (IndexCases);
+            Property: NoSave;
+        }
+        ElementParameter _CaseCategory {
+            Range: AllDataCategories;
+            Property: NoSave;
+        }
+        ElementParameter _CaseType {
+            Range: AllCaseTypes;
+            Property: NoSave;
+        }
+        ElementParameter _DataCategory {
+            Range: AllDataCategories;
+            Property: NoSave;
+        }
+        ElementParameter _DataSet {
+            Range: AllDataSets;
+            Property: NoSave;
+        }
+        ElementParameter SelCase {
+            Range: AllCases;
+            Property: NoSave;
+        }
+        ElementParameter SelDataset {
+            Range: AllDataSets;
+            Property: NoSave;
+        }
+        StringParameter StartupCaseName;
+    }
+    DeclarationSection Datafile_Declaration {
+        StringParameter DatafileName {
+            Property: NoSave;
+        }
+        Parameter LoadWithoutPrompt {
+            Range: binary;
+            Property: NoSave;
+        }
+        StringParameter DatafileComment {
+            Property: NoSave;
+        }
+        StringParameter DatafileAcronym {
+            Property: NoSave;
+        }
+        Assertion Assert_DatafileAcronym {
+            Text: "Acronym must be <= 10 characters";
+            AssertLimit: 1;
+            Definition: StringLength( DatafileAcronym ) <= 10;
+        }
+    }
+    DeclarationSection GUI_Declarations {
+        StringParameter CurrentTabbedPage;
+    }
+    Procedure MainMenuEntryProcedure {
+        Body: {
+            ! Odd name, but used for consistency in library
+            DirectoryGetCurrent(CurrentDirectory);                  !dk: July 2007
+            DataManagerFileGetCurrent(CurrentDataFile);             !dk: Nov 2007
+        }
+    }
+    Procedure GetDatafileAttributes {
+        Body: {
+            /**********************************
+             *retrieve case name, alias & description for all cases in current datafile
+              *********************************/
+             if Flag_FormChanged then
+                if DialogAsk("Discard edits?","Yes","No",title:"Confirm continue") <> 1 then
+                        return;
+                endif;
+             endif;
+            
+            !--- Get current project directory and Data File
+            DirectoryGetCurrent(CurrentDirectory);                  !dk: July 2007
+            DataManagerFileGetCurrent(CurrentDataFile);             !dk: Nov 2007
+            
+            !Initialize
+            empty FileAcronym,DatafileNames,FilePathNames,FileComments,FileOwner,FileGroup
+                            ,FileReadWrite, CaseIsSelected,IsCurrentDataset, FileCategories;
+            
+            block !Get data for all datafiles
+                    for (IndexDataFiles in AllDataFiles) do
+                            if DataFileExists(IndexDataFiles) then
+                                    DataFileGetAcronym(IndexDataFiles,FileAcronym(IndexDataFiles)) ;
+                                    DataFileGetName(IndexDataFiles,DatafileNames(IndexDataFiles)) ;
+                                    DataFileGetPath(IndexDataFiles,FilePathNames(IndexDataFiles));
+                                    DataFileGetComment(IndexDataFiles,FileComments(IndexDataFiles)) ;
+                                    DataFileGetOwner(IndexDataFiles,FileOwner(IndexDataFiles)) ;
+                                    DataFileGetGroup(IndexDataFiles,FileGroup(IndexDataFiles)) ;
+                                    DataFileGetTime(IndexDataFiles,FileTime(IndexDataFiles));
+                                    FileReadWrite(IndexDataFiles | DataFileReadPermitted(IndexDataFiles)) := "r";
+                                    FileReadWrite(IndexDataFiles | DataFileWritePermitted(IndexDataFiles)) += "w";
+                            else
+                                    dialogmessage("Datafile " + IndexDataFiles + " does not exist");
+                            endif;
+                    endfor;
+                    ! --- Remove filename from path ---
+                    FileFolderNames(IndexDataFiles) :=  SubString(FilePathNames(IndexDataFiles),1
+                                                                                    ,FindString(FilePathNames(IndexDataFiles),DatafileNames(IndexDataFiles))-1);
+            
+            endblock;
+            
+            block ! Case-related information
+                    CaseIsSelected(IndexCases | CurrentCaseSelection) := 1;
+                    CaseIsSelected(IndexCurrentCaseSelection in CurrentCaseSelection) := 1;
+                    for (IndexCases) do
+                            CaseGetType(IndexCases,_CaseType);
+                            FileCategories(IndexCases) := formatstring("%e",_CaseType);
+                    endfor;
+            
+                    OptionGetString("Startup_case",StartupCaseName);
+            endblock;
+            
+            block ! Dataset-related information
+                    for (IndexDataSets in AllDataSets) do
+                            DataSetGetCategory(IndexDataSets,_DataCategory);
+                            FileCategories(IndexDataSets) := FormatString("%e",_DataCategory);
+                    endfor;
+                    IsCurrentDataset(IndexDataSets | CurrentDataset(_DataCategory)) := 1 ;
+            endblock;
+            
+            Flag_FormChanged := 0;
+        }
+        Comment: "dk: May 2007";
+        StringParameter CurrentPageName {
+            Comment: "dk: July 2007";
+        }
+        ElementParameter _DataCategory {
+            Range: AllDataCategories;
+        }
+    }
+    Procedure ClearActiveDatasets {
+        Body: {
+            for IndexDataCategories | CurrentDataset(IndexDataCategories) do
+                    DatasetNew(data_category : IndexDataCategories);
+            endfor;
+        }
+    }
+    Procedure LoadDataset {
+        Body: {
+            ! Load MU Definitions from dataset
+            GetDatafileAttributes;
+            !ClearActiveDatasets;
+            
+            !_Datacategory :! Set via button Action
+            if _DataCategory = '' then
+                    DialogError("Dataset Category not defined","Internal Error");
+                    return -1;
+            endif;
+            
+            if not LoadWithoutPrompt then
+                    ! check if data have changed
+                    ChangeStatus := DatasetGetChangedStatus(_DataCategory);
+                    if ChangeStatus then
+                            s := FormatString("Your %e have changed.\n\nDo you wish to save it before loading a new dataset?",_DataCategory);
+                            switch ( DialogAsk(s,"Yes","No","Cancel","Confirm Action") ) do
+                            1: SaveDataset;
+                            2:
+                            3: return 0;
+                            endswitch;
+                    endif;
+            
+                    ! confirm action
+                    s := FormatString("Loading %e from a dataset will overwrite existing data.\n\nDo you wish to continue?",_DataCategory);
+                    if DialogAsk(s,"Yes","No","Cancel","Confirm Action") <> 1 then return 0; endif;
+            endif;
+            
+            DatasetSetChangedStatus(_DataCategory,0); ! datasets unchanged suppresses dialog
+            
+            if not LoadWithoutPrompt then
+                    ! user picks dataset to load
+                    switch ( DatasetLoadCurrent(data_category : _DataCategory,dataset : _DataSet,   dialog : 1) ) do
+                    0:      ! Operation Cancelled
+                            DialogMessage("No data set loaded","Operation Cancelled");
+                            DatasetSetChangedStatus(_DataCategory,ChangeStatus);    ! reset change status to original value
+                            return 1;
+                    1:      ! Successful Load
+                            DataFileGetName(_DataSet,s) ;
+                            DialogMessage(FormatString("%e Data loaded loaded from '%s'",_DataCategory,s),"Success");
+                            ClearActiveDatasets;
+                            empty _DataCategory;
+                            return 1;
+            
+                    default: ! Error
+                            DatasetSetChangedStatus(_DataCategory,ChangeStatus);    ! reset change status to original value
+                            DataFileGetName(_DataSet,s) ;
+                            DialogError(FormatString("Unable to load %e from '%s'",_DataCategory,s),"Error");
+                            return -1;
+                    endswitch;
+            
+            
+            else ! load without prompting (Create Scenario Wizard page action)
+                    switch (_DataCategory) do
+            !               'MU Definitions':                       _DataSet := s_MUDatasets;
+            !               'Mill Definitions':                             _DataSet := s_MillDatasets;
+            !               'Accepted Projects':            _DataSet := s_AcceptDatasets;
+            !               'Execution Options':                    _DataSet := s_ExecDatasets;
+            !               'Other Defaults':               _DataSet := s_OtherDefaultsDatasets;
+                            default:
+                    endswitch;
+            
+                    ! load dataset only if category is selected for loading and dataset is not empty
+                    if sel_LoadDataset(_DataCategory) and _DataSet <> '' then
+                            switch ( DatasetLoadCurrent(data_category : _DataCategory,dataset : _DataSet,   dialog : 0) ) do
+                            0:      ! Operation Cancelled
+                                    DialogMessage("No data set loaded","Operation Cancelled");
+                                    DatasetSetChangedStatus(_DataCategory,ChangeStatus);    ! reset change status to original value
+                                    return 1;
+                            1:      ! Successful Load
+                                    return 1;
+            
+                            default: ! Error
+                                    DatasetSetChangedStatus(_DataCategory,ChangeStatus);    ! reset change status to original value
+                                    DataFileGetName(_DataSet,s) ;
+                                    DialogError(FormatString("Unable to load %e from '%s'",_DataCategory,s),"Error");
+                                    return -1;
+                            endswitch;
+                    endif;
+            endif;
+        }
+        StringParameter s;
+        Parameter ChangeStatus {
+            Range: integer;
+        }
+    }
+    Procedure LoadDataset_NoPrompt {
+        Body: {
+            ! Load MU Definitions from dataset
+            GetDatafileAttributes;
+            !ClearActiveDatasets;
+            
+            !_Datacategory :! Set via button Action
+            if _DataCategory = '' then
+                    DialogError("Dataset Category not defined","Internal Error");
+                    return -1;
+            endif;
+            
+            DatasetSetChangedStatus(_DataCategory,0); ! datasets unchanged suppresses dialog
+            
+                    switch (_DataCategory) do
+            !               'MU Definitions':                       _DataSet := s_MUDatasets;
+            !               'Mill Definitions':                             _DataSet := s_MillDatasets;
+            !               'Accepted Projects':            _DataSet := s_AcceptDatasets;
+            !               'Execution Options':                    _DataSet := s_ExecDatasets;
+            !               'Other Defaults':               _DataSet := s_OtherDefaultsDatasets;
+                            default:
+                    endswitch;
+            
+                    ! load dataset only if category is selected for loading and dataset is not empty
+                    if sel_LoadDataset(_DataCategory) and _DataSet <> '' then
+                            switch ( DatasetLoadCurrent(data_category : _DataCategory,dataset : _DataSet,   dialog : 0) ) do
+                            0:      ! Operation Cancelled
+                                    DialogMessage("No dataset loaded","Operation Cancelled");
+                                    DatasetSetChangedStatus(_DataCategory,ChangeStatus);    ! reset change status to original value
+                                    return 1;
+                            1:      ! Successful Load
+                                    return 1;
+            
+                            default: ! Error
+                                    DatasetSetChangedStatus(_DataCategory,ChangeStatus);    ! reset change status to original value
+                                    DataFileGetName(_DataSet,s) ;
+                                    DialogError(FormatString("Unable to load %e from '%s'",_DataCategory,s),"Error");
+                                    return -1;
+                            endswitch;
+                    endif;
+        }
+        StringParameter s;
+        Parameter ChangeStatus {
+            Range: integer;
+        }
+    }
+    Procedure LoadCurrentCase {
+        Body: {
+            if not SelCase then
+                    DialogError("Click on a case before right-clicking","Error");
+                    return 0;
+            else
+            !        if DialogAsk(FormatString("Do you wish to load case %e\n\nName:\t'%s'\nAcronym:\t'%s'"
+            !        ,SelCase,DatafileNames(SelCase),FileAcronym(SelCase))
+            !        ,"Yes","No",title:"Confirm Action") <> 1 then return 0; endif;
+            
+                    if CaseLoadCurrent(SelCase,0) <0 then
+                            DialogError(CurrentErrorMessage,"Unable to load case");
+                            return -1;
+                    endif;
+            
+            
+            empty SelCase;
+            endif;
+            return 1;
+        }
+    }
+    Procedure LoadCurrentCase_NoPrompt {
+        Body: {
+            if not SelCase then
+                    DialogError("Click on a case before right-clicking","Error");
+                    return 0;
+            endif;
+            CaseSetChangedStatus(0,1);
+            if CaseLoadCurrent(SelCase,0) <0 then
+                DialogError(CurrentErrorMessage,"Unable to load case");
+                return -1;
+            endif;
+            
+            empty SelCase;
+            
+            return 1;
+        }
+    }
+    Procedure DeleteCurrentCase {
+        Body: {
+            if not SelCase then
+                    DialogError("Click on a case before right-clicking","Error");
+                    return 0;
+            else
+                    if DialogAsk(FormatString("Do you wish to delete case %e\n\nName:\t'%s'\nAlias:\t'%s'"
+                    ,SelCase,DatafileNames(SelCase),FileAcronym(SelCase))
+                    ,"Yes","No",title:"Confirm Action") <> 1 then return 0; endif;
+            
+                    if CaseDelete(SelCase) <0 then
+                            DialogError(CurrentErrorMessage,"Unable to Delete Case");
+                            return -1;
+                    endif;
+                    empty SelCase;
+            endif;
+        }
+    }
+    Procedure RenameCurrentCase {
+        Body: {
+            if not SelCase then
+                    DialogError("Click on a case before right-clicking","Error");
+                    return 0;
+            else
+                    if DialogAsk(FormatString("Do you wish to delete case %e\n\nName:\t'%s'\nAlias:\t'%s'"
+                    ,SelCase,DatafileNames(SelCase),FileAcronym(SelCase))
+                    ,"Yes","No",title:"Confirm Action") <> 1 then return 0; endif;
+            
+                    if CaseDelete(SelCase) <0 then
+                            DialogError(CurrentErrorMessage,"Unable to Delete Case");
+                            return -1;
+                    endif;
+                    empty SelCase;
+            endif;
+        }
+    }
+    Procedure SetCurrentCaseAsDefault {
+        Body: {
+            if not SelCase then
+                    DialogError("Click on a case before right-clicking","Error");
+                    return 0;
+            else
+                    if DialogAsk(FormatString("Do you wish to make case \"%s\" the default case?"
+                    ,DatafileNames(SelCase))
+                    ,"Yes","No",title:"Confirm Action") <> 1 then return 0; endif;
+            !
+            !        if CaseDelete(SelCase) <0 then
+            !                DialogError(CurrentErrorMessage,"Unable to Delete Case");
+            !                return 0;
+            !        endif;
+            !        empty SelCase;
+            
+                    if OptionSetString("Startup_Case",DatafileNames(SelCase) ) = 0 then
+                            DialogError(CurrentErrorMessage,"Unable to Set Default Case");
+                            return 0;
+                    endif;
+            endif;
+        }
+    }
+    Procedure LoadCurrentDataset {
+        Body: {
+            if not SelDataset then
+                    DialogError("Click on a dataset before right-clicking","Error");
+                    return 0;
+            else
+                    if DataSetGetCategory(SelDataset,_DataCategory)= 0 then
+                            DialogError(CurrentErrorMessage,"Can't determine category for selected dataset");
+                    endif;
+            
+                    if DialogAsk(FormatString("Do you wish to load dataset %e\n\nName:\t'%s'\nCategory:\t'%s'"
+                    ,SelDataset,DatafileNames(SelDataset),FileCategories(SelDataset))
+                    ,"Yes","No",title:"Confirm Action") <> 1 then return 0; endif;
+            
+                    if DatasetLoadCurrent(_DataCategory,SelDataset,0) <0 then
+                            DialogError(CurrentErrorMessage,"Unable to Load Dataset");
+                            return -1;
+                    endif;
+            
+                    !-- make sure loaded dataset is not named (active)
+                    DatasetNew(_DataCategory);
+                    empty SelDataset;
+            endif;
+        }
+    }
+    Procedure LoadCurrentDataset_NoPrompt {
+        Body: {
+            if not SelDataset then
+                    DialogError("Click on a dataset before right-clicking","Error");
+                    return 0;
+            endif;
+            
+            if DataSetGetCategory(SelDataset,_DataCategory)= 0 then
+                    DialogError(CurrentErrorMessage,"Can't determine category for selected dataset");
+            endif;
+            
+            DatasetSetChangedStatus(_DataCategory,0);
+            
+            if DatasetLoadCurrent(_DataCategory,SelDataset,0) <0 then
+                    DialogError(CurrentErrorMessage,"Unable to Load Dataset");
+                    return -1;
+            endif;
+            
+            !-- make sure loaded dataset is not named (active)
+            DatasetNew(_DataCategory);
+            empty SelDataset;
+        }
+    }
+    Procedure DeleteCurrentDataset {
+        Body: {
+            if not SelDataset then
+                    DialogError("Click on a dataset before right-clicking","Error");
+                    return 0;
+            else
+                    if DataSetGetCategory(SelDataset,_DataCategory) = 0 then
+                            DialogError(CurrentErrorMessage,"Can't determine category of dataset");
+                            return 0;
+                    endif;
+            
+                    if DialogAsk(FormatString("Do you wish to delete dataset %e\n\nName:\t'%s'\nCategory:\t'%s'"
+                    ,SelDataset,DatafileNames(SelDataset),FileCategories(SelDataset))
+                    ,"Yes","No",title:"Confirm Action") <> 1 then return 0; endif;
+            
+                    if DatasetDelete(_DataCategory,SelDataset) <0 then
+                            DialogError(CurrentErrorMessage,"Unable to Delete dataset");
+                            return -1;
+                    endif;
+                    empty SelDataset;
+            endif;
+        }
+    }
+    Procedure SaveDataset {
+        Body: {
+            ! Save to dataset
+            GetDatafileAttributes;
+            ClearActiveDatasets;
+            empty DatafileName,DatafileComment,DatafileAcronym;
+            
+            !_Datacategory := 'MU Definitions'; ... ! Set via button Action
+            if _DataCategory = '' then
+                    DialogError("Dataset Category not defined","Internal Error");
+                    return -1;
+            endif;
+            
+            ! confirm action
+            s := FormatString("You are about to save current data as a dataset.\n\nDo you wish to continue?%s","");
+            if DialogAsk(s,"Yes","No","Cancel","Confirm Action") <> 1 then return 0; endif;
+            
+            ! user picks dataset to save
+            switch ( DatasetSaveAs(data_category : _DataCategory,dataset : _DataSet) ) do
+            0:
+                    DialogMessage("Dataset not saved","Operation Cancelled");
+                    return 1;
+            1:  ! Dataset saved
+                    !--- Add/edit comment
+                    DataFileGetName(_DataSet,DatafileName) ;
+                    PageOpen("Case Management");
+            
+                    DialogMessage(FormatString("Dataset saved as '%s'",DatafileName),"Success");
+                    ClearActiveDatasets;
+                    empty _DataCategory;
+                    return 1;
+            
+            default:
+                    DataFileGetName(_DataSet,DatafileName) ;
+                    DialogError(FormatString("Unable to save dataset to '%s\n%s'",DatafileName,CurrentErrorMessage),"Error");
+                    return -1;
+            endswitch;
+        }
+        StringParameter s;
+    }
+    Procedure ApplyCaseAcronyms {
+        Body: {
+            !dk: Sep 2007 - beginning AIMMS 3.8, also apply changes to CaseComments
+            if DialogAsk("Do you want to apply the changes to the case aliases and comments?"
+                    ,button1:"Yes",button2:"No",title:"Confirm Action") <> 1 then return; endif;
+            
+            for (IndexDataFiles in AllDataFiles) do
+                    if DataFileExists(IndexDataFiles) then
+                            DataFileSetAcronym(IndexDataFiles,FileAcronym(IndexDataFiles)) ;
+                            DataFileSetComment(IndexDataFiles,FileComments(IndexDataFiles)) ; !aimms 3.8
+                    else
+                            DialogMessage("Case " + IndexDataFiles + " does not exist");
+                    endif;
+            endfor;
+            
+            Flag_FormChanged := 0;
+        }
+        Comment: "dk: May 2007";
+    }
+    Procedure ApplyCaseAcronymn_ExitProcedure {
+        Body: {
+            if Flag_FormChanged  then !form has been changed but changes have not yet been applied
+                    ApplyCaseAcronyms;
+            endif;
+        }
+        Comment: "dk: Dec 2007";
+    }
+    Procedure ApplyDatasetProperties {
+        Body: {
+            DataFileSetAcronym(_DataSet,DatafileAcronym);
+            DataFileSetComment(_DataSet,DatafileComment);
+        }
+    }
+    Procedure Set_FormChanged {
+        Body: {
+            Flag_FormChanged := 1;
+        }
+        Comment: "dk: May 2007 - Flag set if form has changed and changes have not been applied";
+    }
+    Procedure SetDatasetAccess {
+        Body: {
+            for (IndexDataSets in AllDataSets) do
+                    if DataFileExists(IndexDataSets) then
+                            ! --- get name and category
+                        DataFileGetName(IndexDataSets,DatafileName) ;
+                        DataSetGetCategory(IndexDataSets,_DataCategory);
+                        FilePathNames(IndexDataSets) := FormatString("%e",_DataCategory);
+            
+                        !--- set access properties
+            !            DataFileReadPermitted()
+            
+                    else
+                            dialogmessage("Case " + IndexDataSets + " does not exist");
+                    endif;
+            endfor;
+        }
+    }
+    Procedure ExportSelectedDatafiles {
+        Body: {
+            !Exports Selected Cases or Datasets to a data file, depending on value of CurrentTabbedPage
+            
+            !--- Determine which datafiles to export
+            block !--- Export if both cases and datasets are selected
+                    if count(indexcases|CaseIsSelected(IndexCases)) > 0
+                            and count(IndexDataSets|IsCurrentDataset( IndexDataSets )) > 0 then
+                            switch (DialogAsk("Do you wish to export selected cases and datasets?","Yes","No","Cancel","Enter choice") ) do
+                            1:      ! Yes
+                                    DataFilesToExport := { IndexCases | CaseIsSelected(IndexCases) };
+                                    DataFilesToExport += { IndexDataSets | IsCurrentDataset( IndexDataSets ) };
+                            2:
+                            3: return 0;
+                            endswitch;
+                    endif;
+            endblock;
+            
+            block !--- export only cases or datafiles, depending on active page
+                    if count(dfe) = 0 then  !No DataFilesToExport (from dialog above)
+                            if FindString(CurrentTabbedPage,"Case") > 0 then
+                                    !... verify cases selected
+                                    if count(indexcases|CaseIsSelected(IndexCases)) < 1 then
+                                            halt with "You must select (check) cases to export";
+                                            return 0;
+                                    endif;
+                                    DataFilesToExport := { IndexCases | CaseIsSelected(IndexCases) };
+            
+            
+                            elseif FindString(CurrentTabbedPage,"Dataset") > 0 then
+                                    !... verify cases selected
+                                    if count(IndexDataSets|IsCurrentDataset( IndexDataSets )) < 1 then
+                                            halt with "You must select (check) datasets to export (use current column)";
+                                            return 0;
+                                    endif;
+                                    DataFilesToExport := { IndexDataSets | IsCurrentDataset( IndexDataSets ) };
+                            else
+                                    halt with "This procedure works only from the Case management Dashboard";
+                                    return 0;
+                            endif;
+                    endif;
+            endblock;
+            
+            block ! Export
+                    if FileSelectNew(ExportFilename,directory:"*.dat",title:"Specify Export Filename") <> 0 then
+                            if SubString(ExportFilename,StringLength(ExportFilename)-3,StringLength(ExportFilename)) <> ".dat" then
+                                    ExportFilename += ".dat"; endif;
+            
+                            !--- EXPORT
+                            if DataManagerExport(ExportFilename, DataFilesToExport) = 0 then
+                                    halt with FormatString("Error exporting cases and datasets \n\n%s",CurrentErrorMessage );
+                            endif;
+                    else
+                            halt with "No cases exported";
+                    endif;
+            endblock;
+            
+            return 1;
+        }
+        Set DataFilesToExport {
+            SubsetOf: AllDataFiles;
+            Index: dfe;
+        }
+        StringParameter ExportFilename {
+            Property: RetainsValue;
+        }
+    }
+    Procedure AddSelectedCasesToMultiple {
+        Body: {
+            block !--- Define set of cases to add to multiple cases
+                    if count(IndexCases|CaseIsSelected(IndexCases)) = 0 then
+                            DialogMessage("You must check the cases to add to Multiple Cases");
+                            return 0;
+                    else
+                            if DialogAsk("Do you wish to add the selected cases to Multiple Cases?", "Yes","No","Cancel","Enter Option") <> 1
+                            then return 0; endif;
+                    endif;
+                    CasesToMultiple := { IndexCases | CaseIsSelected(IndexCases) };
+                    CurrentCaseSelection += { IndexCases | CaseIsSelected(IndexCases) };
+            endblock;
+            
+            return 1;
+        }
+        Set CasesToMultiple {
+            SubsetOf: AllCases;
+            Index: ctm;
+        }
+        StringParameter ExportFilename {
+            Property: RetainsValue;
+        }
+    }
+    Procedure AddSelectedCasesToBatch {
+        Body: {
+            ! Cannot add cases to batch from code ....
+            
+            !block !--- Define set of cases to add to batch
+            !        if count(IndexCases|CaseIsSelected(IndexCases)) = 0 then
+            !                DialogMessage("You must check the cases to add to Multiple Cases");
+            !                return 0;
+            !        else
+            !                if DialogAsk("Do you wish to add the selected cases to Multiple Cases?", "Yes","No","Cancel","Enter Option") <> 1
+            !                then return 0; endif;
+            !        endif;
+            !        CasesToMultiple := { IndexCases | CaseIsSelected(IndexCases) };
+            !        CurrentCaseSelection += CasesToMultiple;
+            !endblock;
+            !
+            !return 1;
+            !
+        }
+        Set CasesToMultiple {
+            SubsetOf: AllCases;
+            Index: ctm;
+        }
+        StringParameter ExportFilename {
+            Property: RetainsValue;
+        }
+    }
+    Procedure ImportDatafiles {
+        Body: {
+            if FileSelect(ExportFilename,directory:"*.dat",title:"Specify Data File") = 1 then
+                    if DataManagerImport(ExportFilename, 0) < 1 then
+                            halt with FormatString("Error exporting cases and datasets \n\n%s",CurrentErrorMessage );
+                            return 0;
+                    else
+                            DialogMessage("Data Imported Successfully","Success!");
+                            return 1;
+                    endif;
+            else
+                    halt with "Operation Cancelled";
+            endif;
+            
+            return 1;
+        }
+        Set DataFilesToExport {
+            SubsetOf: AllDataFiles;
+        }
+        StringParameter ExportFilename {
+            Property: RetainsValue;
+        }
+    }
+    Section Dummy_Declarations {
+        Procedure ClearCase;
+        Procedure RenameKeySetElements {
+            Body: {
+                RandomizeMillNames;
+                CleanupLocations;
+            }
+        }
+        Procedure DeleteKeySetElements;
+        Set MyIdentifiers {
+            SubsetOf: AllIdentifiers;
+            Index: IndexMyIdentifiers;
+            Parameter: _IndexMyIdentifiers;
+            Property: NoSave;
+            OrderBy: IndexIdentifiers;
+        }
+        Set DataCategoryIdentifiers {
+            IndexDomain: (IndexDataCategories);
+            SubsetOf: MyIdentifiers;
+            Property: NoSave;
+        }
+        Procedure GetDataCategoryContents {
+            Body: {
+                for IndexDataCategories do
+                        if DataCategoryContents(IndexDataCategories, MyIdentifiers ) = 0 then
+                                DialogError(CurrentErrorMessage,"Can't get contents");
+                                return 0;
+                        endif;
+                        DataCategoryIdentifiers(IndexDataCategories) := MyIdentifiers;
+                endfor;
+            }
+        }
+    }
+    Section Create_Scenario_Wizard_README {
+        Comment: {
+            "Each scenario can be assembled from the following dataset categories
+            1. MU Definitions : (supply) volume available
+            2. Mill definitions : project descriptions
+                    -(demand) volume requested  by each project/alternative
+                    -average haulcost from supplly to demand centre
+                    -jobs, investment, and other indicators
+            3. Execution Options :
+                    - objective weighting (in objective function)
+                    - amount of slack / violation
+            4 Accepted Projects : (optional)
+                    - Projects that have been \"preselected\", i.e selected before solve.  Usually from previous scenario
+            
+            The scenario wizard
+                    a) lets the user pick an existing dataset for each category
+                    b) loads each selected dataset
+                    c) saves the scenario as a case
+            These datasets serve as a starting point.
+            
+                    Note: FindWood does not utilize compound cases
+                            While each case could be described by 4 datasets (plus results)"
+        }
+        DeclarationSection Datasets_and_Categories_README {
+            Comment: {
+                "This section deals with the dataset categories of particular interest to this project
+                
+                ScenarioCategories      :       the categories of datasets of interest (Execution Options, etc.)
+                        - has 1 element parameter \'_XXDataCategory\' for each element
+                
+                ScenarioDatasets        :       all the datasets of interest has 1 subset for each such category
+                        ->MUDatasets    : MU Definitions
+                        ->MillDatasets    : Mill / Project Definitions
+                        ->ExecDatasets:  Execution Options
+                        ->AcceptedDatasets      : Accepted Projects
+                
+                        - each subset has 1 element parameter \'s_XXDatasets\' for each subset"
+            }
+            Set ScenarioCategories {
+                SubsetOf: AllDataCategories;
+                Text: "The categories of datasets used in this project";
+                Index: ScCat;
+                Property: NoSave;
+                Definition: {
+                    !AllDataCategories
+                    !Warning: Edit this definition to include only data categories of interest
+                    {
+                         StringToElement(AllDataCategories,"MU Definitions",0)
+                         ,StringToElement(AllDataCategories,"Mill Definitions",0)
+                         ,StringToElement(AllDataCategories,"Accepted Projects",0)
+                         ,StringToElement(AllDataCategories,"Execution Options",0)
+                         ,StringToElement(AllDataCategories,"Other Defaults",0)
+                         ,StringToElement(AllDataCategories,"Cost Data",0)
+                         ,StringToElement(AllDataCategories,"MapXY",0)
+                    }
+                    ! The data {} definition gives an error if the categories do not exist
+                    
+                    !data {         'MU Definitions'
+                    !       , 'Mill Definitions'
+                    !       ,'Accepted Projects'
+                    !       ,'Execution Options'
+                    !       ,'Other Defaults'}
+                }
+            }
+            ElementParameter _MUDataCategory {
+                Range: ScenarioCategories;
+                Property: NoSave;
+                Definition: {
+                    !StringToElement(AllDataCategories,"MU Definitions")
+                }
+            }
+            ElementParameter _MillDataCategory {
+                Range: ScenarioCategories;
+                Property: NoSave;
+                Definition: {
+                    !StringToElement(AllDataCategories,"Mill Definitions",0)
+                }
+            }
+            ElementParameter _CostDataCategory {
+                Range: ScenarioCategories;
+                Property: NoSave;
+                Definition: {
+                    !StringToElement(AllDataCategories,"Cost Data")
+                }
+            }
+            ElementParameter _AcceptedDataCategory {
+                Range: ScenarioCategories;
+                Property: NoSave;
+                Definition: {
+                    !StringToElement(AllDataCategories,"Accepted Projects")
+                }
+            }
+            ElementParameter _ExecutionDataCategory {
+                Range: ScenarioCategories;
+                Property: NoSave;
+                Definition: {
+                    !StringToElement(AllDataCategories,"Execution Options")
+                }
+            }
+            ElementParameter _MapXYDataCategory {
+                Range: ScenarioCategories;
+                Property: NoSave;
+                Definition: {
+                    !StringToElement(AllDataCategories,"MapXY")
+                }
+            }
+            ElementParameter _OtherDefaultsDataCategory {
+                Range: ScenarioCategories;
+                Property: NoSave;
+                Definition: {
+                    !StringToElement(AllDataCategories,"Other Defaults")
+                }
+            }
+            Set ScenarioDatasets {
+                SubsetOf: AllDataSets;
+                Text: "All datasets (numbers) belonging to one of the categories in ScenarioCategories";
+                Index: sds;
+                Property: NoSave;
+                Definition: {
+                    ! because the index is Integer, we need to get the category names for comparision to ScenarioCategories
+                    ! FileCategories is initialised in GetDatafileAttributes
+                    { IndexDataSets | StringToElement(ScenarioCategories,FileCategories(IndexDataSets),0)
+                    }
+                }
+            }
+            Set MUDatasets {
+                SubsetOf: ScenarioDatasets;
+                Text: "Datasets in the MU catagory";
+                Property: NoSave;
+                Definition: {
+                    { sds | FormatString("%e",_MUDataCategory) = FileCategories(sds) }
+                }
+            }
+            ElementParameter s_MUDatasets {
+                Range: MUDatasets;
+                Property: NoSave;
+            }
+            Set MillDatasets {
+                SubsetOf: ScenarioDatasets;
+                Text: "datasets in the Mill category";
+                Property: NoSave;
+                Definition: {
+                    { sds | FormatString("%e",_MillDataCategory) = FileCategories(sds) }
+                }
+            }
+            Set CostDatasets {
+                SubsetOf: ScenarioDatasets;
+                Text: "datasets in the Cost category";
+                Property: NoSave;
+                Definition: {
+                    { sds | FormatString("%e",_CostDataCategory) = FileCategories(sds) }
+                }
+            }
+            ElementParameter s_CostDatasets {
+                Range: MillDatasets;
+                Property: NoSave;
+            }
+            ElementParameter s_MillDatasets {
+                Range: MillDatasets;
+                Property: NoSave;
+            }
+            Set ExecDatasets {
+                SubsetOf: ScenarioDatasets;
+                Text: "Execution Options datasets";
+                Property: NoSave;
+                Definition: {
+                    { sds | FormatString("%e",_ExecutionDataCategory) = FileCategories(sds) }
+                }
+            }
+            ElementParameter s_ExecDatasets {
+                Range: ExecDatasets;
+                Property: NoSave;
+            }
+            Set MapXYDatasets {
+                SubsetOf: ScenarioDatasets;
+                Text: "Execution Options datasets";
+                Property: NoSave;
+                Definition: {
+                    { sds | FormatString("%e",_MapxyDataCategory) = FileCategories(sds) }
+                }
+            }
+            ElementParameter s_MapXYDatasets {
+                Range: MapXYDatasets;
+                Property: NoSave;
+            }
+            Set OtherDefaultsDatasets {
+                SubsetOf: ScenarioDatasets;
+                Text: "Execution Options datasets";
+                Property: NoSave;
+                Definition: {
+                    { sds | FormatString("%e",_OtherDefaultsDataCategory) = FileCategories(sds) }
+                }
+            }
+            ElementParameter s_OtherDefaultsDatasets {
+                Range: OtherDefaultsDatasets;
+                Property: NoSave;
+            }
+            Set AcceptedProjectsDatasets {
+                SubsetOf: ScenarioDatasets;
+                Property: NoSave;
+                Definition: {
+                    { sds | FormatString("%e",_AcceptedDataCategory) = FileCategories(sds) }
+                }
+            }
+            ElementParameter s_AcceptDatasets {
+                Range: AcceptedProjectsDatasets;
+                Property: NoSave;
+            }
+            Parameter sel_LoadDataset {
+                IndexDomain: (ScCat);
+                Text: "True if user wants to load dataset from category ScCat";
+                Range: binary;
+                Default: 0;
+                Property: NoSave;
+                Comment: "Used in Scenario Creation Wizard";
+            }
+            Parameter HIDE_LoadDataset {
+                IndexDomain: (ScCat);
+                Text: "False if use wants to load dataset from category ScCat";
+                Range: binary;
+                Property: NoSave;
+                Definition: if sel_LoadDataset(ScCat) then 0 else 1 endif;
+                Comment: "Used in Scenario Creation Wizard";
+            }
+            Assertion Assert_DatasetsSpecified {
+                Text: "Insufficient dataset types selected or dataset not specified for selected type";
+                Property: WarnOnly;
+                AssertLimit: 1;
+                Definition: {
+                    ! must include all category of datasets except Accepted Projects
+                    sum[ScCat | ScCat <> _AcceptedDataCategory, sel_LoadDataset(ScCat)] = 3
+                    
+                    ! must specify a dataset for each selected category
+                    and s_MUDatasets <> ''
+                    and s_MillDatasets <> ''
+                    and s_MUDatasets <> ''
+                    and if sel_LoadDataset(_AcceptedDataCategory) then s_AcceptDatasets <> '' endif
+                }
+                Action: {
+                    !
+                }
+            }
+        }
+    }
+    Procedure LibraryInitialization {
+        Body: {
+            _MUDataCategory := StringToElement(AllDataCategories,"MU Definitions") ;
+            _MillDataCategory := StringToElement(AllDataCategories,"Mill Definitions",0) ;
+            _CostDataCategory:= StringToElement(AllDataCategories,"Cost Data");
+            _ExecutionDataCategory:= StringToElement(AllDataCategories,"Execution Options");
+            _MapXYDataCategory := StringToElement(AllDataCategories,"MapXY");
+        }
+    }
+    Procedure LibraryTermination {
+        Body: {
+            return 1 ;
+        }
+    }
+}

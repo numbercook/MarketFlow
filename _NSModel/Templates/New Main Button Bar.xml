@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="29" left="4" bottom="696" right="1072" />
+	<PageEditSize Type="Inherited">
+		<Size Width="900" Height="706" />
+	</PageEditSize>
+	<ProjectUUID>B2FACAE1-6EEE-4497-BF6D-B115323573E2</ProjectUUID>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<ResizeData>
+		<MainArea Line="FixedFromTop" Value="76">
+			<TopArea Line="FixedFromRight" Value="74">
+				<LeftArea Line="FixedFromLeft" Value="323" />
+			</TopArea>
+			<BottomArea Line="FixedFromTop" Value="48" />
+		</MainArea>
+	</ResizeData>
+	<Background Inherited="true" />
+	<PageObject Type="Button">
+		<Location top="78" left="829" bottom="108" right="925" />
+		<TabOrder>2</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"What's New"</Title>
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>EditWhatsNew</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="6" left="761" bottom="30" right="821" />
+		<TabOrder>3</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Cases"</Title>
+		<TooltipText>"View summary of cases in data file"</TooltipText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="LinkedPage">
+				<Page ProjectGUID="A3D1EE48-DA66-4320-8819-5B8DAAA33B9E" PageGUID="4D54B265-112E-434A-B60C-97F846F40576" Name="Case Management" />
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Navigation Object">
+		<Location top="78" left="6" bottom="114" right="823" />
+		<TabOrder>10</TabOrder>
+		<Font GUID="52DB758F-6678-4679-88AE-B237437EE7AD" Name="Main Button Text" />
+		<Border Style="InShadow" Width="2" MarginTop="3" MarginRight="3" MarginBottom="3" MarginLeft="3" />
+		<Display>TextButton</Display>
+		<Spacing>6</Spacing>
+		<BackgroundColor>
+			<UserColor GUID="EB9E6E2E-3764-4AB3-890F-AA330B5D0D62">Button Bar</UserColor>
+		</BackgroundColor>
+		<TextColor>
+			<UserColor GUID="AA565D1C-956B-4852-9572-09CE4F7C5E07">Button Active</UserColor>
+		</TextColor>
+		<NavigationData>
+			<ReferencePage>Other</ReferencePage>
+			<OtherPage PageGUID="332F56D1-4746-40E7-AE17-04A6E92E7763" Name="NS Main Page" />
+			<NumberOfGenerations>1</NumberOfGenerations>
+			<Horizontally>true</Horizontally>
+			<ActionSequence>
+				<Action Type="Assignment">
+					<Identifier>FromHeader</Identifier>
+					<AssignedValue>1</AssignedValue>
+				</Action>
+				<Action Type="GotoNavigationPage" />
+				<Action Type="ClosePage" />
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>AssignCurrentButton</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+			</ActionSequence>
+		</NavigationData>
+	</PageObject>
+	<PageObject Type="Rectangle">
+		<Location top="114" left="6" bottom="120" right="134" />
+		<FillColor>
+			<Symbol>HeaderButtonColours( 'Regions' )</Symbol>
+		</FillColor>
+		<LineColor>
+			<Symbol>HeaderButtonColours( 'Regions' )</Symbol>
+		</LineColor>
+	</PageObject>
+	<PageObject Type="Rectangle">
+		<Location top="114" left="146" bottom="120" right="274" />
+		<FillColor>
+			<Symbol>HeaderButtonColours( 'Facilities Separator' )</Symbol>
+		</FillColor>
+		<LineColor>
+			<Symbol>HeaderButtonColours( 'Facilities Separator' )</Symbol>
+		</LineColor>
+	</PageObject>
+	<PageObject Type="Rectangle">
+		<Location top="114" left="287" bottom="120" right="414" />
+		<FillColor>
+			<Symbol>HeaderButtonColours( 'Markets' )</Symbol>
+		</FillColor>
+		<LineColor>
+			<Symbol>HeaderButtonColours( 'Markets' )</Symbol>
+		</LineColor>
+	</PageObject>
+	<PageObject Type="Rectangle">
+		<Location top="114" left="689" bottom="120" right="817" />
+		<FillColor>
+			<Symbol>HeaderButtonColours( 'Maps' )</Symbol>
+		</FillColor>
+		<LineColor>
+			<Symbol>HeaderButtonColours( 'Maps' )</Symbol>
+		</LineColor>
+	</PageObject>
+	<PageObject Type="Rectangle">
+		<Location top="114" left="421" bottom="120" right="548" />
+		<FillColor>
+			<Symbol>HeaderButtonColours( 'Exec Separator' )</Symbol>
+		</FillColor>
+		<LineColor>
+			<Symbol>HeaderButtonColours( 'Exec Separator' )</Symbol>
+		</LineColor>
+	</PageObject>
+	<PageObject Type="Rectangle">
+		<Location top="114" left="555" bottom="120" right="682" />
+		<FillColor>
+			<Symbol>HeaderButtonColours( 'Results' )</Symbol>
+		</FillColor>
+		<LineColor>
+			<Symbol>HeaderButtonColours( 'Results' )</Symbol>
+		</LineColor>
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>AssignCurrentButton</Symbol>
+			<Symbol>EditWhatsNew</Symbol>
+			<Symbol>HeaderButtonColours</Symbol>
+			<Symbol>FromHeader</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

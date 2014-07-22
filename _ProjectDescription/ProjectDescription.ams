@@ -1,0 +1,72 @@
+## ams_version=1.0
+
+LibraryModule ProjectDescription {
+    Prefix: pd;
+    Comment: {
+        "The project description consists of
+        
+        1.  A \'Separator\" page with a tabbed page object.  this page has no template or a template of the user\'s choice
+        
+        2. Each tab has it\'s own page. string parameter and project user file.  These pages use a common template with a single Edit button on it.
+        
+        	Page .... Any pagename under teh separator page
+        	Source ... String Parameter pointing to project user file (e.g. \"<lib:pd>:ResubmittedProjects.txt\")
+        				if it weren\'t for the Page Source, you wouldn\'t need the string parameters
+        
+        	Source Text	... in project user file
+        
+        
+        3. Source text, from files in teh Project user files ... ProgramDescription Portion
+        
+        Note:  Make sure the templates in the ProjectDescription Page Tree are not duplicates of the main project.  They must be -stand-alone in the library"
+    }
+    StringParameter ProblemDescriptionFile {
+        Property: NoSave;
+        Definition: "<lib:pd>:ProblemDescription.txt";
+    }
+    StringParameter DatasetsAndCases {
+        Property: NoSave;
+        Definition: "<lib:pd>:DatasetsAndCases.txt";
+    }
+    StringParameter ResubmittedProjectsFile {
+        Property: NoSave;
+        Definition: "<lib:pd>:ResubmittedProjects.txt";
+    }
+    StringParameter IterativeSolutionFile {
+        Property: NoSave;
+        Definition: "<lib:pd>:IterativeSolution.txt";
+    }
+    StringParameter AccptedProjectFile {
+        Property: NoSave;
+        Definition: "<lib:pd>:AcceptedProjectDescription.txt";
+    }
+    StringParameter CurrentTabbedPage {
+        Property: NoSave;
+    }
+    Procedure EditProjectDescription {
+        Body: {
+            !**************************************************************************************
+            !* Parse CurrentTabbedPage and opens the appropriate user text file for editting
+            !*
+            !* CurrentTabbedPage:  on Tabbed Page Object ... tracks which page is open
+            !**************************************************************************************
+            if FindString(CurrentTabbedPage,"Project Overview") then
+            	FileEdit("<lib:pd>:ProblemDescription.txt");
+            elseif FindString(CurrentTabbedPage,"Cases") then
+            	FileEdit("<lib:pd>:DatasetsAndCases.txt");
+            elseif FindString(CurrentTabbedPage,"Supply") then
+            	FileEdit("<lib:pd>:ResubmittedProjects.txt");
+            elseif FindString(CurrentTabbedPage,"Accept") then
+            	FileEdit("<lib:pd>:AcceptedProjectDescription.txt");
+            elseif FindString(CurrentTabbedPage,"Solution") then
+            	FileEdit("<lib:pd>:IterativeSolution.txt");
+            endif;
+        }
+    }
+    Procedure LibraryInitialization;
+    Procedure LibraryTermination {
+        Body: {
+            return 1 ;
+        }
+    }
+}

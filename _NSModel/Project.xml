@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<LibraryProject AimmsVersion="4.0.0.699 unicode x86" ProjectUUID="B2FACAE1-6EEE-4497-BF6D-B115323573E2">
+	<ModelFileName>NSModel.ams</ModelFileName>
+	<Prefix>nsm</Prefix>
+	<DisplayName>NSModel</DisplayName>
+</LibraryProject>

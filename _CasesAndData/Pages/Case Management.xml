@@ -1,0 +1,458 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="29" left="4" bottom="696" right="1072" />
+	<PageEditSize Type="Inherited">
+		<Size Width="846" Height="706" />
+	</PageEditSize>
+	<ProjectUUID>A3D1EE48-DA66-4320-8819-5B8DAAA33B9E</ProjectUUID>
+	<TemplatesTabOrderPosition>3</TemplatesTabOrderPosition>
+	<ResizeData>
+		<MainArea Line="FixedFromTop" Value="76">
+			<TopArea Line="FixedFromRight" Value="144">
+				<LeftArea Line="FixedFromLeft" Value="323" />
+			</TopArea>
+			<BottomArea Line="FixedFromTop" Value="94">
+				<TopArea Line="FixedFromLeft" Value="196">
+					<RightArea Line="FixedFromRight" Value="141" />
+				</TopArea>
+			</BottomArea>
+		</MainArea>
+	</ResizeData>
+	<Background>
+		<UserColor GUID="4C29CF98-3E51-4BAA-8563-90FCE3E3DF3B">default background</UserColor>
+	</Background>
+	<HelpTopic>"Case Management"</HelpTopic>
+	<Action>
+		<EntryProcedure>cad::GetDatafileAttributes</EntryProcedure>
+	</Action>
+	<HorizontalGridDistance>3</HorizontalGridDistance>
+	<VerticalGridDistance>3</VerticalGridDistance>
+	<PageObject Type="Rectangle">
+		<Location top="81" left="66" bottom="168" right="192" />
+		<Shape>In-Shadow</Shape>
+		<FillColor>
+			<UserColor GUID="4C29CF98-3E51-4BAA-8563-90FCE3E3DF3B">default background</UserColor>
+		</FillColor>
+		<LineColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="82" left="6" bottom="108" right="63" />
+		<TabOrder>3</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Refresh"</Title>
+		<BackgroundColor>
+			<UserColor GUID="391F08C8-DB60-4153-AF59-F1A2C3CB8123">Button Green</UserColor>
+		</BackgroundColor>
+		<Font GUID="52DB758F-6678-4679-88AE-B237437EE7AD" Name="Main Button Text" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>cad::GetDatafileAttributes</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="38" left="728" bottom="66" right="835" />
+		<Hidden>cad::Hide_ApplyChangesButton</Hidden>
+		<TabOrder>1</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Apply Changes"</Title>
+		<TooltipText>"Apply Changes to Acronyms and Comments"</TooltipText>
+		<BackgroundColor RGB="#ff8040" />
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>cad::ApplyCaseAcronyms</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="105" left="75" bottom="129" right="123" />
+		<TabOrder>18</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Select"</Title>
+		<Font GUID="52DB758F-6678-4679-88AE-B237437EE7AD" Name="Main Button Text" />
+		<ActionSequence>
+			<Action Type="MenuCommand">
+				<Command>Data-Multiple Cases</Command>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>cad::GetDatafileAttributes</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="4" left="326" bottom="79" right="699" />
+		<StaticText>For your current .dat file, this page shows cases and datasets, their names and acronyms, and .dat file subfolder (Cases) or Dataset category.
+Only acroymns and comments can be editted. If a case has been selected (e.g. for batch, or case comparison), the Selected column is checked.  To change other data, use the Data Manager (F10).</StaticText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="105" left="132" bottom="129" right="186" />
+		<TabOrder>15</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Load"</Title>
+		<Font GUID="52DB758F-6678-4679-88AE-B237437EE7AD" Name="Main Button Text" />
+		<ActionSequence>
+			<Action Type="MenuCommand">
+				<Command>Case-Load As Active</Command>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>cad::RenameKeySetElements</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="102" left="735" bottom="129" right="824" />
+		<TabOrder>11</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Load"</Title>
+		<Font GUID="52DB758F-6678-4679-88AE-B237437EE7AD" Name="Main Button Text" />
+		<ActionSequence>
+			<Action Type="MenuCommand">
+				<Command>Data-Load As Active</Command>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>cad::ClearActiveDatasets</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>cad::GetDatafileAttributes</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="779" left="26" bottom="805" right="199" />
+		<TabOrder>5</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Clear Active Dataset"</Title>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Tabbed Page Object">
+		<Location top="176" left="3" bottom="700" right="840" />
+		<TabOrder>20</TabOrder>
+		<PrintingOccurrence>Never</PrintingOccurrence>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<MultipleTabRows>true</MultipleTabRows>
+		<SelectedPageSymbol>cad::CurrentTabbedPage</SelectedPageSymbol>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="133" left="897" bottom="177" right="993" />
+		<TabOrder>21</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Close"</Title>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="ClosePage" />
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="135" left="732" bottom="159" right="825" />
+		<TabOrder>10</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Save As"</Title>
+		<Font GUID="52DB758F-6678-4679-88AE-B237437EE7AD" Name="Main Button Text" />
+		<ActionSequence>
+			<Action Type="MenuCommand">
+				<Command>Data-Save As</Command>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>cad::ClearActiveDatasets</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>cad::GetDatafileAttributes</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="720" left="23" bottom="748" right="230" />
+		<StaticText>Right-click to Load a case
+Use the buttons to open a dataset</StaticText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Scalar">
+		<Location top="732" left="209" bottom="780" right="1075" />
+		<TabOrder>24</TabOrder>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<BackgroundColor RGB="#c0c0c0" />
+		<Layout>Text-Value</Layout>
+		<SeparatorSign>none</SeparatorSign>
+		<ExplicitIdentifier>
+			<Identifier>cad::CurrentDirectory</Identifier>
+			<NumberFormat Width="70" Decimals="0" Alignment="Left" ShowDefaults="true" />
+		</ExplicitIdentifier>
+		<ExplicitIdentifier>
+			<Identifier>cad::CurrentDataFile</Identifier>
+			<NumberFormat Width="15" Decimals="0" Alignment="Left" ShowDefaults="true" />
+		</ExplicitIdentifier>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="713" left="209" bottom="731" right="275" />
+		<TabOrder>23</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Refresh"</Title>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>cad::GetDatafileAttributes</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="750" left="26" bottom="777" right="200" />
+		<TabOrder>16</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Change .dat File"</Title>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="MenuCommand">
+				<Command>File-Open Data File</Command>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="137" left="75" bottom="161" right="123" />
+		<TabOrder>8</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"New"</Title>
+		<Font GUID="52DB758F-6678-4679-88AE-B237437EE7AD" Name="Main Button Text" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>cad::ClearCase</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+			<Action Type="MenuCommand">
+				<Command>Case-New</Command>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="144" left="6" bottom="168" right="60" />
+		<TabOrder>12</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Export"</Title>
+		<TooltipText>"Export selected cases or datasets"</TooltipText>
+		<Font GUID="52DB758F-6678-4679-88AE-B237437EE7AD" Name="Main Button Text" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>cad::ExportSelectedDatafiles</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="114" left="6" bottom="138" right="60" />
+		<TabOrder>13</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Import"</Title>
+		<TooltipText>"Import cases or datasets (prompt before overwriting)"</TooltipText>
+		<Font GUID="52DB758F-6678-4679-88AE-B237437EE7AD" Name="Main Button Text" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>cad::ImportDatafiles</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="5" left="727" bottom="33" right="834" />
+		<TabOrder>2</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Close"</Title>
+		<TooltipText>"Apply Changes to Acronyms and Comments"</TooltipText>
+		<BackgroundColor RGB="#c0c0c0" />
+		<ForegroundColor>
+			<UserColor GUID="8C1FFC91-A781-4272-831D-2D86F23592E4">red</UserColor>
+		</ForegroundColor>
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<ActionSequence>
+			<Action Type="ClosePage" />
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Scalar">
+		<Location top="148" left="198" bottom="166" right="653" />
+		<TabOrder>25</TabOrder>
+		<PopupMenu ProjectUUID="A3D1EE48-DA66-4320-8819-5B8DAAA33B9E" MenuUUID="629D019E-8BF2-4872-A003-9E203F6BEF42" />
+		<Font GUID="566AF7CB-F855-43CB-BE0E-C210BC82B31B" Name="Copy Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="1" MarginRight="1" MarginBottom="1" MarginLeft="1" />
+		<BackgroundColor>
+			<UserColor GUID="4C29CF98-3E51-4BAA-8563-90FCE3E3DF3B">default background</UserColor>
+		</BackgroundColor>
+		<Layout>Value</Layout>
+		<SeparatorSign>=</SeparatorSign>
+		<ExplicitIdentifier>
+			<Identifier>cad::CurrentDataFile</Identifier>
+			<NumberFormat Width="15" Decimals="0" Alignment="Left" ShowDefaults="true" />
+		</ExplicitIdentifier>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="81" left="75" bottom="99" right="183" />
+		<StaticText>Cases</StaticText>
+		<Alignment>Center</Alignment>
+		<Font GUID="AA5FC319-34D1-4D05-A06C-BF4D3B89EA34" Name="Heading Subpage" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Rectangle">
+		<Location top="81" left="711" bottom="168" right="837" />
+		<Shape>In-Shadow</Shape>
+		<FillColor>
+			<UserColor GUID="4C29CF98-3E51-4BAA-8563-90FCE3E3DF3B">default background</UserColor>
+		</FillColor>
+		<LineColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="81" left="720" bottom="99" right="828" />
+		<StaticText>Datasets</StaticText>
+		<Alignment>Center</Alignment>
+		<Font GUID="AA5FC319-34D1-4D05-A06C-BF4D3B89EA34" Name="Heading Subpage" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="126" left="198" bottom="141" right="330" />
+		<StaticText>Current .dat File</StaticText>
+		<Alignment>Center</Alignment>
+		<Font GUID="AA5FC319-34D1-4D05-A06C-BF4D3B89EA34" Name="Heading Subpage" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="126" left="339" bottom="144" right="651" />
+		<StaticText>Right-click to change</StaticText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="138" left="129" bottom="162" right="186" />
+		<TabOrder>14</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Save As"</Title>
+		<Font GUID="52DB758F-6678-4679-88AE-B237437EE7AD" Name="Main Button Text" />
+		<ActionSequence>
+			<Action Type="MenuCommand">
+				<Command>Case-Save As</Command>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="81" left="645" bottom="105" right="699" />
+		<Hidden>IsNotAuthorized( 'Solve' )</Hidden>
+		<TabOrder>17</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Wizard"</Title>
+		<TooltipText>"Create a case from existing Datasets"</TooltipText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="LinkedPage">
+				<Page PageGUID="13CA113E-5531-4F40-A0C9-FDECFEC56CAC" Name="Create Scenario Wizard" />
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="108" left="657" bottom="144" right="693" />
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>4</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Bitmap</ButtonType>
+		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:MyBitmaps\Help.png"</BitmapFile>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Help">
+				<HelpOn>PageKeyWord</HelpOn>
+				<Keyword>"GeneralBlocks"</Keyword>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Picture">
+		<Location top="0" left="0" bottom="60" right="318" />
+		<FileName LiteralFileName="true">"&lt;prj&gt;:MyBitmaps\WoodFlow Header.png"</FileName>
+		<Display>StretchOrShrink</Display>
+		<KeepRatio>true</KeepRatio>
+		<Transparent>true</Transparent>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="147" left="660" bottom="165" right="678" />
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>9</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"Default Case"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="B26042D7-DF6D-4F84-B645-AB25804EDF16">Default Case</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="147" left="684" bottom="165" right="702" />
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>7</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"Current Case"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="A89CB79D-D36D-4373-8285-942F131307E5">Active Case</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>IsNotAuthorized</Symbol>
+			<Symbol>cad::ClearCase</Symbol>
+			<Symbol>cad::CurrentDirectory</Symbol>
+			<Symbol>cad::ClearActiveDatasets</Symbol>
+			<Symbol>cad::CurrentDataFile</Symbol>
+			<Symbol>cad::RenameKeySetElements</Symbol>
+			<Symbol>cad::Hide_ApplyChangesButton</Symbol>
+			<Symbol>cad::GetDatafileAttributes</Symbol>
+			<Symbol>cad::ApplyCaseAcronyms</Symbol>
+			<Symbol>cad::ExportSelectedDatafiles</Symbol>
+			<Symbol>cad::ImportDatafiles</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

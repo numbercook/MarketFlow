@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="60" left="81" bottom="546" right="887" />
+	<PageEditSize Type="Specified">
+		<Size Width="800" Height="480" />
+	</PageEditSize>
+	<ProjectUUID>B2FACAE1-6EEE-4497-BF6D-B115323573E2</ProjectUUID>
+	<IsDialogPage>true</IsDialogPage>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<Background Inherited="true" />
+	<Action>
+		<PageProcedure>nsm::InitGUIRecOutAlpha</PageProcedure>
+		<EntryProcedure>nsm::InitGUIRecOutAlpha</EntryProcedure>
+	</Action>
+	<PageObject Type="Pivot Table">
+		<Location top="72" left="12" bottom="468" right="492" />
+		<TabOrder>1</TabOrder>
+		<ObjectUUID>3E607201-29BD-4C40-A94A-BD40E6226770</ObjectUUID>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<Contents>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::GUIrecOutAlpha( nsm::bKout, nsm::k )</Identifier>
+				<Show_Unit>
+					<Show_Unit ID="4112">"Show per value"</Show_Unit>
+				</Show_Unit>
+				<Title ID="4120">"Conversion"</Title>
+				<Format>
+					<Decimal_Places ID="4312">2</Decimal_Places>
+				</Format>
+				<Procedures_Assertions>
+					<On_Change ID="4181">nsm::SetValuesHaveChanged</On_Change>
+				</Procedures_Assertions>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::GUIrecOutAlpha( nsm::bKout, nsm::k )</Identifier>
+				<Unit ID="4111">[1]</Unit>
+				<Show_Unit>
+					<Show_Unit ID="4112">"Show in header"</Show_Unit>
+				</Show_Unit>
+				<Title ID="4120">"Same Units"</Title>
+				<Format>
+					<Decimal_Places ID="4312">2</Decimal_Places>
+				</Format>
+				<Procedures_Assertions>
+					<On_Change ID="4181">nsm::SetValuesHaveChanged</On_Change>
+				</Procedures_Assertions>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::GUIrecOutAlphaPC( nsm::bKout, nsm::k )</Identifier>
+				<Title ID="4120">"Percent"</Title>
+				<Procedures_Assertions>
+					<On_Change ID="4181">nsm::SetPCHasChanged</On_Change>
+				</Procedures_Assertions>
+			</Explicit_Identifier>
+		</Contents>
+		<Indices>
+			<Explicit_Index>
+				<Index ID="6510">nsm::k</Index>
+				<Header_Title ID="6530">"Recipe (k)"</Header_Title>
+				<Location_in_Initial_View ID="6560">"In Rows"</Location_in_Initial_View>
+			</Explicit_Index>
+			<Explicit_Index>
+				<Index ID="6510">nsm::bKout</Index>
+				<Header_Title ID="6530">"Output"</Header_Title>
+				<Location_in_Initial_View ID="6560">"In Rows"</Location_in_Initial_View>
+			</Explicit_Index>
+			<Identifier_Index>
+				<Location_in_Initial_View ID="6260">"In Columns"</Location_in_Initial_View>
+			</Identifier_Index>
+		</Indices>
+		<General>
+			<Dense_Aggregation_restricts_to_Domain ID="1022">"Yes"</Dense_Aggregation_restricts_to_Domain>
+			<User_Modifications>
+				<Drag_Drop_Headers ID="1220">"Allowed"</Drag_Drop_Headers>
+			</User_Modifications>
+			<Save_Layout_State>
+				<By_End_User ID="1040">"No"</By_End_User>
+				<By_Developer ID="1115">"No"</By_Developer>
+			</Save_Layout_State>
+		</General>
+		<Row_Area>
+			<Background_Color ID="2010">RGB&lt;255,255,200&gt;</Background_Color>
+			<Text_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2020">"default selection"</Text_Color>
+			<Headers>
+				<Background_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2120">"default selection"</Background_Color>
+				<Text_Color ID="2130">RGB&lt;255,255,255&gt;</Text_Color>
+				<Show_Sub_Headers ID="2150">"No"</Show_Sub_Headers>
+			</Headers>
+			<Grid_Focus_Indicator>
+				<Background_Color ID="2270">RGB&lt;0,0,168&gt;</Background_Color>
+				<Text_Color ID="2280">RGB&lt;255,255,200&gt;</Text_Color>
+			</Grid_Focus_Indicator>
+		</Row_Area>
+		<Grid_Area>
+			<Background_Color ID="5010">RGB&lt;255,255,255&gt;</Background_Color>
+			<Alternating_Background_Color ID="5011">RGB&lt;225,225,225&gt;</Alternating_Background_Color>
+			<Aggregators>
+				<Background_Color ID="5220">RGB&lt;255,128,128&gt;</Background_Color>
+			</Aggregators>
+			<Sub_Header_Row_or_Column>
+				<Background_Color ID="5320">RGB&lt;255,255,200&gt;</Background_Color>
+			</Sub_Header_Row_or_Column>
+		</Grid_Area>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="432" left="582" bottom="462" right="756" />
+		<TabOrder>6</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Cancel"</Title>
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<ActionSequence>
+			<Action Type="ClosePage" />
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="120" left="582" bottom="150" right="756" />
+		<ReadOnly>VALUE := forall(k , sum[bkout , GUIrecOutAlphaPC(bKout,k) ] = 1 )</ReadOnly>
+		<TabOrder>2</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Adjust to 100%"</Title>
+		<TooltipText>"Adjust to reflect percentages"</TooltipText>
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>nsm::AdjustGUIRecOutAlpha</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="390" left="582" bottom="420" right="756" />
+		<ReadOnly>VALUE := not ValuesHaveChanged</ReadOnly>
+		<TabOrder>4</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Apply and Close"</Title>
+		<TooltipText>"Adjust to reflect percentages"</TooltipText>
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>nsm::ApplyAdjustedGUIRecOutAlpha</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+			<Action Type="ClosePage" />
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="168" left="582" bottom="198" right="756" />
+		<ReadOnly>VALUE := not ValuesHaveChanged</ReadOnly>
+		<TabOrder>3</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Recalculate %"</Title>
+		<TooltipText>"Adjust to reflect percentages"</TooltipText>
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>nsm::RecalcGUIRecOutAlphaPC</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="72" left="582" bottom="102" right="756" />
+		<TabOrder>5</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Reset"</Title>
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>PageProcedure</RunWhat>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Navigation Object">
+		<Location top="12" left="12" bottom="66" right="492" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<TabOrder>7</TabOrder>
+		<Font GUID="AA5FC319-34D1-4D05-A06C-BF4D3B89EA34" Name="Heading Subpage" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<Display>Text</Display>
+		<Spacing>6</Spacing>
+		<BackgroundColor RGB="#c0c0c0" />
+		<NavigationData>
+			<ReferencePage>ThisPage</ReferencePage>
+			<NumberOfGenerations>1</NumberOfGenerations>
+			<NumberOfAncestors>1</NumberOfAncestors>
+			<CenterText>true</CenterText>
+			<SpreadEvenly>true</SpreadEvenly>
+		</NavigationData>
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>nsm::k</Symbol>
+			<Symbol>nsm::InitGUIRecOutAlpha</Symbol>
+			<Symbol>nsm::RecalcGUIRecOutAlphaPC</Symbol>
+			<Symbol>nsm::GUIrecOutAlpha</Symbol>
+			<Symbol>nsm::ApplyAdjustedGUIRecOutAlpha</Symbol>
+			<Symbol>nsm::ValuesHaveChanged</Symbol>
+			<Symbol>nsm::GUIrecOutAlphaPC</Symbol>
+			<Symbol>nsm::bKout</Symbol>
+			<Symbol>nsm::AdjustGUIRecOutAlpha</Symbol>
+			<Symbol>nsm::SetValuesHaveChanged</Symbol>
+			<Symbol>nsm::SetPCHasChanged</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

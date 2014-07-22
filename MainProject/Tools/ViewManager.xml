@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<ViewDefinition Name="Domain - Range - Default">
+	<Column Attribute="index domain" ColumnWidth="602" />
+	<Column Attribute="range" ColumnWidth="100" />
+	<Column Attribute="default" ColumnWidth="100" />
+</ViewDefinition>
+<ViewDefinition Name="Domain - Definition">
+	<IdentifierColumnWidth>165</IdentifierColumnWidth>
+	<Column Attribute="index domain" ColumnWidth="304" />
+	<Column Attribute="definition" ColumnWidth="367" />
+</ViewDefinition>
+<ViewDefinition Name="Domain - Unit">
+	<Column Attribute="index domain" ColumnWidth="100" />
+	<Column Attribute="unit" ColumnWidth="100" />
+</ViewDefinition>
+<ViewDefinition Name="Domain - Text">
+	<IdentifierColumnWidth>145</IdentifierColumnWidth>
+	<Column Attribute="index domain" ColumnWidth="132" />
+	<Column Attribute="text" ColumnWidth="490" />
+</ViewDefinition>
+<ViewDefinition Name="Subset of - Index">
+	<Column Attribute="subset of" ColumnWidth="100" />
+	<Column Attribute="index" ColumnWidth="100" />
+</ViewDefinition>
+<ViewDefinition Name="Mapping">
+	<Column Attribute="mapping" />
+</ViewDefinition>
+<ViewDefinition Name="Domain - Subset">
+	<Column Attribute="subset of" />
+	<Column Attribute="index domain" />
+	<Column Attribute="definition" ColumnWidth="274" />
+	<Column Attribute="index" />
+</ViewDefinition>
+<ViewDefinition Name="Domain - Definition - Mapping - Body">
+	<Column Attribute="body" ColumnWidth="640" />
+	<Column Attribute="definition" />
+	<Column Attribute="mapping" />
+	<Column Attribute="index domain" />
+</ViewDefinition>
+<ViewDefinition Name="Domain - Range - Definition - body">
+	<IdentifierColumnWidth>199</IdentifierColumnWidth>
+	<Column Attribute="index domain" ColumnWidth="101" />
+	<Column Attribute="range" />
+	<Column Attribute="definition" />
+	<Column Attribute="body" />
+</ViewDefinition>
+<ViewDefinition Name="Body">
+	<Column Attribute="body" ColumnWidth="350" />
+	<Column Attribute="comment" />
+</ViewDefinition>
+<ViewDefinition Name="Property">
+	<IdentifierColumnWidth>332</IdentifierColumnWidth>
+	<Column Attribute="property" />
+</ViewDefinition>
+<ViewDefinition Name="Subset of - Index - Definition">
+	<IdentifierColumnWidth>121</IdentifierColumnWidth>
+	<Column Attribute="subset of" />
+	<Column Attribute="property" ColumnWidth="49" />
+	<Column Attribute="index" />
+	<Column Attribute="definition" ColumnWidth="673" />
+	<Column Attribute="parameter" />
+</ViewDefinition>

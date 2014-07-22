@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="29" left="4" bottom="696" right="1072" />
+	<PageEditSize Type="Inherited">
+		<Size Width="900" Height="706" />
+	</PageEditSize>
+	<ProjectUUID>B2FACAE1-6EEE-4497-BF6D-B115323573E2</ProjectUUID>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<ResizeData>
+		<MainArea Line="FixedFromTop" Value="76">
+			<TopArea Line="FixedFromRight" Value="74">
+				<LeftArea Line="FixedFromLeft" Value="323" />
+			</TopArea>
+			<BottomArea Line="FixedFromTop" Value="48">
+				<BottomArea Line="FixedFromLeft" Value="135" />
+			</BottomArea>
+		</MainArea>
+	</ResizeData>
+	<Background Inherited="true" />
+	<Action>
+		<EntryProcedure>OpenParentPage</EntryProcedure>
+	</Action>
+	<UsedReferences>
+		<Model>
+			<Symbol>OpenParentPage</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

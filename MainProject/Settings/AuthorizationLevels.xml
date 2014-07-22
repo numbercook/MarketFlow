@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<AuthorizationLevels>
+	<Level Name="Developer" Password="i5HucHgSQPl#" />
+	<Level Name="View Results" Password="gGalbYbhr9q#" IsDefault="true" />
+	<Level Name="Run Model" Password="gGalbYbhr9q#" />
+	<Level Name="Modify Scenario" Password="gGalbYbhr9q#" />
+	<Level Name="MapOnly" Password="gGalbYbhr9q#" />
+</AuthorizationLevels>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ExportSettings>
+	<ExcludedFile>_CasesAndData\CasesAndData.aim</ExcludedFile>
+	<ExcludedFile>_DataEntry\DataEntry.aim</ExcludedFile>
+	<ExcludedFile>_FlowRO</ExcludedFile>
+	<ExcludedFile>_NSModel\NSModel.aim</ExcludedFile>
+	<ExcludedFile>_ProjectDescription\ProjectDescription.aim</ExcludedFile>
+	<ExcludedFile>_Style Library\Style Library.aim</ExcludedFile>
+	<ExcludedFile>backup</ExcludedFile>
+	<ExcludedFile>log</ExcludedFile>
+	<ExcludedFile>MarketFlow.aim</ExcludedFile>
+	<ExcludedFile>MarketFlowDatabase.udl</ExcludedFile>
+	<ExcludedFile>MarketFlowUsersX.usr</ExcludedFile>
+	<ExcludedFile>marketPages.pag</ExcludedFile>
+	<ExcludedFile>SCSection.amb</ExcludedFile>
+	<IncludedFile>ExcelReadME\ExcelReadME.aim</IncludedFile>
+</ExportSettings>

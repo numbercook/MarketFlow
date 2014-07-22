@@ -1,0 +1,319 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="29" left="4" bottom="696" right="1072" />
+	<PageEditSize Type="Inherited">
+		<Size Width="900" Height="706" />
+	</PageEditSize>
+	<ProjectUUID>B2FACAE1-6EEE-4497-BF6D-B115323573E2</ProjectUUID>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<ResizeData>
+		<MainArea Line="FixedFromTop" Value="76">
+			<TopArea Line="FixedFromRight" Value="74">
+				<LeftArea Line="FixedFromLeft" Value="323" />
+			</TopArea>
+			<BottomArea Line="FixedFromTop" Value="48">
+				<BottomArea Line="FixedFromLeft" Value="135" />
+			</BottomArea>
+		</MainArea>
+	</ResizeData>
+	<Background Inherited="true" />
+	<HelpTopic>"Configurations"</HelpTopic>
+	<PageObject Type="Text">
+		<Location top="126" left="153" bottom="150" right="551" />
+		<HelpTag>"General MUs"</HelpTag>
+		<StaticText>Mill Configurations: Recipes Used</StaticText>
+		<Font GUID="98B1D76A-C11C-4BD0-B6AE-5B5A18B4A7B2" Name="Page Title" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Pivot Table">
+		<Location top="150" left="144" bottom="360" right="887" />
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>9</TabOrder>
+		<PopupMenu None="true" />
+		<ObjectUUID>D821DDB2-A67A-4974-AE97-9DE8CB3BC7CC</ObjectUUID>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<Contents>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::confNam( nsm::f, nsm::c )</Identifier>
+				<Domain ID="4123">nsm::FC_Ex( nsm::f, nsm::c )</Domain>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::confCost( nsm::f, nsm::c )</Identifier>
+				<Domain ID="4123">nsm::FC_Ex( nsm::f, nsm::c )</Domain>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::fck_Ex( nsm::f, nsm::c, nsm::k )</Identifier>
+				<Show_Unit>
+					<Show_Unit ID="4112">"Not show units"</Show_Unit>
+				</Show_Unit>
+				<Title ID="4120">"Recipes Used (fck_ex)"</Title>
+				<Format>
+					<Show_Checkboxes ID="4315">"Yes"</Show_Checkboxes>
+				</Format>
+			</Explicit_Identifier>
+			<Defaults>
+				<Show_Unit>
+					<Show_Unit ID="4051">"Show in header"</Show_Unit>
+				</Show_Unit>
+				<Colors>
+					<Background_Color ID="4170">nsm::_fcCorresponding( nsm::f, nsm::c )</Background_Color>
+				</Colors>
+			</Defaults>
+		</Contents>
+		<Indices>
+			<Explicit_Index>
+				<Index ID="6510">nsm::f</Index>
+				<Link_to_Element_Parameter ID="6515">nsm::_f</Link_to_Element_Parameter>
+				<Colors>
+					<Background_Color ID="6542">ELEMENT( nsm::f )-&gt;AllColors := if exists(c | _F_C_NoRecipe(f,c)) then 'red' 
+else _fCorresponding(f)
+endif</Background_Color>
+				</Colors>
+			</Explicit_Index>
+			<Explicit_Index>
+				<Index ID="6510">nsm::c</Index>
+				<Link_to_Element_Parameter ID="6515">nsm::_c</Link_to_Element_Parameter>
+				<Colors>
+					<Background_Color ID="6542">ELEMENT( nsm::c )-&gt;AllColors := if exists(f | _F_C_NoRecipe(f,c)) then 'red' 
+elseif exists(f | _fCorresponding(f)) and c=_c then 'corresponding'
+endif</Background_Color>
+				</Colors>
+			</Explicit_Index>
+			<Explicit_Index>
+				<Index ID="6510">nsm::k</Index>
+				<Link_to_Element_Parameter ID="6515">nsm::_k</Link_to_Element_Parameter>
+			</Explicit_Index>
+			<Identifier_Index>
+				<Location_in_Initial_View ID="6260">"In Columns"</Location_in_Initial_View>
+			</Identifier_Index>
+		</Indices>
+		<General>
+			<Dense_Aggregation_restricts_to_Domain ID="1022">"Yes"</Dense_Aggregation_restricts_to_Domain>
+			<User_Modifications>
+				<Insert_Row_or_Column ID="1242">"Not Allowed"</Insert_Row_or_Column>
+				<Delete_Row_or_Column ID="1244">"Not Allowed"</Delete_Row_or_Column>
+			</User_Modifications>
+		</General>
+		<Row_Area>
+			<Background_Color ID="2010">RGB&lt;255,255,200&gt;</Background_Color>
+			<Text_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2020">"default selection"</Text_Color>
+			<Headers>
+				<Background_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2120">"default selection"</Background_Color>
+				<Text_Color ID="2130">RGB&lt;255,255,255&gt;</Text_Color>
+			</Headers>
+			<Grid_Focus_Indicator>
+				<Background_Color ID="2270">RGB&lt;0,0,168&gt;</Background_Color>
+				<Text_Color ID="2280">RGB&lt;255,255,200&gt;</Text_Color>
+			</Grid_Focus_Indicator>
+		</Row_Area>
+		<Grid_Area>
+			<Background_Color ID="5010">RGB&lt;255,255,255&gt;</Background_Color>
+			<Alternating_Background_Color ID="5011">RGB&lt;225,225,225&gt;</Alternating_Background_Color>
+			<Aggregators>
+				<Background_Color ID="5220">RGB&lt;255,128,128&gt;</Background_Color>
+			</Aggregators>
+			<Sub_Header_Row_or_Column>
+				<Background_Color ID="5320">RGB&lt;255,255,200&gt;</Background_Color>
+			</Sub_Header_Row_or_Column>
+		</Grid_Area>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="126" left="868" bottom="144" right="887" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<Hidden>"Yes"</Hidden>
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>6</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"Available and Associated with Block(s)"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="ABB4A8BD-7798-41D3-BA43-C629DFC98735">green</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="126" left="842" bottom="144" right="861" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>4</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"Corresponding"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="FC1F3FC6-60B3-4FB3-9165-795D7981C6FF">Corresponding</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="126" left="817" bottom="144" right="835" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>8</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"No recipes specified for ( facility , configuration)"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="8C1FFC91-A781-4272-831D-2D86F23592E4">red</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="396" left="861" bottom="414" right="880" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<Hidden>"Yes"</Hidden>
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>5</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"Available and Associated with Block(s)"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="ABB4A8BD-7798-41D3-BA43-C629DFC98735">green</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="396" left="144" bottom="420" right="848" />
+		<HelpTag>"General MUs"</HelpTag>
+		<StaticText>Mill Configuration: Recipe Details</StaticText>
+		<Font GUID="98B1D76A-C11C-4BD0-B6AE-5B5A18B4A7B2" Name="Page Title" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Pivot Table">
+		<Location top="420" left="151" bottom="690" right="887" />
+		<TabOrder>10</TabOrder>
+		<ObjectUUID>31705AFE-B014-4D91-996C-A375DE0118EA</ObjectUUID>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<Contents>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::fckMax( nsm::f, nsm::c, nsm::k )</Identifier>
+				<Show_Unit>
+					<Show_Unit ID="4112">"Show per value"</Show_Unit>
+				</Show_Unit>
+				<Domain ID="4123">nsm::fck_Ex( nsm::f, nsm::c, nsm::k )</Domain>
+				<Colors>
+					<Background_Color ID="4160">nsm::__F_C_K_NoMax( nsm::f, nsm::c, nsm::k )</Background_Color>
+				</Colors>
+				<Tooltip_Text ID="4125">"Maximum Capacity"</Tooltip_Text>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::recVarCst( nsm::f, nsm::c, nsm::k )</Identifier>
+				<Show_Unit>
+					<Show_Unit ID="4112">"Show per value"</Show_Unit>
+				</Show_Unit>
+				<Domain ID="4123">nsm::fck_Ex( nsm::f, nsm::c, nsm::k )</Domain>
+				<Tooltip_Text ID="4125">"variable cost"</Tooltip_Text>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::fckCConsum( nsm::f, nsm::c, nsm::k )</Identifier>
+				<Show_Unit>
+					<Show_Unit ID="4112">"Show per value"</Show_Unit>
+				</Show_Unit>
+				<Domain ID="4123">nsm::fck_Ex( nsm::f, nsm::c, nsm::k )</Domain>
+				<Tooltip_Text ID="4125">"% capacity consumption "</Tooltip_Text>
+			</Explicit_Identifier>
+			<Defaults>
+				<Show_Unit>
+					<Show_Unit ID="4051">"Show in header"</Show_Unit>
+				</Show_Unit>
+				<Format>
+					<Show_1000_seperator ID="4213">"Yes"</Show_1000_seperator>
+				</Format>
+				<Colors>
+					<Background_Color ID="4170">ELEMENT( nsm::f, nsm::c, nsm::k )-&gt;AllColors := if _fcCorresponding(f,c) and _kCorresponding(k) then __CCorresp endif</Background_Color>
+				</Colors>
+			</Defaults>
+		</Contents>
+		<Indices>
+			<Explicit_Index>
+				<Index ID="6510">nsm::f</Index>
+				<Link_to_Element_Parameter ID="6515">nsm::_f</Link_to_Element_Parameter>
+				<Colors>
+					<Background_Color ID="6542">nsm::_fCorresponding( nsm::f )</Background_Color>
+				</Colors>
+			</Explicit_Index>
+			<Explicit_Index>
+				<Index ID="6510">nsm::c</Index>
+				<Link_to_Element_Parameter ID="6515">nsm::_c</Link_to_Element_Parameter>
+				<Colors>
+					<Background_Color ID="6542">ELEMENT( nsm::c )-&gt;AllColors := if exists(f | _fCorresponding(f)) and c=_c then 'corresponding' endif</Background_Color>
+				</Colors>
+			</Explicit_Index>
+			<Explicit_Index>
+				<Index ID="6510">nsm::k</Index>
+				<Link_to_Element_Parameter ID="6515">nsm::_k</Link_to_Element_Parameter>
+			</Explicit_Index>
+			<Identifier_Index>
+				<Hide_if_Single_Identifier ID="6270">"No"</Hide_if_Single_Identifier>
+			</Identifier_Index>
+		</Indices>
+		<General>
+			<Dense_Aggregation_restricts_to_Domain ID="1022">"Yes"</Dense_Aggregation_restricts_to_Domain>
+			<User_Modifications>
+				<Insert_Row_or_Column ID="1242">"Allowed"</Insert_Row_or_Column>
+				<Delete_Row_or_Column ID="1244">"Allowed"</Delete_Row_or_Column>
+			</User_Modifications>
+		</General>
+		<Row_Area>
+			<Background_Color ID="2010">RGB&lt;255,255,200&gt;</Background_Color>
+			<Text_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2020">"default selection"</Text_Color>
+			<Headers>
+				<Background_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2120">"default selection"</Background_Color>
+				<Text_Color ID="2130">RGB&lt;255,255,255&gt;</Text_Color>
+				<Show_Sub_Headers ID="2150">"No"</Show_Sub_Headers>
+			</Headers>
+			<Grid_Focus_Indicator>
+				<Background_Color ID="2270">RGB&lt;0,0,168&gt;</Background_Color>
+				<Text_Color ID="2280">RGB&lt;255,255,200&gt;</Text_Color>
+			</Grid_Focus_Indicator>
+		</Row_Area>
+		<Grid_Area>
+			<Background_Color ID="5010">RGB&lt;255,255,255&gt;</Background_Color>
+			<Alternating_Background_Color ID="5011">RGB&lt;225,225,225&gt;</Alternating_Background_Color>
+			<Aggregators>
+				<Background_Color ID="5220">RGB&lt;255,128,128&gt;</Background_Color>
+			</Aggregators>
+			<Sub_Header_Row_or_Column>
+				<Background_Color ID="5320">RGB&lt;255,255,200&gt;</Background_Color>
+			</Sub_Header_Row_or_Column>
+		</Grid_Area>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="396" left="835" bottom="414" right="854" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>7</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"No Maximum specified for facility , configuration , recipe"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="8C1FFC91-A781-4272-831D-2D86F23592E4">red</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>AllColors</Symbol>
+			<Symbol>nsm::c</Symbol>
+			<Symbol>nsm::f</Symbol>
+			<Symbol>nsm::k</Symbol>
+			<Symbol>nsm::__CCorresp</Symbol>
+			<Symbol>nsm::fck_Ex</Symbol>
+			<Symbol>nsm::_F_C_NoRecipe</Symbol>
+			<Symbol>nsm::recVarCst</Symbol>
+			<Symbol>nsm::fckMax</Symbol>
+			<Symbol>nsm::confNam</Symbol>
+			<Symbol>nsm::_fcCorresponding</Symbol>
+			<Symbol>nsm::_c</Symbol>
+			<Symbol>nsm::_f</Symbol>
+			<Symbol>nsm::_k</Symbol>
+			<Symbol>nsm::_fCorresponding</Symbol>
+			<Symbol>nsm::confCost</Symbol>
+			<Symbol>nsm::_kCorresponding</Symbol>
+			<Symbol>nsm::fckCConsum</Symbol>
+			<Symbol>nsm::FC_Ex</Symbol>
+			<Symbol>nsm::__F_C_K_NoMax</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

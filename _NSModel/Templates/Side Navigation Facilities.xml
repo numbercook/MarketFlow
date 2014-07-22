@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="29" left="4" bottom="696" right="1072" />
+	<PageEditSize Type="Inherited">
+		<Size Width="900" Height="706" />
+	</PageEditSize>
+	<ProjectUUID>B2FACAE1-6EEE-4497-BF6D-B115323573E2</ProjectUUID>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<ResizeData>
+		<MainArea Line="FixedFromTop" Value="76">
+			<TopArea Line="FixedFromRight" Value="74">
+				<LeftArea Line="FixedFromLeft" Value="323" />
+			</TopArea>
+			<BottomArea Line="FixedFromTop" Value="48">
+				<BottomArea Line="FixedFromLeft" Value="135" />
+			</BottomArea>
+		</MainArea>
+	</ResizeData>
+	<Background Inherited="true" />
+	<PageObject Type="Navigation Object">
+		<Location top="126" left="6" bottom="468" right="126" />
+		<TabOrder>2</TabOrder>
+		<Font GUID="52DB758F-6678-4679-88AE-B237437EE7AD" Name="Main Button Text" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<Display>Text</Display>
+		<Spacing>6</Spacing>
+		<BackgroundColor>
+			<UserColor GUID="CB316F4F-9E6D-49C3-977E-53640CBF2B1F">Side Button Bar</UserColor>
+		</BackgroundColor>
+		<TextColor>
+			<UserColor GUID="05B4163B-58C7-4FB0-BC02-7E4B4FAD026E">Button Inactive</UserColor>
+		</TextColor>
+		<InputColor>
+			<UserColor GUID="AA565D1C-956B-4852-9572-09CE4F7C5E07">Button Active</UserColor>
+		</InputColor>
+		<NavigationData>
+			<ReferencePage>Other</ReferencePage>
+			<OtherPage PageGUID="F3723983-218D-428B-917D-379E31A326A3" Name="Facilities Separator" />
+			<NumberOfGenerations>1</NumberOfGenerations>
+			<ActionSequence>
+				<Action Type="ClosePage" />
+				<Action Type="GotoNavigationPage" />
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>SetLastViewedChildPage</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+			</ActionSequence>
+		</NavigationData>
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>SetLastViewedChildPage</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

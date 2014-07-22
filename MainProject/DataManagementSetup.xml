@@ -1,0 +1,170 @@
+<?xml version="1.0"?>
+<DataManagementSetup TimeStamp="2014-07-16 13:34:15">
+	<DataCategory Name="MU Definitions" UUID="621EE24E-3136-4605-B46E-CAA0BF6EE9AF" InternalID="3">
+		<Properties>
+			<Contents IncludeReferredSets="true">
+				<SelectedSymbol>difGS</SelectedSymbol>
+				<SelectedSymbol>GsAvailable</SelectedSymbol>
+				<SelectedSymbol>ManagementUnits_txt</SelectedSymbol>
+				<SelectedSymbol>InitialPotentialProduct</SelectedSymbol>
+				<SelectedSymbol>InitialGS_PrGrp</SelectedSymbol>
+				<SelectedSymbol>TotalInitialGS_PrGrp</SelectedSymbol>
+				<SelectedSymbol>InitialGS_mu</SelectedSymbol>
+				<SelectedSymbol>InitialPotentialProduct_mu</SelectedSymbol>
+				<SelectedSymbol>MU_Block_Relation</SelectedSymbol>
+				<SelectedSymbol>cPrG</SelectedSymbol>
+				<SelectedSymbol>AvailableGsFactor</SelectedSymbol>
+				<SelectedSymbol>PercentBlockAvailable</SelectedSymbol>
+				<SelectedSymbol>TotalInitialGS</SelectedSymbol>
+				<SelectedSymbol>ManagementUnits</SelectedSymbol>
+				<SelectedSymbol>Blocks</SelectedSymbol>
+				<SelectedSymbol>InitialGS</SelectedSymbol>
+			</Contents>
+			<Options WarningIfDataChanged="false" />
+		</Properties>
+	</DataCategory>
+	<DataCategory Name="Mill Definitions" UUID="5B766844-5800-46B9-88DF-EC798229122F" InternalID="4">
+		<Properties>
+			<Contents IncludeReferredSets="true">
+				<SelectedSymbol>Destinations</SelectedSymbol>
+				<SelectedSymbol>ResidualsUsed</SelectedSymbol>
+				<SelectedSymbol>ProductsAllUsed_PrGrp</SelectedSymbol>
+				<SelectedSymbol>Sectors</SelectedSymbol>
+				<SelectedSymbol>cMillCostCentre</SelectedSymbol>
+				<SelectedSymbol>MillDemand</SelectedSymbol>
+				<SelectedSymbol>ProductsUsed_Set</SelectedSymbol>
+				<SelectedSymbol>MillDemand_PrGrp</SelectedSymbol>
+				<SelectedSymbol>ResidualsUsed_PrGrp</SelectedSymbol>
+				<SelectedSymbol>ProductsUsed</SelectedSymbol>
+				<SelectedSymbol>cMillSector</SelectedSymbol>
+				<SelectedSymbol>ProductsUsed_PrGrp</SelectedSymbol>
+				<SelectedSymbol>ProducesResiduals</SelectedSymbol>
+				<SelectedSymbol>cPrG</SelectedSymbol>
+				<SelectedSymbol>UsesResiduals</SelectedSymbol>
+				<SelectedSymbol>ResidualsProduced</SelectedSymbol>
+				<SelectedSymbol>MillResidualDemand_PrGrp</SelectedSymbol>
+				<SelectedSymbol>UsesProducts</SelectedSymbol>
+			</Contents>
+			<Options WarningIfDataChanged="false" />
+		</Properties>
+	</DataCategory>
+	<DataCategory Name="MU and Mill Definitions" UUID="825ACFA0-7891-442A-B982-DB9A06156CEF" InternalID="9">
+		<Properties>
+			<Contents>
+				<SelectedSymbol>difGS</SelectedSymbol>
+				<SelectedSymbol>GsAvailable</SelectedSymbol>
+				<SelectedSymbol>Destinations</SelectedSymbol>
+				<SelectedSymbol>ResidualsUsed</SelectedSymbol>
+				<SelectedSymbol>ProductsAllUsed_PrGrp</SelectedSymbol>
+				<SelectedSymbol>ManagementUnits_txt</SelectedSymbol>
+				<SelectedSymbol>My_HaulTimes</SelectedSymbol>
+				<SelectedSymbol>TruckRate</SelectedSymbol>
+				<SelectedSymbol>InitialPotentialProduct</SelectedSymbol>
+				<SelectedSymbol>InitialGS_PrGrp</SelectedSymbol>
+				<SelectedSymbol>Sectors</SelectedSymbol>
+				<SelectedSymbol>TotalInitialGS_PrGrp</SelectedSymbol>
+				<SelectedSymbol>cMillCostCentre</SelectedSymbol>
+				<SelectedSymbol>MillDemand</SelectedSymbol>
+				<SelectedSymbol>ProductsUsed_Set</SelectedSymbol>
+				<SelectedSymbol>InitialGS_mu</SelectedSymbol>
+				<SelectedSymbol>MaxAllowedHaultime</SelectedSymbol>
+				<SelectedSymbol>MillDemand_PrGrp</SelectedSymbol>
+				<SelectedSymbol>ResidualsUsed_PrGrp</SelectedSymbol>
+				<SelectedSymbol>ProductsUsed</SelectedSymbol>
+				<SelectedSymbol>LoadingCostPerLoad</SelectedSymbol>
+				<SelectedSymbol>InitialPotentialProduct_mu</SelectedSymbol>
+				<SelectedSymbol>MU_Block_Relation</SelectedSymbol>
+				<SelectedSymbol>VolumePerLoad</SelectedSymbol>
+				<SelectedSymbol>cMillSector</SelectedSymbol>
+				<SelectedSymbol>HaulCostPerUnit</SelectedSymbol>
+				<SelectedSymbol>ProductsUsed_PrGrp</SelectedSymbol>
+				<SelectedSymbol>ProducesResiduals</SelectedSymbol>
+				<SelectedSymbol>cPrG</SelectedSymbol>
+				<SelectedSymbol>AvailableGsFactor</SelectedSymbol>
+				<SelectedSymbol>UsesResiduals</SelectedSymbol>
+				<SelectedSymbol>HaulTime</SelectedSymbol>
+				<SelectedSymbol>PercentBlockAvailable</SelectedSymbol>
+				<SelectedSymbol>ResidualsProduced</SelectedSymbol>
+				<SelectedSymbol>CalculatedTotalCostPerUnit</SelectedSymbol>
+				<SelectedSymbol>ProductValue</SelectedSymbol>
+				<SelectedSymbol>TotalInitialGS</SelectedSymbol>
+				<SelectedSymbol>TruckRateDefault</SelectedSymbol>
+				<SelectedSymbol>MillResidualDemand_PrGrp</SelectedSymbol>
+				<SelectedSymbol>ManagementUnits</SelectedSymbol>
+				<SelectedSymbol>ProductValue_Default</SelectedSymbol>
+				<SelectedSymbol>UsesProducts</SelectedSymbol>
+				<SelectedSymbol>Blocks</SelectedSymbol>
+				<SelectedSymbol>InitialGS</SelectedSymbol>
+			</Contents>
+		</Properties>
+	</DataCategory>
+	<DataCategory Name="Cost Data" UUID="C2CC14ED-F557-444C-9DFE-F5BBA07296FC" InternalID="12">
+		<Properties>
+			<Contents>
+				<SelectedSymbol>TruckRate</SelectedSymbol>
+				<SelectedSymbol>LoadingCostPerLoad</SelectedSymbol>
+				<SelectedSymbol>VolumePerLoad</SelectedSymbol>
+				<SelectedSymbol>HaulCostPerUnit</SelectedSymbol>
+				<SelectedSymbol>HaulTime</SelectedSymbol>
+				<SelectedSymbol>ProductValue</SelectedSymbol>
+				<SelectedSymbol>TruckRateDefault</SelectedSymbol>
+				<SelectedSymbol>ProductValue_Default</SelectedSymbol>
+			</Contents>
+			<Options WarningIfDataChanged="false" />
+		</Properties>
+	</DataCategory>
+	<DataCategory Name="TREEs Targets" UUID="4ACAD059-A2D3-491F-B09D-C62B33D5F4C2" InternalID="10">
+		<Properties>
+			<Contents>
+				<SelectedSymbol>TreesInvalidFlows</SelectedSymbol>
+				<SelectedSymbol>TreesTotalFlow</SelectedSymbol>
+				<SelectedSymbol>TreesFlow</SelectedSymbol>
+			</Contents>
+			<Options WarningIfDataChanged="false" />
+		</Properties>
+	</DataCategory>
+	<DataCategory Name="Execution Options" UUID="27F75CEF-455F-4A8B-926A-4DC7018FEC17" InternalID="11">
+		<Properties>
+			<Contents>
+				<SelectedSymbol>MillThresholdValues</SelectedSymbol>
+				<SelectedSymbol>obj_Selected</SelectedSymbol>
+				<SelectedSymbol>EvenFlowDeliver</SelectedSymbol>
+				<SelectedSymbol>MaxAllowedHaultime</SelectedSymbol>
+				<SelectedSymbol>ThresholdPenalties</SelectedSymbol>
+				<SelectedSymbol>obj_Weights</SelectedSymbol>
+				<SelectedSymbol>IsSelected</SelectedSymbol>
+				<SelectedSymbol>ViolationPenalty_NEW</SelectedSymbol>
+				<SelectedSymbol>ThresholdStart</SelectedSymbol>
+			</Contents>
+			<Options WarningIfDataChanged="false" />
+		</Properties>
+	</DataCategory>
+	<DataCategory Name="MapXY" UUID="9324591C-B39C-4109-A8C6-EC8E93BC1C2F" InternalID="13">
+		<Properties>
+			<Contents>
+				<SelectedSymbol>VisibleArea_Mill</SelectedSymbol>
+				<SelectedSymbol>VisibleArea_Default</SelectedSymbol>
+				<SelectedSymbol>VisibleArea_BLK</SelectedSymbol>
+				<SelectedSymbol>VisibleArea_MU</SelectedSymbol>
+				<SelectedSymbol>MUxy</SelectedSymbol>
+				<SelectedSymbol>BLKxy</SelectedSymbol>
+				<SelectedSymbol>MapBackgroundImageFilename</SelectedSymbol>
+				<SelectedSymbol>Millxy</SelectedSymbol>
+			</Contents>
+		</Properties>
+	</DataCategory>
+	<CaseType Name="All Identifiers" UUID="E407D82E-DACA-47E4-9621-224E0366C723" InternalID="1">
+		<Properties>
+			<Contents AllIdentifiers="true" />
+			<Options ConfirmOverwriteExisting="false" />
+		</Properties>
+	</CaseType>
+	<CaseType Name="General" UUID="9709CC90-3887-41E7-B887-4713D3D04CEE" InternalID="8">
+		<Properties>
+			<IncludedDataCategories>
+				<DataCategory UUID="5B766844-5800-46B9-88DF-EC798229122F" />
+				<DataCategory UUID="621EE24E-3136-4605-B46E-CAA0BF6EE9AF" />
+			</IncludedDataCategories>
+		</Properties>
+	</CaseType>
+</DataManagementSetup>

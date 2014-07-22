@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15" NeedsCompiledModel="false">
+	<Location top="29" left="4" bottom="696" right="1072" />
+	<PageEditSize Type="Inherited">
+		<Size Width="846" Height="706" />
+	</PageEditSize>
+	<ProjectUUID>80728F41-021F-4EE1-8508-79294300DEB2</ProjectUUID>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<ResizeData>
+		<MainArea Line="FixedFromTop" Value="76">
+			<TopArea Line="FixedFromRight" Value="74">
+				<LeftArea Line="FixedFromLeft" Value="323" />
+			</TopArea>
+			<BottomArea Line="FixedFromTop" Value="47">
+				<BottomArea Line="FixedFromLeft" Value="135" />
+			</BottomArea>
+		</MainArea>
+	</ResizeData>
+	<Background Inherited="true" />
+	<PageObject Type="Rectangle">
+		<Location top="0" left="0" bottom="576" right="702" />
+		<Hidden>"Yes"</Hidden>
+		<Shape>Open</Shape>
+		<FillColor RGB="#c0c0c0" />
+		<LineColor RGB="#000000" />
+	</PageObject>
+	<UsedReferences>
+		<Model />
+	</UsedReferences>
+</Page>

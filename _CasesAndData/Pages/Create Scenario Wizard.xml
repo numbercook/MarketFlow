@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="53" left="148" bottom="529" right="864" />
+	<PageEditSize Type="Inherited" />
+	<ProjectUUID>A3D1EE48-DA66-4320-8819-5B8DAAA33B9E</ProjectUUID>
+	<IsDialogPage>true</IsDialogPage>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<ToolBar Default="true" />
+	<PopupMenu None="true" />
+	<Background Inherited="true" />
+	<PageObject Type="Scalar">
+		<Location top="318" left="90" bottom="396" right="342" />
+		<TabOrder>2</TabOrder>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<BackgroundColor RGB="#c0c0c0" />
+		<Layout>Value</Layout>
+		<SeparatorSign>=</SeparatorSign>
+		<ExplicitIdentifier>
+			<Identifier>cad::DatafileComment</Identifier>
+			<NumberFormat Width="15" Decimals="0" Alignment="Left" ShowDefaults="true" />
+		</ExplicitIdentifier>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="12" left="42" bottom="36" right="222" />
+		<StaticText>Supply Data (MU Volumes)</StaticText>
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="318" left="6" bottom="336" right="78" />
+		<StaticText>Comment</StaticText>
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="426" left="246" bottom="462" right="342" />
+		<TabOrder>11</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Save"</Title>
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>cad::LoadWithoutPrompt</Identifier>
+				<AssignedValue>1</AssignedValue>
+			</Action>
+			<Action Type="Assignment">
+				<Identifier>cad::_DataCategory</Identifier>
+				<AssignedValue>'MU Definitions'</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>cad::LoadDataset</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+			<Action Type="Assignment">
+				<Identifier>cad::_DataCategory</Identifier>
+				<AssignedValue>'Mill Definitions'</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>cad::LoadDataset</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+			<Action Type="Assignment">
+				<Identifier>cad::_DataCategory</Identifier>
+				<AssignedValue>'Cost Data'</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>cad::LoadDataset</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+			<Action Type="Assignment">
+				<Identifier>cad::_DataCategory</Identifier>
+				<AssignedValue>cad::_ExecutionDataCategory</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>cad::LoadDataset</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+			<Action Type="Assignment">
+				<Identifier>cad::_DataCategory</Identifier>
+				<AssignedValue>cad::_MapXYDataCategory</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>cad::LoadDataset</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+			<Action Type="MenuCommand">
+				<Command>Case-Save As</Command>
+			</Action>
+			<Action Type="Assignment">
+				<Identifier>cad::LoadWithoutPrompt</Identifier>
+				<AssignedValue>0</AssignedValue>
+			</Action>
+			<Action Type="ClosePage" />
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="66" left="42" bottom="90" right="222" />
+		<StaticText>Demand Data (Mill Descriptions)</StaticText>
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="120" left="42" bottom="144" right="222" />
+		<StaticText>Cost Options</StaticText>
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Selection Object">
+		<SelectionType>DropDownList</SelectionType>
+		<Location top="30" left="42" bottom="54" right="342" />
+		<TabOrder>16</TabOrder>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextShown>ElementName</TextShown>
+		<Border Style="None" />
+		<BackgroundColor RGB="#c0c0c0" />
+		<ExplicitIdentifier>
+			<Identifier>cad::s_MUDatasets</Identifier>
+			<Description>cad::DatafileNames( cad::s_MUDatasets )</Description>
+		</ExplicitIdentifier>
+		<ElementText Index="cad::MUDatasets">cad::DatafileNames( cad::MUDatasets )</ElementText>
+	</PageObject>
+	<PageObject Type="Selection Object">
+		<SelectionType>DropDownList</SelectionType>
+		<Location top="84" left="42" bottom="108" right="342" />
+		<TabOrder>13</TabOrder>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextShown>ElementName</TextShown>
+		<Border Style="None" />
+		<BackgroundColor RGB="#c0c0c0" />
+		<ExplicitIdentifier>
+			<Identifier>cad::s_MillDatasets</Identifier>
+		</ExplicitIdentifier>
+		<ElementText Index="cad::MillDatasets">cad::DatafileNames( cad::MillDatasets )</ElementText>
+	</PageObject>
+	<PageObject Type="Selection Object">
+		<SelectionType>DropDownList</SelectionType>
+		<Location top="138" left="42" bottom="162" right="342" />
+		<TabOrder>12</TabOrder>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextShown>ElementName</TextShown>
+		<Border Style="None" />
+		<BackgroundColor RGB="#c0c0c0" />
+		<ExplicitIdentifier>
+			<Identifier>cad::s_CostDatasets</Identifier>
+		</ExplicitIdentifier>
+		<ElementText Index="cad::MillDatasets">cad::DatafileNames( cad::MillDatasets )</ElementText>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="168" left="42" bottom="192" right="222" />
+		<StaticText>Execution Options</StaticText>
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Selection Object">
+		<SelectionType>DropDownList</SelectionType>
+		<Location top="186" left="42" bottom="210" right="342" />
+		<TabOrder>15</TabOrder>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextShown>ElementName</TextShown>
+		<Border Style="None" />
+		<BackgroundColor RGB="#c0c0c0" />
+		<ExplicitIdentifier>
+			<Identifier>cad::s_ExecDatasets</Identifier>
+		</ExplicitIdentifier>
+		<ElementText Index="cad::ExecDatasets">cad::DatafileNames( cad::ExecDatasets )</ElementText>
+	</PageObject>
+	<PageObject Type="Scalar">
+		<Location top="270" left="90" bottom="300" right="180" />
+		<TabOrder>1</TabOrder>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<BackgroundColor RGB="#c0c0c0" />
+		<Layout>Value</Layout>
+		<SeparatorSign>=</SeparatorSign>
+		<ExplicitIdentifier>
+			<Identifier>cad::DatafileAcronym</Identifier>
+			<NumberFormat Width="15" Decimals="0" Alignment="Left" ShowDefaults="true" />
+			<Assertion>cad::Assert_DatafileAcronym</Assertion>
+		</ExplicitIdentifier>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="276" left="6" bottom="294" right="78" />
+		<StaticText>Acronym</StaticText>
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="426" left="84" bottom="462" right="180" />
+		<TabOrder>10</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Cancel"</Title>
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<ActionSequence>
+			<Action Type="ClosePage" />
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="216" left="42" bottom="240" right="222" />
+		<StaticText>Map XY Coordinates</StaticText>
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Selection Object">
+		<SelectionType>DropDownList</SelectionType>
+		<Location top="234" left="42" bottom="258" right="342" />
+		<TabOrder>14</TabOrder>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextShown>ElementName</TextShown>
+		<Border Style="None" />
+		<BackgroundColor RGB="#c0c0c0" />
+		<ExplicitIdentifier>
+			<Identifier>cad::s_MapXYDatasets</Identifier>
+		</ExplicitIdentifier>
+		<ElementText Index="cad::MapXYDatasets">cad::DatafileNames( cad::MapXYDatasets )</ElementText>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="30" left="372" bottom="468" right="708" />
+		<StaticText>Modify the active case by loading the selected datasets.</StaticText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>cad::s_MillDatasets</Symbol>
+			<Symbol>cad::DatafileAcronym</Symbol>
+			<Symbol>cad::MUDatasets</Symbol>
+			<Symbol>cad::_MapXYDataCategory</Symbol>
+			<Symbol>cad::MillDatasets</Symbol>
+			<Symbol>cad::ExecDatasets</Symbol>
+			<Symbol>cad::MapXYDatasets</Symbol>
+			<Symbol>cad::s_MapXYDatasets</Symbol>
+			<Symbol>cad::DatafileNames</Symbol>
+			<Symbol>cad::s_CostDatasets</Symbol>
+			<Symbol>cad::Assert_DatafileAcronym</Symbol>
+			<Symbol>cad::_ExecutionDataCategory</Symbol>
+			<Symbol>cad::LoadDataset</Symbol>
+			<Symbol>cad::_DataCategory</Symbol>
+			<Symbol>cad::LoadWithoutPrompt</Symbol>
+			<Symbol>cad::s_ExecDatasets</Symbol>
+			<Symbol>cad::s_MUDatasets</Symbol>
+			<Symbol>cad::DatafileComment</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

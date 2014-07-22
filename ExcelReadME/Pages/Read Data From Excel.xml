@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<PageEditSize Type="Inherited" />
+	<ProjectUUID>F7AC0431-7C7B-4311-A268-7AD111E1A887</ProjectUUID>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<Background Inherited="true" />
+	<PageObject Type="Text">
+		<Location top="30" left="42" bottom="60" right="510" />
+		<StaticText>WorkBook name</StaticText>
+		<Font GUID="AA5FC319-34D1-4D05-A06C-BF4D3B89EA34" Name="Heading Subpage" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="File Name Object">
+		<Location top="60" left="42" bottom="90" right="774" />
+		<TabOrder>2</TabOrder>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Identifier>XLrm::WorkbookName</Identifier>
+		<AllowedFiles>AnyFile</AllowedFiles>
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<BackgroundColor RGB="#c0c0c0" />
+	</PageObject>
+	<PageObject Type="Selection Object">
+		<SelectionType>ListBox</SelectionType>
+		<Location top="102" left="42" bottom="606" right="287" />
+		<TabOrder>1</TabOrder>
+		<UseTabInObject>true</UseTabInObject>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextShown>ElementName</TextShown>
+		<EditField>AtTop</EditField>
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<BackgroundColor RGB="#ffffff" />
+		<MultipleColumns>true</MultipleColumns>
+		<ExplicitIdentifier>
+			<Identifier>XLrm::Params_From_Excel(XLrm::Params_From_Excel)</Identifier>
+		</ExplicitIdentifier>
+	</PageObject>
+	<PageObject Type="Pivot Table">
+		<Location top="108" left="300" bottom="606" right="798" />
+		<TabOrder>4</TabOrder>
+		<ObjectUUID>A3DF1829-653A-4F9F-BB67-1CF694574D89</ObjectUUID>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<Contents>
+			<Explicit_Identifier>
+				<Identifier ID="4110">XLrm::ParamsToRead( XLrm::pfe )</Identifier>
+				<Title ID="4120">"Include"</Title>
+				<Format>
+					<Show_Checkboxes ID="4315">"Yes"</Show_Checkboxes>
+				</Format>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">XLrm::DataRange( XLrm::pfe )</Identifier>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">XLrm::RowsRange( XLrm::pfe )</Identifier>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">XLrm::ColsRange( XLrm::pfe )</Identifier>
+			</Explicit_Identifier>
+		</Contents>
+		<Indices>
+			<Explicit_Index>
+				<Index ID="6510">XLrm::pfe</Index>
+				<Header_Title ID="6530">"Parameter"</Header_Title>
+				<Show_All_Elements ID="6550">1</Show_All_Elements>
+				<Location_in_Initial_View ID="6560">"In Rows"</Location_in_Initial_View>
+			</Explicit_Index>
+			<Identifier_Index>
+				<Header_Title ID="6230">"Parameter"</Header_Title>
+				<Location_in_Initial_View ID="6260">"In Columns"</Location_in_Initial_View>
+				<Hide_if_Single_Identifier ID="6270">"No"</Hide_if_Single_Identifier>
+			</Identifier_Index>
+		</Indices>
+		<General>
+			<Dense_Aggregation_restricts_to_Domain ID="1022">"Yes"</Dense_Aggregation_restricts_to_Domain>
+		</General>
+		<Row_Area>
+			<Background_Color ID="2010">RGB&lt;255,255,200&gt;</Background_Color>
+			<Text_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2020">"default selection"</Text_Color>
+			<Headers>
+				<Background_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2120">"default selection"</Background_Color>
+				<Text_Color ID="2130">RGB&lt;255,255,255&gt;</Text_Color>
+				<Show_Sub_Headers ID="2150">"No"</Show_Sub_Headers>
+			</Headers>
+			<Grid_Focus_Indicator>
+				<Background_Color ID="2270">RGB&lt;0,0,168&gt;</Background_Color>
+				<Text_Color ID="2280">RGB&lt;255,255,200&gt;</Text_Color>
+			</Grid_Focus_Indicator>
+		</Row_Area>
+		<Grid_Area>
+			<Background_Color ID="5010">RGB&lt;255,255,255&gt;</Background_Color>
+			<Alternating_Background_Color ID="5011">RGB&lt;225,225,225&gt;</Alternating_Background_Color>
+			<Aggregators>
+				<Background_Color ID="5220">RGB&lt;255,128,128&gt;</Background_Color>
+			</Aggregators>
+			<Sub_Header_Row_or_Column>
+				<Background_Color ID="5320">RGB&lt;255,255,200&gt;</Background_Color>
+			</Sub_Header_Row_or_Column>
+		</Grid_Area>
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>XLrm::ParamsToRead</Symbol>
+			<Symbol>XLrm::DataRange</Symbol>
+			<Symbol>XLrm::pfe</Symbol>
+			<Symbol>XLrm::Params_From_Excel</Symbol>
+			<Symbol>XLrm::WorkbookName</Symbol>
+			<Symbol>XLrm::RowsRange</Symbol>
+			<Symbol>XLrm::ColsRange</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

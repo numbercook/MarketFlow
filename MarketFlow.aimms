@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<References AIMMS_Version="4.0.0.699 (x86)">
+	<MainProject Path="MainProject" />
+	<Library Path=".\_NSModel\" />
+	<Library Path=".\_CasesAndData\" />
+	<Library Path=".\_ProjectDescription\" />
+	<Library Path=".\_Style Library\" />
+	<Library Path=".\_DataEntry\" />
+	<Library Path=".\ExcelReadME\" />
+</References>

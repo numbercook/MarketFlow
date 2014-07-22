@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<PageEditSize Type="Inherited" />
+	<ProjectUUID>B2FACAE1-6EEE-4497-BF6D-B115323573E2</ProjectUUID>
+	<IsDialogPage>true</IsDialogPage>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<Background Inherited="true" />
+	<PageObject Type="Text">
+		<Location top="60" left="78" bottom="84" right="240" />
+		<HelpTag>"General MUs"</HelpTag>
+		<StaticText>Output Bioforms</StaticText>
+		<Font GUID="98B1D76A-C11C-4BD0-B6AE-5B5A18B4A7B2" Name="Page Title" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="60" left="258" bottom="78" right="276" />
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>2</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Bitmap</ButtonType>
+		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\Add_sign.bmp"</BitmapFile>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>SetName</Identifier>
+				<AssignedValue>"GUIRecipeOutBioforms"</AssignedValue>
+			</Action>
+			<Action Type="Assignment">
+				<Identifier>NewElementName</Identifier>
+				<AssignedValue>""</AssignedValue>
+			</Action>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>nsm::AddRecipeMarketBioform</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="60" left="282" bottom="78" right="300" />
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>3</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Bitmap</ButtonType>
+		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\minus_sign.bmp"</BitmapFile>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>SetName</Identifier>
+				<AssignedValue>"GUIRecipeOutBioforms"</AssignedValue>
+			</Action>
+			<Action Type="LinkedPage">
+				<Page PageGUID="ACB0B287-352F-4619-A745-CEFF3E11F7C0" Name="Delete_SetElement" />
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Pivot Table">
+		<Location top="90" left="42" bottom="468" right="480" />
+		<TabOrder>5</TabOrder>
+		<ObjectUUID>BDFCC60C-A4AB-41C8-AD7E-07C92DC4EE6C</ObjectUUID>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<Contents>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::BioformOutUnit( nsm::bKout )</Identifier>
+				<Format>
+					<Show_default_values ID="4320">"Yes"</Show_default_values>
+				</Format>
+			</Explicit_Identifier>
+		</Contents>
+		<Indices>
+			<Explicit_Index>
+				<Index ID="6510">nsm::bKout</Index>
+				<Show_All_Elements ID="6550">1</Show_All_Elements>
+			</Explicit_Index>
+			<Identifier_Index>
+				<Hide_if_Single_Identifier ID="6270">"No"</Hide_if_Single_Identifier>
+			</Identifier_Index>
+		</Indices>
+		<General>
+			<Dense_Aggregation_restricts_to_Domain ID="1022">"Yes"</Dense_Aggregation_restricts_to_Domain>
+		</General>
+		<Row_Area>
+			<Background_Color ID="2010">RGB&lt;255,255,200&gt;</Background_Color>
+			<Text_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2020">"default selection"</Text_Color>
+			<Headers>
+				<Background_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2120">"default selection"</Background_Color>
+				<Text_Color ID="2130">RGB&lt;255,255,255&gt;</Text_Color>
+				<Show_Sub_Headers ID="2150">"No"</Show_Sub_Headers>
+			</Headers>
+			<Grid_Focus_Indicator>
+				<Background_Color ID="2270">RGB&lt;0,0,168&gt;</Background_Color>
+				<Text_Color ID="2280">RGB&lt;255,255,200&gt;</Text_Color>
+			</Grid_Focus_Indicator>
+		</Row_Area>
+		<Grid_Area>
+			<Background_Color ID="5010">RGB&lt;255,255,255&gt;</Background_Color>
+			<Alternating_Background_Color ID="5011">RGB&lt;225,225,225&gt;</Alternating_Background_Color>
+			<Aggregators>
+				<Background_Color ID="5220">RGB&lt;255,128,128&gt;</Background_Color>
+			</Aggregators>
+			<Sub_Header_Row_or_Column>
+				<Background_Color ID="5320">RGB&lt;255,255,200&gt;</Background_Color>
+			</Sub_Header_Row_or_Column>
+		</Grid_Area>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="24" left="390" bottom="66" right="462" />
+		<TabOrder>4</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Close"</Title>
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<ActionSequence>
+			<Action Type="ClosePage" />
+		</ActionSequence>
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>NewElementName</Symbol>
+			<Symbol>SetName</Symbol>
+			<Symbol>nsm::AddRecipeMarketBioform</Symbol>
+			<Symbol>nsm::bKout</Symbol>
+			<Symbol>nsm::BioformOutUnit</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

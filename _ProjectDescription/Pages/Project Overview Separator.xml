@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15" NeedsCompiledModel="false">
+	<Location top="29" left="4" bottom="604" right="834" />
+	<PageEditSize Type="Inherited">
+		<Size Width="894" Height="582" />
+	</PageEditSize>
+	<ProjectUUID>AFC769D1-1A59-4B68-8228-6B4C103C5DC8</ProjectUUID>
+	<Title>"Problem Description"</Title>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<ResizeData>
+		<MainArea Line="FixedFromTop" Value="18" />
+	</ResizeData>
+	<Background>
+		<UserColor GUID="33BB2465-9D09-4035-9765-4D4D12BABAAE">white</UserColor>
+	</Background>
+	<PageObject Type="Tabbed Page Object">
+		<Location top="6" left="6" bottom="684" right="834" />
+		<TabOrder>1</TabOrder>
+		<PrintingOccurrence>Never</PrintingOccurrence>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<MultipleTabRows>true</MultipleTabRows>
+		<SelectedPageSymbol>pd::CurrentTabbedPage</SelectedPageSymbol>
+	</PageObject>
+	<UsedReferences>
+		<Model />
+	</UsedReferences>
+</Page>

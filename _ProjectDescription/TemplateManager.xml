@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<TemplateManager>
+	<Template Name="No Background" PageGUID="0656DB8A-9AF1-43F3-A873-4AEA403B5911">
+		<Page Name="Project Overview Separator" PageGUID="EB69CACE-75A9-49AD-A47F-BDB47249D876" />
+	</Template>
+	<Template Name="Header" PageGUID="CCA12A14-7C43-4758-AA47-511F8E740FA5">
+		<Page Name="Project Overview" PageGUID="782EE1E0-996B-4A07-B8D4-0E9912D4EAEF" />
+		<Page Name="Tolerances and Accepted Projects" PageGUID="1F87996D-E205-4EE3-8BBF-B6D43BA1E6BF" />
+		<Page Name="Supply Demand and Products" PageGUID="D8FE7749-4105-4FD3-B8A9-DD3B41BC55B7" />
+		<Page Name="Data files, Datasets and Cases" PageGUID="E7FEE405-337D-47BF-A6BD-F3FB8C29E6F0" />
+		<Page Name="Iterative Solution" PageGUID="1207C034-19F8-46D6-9850-EF790E286F07" />
+	</Template>
+	<Template Name="No Header" PageGUID="ACB04EB9-6E86-403D-9FB7-95FDBA948D92" CrossLibraryDuplicate="80728F41-021F-4EE1-8508-79294300DEB2|67C56F4C-0BAA-4A77-802E-51459240F9A5|No Header" />
+	<Page Name="Unused Pages" PageGUID="9DD67A31-1C77-4243-9E64-CC3C662C85FD" />
+</TemplateManager>

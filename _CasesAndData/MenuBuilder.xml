@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<UserMenuTree Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Menu Name="Case Management" UUID="103A8F82-E539-45AF-B67C-5CDD0A3C76B9">
+		<MenuItem Name="Load Case Without Prompt ..." UUID="D6B7D278-38FB-48B2-8569-C49D11F1ECA2" IsDefaultItem="true">
+			<ActionSequence>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>cad::LoadCurrentCase_NoPrompt</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>cad::RenameKeySetElements</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+			</ActionSequence>
+		</MenuItem>
+		<MenuItem Name="Load Case ..." UUID="4CE8336E-8338-4478-96B8-BB8841C202BD">
+			<ActionSequence>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>cad::LoadCurrentCase</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>cad::RenameKeySetElements</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+			</ActionSequence>
+		</MenuItem>
+		<MenuItem Name="&amp;Delete Case ..." UUID="2E3974C1-A968-4F4F-BC5E-03C463BD1DDF">
+			<ActionSequence>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>cad::DeleteCurrentCase</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+			</ActionSequence>
+		</MenuItem>
+		<MenuItem Name="&amp;Set Startup Case ..." UUID="B9628585-5826-4686-8705-695C1D137D73">
+			<ActionSequence>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>cad::SetCurrentCaseAsDefault</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>cad::GetDatafileAttributes</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+			</ActionSequence>
+		</MenuItem>
+		<MenuItem Name="Add To &amp;Multiple Cases ..." UUID="BFEFDB8A-A23E-4CF4-B7DD-26BEDA9025D2">
+			<ActionSequence>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>cad::AddSelectedCasesToMultiple</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+			</ActionSequence>
+		</MenuItem>
+		<MenuItem Name="Add To &amp;Batch" UUID="937743A4-CF69-4FD8-963B-21A78C9C8A27" BitmapIndex="31">
+			<ActionSequence>
+				<Action Type="MenuCommand">
+					<Command>Data-Add to Batch Run</Command>
+				</Action>
+			</ActionSequence>
+			<Help>
+				<StatusLineText>"Adds the selected case/dataset to the list of batch cases/datasets"</StatusLineText>
+				<Tooltip>"Add to Batch Run"</Tooltip>
+			</Help>
+		</MenuItem>
+		<MenuItem Name="&amp;Rename" UUID="A27DF7F5-B8D8-418E-BD3D-2FBD53970743">
+			<ActionSequence>
+				<Action Type="MenuCommand">
+					<Command>Tools-Data Manager</Command>
+				</Action>
+			</ActionSequence>
+		</MenuItem>
+	</Menu>
+	<Menu Name="Dataset Management" UUID="E867EE21-F901-4DB3-BB37-E924605994F0">
+		<MenuItem Name="Load Dataset Without Prompt ..." UUID="403E28D6-2BD4-4C17-A521-8A5A6209CF0B" IsDefaultItem="true">
+			<ActionSequence>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>cad::LoadCurrentDataset_NoPrompt</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>cad::RenameKeySetElements</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+			</ActionSequence>
+		</MenuItem>
+		<MenuItem Name="Load Dataset ..." UUID="D82334DB-F622-4E19-9F4E-F62C7E6B31E8">
+			<ActionSequence>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>cad::LoadCurrentDataset</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>cad::RenameKeySetElements</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+			</ActionSequence>
+		</MenuItem>
+		<MenuItem Name="Delete Dataset ..." UUID="5C9E2FF2-F40C-49CA-80E3-7BDB54261165">
+			<ActionSequence>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>cad::DeleteCurrentDataset</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+			</ActionSequence>
+		</MenuItem>
+		<MenuItem Name="Show Dataset Contents" UUID="9EE82444-D027-414A-B5A2-D8EFFF7E5D45">
+			<ActionSequence>
+				<Action Type="LinkedPage">
+					<Page PageGUID="E58950C0-4760-4C9C-A505-EF9EB1115724" Name="Show Data Categories" />
+				</Action>
+			</ActionSequence>
+		</MenuItem>
+	</Menu>
+	<Menu Name="Dataset Contents" UUID="A110FAA2-96C9-4E66-8ECC-F765329700F0">
+		<DuplicatedMenuItem Reference="9EE82444-D027-414A-B5A2-D8EFFF7E5D45" />
+	</Menu>
+	<Menu Name="Open Different Datafile Popup" UUID="629D019E-8BF2-4872-A003-9E203F6BEF42">
+		<MenuItem Name="Switch .dat files" UUID="719D2EE9-7E2E-4F67-908B-5B49156D288C">
+			<ActionSequence>
+				<Action Type="MenuCommand">
+					<Command>File-Open Data File</Command>
+				</Action>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>cad::GetDatafileAttributes</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+			</ActionSequence>
+		</MenuItem>
+		<MenuItem Name="Create a new .dat file ..." UUID="2BC71187-2113-4389-9E3D-2C1393B5134C">
+			<ActionSequence>
+				<Action Type="MenuCommand">
+					<Command>File-New Data File</Command>
+				</Action>
+				<Action Type="Run">
+					<RunWhat>SpecificProcecure</RunWhat>
+					<Procedure>cad::MainMenuEntryProcedure</Procedure>
+					<AbortOnError>true</AbortOnError>
+				</Action>
+			</ActionSequence>
+		</MenuItem>
+	</Menu>
+</UserMenuTree>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="22" left="4" bottom="848" right="1024" />
+	<PageEditSize Type="Inherited">
+		<Size Width="1028" Height="826" />
+	</PageEditSize>
+	<ProjectUUID>AFC769D1-1A59-4B68-8228-6B4C103C5DC8</ProjectUUID>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<ResizeData>
+		<MainArea Line="FixedFromTop" Value="33">
+			<TopArea Line="FixedFromRight" Value="70" />
+		</MainArea>
+	</ResizeData>
+	<Background Inherited="true" />
+	<PageObject Type="Button">
+		<Location top="6" left="966" bottom="30" right="1020" />
+		<TabOrder>1</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Edit"</Title>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>pd::EditProjectDescription</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>pd::EditProjectDescription</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

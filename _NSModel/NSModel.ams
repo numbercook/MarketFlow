@@ -1,0 +1,2902 @@
+## ams_version=1.0
+
+LibraryModule NSMarketModel {
+    Prefix: nsm;
+    Interface: data { SolveNSModel };
+    Section Unit_Section {
+        UnitParameter BioformUnit {
+            IndexDomain: (b);
+            Quantity: SI_Volume;
+            Default: [m3];
+        }
+        UnitParameter BioformOutUnit {
+            IndexDomain: (b);
+            Quantity: SI_Volume;
+            Default: [m3];
+        }
+        UnitParameter RecipeUnit {
+            IndexDomain: (k);
+            Quantity: SI_Volume;
+            Default: [m3];
+        }
+        UnitParameter FacilityUnit {
+            IndexDomain: (f);
+            Quantity: SI_Volume;
+            Default: [k_m3];
+        }
+        UnitParameter MarketUnit {
+            IndexDomain: (m);
+            Quantity: SI_Volume;
+            Default: [m3];
+        }
+        UnitParameter BioformMarketUnit {
+            IndexDomain: (b);
+            Quantity: SI_Volume;
+            Default: [m3];
+        }
+    }
+    Section Section_1_README {
+        Comment: "Section 1 is used in declaration of sets etc ....";
+        DeclarationSection Set_Declaration {
+            Set Bioforms {
+                Index: b, b1, b2;
+                Parameter: _b, _b1;
+                InitialData: {
+                    {'SPF'}
+                }
+            }
+            StringParameter bfCod {
+                IndexDomain: b;
+            }
+            StringParameter bfNam {
+                IndexDomain: (b);
+            }
+            UnitParameter bfUnit {
+                IndexDomain: (b);
+                Default: [m3];
+            }
+            Set Scenarios {
+                Text: "Scenario under which region is managed";
+                Index: s;
+                Parameter: _s;
+                InitialData: data { ClearCut };
+                Comment: "Only 1 scenario can be picked per region";
+            }
+            StringParameter ScNam {
+                IndexDomain: (s);
+            }
+            Set Regions {
+                Index: r;
+                Parameter: _r;
+                InitialData: data { Mu1, Mu2 };
+            }
+            StringParameter regCod {
+                IndexDomain: (r);
+            }
+            StringParameter regNam {
+                IndexDomain: (r);
+            }
+            Set Recipes {
+                Text: "Facility Input";
+                Index: k;
+                Parameter: _k;
+                InitialData: {
+                    !Similar to Product Group ... required by mill
+                    data { Con2Pulp, Con2WChips }
+                }
+                Comment: "k ic for \"Konversions\" since bioforms can be converted into products via different recipes";
+            }
+            StringParameter recNam {
+                IndexDomain: (k);
+                Text: "Name of recipe k";
+            }
+            Set Facilities {
+                Index: f, fa, fb, f1, f2;
+                Parameter: _f;
+                InitialData: data { Mill1_Saw, Mill2_Pulp };
+            }
+            StringParameter facNam {
+                IndexDomain: (f);
+            }
+            Set Markets {
+                Index: m;
+                Parameter: _m;
+                InitialData: data { Pulp, Lumber };
+            }
+            StringParameter markTyp {
+                IndexDomain: (m);
+            }
+            StringParameter markNam {
+                IndexDomain: (m);
+            }
+            Set PrcRng {
+                Text: "Price Range";
+                Index: p;
+                Parameter: _p;
+                InitialData: {
+                    {'Low' , 'Average' , 'High' }
+                }
+            }
+            Set Configurations {
+                Index: c;
+                Parameter: _c;
+                InitialData: {
+                    {'C1'}
+                }
+            }
+            StringParameter confNam {
+                IndexDomain: (f,c);
+                Text: "Configuration Name";
+            }
+            Parameter confCost {
+                IndexDomain: (f,c);
+                Text: "The configuration cost of facility f under configuration c";
+                Unit: k$;
+            }
+            Parameter FC_Ex {
+                IndexDomain: (f,c);
+                Text: "facility f exists in configuration c";
+                Unit: 1;
+            }
+            Parameter FC_Cap {
+                IndexDomain: (f,c);
+                Text: "The maximum capacity per year of facility f under configuration c";
+                Unit: FacilityUnit(f);
+            }
+            Parameter fxOpCst {
+                IndexDomain: (f,c);
+                Text: "The operating cost of facility f under configuration c";
+                Unit: k$;
+            }
+            Set AllStuff {
+                Parameter: _as;
+                Definition: RegStuff + FacStuff;
+            }
+            Set RegStuff {
+                SubsetOf: AllStuff;
+                Parameter: _rs;
+            }
+            Set FacStuff {
+                SubsetOf: AllStuff;
+                Parameter: _fs;
+            }
+        }
+        Procedure test1 {
+            Body: {
+                SetElementAdd(RegStuff,_rs,"Biofibre");
+                SetElementAdd(RegStuff,_rs,"SPFRwd");
+                SetElementAdd(RegStuff,_rs,"SPFLog");
+                
+                SetElementAdd(FacStuff,_fs,"Biofibre");
+                SetElementAdd(FacStuff,_fs,"AllSPF");
+                SetElementAdd(FacStuff,_fs,"SPFLog");
+            }
+        }
+        DeclarationSection Region_Declaration {
+            Set R_S {
+                SubsetOf: (Regions,Scenarios);
+                Definition: {
+                    { (r,s) | HPC(r, s) }
+                }
+            }
+            Parameter HPC {
+                IndexDomain: (r,s);
+                Text: "harvesting process cost at region r under scenario s";
+                Unit: k$;
+                Default: zero;
+                Definition: {
+                    ! not included in database ... causes problem with definition of set R_S
+                }
+                Comment: "used to define set  R_S";
+            }
+            StringParameter rsNam {
+                IndexDomain: (r,s);
+                Text: "scenario s in region r";
+                Comment: "in R_S";
+            }
+            Parameter ScenFixCst {
+                IndexDomain: (r,s) in R_S;
+                Unit: k$;
+                InitialData: {
+                    ! if ord(s)=2 then 100000 else 100 endif
+                    100
+                }
+            }
+            Set B_R_S {
+                SubsetOf: (Bioforms,Regions,Scenarios);
+                Definition: {
+                    { (b,r,s) | ProdB(b, r, s) }
+                }
+                Comment: "defined by ProdB(b,r,s)";
+            }
+            Parameter ProdB {
+                IndexDomain: (b,r,s);
+                Text: "production of bioform b from region r under scenario s ";
+                Unit: k_m3;
+                Comment: "Defines B_R_S";
+            }
+            Parameter AvailToHarv {
+                IndexDomain: (r,s)| exists( (b) | (b,r,s) in B_R_S);
+                Unit: k_m3;
+                Definition: {
+                    ! sum{b in BioForms: (b,r,s) in B_R_S} ProdB[b,r,s]
+                    sum(b, ProdB(b, r, s) )
+                }
+            }
+            Parameter FractionHarv {
+                IndexDomain: (b,r,s) in B_R_S;
+                Unit: %;
+                Definition: ProdB[b,r,s] /$ AvailToHarv[r,s];
+            }
+            Set B_R {
+                SubsetOf: (Bioforms,Regions);
+                Definition: {
+                    { (b,r) | exists( s | (b,r,s) in B_R_S ) }
+                }
+            }
+        }
+        DeclarationSection Facility_Declaration {
+            Set F_C {
+                SubsetOf: (Facilities,Configurations);
+                Definition: {
+                    { (f,c) |( FC_Ex(f, c) and FC_Cap(f, c) ) or confNam(f, c) or confCost(f, c) or fxOpCst(f, c) }
+                    ! Originally fc_Cap was optional, but uniess specified, constraint FacCapConsum cannot be met
+                    !{ (f,c) | confNam(f, c) or confCost(f, c) or FC_Ex(f, c) or FC_Cap(f, c)or fxOpCst(f, c) }
+                }
+            }
+            Set F_C_K {
+                SubsetOf: (Facilities,Configurations,Recipes);
+                Definition: {
+                    !{ (f,c,k) | (f,c) in F_C and (fckMax(f, c, k) or fckCConsum(f, c, k) or recVarCst(f, c, k) ) }
+                    { (f,c,k) | (fck_Ex(f, c, k) and fckMax(f, c, k)) and ( fckCConsum(f, c, k) or recVarCst(f, c, k)) }
+                }
+            }
+            Parameter fckMax {
+                IndexDomain: (f,c,k);
+                Text: "The maximum capacity consumption of recipe k at facility f under configuration c";
+                Unit: RecipeUnit(k);
+            }
+            Parameter fck_Ex {
+                IndexDomain: (f,c,k);
+                Text: "Facility f under configuration c used recipe k (dk: Added)";
+                Range: binary;
+                Unit: 1;
+            }
+            Parameter fckCConsum {
+                IndexDomain: (f,c,k);
+                Text: "The actual capacity consumption of recipe k at facility f under c";
+                Unit: %;
+            }
+            Parameter recVarCst {
+                IndexDomain: (f,c,k);
+                Text: "The variable cost of a recipe r in facility f under configuration c";
+                Unit: $/RecipeUnit(k);
+            }
+            Set F_K {
+                SubsetOf: (Facilities,Recipes);
+                Definition: {
+                    { (f,k) | exists( c | (f,c,k) in F_C_K) }
+                }
+            }
+            Set inB_K {
+                SubsetOf: (Bioforms,Recipes);
+                Definition: {
+                    { (b,k) | recInLL(b, k)>0 or recInUL(b, k) or recInCF(b, k) }
+                }
+            }
+            Parameter RecipeUsesBioform {
+                IndexDomain: (b,k);
+                Text: "Recipe accepts bioform b";
+                Unit: 1;
+            }
+            Parameter FCUsesRecipe {
+                IndexDomain: (f,c,k);
+                Text: "Facility f in configuration c uses recipe k";
+                Range: binary;
+                Unit: 1;
+            }
+            Parameter recInLL {
+                IndexDomain: (b,k);
+                Text: "lower limit";
+                Unit: %;
+            }
+            Parameter recInUL {
+                IndexDomain: (b,k);
+                Text: "upper limit";
+                Unit: %;
+            }
+            Parameter recInCF {
+                IndexDomain: (b,k);
+                Text: "conversion factor from bioform b to recipe k";
+                Unit: 1;
+            }
+        }
+        Set inB_F_C_K {
+            SubsetOf: (Bioforms,Facilities,Configurations,Recipes);
+            Definition: {
+                { (b,f,c,k) | (f,c,k) in F_C_K and (b,k) in inB_K }
+            }
+        }
+        Set inB_F {
+            SubsetOf: (Bioforms,Facilities);
+            Definition: {
+                { (b,f) | exists( (c,k) | (b,f,c,k) in inB_F_C_K ) }
+            }
+        }
+        Set inB_F_K {
+            SubsetOf: (Bioforms,Facilities,Recipes);
+            Definition: {
+                { (b,f,k) | exists( c | (b,f,c,k) in inB_F_C_K ) }
+            }
+        }
+        Parameter recOutAlpha {
+            IndexDomain: (b,k);
+            Text: "Proportion of all inputs converted into output b under recipe k";
+            Range: nonnegative;
+            Unit: BioformOutUnit(b)/RecipeUnit(k);
+        }
+        Set outB_K {
+            SubsetOf: (Bioforms,Recipes);
+            Definition: {
+                {(b,k) | recOutAlpha(b, k) }
+            }
+        }
+        Set outB_F_C_K {
+            SubsetOf: (Bioforms,Facilities,Configurations,Recipes);
+            Definition: {
+                { (b,f,c,k) | (f,c,k) in F_C_K and (b,k) in outB_K }
+            }
+        }
+        Set outB_F {
+            SubsetOf: (Bioforms,Facilities);
+            Definition: {
+                { (b,f) | exists( (c,k) | (b,f,c,k) in outB_F_C_K ) }
+            }
+        }
+        Set outB_F_K {
+            SubsetOf: (Bioforms,Facilities,Recipes);
+            Definition: {
+                { (b,f,k) | exists( c | (b,f,c,k) in outB_F_C_K ) }
+            }
+        }
+        Set B_M_P {
+            SubsetOf: (Bioforms,Markets,PrcRng);
+            Definition: {
+                { (b,m,p) | bm_Ex(b, m) and ( PrcM(b, m, p) or LLM(b, m, p) or ULM(b, m, p)) }
+            }
+        }
+        Parameter PrcM {
+            IndexDomain: (b,m,p);
+            Text: "price of b in market m at pricerange p";
+            Unit: $/MarketUnit(m);
+        }
+        Parameter LLM {
+            IndexDomain: (b,m,p);
+            Text: "Lower Limit of b in market m at pricerange p";
+            Unit: MarketUnit(m);
+        }
+        Parameter ULM {
+            IndexDomain: (b,m,p);
+            Text: "Upper Limit of b in market m at pricerange p";
+            Unit: MarketUnit(m);
+        }
+        Set B_M {
+            SubsetOf: (Bioforms,Markets);
+            Definition: {
+                { (b,m) |exists (p | (b,m,p) in B_M_P ) }
+            }
+        }
+        Set tranB_R_F {
+            SubsetOf: (Bioforms,Regions,Facilities);
+            Definition: {
+                {( b,r,f) | tcostBRF(b, r, f)  }
+            }
+            Comment: "tcostBRM";
+        }
+        Parameter bm_Ex {
+            IndexDomain: (b,m);
+            Text: "bioform b used by market m";
+            Range: binary;
+        }
+        Parameter tcostBRF {
+            IndexDomain: (b,r,f);
+            Text: "Transport cost of bioform from region to facility";
+            Unit: $/m3;
+        }
+        Set B_R_F {
+            SubsetOf: (Bioforms,Regions,Facilities);
+            Definition: {
+                { (b,r,f)  | (b,r) in B_R and (b,f) in inB_F   }
+            }
+        }
+        Set tB_R_F {
+            SubsetOf: (Bioforms,Regions,Facilities);
+            Definition: {
+                {(b,r,f) | (b,r,f) in tranB_R_F and (b,r) in B_R and (b,f) in inB_F  }
+            }
+        }
+        Set tranB_R_M {
+            SubsetOf: (Bioforms,Regions,Markets);
+            Definition: {
+                { (b,r,m) | tcostBRM(b, r, m) }
+            }
+        }
+        Parameter tcostBRM {
+            IndexDomain: (b,r,m);
+            Text: "Transport Cost of Bioform b from Region r to Market m";
+            Unit: k$/MarketUnit(m);
+        }
+        Set B_R_M {
+            SubsetOf: (Bioforms,Regions,Markets);
+            Definition: {
+                {(b,r,m) | (b,r) in B_R and (b,m) in B_M}
+            }
+        }
+        Set tB_R_M {
+            SubsetOf: (Bioforms,Regions,Markets);
+            Definition: {
+                {(b,r,m) | (b,r,m) in tranB_R_M and (b,r) in B_R and (b,m) in B_M}
+            }
+        }
+        Set tranB_F_F {
+            SubsetOf: (Bioforms,Facilities,Facilities);
+            Definition: {
+                {(b,fa,fb) | tcostBFF(b, fa, fb) }
+            }
+        }
+        Set tB_F1_F2 {
+            SubsetOf: (Bioforms,Facilities,Facilities);
+            Definition: {
+                { (b,f1,f2)  | (b,f1,f2) in tranB_F_F and (b,f1) in outB_F and (b,f2) in inB_F }
+            }
+        }
+        Parameter tcostBFF {
+            IndexDomain: (b,fa,fb);
+            Text: "Cost to transport bioform b from facility fa to facility fb";
+            Unit: $/FacilityUnit(fb);
+        }
+        Set tranB_F_M {
+            SubsetOf: (Bioforms,Facilities,Markets);
+            Definition: {
+                { (b,f,m) | tcostBFM(b, f, m) }
+            }
+        }
+        Set tB_F_M {
+            SubsetOf: (Bioforms,Facilities,Markets);
+            Definition: {
+                { (b,f,m) | (b,f,m) in tranB_F_M and (b,f) in outB_F and (b,m) in B_M }
+            }
+        }
+        Parameter tcostBFM {
+            IndexDomain: (b,f,m);
+            Text: "transport cost of bioform b from facility f to market m";
+            Unit: k$/MarketUnit(m);
+        }
+    }
+    Section Model_Section {
+        DeclarationSection Model_Declaration {
+            Variable obj {
+                Range: free;
+                Unit: k$;
+                Definition: {
+                    !sum[(r,s),Harv(r, s)]
+                    !sum[(b,r,f), xRF(b, r, f)]
+                    !sum[ (b,f,m), zFM(b,f,m)]
+                    !sum[ (b,m), sM(b,m)]
+                    
+                    MarkRev		!Market Revenues
+                    - Scencost 	!Region-Scenario Fixed Cost
+                    - tcostRF	!Transport cost from regions to facilities
+                    - tcostRM 	!Transport Cost Regions to markets
+                    - tcostFF 	!Transport Cost Facilities to Facilities
+                    - tcostFM	!Transport Cost Facilities to Markets
+                    - fFxCst	!Facility Cost
+                    - rVarCst	!Recipe Variable Cost
+                }
+            }
+            MathematicalProgram NSModel {
+                Objective: obj;
+                Direction: maximize;
+                Constraints: ModelConstraints;
+                Variables: ModelVariables;
+                Type: Automatic;
+            }
+            Set ModelVariables {
+                SubsetOf: AllVariables;
+                Property: NoSave;
+                Definition: AllVariables * ( Model_Section - Unused_Model_Section );
+            }
+            Set ModelConstraints {
+                SubsetOf: AllConstraints;
+                Property: NoSave;
+                Definition: AllConstraints * ( Model_Section - Unused_Model_Section );
+            }
+        }
+        DeclarationSection Decision_Variable_Declaration {
+            Variable yS {
+                IndexDomain: (r,s) in R_S;
+                Text: "Region r is managed under scenario s";
+                Range: binary;
+                Unit: 1;
+            }
+            Variable yFC {
+                IndexDomain: (f,c) in F_C;
+                Text: "Facility f operating under configuration c";
+                Range: binary;
+                Unit: 1;
+                Definition: {
+                    ! warning: max(0, FC_Ex[f,c]-1) <=  yFC(f, c)  <=min(1,FC_Ex[f,c]
+                }
+            }
+            Variable SlackCap {
+                IndexDomain: (f,c) in F_C;
+                Text: "FacCapConsum.Violation: amount by which capacity of facility f, configuration c is not met";
+                Range: nonnegative;
+                Unit: k_m3;
+            }
+            Variable Harv {
+                IndexDomain: (r,s) in R_S;
+                Text: "amount harvested in region r under scenario s";
+                Range: nonnegative;
+                Unit: k_m3;
+            }
+            Variable xRF {
+                IndexDomain: (b,r,f) in tB_R_F;
+                Text: "amount of bioform b sent from region r to factility f";
+                Range: nonnegative;
+                Unit: BioformUnit(b);
+            }
+            Variable xRM {
+                IndexDomain: (b,r,m)in tB_R_M;
+                Text: "amount of bioform b sent from region r to market m";
+                Range: nonnegative;
+                Unit: BioformUnit(b);
+            }
+            Variable xSL {
+                IndexDomain: (b,r) in B_R;
+                Text: "UNUSED";
+                Range: nonnegative;
+                Comment: "This variable is not used ... even in original model";
+            }
+            Variable zFF {
+                IndexDomain: (b,fa,fb) in tranB_F_F;
+                Text: "amount of bioform b sent from facility fa to facility fb";
+                Range: nonnegative;
+                Unit: BioformUnit(b);
+            }
+            Variable zFM {
+                IndexDomain: (b,f,m) in tranB_F_M;
+                Text: "amount of bioform b sent from facility f to market m";
+                Range: nonnegative;
+                Unit: BioformUnit(b);
+            }
+            Variable rF {
+                IndexDomain: (f,c,k) in F_C_K;
+                Text: "Amount used by facility f operating under configuration c, recipe k";
+                Range: nonnegative;
+                Unit: RecipeUnit(k);
+            }
+            Variable iF_ {
+                IndexDomain: (b,f,k) in inB_F_K;
+                Text: "flow of input b to facility f, recipe k";
+                Range: nonnegative;
+                Unit: RecipeUnit(k);
+            }
+            Variable oF_ {
+                IndexDomain: (b,f,k) in outB_F_K;
+                Text: "amount of bioform b produced by (flowing from) facility f under recipe k";
+                Range: nonnegative;
+                Unit: BioformUnit(b);
+            }
+            Variable sM {
+                IndexDomain: (b,m) in B_M;
+                Text: "amount of bioform b sent to market m";
+                Range: nonnegative;
+                Unit: BioformUnit(b);
+            }
+            Variable sMP {
+                IndexDomain: (b,m,p) in B_M_P;
+                Text: "input of bioform b to market m at price range p";
+                Range: [LLM(b, m, p), ULM(b, m, p)];
+                Unit: BioformUnit(b);
+            }
+        }
+        DeclarationSection Defined_Variable_Declaration {
+            Variable AProd {
+                IndexDomain: (b,r) in B_R;
+                Text: "Available production of bioform b in region r";
+                Range: nonnegative;
+                Unit: BioformUnit(b);
+                Definition: sum[s, ProdB(b, r, s) * yS(r, s) ];
+                Comment: {
+                    "sum{s in Scenarios: (r,s) in  R_S and (b,r,s) in B_R_S} ProdB[b,r,s]*yS[r,s];"
+                }
+            }
+            Variable MarkRev {
+                Text: "Market Revenue";
+                Range: nonnegative;
+                Unit: k$;
+                Definition: sum[ (b,m,p) , PrcM(b,m,p) * sMP(b,m,p) ];
+            }
+            Variable Scencost {
+                Text: "Scenario Fixed Cost";
+                Range: nonnegative;
+                Unit: k$;
+                Definition: {
+                    sum[ (r,s) ,  ScenFixCst(r, s) * yS(r, s) ]   !#  modified fixed costs here
+                }
+            }
+            Variable tcostRF {
+                Text: "Transport cost from regions to facilities";
+                Range: nonnegative;
+                Unit: k$;
+                Definition: {
+                    sum[ (b,r,f), (0 [$/k_m3] + tcostBRF(b, r, f)) * xRF(b, r, f) ];  !
+                    !originally added 30
+                    !sum[ (b,r,f), (30 [$/k_m3] + tcostBRF(b, r, f)) * xRF(b, r, f) ];  !
+                    
+                    !sum{(b,r,f) in tB_R_F: (b,r) in B_R and (b,f) in inB_F}(30+ tcostBRF[b,r,f]) * xRF[b,r,f];  !
+                    !# modified transport costs here
+                }
+            }
+            Parameter testss {
+                Unit: k$;
+                Definition: {
+                    sum[ (b,r,f),  tcostBRF(b, r, f) * xRF(b, r, f) ];
+                }
+            }
+            Variable tcostRM {
+                Text: "Transport Cost Regions to markets";
+                Range: nonnegative;
+                Unit: k$;
+                Definition: {
+                    sum[ (b,r,m) , (0 [$/m3]+tcostBRM(b, r, m)) * xRM(b, r, m) ]
+                    
+                    !Originally added 30
+                    !sum[ (b,r,m) , (30 [$/m3]+tcostBRM(b, r, m)) * xRM(b, r, m) ]
+                    
+                    !sum{(b,r,m) in tB_R_M: (b,r) in B_R and (b,m) in B_M} (30+tcostBRM[b,r,m]) * xRM[b,r,m];
+                    !# modified transport costs here
+                }
+            }
+            Variable tcostFF {
+                Text: "Transport Cost Facilities to Facilities";
+                Range: nonnegative;
+                Unit: k$;
+                Definition: {
+                    sum[ (b,f1,f) , tcostBFF(b, f1, f) * zFF(b, f1, f) ]
+                    !sum{(b,f1,f) in tB_F1_F2: (b,f1) in outB_F and (b,f) in inB_F} tcostBFF[b,f1,f] * zFF[b,f1,f];
+                }
+            }
+            Variable tcostFM {
+                Text: "Transport Cost Facilities to Markets";
+                Range: nonnegative;
+                Unit: k$;
+                Definition: {
+                    sum[ (b,f,m) , tcostBFM(b, f, m) * zFM(b, f, m) ]
+                    !sum{(b,f,m) in tB_F_M: (b,f) in outB_F and (b,m) in B_M} tcostBFM[b,f,m] * zFM[b,f,m]
+                }
+            }
+            Variable fFxCst {
+                Text: "Facility Cost";
+                Range: nonnegative;
+                Unit: k$;
+                Definition: {
+                    sum[ (f,c) , (confCost(f, c) + fxOpCst(f, c) ) * yFC(f, c) ]
+                    !fFxCst=sum{(f,c) in F_C} (confCost[f,c] + fxOpCst[f,c])*yFC[f,c];
+                }
+            }
+            Variable rVarCst {
+                Text: "Recipe Variable Cost";
+                Range: nonnegative;
+                Unit: k$;
+                Definition: {
+                    sum[ (f,c,k) ,  recVarCst(f, c, k) * rF(f, c, k) ]
+                    !rVarCst= sum{ (f,c,k) in F_C_K}  recVarCst[f,c,k]* rF[f,c,k]
+                }
+            }
+        }
+        DeclarationSection Constraint_Declaration;
+        DeclarationSection Region_Outputs_Constraints {
+            Constraint RegScen {
+                IndexDomain: r in Regions;
+                Text: "Only 1 scenario possible for each region";
+                Definition: sum[s , yS(r, s)] <= 1;
+            }
+            Constraint TotHarvest {
+                IndexDomain: (r,s) in R_S;
+                Text: "Total harvest <= Available Harvest";
+                Unit: k_m3;
+                Definition: {
+                    Harv(r, s) <=  AvailToHarv(r, s) * yS(r, s)
+                    !# added for fractional flow
+                }
+            }
+            Constraint SupplyAvail {
+                IndexDomain: (b,r) in B_R;
+                Text: "Amount shipped <= Available supply";
+                Unit: BioformUnit(b);
+                Definition: {
+                    sum[f  , xRF(b, r, f)  + sum[m ,  xRM(b, r, m) ]  ]
+                     =
+                     sum[s , FractionHarv(b, r, s) * Harv(r, s)]     !# modified inequality here
+                }
+                Comment: {
+                    "sum{f in Facilities: (b,r,f) in tB_R_F} xRF[b,r,f]  + sum{m in Markets: (b,r,m) in tB_R_M}  xRM[b,r,m]  = sum{s in Scenarios: (r,s) in  R_S} FractionHarv[b,r,s]*Harv[r,s];     # modified inequality here"
+                }
+            }
+        }
+        DeclarationSection Facility_Inputs_Constraints {
+            Constraint FacExist {
+                IndexDomain: (f);
+                Text: "A facility can exist in only 1 configuration";
+                Definition: sum[c , yFC(f, c)] <= 1;
+            }
+            Constraint FacInputs {
+                IndexDomain: (b,f) in inB_F;
+                Text: "bioforms shipped to facility >= all inflows";
+                Unit: BioformUnit(b);
+                Definition: {
+                    !sum{r in Regions: (b,r,f) in tB_R_F} xRF[b,r,f] + sum{f1 in Facilities: (b,f1,f) in tB_F1_F2} zFF[b,f1,f]
+                    
+                    !Amount  of bioform sent to facilty from regions
+                    sum[r , xRF(b, r, f) ]
+                    !Amount  of bioform sent to facilty from other facilities
+                    +  sum[f1 , zFF(b,f1,f) ]
+                    ! =
+                    ! Warning: originally >=  == produces no flow (obj=0)
+                    >=
+                    !flow of input b to facility f, recipe k
+                    sum[ k | (b,f,k) in inB_F_K , iF_(b, f, k) ]
+                    !sum {k in Recipes: (b,f,k) in inB_F_K} iF[b,f,k];
+                }
+                Comment: {
+                    "sum{r in Regions: (b,r,f) in tB_R_F} xRF[b,r,f] + sum{f1 in Facilities: (b,f1,f) in tB_F1_F2} zFF[b,f1,f]
+                    >= sum {k in Recipes: (b,f,k) in inB_F_K} iF[b,f,k];"
+                }
+            }
+        }
+        DeclarationSection Facility_Outputs_Constraints {
+            Constraint FacOutputs {
+                IndexDomain: (b,f) in outB_F;
+                Text: "Amount produced = amount shipped";
+                Unit: BioformUnit(b);
+                Definition: {
+                     !sum{m in Markets: (b,f,m) in tB_F_M} zFM[b,f,m] + sum{f2 in Facilities: (b,f,f2) in tB_F1_F2} zFF[b,f,f2]
+                     !bioform sent to market + bioform sent to other facilities
+                     sum[m, zFM(b, f, m) ] + sum[f2, zFF(b,f,f2) ]
+                     =
+                     !amount produced under all recipes
+                     sum[k,oF_(b, f, k)]
+                    
+                      !sum{k in Recipes: (b,f,k) in outB_F_K} oF[b,f,k];
+                }
+                Comment: {
+                    "sum{m in Markets: (b,f,m) in tB_F_M} zFM[b,f,m] + sum{f2 in Facilities: (b,f,f2) in tB_F1_F2} zFF[b,f,f2] = sum{k in Recipes: (b,f,k) in outB_F_K} oF[b,f,k];"
+                }
+            }
+        }
+        DeclarationSection Recipe_Equations {
+            Constraint Prod_ {
+                IndexDomain: (f,c,k) in F_C_K;
+                Text: "Amount used <= capacity ";
+                Unit: k_m3;
+                Definition: {
+                    !amount used at facility in configuration c, recipe k
+                    rF(f, c, k)
+                    <=
+                    !fckMax[f,c,k]* yFC[f,c];
+                    !maximum capacity
+                    fckMax(f, c, k) * yFC(f, c)
+                }
+                Comment: {
+                    "rF[f,c,k] <= fckMax[f,c,k]* yFC[f,c];"
+                }
+            }
+            Constraint RecInLL_ {
+                IndexDomain: (b,f,k) | (b,f,k) in inB_F_K and recInLL(b, k) > 0;
+                Text: "Inflows >= lower limit";
+                Unit: k_m3;
+                Definition: {
+                     !sum{c in Configurations:(f,c,k) in F_C_K}  recInLL[b,k] > 0}: iF[b,f,k]
+                    iF_(b, f, k)
+                     >=
+                     !sum{c in Configurations:(f,c,k) in F_C_K} recInLL[b,k] * rF[f,c,k];
+                     sum[c , recInLL(b, k) * rF(f, c, k) ]
+                }
+                Comment: {
+                    "RecInLL{(b,f,k) in inB_F_K: sum{c in Configurations:(f,c,k) in F_C_K} recInLL[b,k] > 0}: iF[b,f,k] >= sum{c in Configurations:(f,c,k) in F_C_K} recInLL[b,k] * rF[f,c,k];"
+                }
+            }
+            Constraint RecInLU_ {
+                IndexDomain: (b,f,k) | (b,f,k) in inB_F_K and recInUL(b, k) > 0;
+                Text: "Inflows <= upper limit";
+                Unit: k_m3;
+                Definition: {
+                    !Warning : Inflows <= sum( all configurations , Upper limit * Amount Used
+                     iF_[b,f,k] <= sum[c , (1.01 * recInUL[b,k]) * rF(f,c,k) ]
+                }
+                Comment: {
+                    "iF[b,f,k] <= sum{c in Configurations:(f,c,k) in F_C_K} (1.01 * recInUL[b,k]) * rF[f,c,k];"
+                }
+            }
+            Constraint RecInCV {
+                IndexDomain: (f,k) in F_K;
+                Text: "Inflow * Conversion Factor = Amount used";
+                Unit: RecipeUnit(k);
+                Definition: {
+                    sum[b, recInCF(b,k) * iF_(b,f,k) ]
+                    =
+                    sum[c, rF(f,c,k) ]
+                }
+                Comment: {
+                    "sum{b in BioForms: (b,f,k) in inB_F_K} recInCF[b,k] * iF[b,f,k] = sum{c in Configurations:(f,c,k) in F_C_K} rF[f,c,k];"
+                }
+            }
+            Constraint RecOut {
+                IndexDomain: (b,f,k) in outB_F_K;
+                Text: "Outputs Produced from Inputs";
+                Unit: RecipeUnit(k);
+                Definition: {
+                    ! output Bioform produced by facility under recipe
+                    oF_[b,f,k]
+                    =
+                    ! (conversion factor for bioforms in recipe) * (amount used by recipe k)
+                    recOutAlpha[b,k] * sum[c , rF(f,c,k)]
+                }
+                Comment: {
+                    "oF[b,f,k] = recOutAlpha[b,k] * sum{c in Configurations:(f,c,k) in F_C_K} rF[f,c,k];"
+                }
+            }
+        }
+        DeclarationSection Facility_Capacity_Constraints {
+            Constraint FacCapConsum {
+                IndexDomain: (f,c) in F_C;
+                Text: "The proportion that recipes contribute to facility\'s capacity";
+                Unit: k_m3;
+                Definition: {
+                    !Capacity consumption
+                    !( (Capacity Consumption) * (Amount used by recipe) ) + (Unmet Capacity)
+                    sum[k , fckCConsum(f,c,k) * rF(f, c, k) ] + SlackCap(f, c)
+                    =
+                    ! facility / configuraion capacity .... requires Fc_Cap to be specified
+                    FC_Cap(f, c) * yFC(f, c)
+                }
+                Comment: {
+                    "sum{k in Recipes:(f,c,k) in F_C_K} fckCConsum[f,c,k]*rF[f,c,k] +SlackCap[f,c]= FC_Cap[f,c] * yFC[f,c]
+                    FROM REPORT
+                    This constraint ensures that for all recipes k that are used in facility f under configuration c,
+                    the sum of the product of the actual capacity consumption of recipe k
+                    multiplied by the level of recipe k used in facility f under configuration c
+                    is less than or equal to the maximum annual capacity of facility f, operating under configuration c."
+                }
+            }
+        }
+        DeclarationSection Market_input_Constraints {
+            Constraint MarInpt {
+                IndexDomain: (b,m) in B_M;
+                Text: "Market input balance";
+                Unit: BioformUnit(b);
+                Definition: {
+                    sum[ r , xRM(b, r, m)]  + sum[ f , zFM(b, f, m) ]
+                    =
+                    sM(b, m)
+                }
+                Comment: {
+                    "sum{ r in Regions: (b,r,m) in tB_R_M and (b,r) in B_R} xRM[b,r,m]  + sum{ f in Facilities: (b,f,m) in tranB_F_M and (b,f) in outB_F} zFM[b,f,m] = sM[b,m];"
+                }
+            }
+            Constraint MarPrice {
+                IndexDomain: (b,m) in B_M;
+                Text: "Volume in all priceranges <= total volume sent";
+                Unit: BioformUnit(b);
+                Definition: {
+                    !volume sent in all price ranges p
+                    sum[p , sMP(b, m, p)]
+                    =
+                    !total volume sent
+                    sM(b, m)
+                }
+                Comment: "sum{p in PrcRng: (b,m,p) in B_M_P} sMP[b,m,p] = sM[b,m]";
+            }
+        }
+        Procedure SolveNSModel {
+            Body: {
+                empty AllVariables;
+                
+                Solve NSModel;
+            }
+        }
+        Section Unused_Model_Section;
+    }
+    Section NS_GUI_Section {
+        Procedure InitGUIBioforms {
+            Body: {
+                !Eliminate <NEW>
+                _b := StringToElement(Bioforms,"<NEW>",0);
+                Bioforms -= _b;
+                
+                ! Bioforms in Regions
+                if card(GUIRegionBioForms) = 0 then
+                	GUIRegionBioForms := {b |  exists(r | (b,r) in B_R) } ;
+                endif;
+                
+                ! Bioforms used by Facilities
+                if card(GUIRecipeInBioforms) = 0 then
+                	GUIRecipeInBioforms := {b |  exists(f | (b,f) in inB_F) } ;
+                endif;
+                
+                ! Bioforms produced by Facilities
+                if card(GUIRecipeOutBioforms) = 0 then
+                	GUIRecipeOutBioforms := {b |  exists(f | (b,f) in outB_F) } ;
+                endif;
+                
+                
+                ! Bioforms used by Markets
+                if card(GUIMarketBioforms) = 0 then
+                	GUIMarketBioforms := {b |  exists(m | (b,m) in B_M or bm_Ex(b, m)  )} ;
+                endif;
+                
+                ! Bioform units
+                BioformOutUnit((b)| not BioformOutUnit(b)) :=$ BioformUnit(b);
+                !BioformMarketUnit(b) :=$ BioformOutUnit(b);
+                BioformMarketUnit((b)| not BioformMarketUnit(b)) :=$ BioformOutUnit(b);
+            }
+        }
+        Procedure AddRecipeMarketBioform {
+            Body: {
+                 !DebuggerBreakpoint;
+                
+                if SetName = "GUIRecipeInBioforms" then
+                	GUITEMPBioforms := { b | not b in GUIRecipeInBioforms } ;
+                	dest := "a recipe input";
+                elseif SetName = "GUIRecipeOutBioforms" then
+                	GUITEMPBioforms := { b | not b in GUIRecipeOutBioforms } ;
+                	dest := "a recipe output";
+                elseif SetName = "GUIMarketBioforms" then
+                	GUITEMPBioforms := { b | not b in GUIMarketBioforms } ;
+                	dest := "a market input"
+                endif;
+                
+                SetElementAdd( GUITEMPBioforms, _bTemp, "<NEW>");
+                
+                if DialogGetElement("Which bioform can be "+dest+"?",_bTemp) = 0 then return 0;endif;
+                
+                if _bTemp ='' then return 0; endif;
+                
+                if FormatString("%e",_bTemp)="<NEW>" then
+                	Bioforms -= _bTemp;
+                	NewElementName := "";
+                	if PageOpen("nsm::Add_Setelement")=0 then
+                		DialogError("can't open Page nsm::Add_Setelement");
+                		empty GUITEMPBioforms;
+                		return 0;
+                	endif;
+                else
+                	if SetName = "GUIRecipeInBioforms" then
+                		_bKin := ElementCast(GUIRecipeInBioforms, _bTemp,1);
+                	elseif SetName = "GUIRecipeOutBioforms" then
+                		_bKout := ElementCast(GUIRecipeOutBioforms, _bTemp,1);
+                	elseif SetName = "GUIMarketBioforms" then
+                		_bM := ElementCast(GUIMarketBioforms, _bTemp,1);
+                	endif;
+                endif;
+                
+                empty GUITEMPBioforms;
+                return 1;
+            }
+            StringParameter dest;
+        }
+        Section GUI_Selectors_Section {
+            Parameter GUISel_ShowUnits {
+                Text: "Show Units";
+                Range: binary;
+                Property: NoSave;
+            }
+            StringParameter sPerValueUnits {
+                Property: NoSave;
+                Definition: if GUISel_ShowUnits then "Show per value" else "Not show units" endif;
+            }
+        }
+        Section Facilities_Section {
+            Procedure InitGUIRecOutAlpha {
+                Body: {
+                    GUIrecOutAlpha(bKout,k) := recOutAlpha(bkout, k);
+                    
+                    RecalcGUIRecOutAlphaPC;
+                    
+                    empty ValuesHaveChanged;
+                }
+                Parameter AlphaTot {
+                    IndexDomain: (k);
+                }
+            }
+            Procedure RecalcGUIRecOutAlphaPC {
+                Body: {
+                    
+                    AlphaTot(k) :=  sum[bKout, GUIrecOutAlpha(bKout, k)] ;
+                    
+                    GUIrecOutAlphaPC(bKout,k) := GUIrecOutAlpha(bKout,k) /$ AlphaTot(k)^2;
+                    !GUIrecOutAlphaPC(bKout,k) := GUIrecOutAlpha(bKout,k) / 1 [bioformunit(bkout)/RecipeUnit( k )] ;
+                    
+                    empty PCHasChanged;
+                }
+                Parameter AlphaTot {
+                    IndexDomain: (k);
+                }
+            }
+            Procedure SetPCHasChanged {
+                Body: {
+                    PCHasChanged := 1;
+                }
+            }
+            Procedure SetValuesHaveChanged {
+                Body: {
+                    ValuesHaveChanged := 1;
+                }
+            }
+            Procedure AdjustGUIRecOutAlpha {
+                Body: {
+                    !GUIrecOutAlpha(bKout,k) := recOutAlpha(bkout, k);
+                    
+                    AlphaTot(k) :=  sum[bKout, GUIrecOutAlpha(bKout, k)] ;
+                    Factor(k) := 1 /$ AlphaTot(k) ;
+                    
+                    GUIrecOutAlpha((bKout,k) | AlphaTot(k)<>1) := AlphaTot(k) * GUIrecOutAlphaPC(bKout, k) * Factor(k);
+                    !GUIrecOutAlphaPC(bKout,k) := GUIrecOutAlpha(bKout,k) / 1 [bioformunit(bkout)/RecipeUnit( k )] ;
+                    
+                    RecalcGUIRecOutAlphaPC;
+                    SetValuesHaveChanged;
+                }
+                Parameter AlphaTot {
+                    IndexDomain: (k);
+                }
+                Parameter Factor {
+                    IndexDomain: (k);
+                }
+            }
+            Procedure ApplyAdjustedGUIRecOutAlpha {
+                Body: {
+                    recOutAlpha(bKout, k) := GUIrecOutAlpha(bKout, k) ;
+                }
+            }
+            Parameter GUIrecOutAlpha {
+                IndexDomain: (bKout,k);
+                Unit: BioformOutUnit(bKout)/RecipeUnit(k);
+                Property: NoSave;
+            }
+            Parameter GUIrecOutAlphaPC {
+                IndexDomain: (bKout,k);
+                Unit: %;
+            }
+            Parameter PCHasChanged {
+                Range: binary;
+                Default: 0;
+                Property: NoSave;
+            }
+            Parameter ValuesHaveChanged {
+                Range: binary;
+                Default: 0;
+                Property: NoSave;
+            }
+        }
+        DeclarationSection Bioform_and_Domain_Declaration {
+            Set GUIRegionBioforms {
+                SubsetOf: Bioforms;
+                Text: "Bioforms occurring in Regions";
+                Index: br;
+                Parameter: _br;
+                Property: NoSave;
+            }
+            Set GUIRecipeInBioforms {
+                SubsetOf: Bioforms;
+                Text: "Bioforms used by Facilities";
+                Index: bKin;
+                Parameter: _bKin;
+                Property: NoSave;
+            }
+            Set GUIRecipeOutBioforms {
+                SubsetOf: Bioforms;
+                Text: "Bioforms used by Facilities";
+                Index: bKout, bkout1;
+                Parameter: _bKout;
+                Property: NoSave;
+            }
+            Set GUIMarketBioforms {
+                SubsetOf: Bioforms;
+                Text: "Bioforms used by Markets";
+                Index: bM;
+                Parameter: _bM;
+                Property: NoSave;
+            }
+            Set GUITEMPBioforms {
+                SubsetOf: Bioforms;
+                Text: "Bioforms used by Facilities";
+                Parameter: _bTemp;
+                Property: NoSave;
+            }
+            Parameter GUIBioformColumnwidth {
+                IndexDomain: (b);
+                Property: NoSave;
+                Definition: stringlength(FormatString("%e",b))*1.5;
+            }
+            Parameter GUI_B_R_F_Dom {
+                IndexDomain: (b,r,f) in B_R_F;
+                Range: binary;
+                Property: NoSave;
+                Definition: 1;
+            }
+            Parameter GUI_B_F_F_Dom {
+                IndexDomain: (b,f1,f2) |  (b,f1) in outB_F and (b,f2) in inB_F;
+                Range: binary;
+                Property: NoSave;
+                Definition: 1;
+            }
+            Parameter GUI_B_R_M_Dom {
+                IndexDomain: (b,r,m) in B_R_M;
+                Range: binary;
+                Property: NoSave;
+                Definition: 1;
+            }
+            Parameter GUI_B_F_M_Dom {
+                IndexDomain: (b,f,m) | (b,f) in outB_F and (b,m) in B_M;
+                Range: binary;
+                Property: NoSave;
+                Definition: 1;
+            }
+            Parameter GUI_B_P_M_Dom {
+                IndexDomain: (b,p,m)| bm_Ex(b, m);
+                Range: binary;
+                Property: NoSave;
+                Definition: 1;
+            }
+            Parameter UseGUIBioformSets {
+                Range: binary;
+                Property: NoSave;
+            }
+            Set GUIRegionBioformsWithoutDestination {
+                SubsetOf: Bioforms;
+                Text: "Bioforms used by Facilities";
+                Property: NoSave;
+                Definition: {
+                    if UseGUIBioformSets then
+                    
+                    { b | b in GUIRegionBioforms
+                    	and not b in GUIRecipeInBioforms
+                    	and not b in GUIMarketBioforms
+                    	}
+                    
+                    else
+                    { b | exists(r | (b,r) in B_R)
+                    	and not exists( f| (b,f) in inB_F )
+                    	and not exists( m |(b,m) in B_M )
+                    }
+                    endif
+                }
+            }
+            Set UnusedBioforms {
+                SubsetOf: Bioforms;
+                Text: "Bioforms used by Facilities";
+                Property: NoSave;
+                Definition: {
+                    if UseGUIBioformSets then
+                    
+                    { b | not b in GUIRegionBioforms
+                    	and not b in GUIRecipeInBioforms
+                    	and not b in GUIMarketBioforms
+                    	}
+                    
+                    else
+                    { b |   not exists( r | (b,r) in B_R)
+                    	and not exists( f | (b,f) in inB_F )
+                    	and not exists( m |(b,m)  in B_M )
+                    }
+                    endif
+                }
+            }
+            Set GUIRecipeBioformsWithoutDestination {
+                SubsetOf: Bioforms;
+                Text: "Bioforms used by Facilities";
+                Property: NoSave;
+                Definition: {
+                    if UseGUIBioformSets then
+                    
+                    { b | b in GUIRecipeOutBioforms
+                    	and not b in GUIRecipeInBioforms
+                    	and not b in GUIMarketBioforms
+                    	}
+                    
+                    else
+                    {
+                    	b |  exists(f | (b,f) in outB_F)
+                    	and not exists(f | (b,f) in inB_F)
+                    	and not exists(m | (b,m) in B_M )
+                    }
+                    endif
+                }
+            }
+        }
+        Section Supply_Chain_Section {
+            DeclarationSection SupplyChainDeclaration {
+                Set SCForRegionBioform_R_M {
+                    SubsetOf: (GUIRegionBioforms,Regions,Markets);
+                    Property: NoSave;
+                    Definition: {
+                        !if _br and _r then ! if region-bioform and region selected
+                        
+                        { (br,r,m) | (br, r) in B_R  and (br,m) in B_M }
+                    }
+                }
+                Set SCForBioform_R_F_M {
+                    SubsetOf: (Regions,GUIRecipeInBioforms,Facilities,GUIMarketBioforms,Markets);
+                    Property: NoSave;
+                    Definition: {
+                        !if _br and _r then ! if region-bioform and region selected
+                        
+                        { (r,bkin,f,bm,m) | (bkin, r) in B_R	! bioform in region
+                        			and (bkin,f) in inB_F		! facility uses bkin
+                        			and (bm,f) in outB_F		! facility produces bm
+                        			and (bm,m) in B_M 			! market uses bm
+                        }
+                    }
+                }
+                Set SCForBioform_R_F_F_M {
+                    SubsetOf: (Regions,GUIRecipeInBioforms,Facilities,GUIRecipeOutBioforms,Facilities,GUIMarketBioforms,Markets);
+                    Property: NoSave;
+                    Definition: {
+                        !if _br and _r then ! if region-bioform and region selected
+                        
+                        { (r,bkin,f,bkout,f1,bm,m)
+                        	| (bkin, r) in B_R		! bioform in region
+                        	and (bkin,f) in inB_F	! facility uses bkin
+                        	and (bkout,f) in outB_F	! facility produces bkout
+                        	and (bkout,f1) in inB_F	! facility1 uses bkout
+                        	and (bm,f1) in outB_F	! facility2 produces bm
+                        	and (bm,m) in B_M 		! market uses bm
+                        }
+                    }
+                }
+                Parameter pSc_Br_R_M {
+                    IndexDomain: (br,r,m) in SCForRegionBioform_R_M;
+                    Range: binary;
+                    Property: NoSave;
+                    Definition: 1;
+                }
+                Parameter pSc_Br_R_F_M {
+                    IndexDomain: (r,bkin,f,bm,m)in SCForBioform_R_F_M;
+                    Range: binary;
+                    Property: NoSave;
+                    Definition: 1;
+                }
+                Parameter pSc_Br_R_F_F_M {
+                    IndexDomain: (r,bkin,f,bkout,f1,bm,m)in SCForBioform_R_F_F_M;
+                    Range: binary;
+                    Property: NoSave;
+                    Definition: 1;
+                }
+                ElementParameter _colSc_Br_R_M {
+                    IndexDomain: (br,r,m) in SCForRegionBioform_R_M;
+                    Range: AllColors;
+                    Property: NoSave;
+                    Definition: {
+                        if pSc_Br_R_M(br, r, m) then
+                        	if not (br, r, M) in tranB_R_M
+                        	then 'red'
+                        	else 'green'
+                        	endif
+                        endif
+                    }
+                }
+                ElementParameter _colSc_Br_R_F_M {
+                    IndexDomain: (r,bkin,f,bm,m)in SCForBioform_R_F_M;
+                    Range: AllColors;
+                    Property: NoSave;
+                    Definition: {
+                        if pSc_Br_R_F_M(r, bKin, f, bM, m) then
+                        	if not (bkin, r, f) in tranB_R_F
+                        	or not (bm, f,m) in tranB_F_M
+                        	then 'red'
+                        	else 'green'
+                        	endif
+                        endif
+                    }
+                }
+                ElementParameter _colpSc_Br_R_F_F_M {
+                    IndexDomain: (r,bkin,f,bkout,f1,bm,m)in SCForBioform_R_F_F_M;
+                    Range: AllColors;
+                    Property: NoSave;
+                    Definition: {
+                        if pSc_Br_R_F_F_M(r, bKin, f, bKout, f1, bM, m) then
+                        	if not (bkin, r, f) in tranB_R_F
+                        	or not (bkout, f,f1) in tranB_F_F
+                        	or not (bm, f1,m) in tranB_F_M
+                        	then 'red'
+                        	else 'green'
+                        	endif
+                        endif
+                    }
+                }
+            }
+        }
+        Set DerivedSets {
+            SubsetOf: AllSets;
+            Index: ids;
+            Parameter: _ids;
+        }
+        Set SetsToAddDeleteElements {
+            SubsetOf: AllSets;
+            Index: sta;
+            Parameter: CurrentSet;
+            Definition: {
+                data {
+                ManagementUnits,        Blocks,         Destinations, Products, Residuals, Sectors
+                }
+            }
+        }
+        Set DummySet_ElementsToDelete {
+            Text: "Contains elements from a set available for deletion";
+            Index: etd;
+            Parameter: Current_etd;
+        }
+        Set SetsThatCanBeRenamed {
+            SubsetOf: AllSets;
+            Index: stcbr;
+            Parameter: _stcbr;
+            Definition: {
+                data
+                    { 'Bioforms'      , 'Scenarios'     , 'Regions'       , 'Recipes'       , 'Facilities'    ,
+                      'Markets'       , 'Configurations' , 'PrcRng' }
+            }
+        }
+        Set MillConfigurations {
+            SubsetOf: (Facilities, Configurations);
+            Index: fc;
+            Parameter: _fc;
+            Property: NoSave;
+            Definition: {
+                { (f,c) | (f,c) in F_C }
+            }
+        }
+        Set MillConfigurationRecipes {
+            SubsetOf: (Facilities, Configurations, Recipes);
+            Index: fck;
+            Parameter: _fck;
+            Property: NoSave;
+            Definition: {
+                { (f,c,k) | fck_Ex(f, c, k) and (f,c,k) in F_C_K }
+            }
+        }
+        Set Bioform2Recipe {
+            SubsetOf: (Bioforms,Recipes);
+            Property: NoSave;
+            Definition: {
+                { (b,k) | RecipeUsesBioform(b, k) }
+            }
+        }
+        Set Recipe2Bioform {
+            SubsetOf: (Bioforms,Recipes);
+            Property: NoSave;
+            Definition: {
+                { (b,k) | RecipeUsesBioform(b, k) }
+            }
+        }
+        DeclarationSection Colours_Declaration {
+            ElementParameter __CCorresp {
+                Range: AllColors;
+                Property: NoSave;
+                Definition: 'corresponding';
+            }
+            ElementParameter _fCorresponding {
+                IndexDomain: (f);
+                Range: AllColors;
+                Property: NoSave;
+                Definition: {
+                    !~if _f <> '' and f=_f then __CCorresp endif
+                    _1Corresponding(f,_f)
+                }
+            }
+            ElementParameter _f_NoConfig {
+                IndexDomain: (f);
+                Range: AllColors;
+                Property: NoSave;
+                Definition: if not exists(c | FC_Ex(f, c) ) then 'red' endif;
+            }
+            ElementParameter _fcCorresponding {
+                IndexDomain: (f,c);
+                Range: AllColors;
+                Property: NoSave;
+                Definition: {
+                    !> '' and c=_c then __CCorresp endif
+                    if not (f,c) in F_C then 'dark grey' else
+                    _2Corresponding(f,_f, c , _c)
+                    endif
+                }
+            }
+            ElementParameter _bkCorresponding {
+                IndexDomain: (b,k);
+                Range: AllColors;
+                Property: NoSave;
+                Definition: {
+                    !> '' and c=_c then __CCorresp endif
+                    _2Corresponding(b,_b, k , _k)
+                }
+            }
+            ElementParameter _bCorresponding {
+                IndexDomain: (b);
+                Range: AllColors;
+                Property: NoSave;
+                Definition: {
+                    !if _b <> '' and b=_b then __CCorresp endif
+                    _1Corresponding(b,_b)
+                }
+            }
+            ElementParameter _kCorresponding {
+                IndexDomain: (k);
+                Range: AllColors;
+                Property: NoSave;
+                Definition: {
+                    
+                    _1Corresponding(k,_k)
+                }
+            }
+            ElementParameter _mCorresponding {
+                IndexDomain: (m);
+                Range: AllColors;
+                Property: NoSave;
+                Definition: {
+                    
+                    _1Corresponding(m,_m)
+                }
+            }
+            ElementParameter _bmCorresponding {
+                IndexDomain: (bM);
+                Range: AllColors;
+                Property: NoSave;
+                Definition: {
+                    
+                    _1Corresponding(bm,_bm)
+                }
+            }
+            Macro _1Corresponding {
+                Arguments: (i,e);
+                Definition: if e <> '' and i=e then __CCorresp endif;
+            }
+            Macro _2Corresponding {
+                Arguments: (i1,e1,i2,e2);
+                Definition: {
+                    if  e1 <> '' and i1=e1
+                    and e2 <> '' and i2=e2
+                     then __CCorresp endif
+                }
+            }
+            Macro _3Corresponding {
+                Arguments: (i1,e1,i2,e2,i3,e3);
+                Definition: {
+                    if  e1 <> '' and i1=e1
+                    and e2 <> '' and i2=e2
+                    and e3 <> '' and i3=e3
+                     then __CCorresp endif
+                }
+            }
+            ElementParameter _CNotExist {
+                IndexDomain: (f);
+                Range: AllColors;
+                Property: NoSave;
+                Definition: {
+                    if not exists(c|FC_Ex(f, c)) then 'red'
+                    elseif _fCorresponding(f) then 'corresponding'
+                    endif
+                }
+            }
+            ElementParameter _F_C_NoCap {
+                IndexDomain: (f,c) | fc_ex(f,c);
+                Range: AllColors;
+                Property: NoSave;
+                Definition: if  not FC_Cap(f, c) then 'red' endif;
+            }
+            ElementParameter _F_C_NoRecipe {
+                IndexDomain: (f,c) | fc_ex(f,c);
+                Range: AllColors;
+                Property: NoSave;
+                Definition: if  not exists(k | FCk_ex(f, c,k) ) then 'red' endif;
+            }
+            ElementParameter __F_C_K_NoMax {
+                IndexDomain: (f,c,k)| fck_ex(f,c,k);
+                Range: AllColors;
+                Property: NoSave;
+                Definition: if  not fckMax(f, c,k) then 'red' endif;
+            }
+            ElementParameter _B_M_P_NoULM {
+                IndexDomain: (b,m,p)| bm_Ex(b, m);
+                Range: AllColors;
+                Property: NoSave;
+                Definition: if  not ULM(b, m, p) then 'red' endif;
+            }
+        }
+        Parameter FCK_NotDefined {
+            Property: NoSave;
+            Definition: {
+                if not _f or not _c or not _k then 1
+                
+                elseif (not (_f,_c) in F_C)
+                     or (not (_f,_c,_k) in F_C_K)
+                    then 1
+                else 0
+                endif;
+            }
+        }
+        ElementParameter _GUI_k {
+            Range: Recipes;
+            Property: NoSave;
+            Definition: {
+                if not _k or (not (_f,_c,_k) in F_C_K) then
+                first(k | (_f, _c, k) in F_C_K)
+                else _k
+                endif
+            }
+        }
+        ElementParameter _GUI_c {
+            Range: Configurations;
+            Property: NoSave;
+            Definition: {
+                if not _c or (not (_f,_c) in F_C)  then
+                first(c | (_f,c) in F_C)
+                else _c
+                endif
+            }
+        }
+        Procedure GUIUpdate_FCK {
+            Body: {
+                if not _f then _f := first(f); endif;
+                
+                if not _c or (not (_f,_c) in F_C)  then
+                _c := first(c | (_f,c) in F_C);
+                endif;
+                
+                if not _k or (not (_f,_c,_k) in F_C_K) then
+                _k := first(k | (_f, _c, k) in F_C_K) ;
+                endif;
+                
+                _fck := tuple(_f,_c,_k);
+            }
+        }
+        Procedure Initialize_Defined_Sets {
+            Body: {
+                
+                empty DerivedSets;
+                Mysets := AllSets * Section_1_README;
+                for ( IndexSets in Mysets  ) do
+                	AttributeNames := IdentifierAttributes(IndexSets);
+                
+                	_Attribute := StringToElement(AttributeNames,"definition",0);
+                	if _Attribute then
+                		s := AttributeToString(IndexSets, _Attribute);
+                		if s <> "" then
+                			DerivedSets += IndexSets;
+                
+                			if boolAsk then
+                				retval := DialogAsk(FormatString("'%e' - '%e': \n\"%s\"",IndexSets,_Attribute, s)
+                							,button1: "OK",button2:"Don't Ask",button3:"Cancel");
+                				if retval =3 then return 1;
+                				elseif retval = 2 then boolAsk:=0;
+                				endif;
+                			endif;
+                		endif;
+                	endif;
+                
+                endfor;
+            }
+            Comment: "Create set DerivedSets to include all sets in Section_1 that have a definition";
+            Set MySets {
+                SubsetOf: AllSets;
+            }
+            ElementParameter _Attribute {
+                Range: AllAttributeNames;
+            }
+            Set AttributeNames {
+                SubsetOf: AllAttributeNames;
+                Index: ia;
+                Parameter: _ia;
+            }
+            StringParameter s;
+            Parameter boolAsk {
+                Range: binary;
+                Default: 0;
+            }
+            Parameter retval;
+        }
+        Procedure InitializePageSet {
+            Body: {
+                ! Get names of all pages in project
+                PageGetAll(PageSet,1,0,0,0);
+                GetAllChidPages("nsm::NS Main Page", GUIPagesWithChildren);
+                
+                
+                !GUIPagesWithChildren := data { 'General' , 'Supply' ,'Mills' , 'Markets' ,'Exec' ,'Results','Maps','Explore'
+                !							! --- RO Library
+                !							!, 'fro::Test FlowRO'
+                !							! --- Map Only GUI
+                !							!, 'Map _Supply' , 'Map _Maps' , 'Map _Mills' , 'Map Explore'
+                !						};
+                
+                !DebuggerBreakpoint;
+                block !Get child pages
+                	for gpag do
+                		GetAllChidPages(FormatString("%e",gpag), TempChildPages);
+                
+                		GUIParentChildPages += { (gpag, pag) | pag in TempChildPages };
+                
+                	endfor;
+                endblock;
+                
+                !for gpag do
+                !	ParentPage := FormatString("%e",gpag);
+                !
+                !	! get name of all child pages
+                !	if PageGetChild(ParentPage, PageName , 0) then
+                !		_gpag := StringToElement(GUIPagesWithChildren, ParentPage,0);
+                !
+                !		repeat
+                !			_pag := StringToElement(PageSet,PageName,0);
+                !			GUIParentChildPages += { ( _gpag,_pag) };
+                !			retval := PageGetNext(PageName,Pagename,0);
+                !			break when (retval=0);
+                !		endrepeat;
+                !	endif;
+                !endfor;
+                
+                ! -- check which pages use ReadOnlyParameters
+                PagesWithReadOnlyParameters := {  };
+                for IndexNonDataPages  do
+                	PageGetUsedIdentifiers(IndexNonDataPages,TempIdentifierSet);
+                	!if IndexNonDataPages = 'Supply Zones' then DebuggerBreakpoint; endif;
+                
+                	! iIdent is list of used identifiers in pag
+                	for (iIdent | iIdent in ReadOnlyParameters) do
+                		PagesWithReadOnlyParameters += { (IndexNonDataPages,iIdent) };
+                	endfor;
+                endfor;
+                
+                !ResetReadOnlyPages;
+            }
+            StringParameter ParentPage;
+            StringParameter PageName;
+            Parameter retval;
+            Set TempIdentifierSet {
+                SubsetOf: AllIdentifiers;
+                Index: iIdent;
+            }
+            Set TempChildPages {
+                SubsetOf: PageSet;
+                Index: pns;
+                Parameter: _pns;
+            }
+        }
+        Procedure AssignCurrentButton {
+            Body: {
+                if PageGetActive(PageName) = 0 then return 0 ; endif;
+                
+                for btn do
+                	ButtonName := FormatString("%e",btn);
+                	if ButtonName = PageName then
+                		CurrentButton := btn;
+                		return 1;
+                
+                	elseif FindString(PageName, ButtonName) and not FindString(ButtonName," ") then
+                		CurrentButton := btn;
+                		return 1;
+                	endif;
+                endfor;
+                
+                return 0;
+            }
+            Comment: {
+                "Assign value to CurrentButton based on Active Page Name;"
+            }
+            StringParameter PageName;
+            StringParameter ButtonName;
+        }
+        Procedure GetAllChidPages {
+            Arguments: (ParentPageName,PageNameSet);
+            Body: {
+                if StringToElement(PageSet, ParentPageName,0) = '' then
+                	return 0;
+                endif;
+                
+                retval := FindString(ParentPageName,"::") ;
+                if retval > 0 then
+                	pre := SubString(ParentPageName,1,retval+1);
+                endif;
+                
+                
+                ! get name of all child pages
+                retval := PageGetChild(ParentPageName, PageName , 0) ;
+                if retval <> 0 then
+                	_epag := StringToElement(PageSet,pre+PageName,0);
+                	PageNameSet += _epag;
+                
+                	repeat
+                		!PageName := FormatString("%e",_epag);
+                		retval := PageGetNext(FormatString("%e",_epag),Pagename,0);
+                		if FindString(PageName, pre) = 0 then
+                			PageName := Pre + PageName;
+                		endif;
+                		break when (retval=0);
+                		_epag := StringToElement(PageSet,PageName,0);
+                		PageNameSet += _epag ; !{ ( _gpag,_pag) };
+                	endrepeat;
+                endif;
+            }
+            Set PageNameSet {
+                SubsetOf: PageSet;
+                Index: pns;
+                Parameter: _pns;
+                Property: Output;
+            }
+            StringParameter ParentPageName {
+                Property: Input;
+            }
+            StringParameter PageName;
+            ElementParameter _epag {
+                Range: PageSet;
+            }
+            StringParameter ParentPage;
+            StringParameter Pre;
+            Parameter retval;
+        }
+        Procedure test {
+            Body: {
+                ParentPageName := "nsm::NS Main Page";
+                GetAllChidPages(ParentPageName, PageNameSet);
+                
+                return 1;
+            }
+            Set PageNameSet {
+                SubsetOf: PageSet;
+                Index: pns;
+                Parameter: _pns;
+            }
+            StringParameter ParentPageName;
+            StringParameter PageName;
+        }
+        Section Set_Element_Section {
+            Procedure InitializeElementsToDelete {
+                Body: {
+                    
+                    !DebuggerBreakpoint;
+                    If SetName = "Bioforms" then
+                    	SetCopyElements(Bioforms,DummySet_ElementsToDelete);
+                    ElseIf SetName = "GUIRegionBioforms" then
+                    	SetCopyElements(GUIRegionBioforms,DummySet_ElementsToDelete);
+                    ElseIf SetName = "GUIRecipeInBioforms" then
+                    	SetCopyElements(GUIRecipeInBioforms,DummySet_ElementsToDelete);
+                    ElseIf SetName = "GUIRecipeOutBioforms" then
+                    	SetCopyElements(GUIRecipeOutBioforms,DummySet_ElementsToDelete);
+                    ElseIf SetName = "GUIMarketBioforms" then
+                    	SetCopyElements(GUIMarketBioforms,DummySet_ElementsToDelete);
+                    
+                    ElseIf SetName = "Regions" then
+                    	SetCopyElements(Regions,DummySet_ElementsToDelete);
+                    ElseIf SetName = "Scenarios" then
+                    	SetCopyElements(Scenarios,DummySet_ElementsToDelete);
+                    ElseIf SetName = "Facilities" then
+                    	SetCopyElements(Facilities,DummySet_ElementsToDelete);
+                    ElseIf SetName = "Recipes" then
+                    	SetCopyElements(Recipes,DummySet_ElementsToDelete);
+                    ElseIf SetName = "Configurations" then
+                    	SetCopyElements(Configurations,DummySet_ElementsToDelete);
+                    ElseIf SetName = "Markets" then
+                    	SetCopyElements(Markets,DummySet_ElementsToDelete);
+                    else
+                            DialogError("No action defined for the set '" + setname + "'","InitializeElementsToDelete Error");
+                    endif;
+                }
+            }
+            Procedure CheckAllElementsInRootSet {
+                Body: {
+                    SetsToCheck := {IndexIdentifiers | AttributeToString(IndexIdentifiers,'Subset of') = "Bioforms" };
+                    
+                    bioforms +=GUIRegionBioforms;
+                    bioforms +=GUIRecipeInBioforms;
+                    bioforms +=GUIRecipeOutBioforms;
+                    bioforms +=GUIMarketBioforms;
+                    bioforms +=GUITEMPBioforms;
+                    return 1;
+                }
+                Set SetsToCheck {
+                    SubsetOf: AllSets;
+                    Index: iSTC;
+                }
+                Set RootSet {
+                    SubsetOf: AllSets;
+                }
+                ElementParameter _Identifier {
+                    Range: AllIdentifiers;
+                }
+                StringParameter sSubsetOf;
+            }
+            Procedure AddElementFunction {
+                Arguments: (ArgumentSet,NewName);
+                Body: {
+                    ArgumentElement := StringToElement(ArgumentSet,NewName);
+                    If ArgumentElement then
+                            DialogMessage(FormatString("This element is already in the set: %s", SetName));
+                            return -1;
+                    Else
+                            SetElementAdd(ArgumentSet,ArgumentElement,NewName);
+                    
+                            !check that root set contains new element
+                            !_Identifier := StringToElement(AllIdentifiers,FormatString("%e",ArgumentSet),0);
+                    		!sSubsetOf := AttributeToString(_Identifier,'Subset of');
+                    		!if sSubsetOf <> "" then
+                           ! 	RootSet := StringToElement(AllSets, sSubsetOf,0);
+                           ! endif;
+                            cleandependents ArgumentSet;
+                            return 1;
+                    EndIf;
+                }
+                Set ArgumentSet {
+                    Index: arg;
+                    Property: InOut;
+                }
+                Set RootSet {
+                    SubsetOf: AllSets;
+                }
+                ElementParameter _Identifier {
+                    Range: AllIdentifiers;
+                }
+                StringParameter NewName {
+                    Property: Input;
+                }
+                ElementParameter ArgumentElement {
+                    Range: ArgumentSet;
+                }
+                StringParameter sSubsetOf;
+            }
+            Procedure DeleteElementFunction {
+                Arguments: (ArgumentSet,ArgumentElement);
+                Body: {
+                    If not ArgumentElement then
+                        DialogMessage("No element Selected.","DeleteElementFunction Error");
+                        return -1;
+                    endif;
+                    !DebuggerBreakpoint;
+                    !--- if ArgumentSet is a subset, delete element from the root set
+                    if ArgumentSet = Blocks or ArgumentSet = Destinations then
+                            AllLocations -= ElementCast(AllLocations, ArgumentElement,0);
+                            cleandependents AllLocations;
+                    elseif ArgumentSet =  Products or ArgumentSet = Residuals then
+                            AllProducts -= ElementCast(AllProducts, ArgumentElement,0);
+                            cleandependents AllProducts;
+                    elseif ArgumentSet = ProductGroups or ArgumentSet = ResidualGroups then
+                    		AllProductGroups -= ElementCast(AllProductGroups, ArgumentElement,0);
+                    		cleandependents AllProductGroups;
+                    else
+                            ArgumentSet -= ArgumentElement;
+                            cleandependents ArgumentSet;
+                    endif;
+                    
+                    ! cleandependents AllLocations,AllProducts,AllProductGroups;
+                    return 1;
+                }
+                Set ArgumentSet {
+                    Index: arg;
+                    Property: InOut;
+                }
+                StringParameter NewName;
+                ElementParameter ArgumentElement {
+                    Range: ArgumentSet;
+                    Property: Input;
+                }
+            }
+            Procedure AddSetMember {
+                Body: {
+                    !DialogMessage(
+                    !       FormatString("(2 <= StringLength(NewElementName) <= 8) returns: '%n'",(2 <= StringLength(NewElementName) <= 8))
+                    !       ,"");
+                    !if (2 <= StringLength(NewElementName) <= 8) <> 1 then
+                    !        DialogMessage("The length of the element should be between 2 and 8 characters");
+                    !        return -1;
+                    !endif;
+                    ! warning: Apr 2010 - AddElementFunction: Must also add to root sets (AIMMS bug)
+                    
+                    if SetName = "Blocks" then
+                    	AddElementFunction(Blocks,NewElementName);
+                    	AddElementFunction(AllLocations,NewElementName);
+                    /*
+                    ElseIf SetName = "Management Units" then
+                    	AddElementFunction(ManagementUnits,NewElementName);
+                    ElseIf SetName = "Destinations" then
+                    	AddElementFunction(Destinations,NewElementName);
+                    	AddElementFunction(AllLocations,NewElementName);
+                    
+                    ElseIf SetName = "CostCentres" then
+                    	AddElementFunction(CostCentres,NewElementName);
+                    
+                    !--- For products, also modify cPrG(product,ProductGroup) association
+                    ElseIf SetName = "Products" then
+                    	AddElementFunction(Products,NewElementName);
+                    	AddElementFunction(AllProducts,NewElementName);
+                    
+                    	! products must also be added to Product Groups
+                    	AddElementFunction(ProductGroups,NewElementName);
+                    	AddElementFunction(AllProductGroups,NewElementName);
+                    	cPrG((gPrGrp,gpr) | FormatString("%e",gprgrp) = FormatString("%s",NewElementName)
+                    						and FormatString("%e",gpr) = FormatString("%s",NewElementName)
+                    						) := 1;
+                    
+                    ElseIf SetName = "Residuals" then
+                    	AddElementFunction(Residuals,NewElementName);
+                    	AddElementFunction(AllProducts,NewElementName);
+                    	! products must also be added to Product Groups
+                    	AddElementFunction(ResidualGroups,NewElementName);
+                    	AddElementFunction(AllProductGroups,NewElementName);
+                    	cPrG((gPrGrp,gpr) | FormatString("%e",gprgrp) = FormatString("%s",NewElementName)
+                    						and FormatString("%e",gpr) = FormatString("%s",NewElementName)
+                    						) := 1;
+                    
+                    Elseif Setname = "ProductGroups" then
+                    	switch c_ProductGroupType do
+                    	'Products': 	AddElementFunction(ProductGroups,NewElementName);
+                    	'Residuals' , 'Both':
+                    			SetName := "ResidualGroups";
+                    			AddElementFunction(ResidualGroups,NewElementName);
+                    	default:	DialogError(FormatString("Unknown element '%e'",c_ProductGroupType),"Internal Error");
+                    				halt;
+                    	endswitch;
+                    	::AddElementFunction(AllProductGroups,NewElementName);
+                    	cPrG((gPrGrp,gpr) | FormatString("%e",gprgrp) = FormatString("%s",NewElementName)
+                    						and FormatString("%e",gpr) = FormatString("%s",NewElementName)
+                    						) := 1;
+                    
+                    ElseIf SetName = "Sectors" then
+                    	AddElementFunction(Sectors,NewElementName);
+                    	*/
+                    ElseIf SetName = "GUIRegionBioforms" then
+                    	AddElementFunction(GUIRegionBioforms,NewElementName);
+                    ElseIf SetName = "GUIRecipeInBioforms" then
+                    	AddElementFunction(GUIRecipeInBioforms,NewElementName);
+                    ElseIf SetName = "GUIRecipeOutBioforms" then
+                    	AddElementFunction(GUIRecipeOutBioforms,NewElementName);
+                    ElseIf SetName = "GUIMarketBioforms" then
+                    	AddElementFunction(GUIMarketBioforms,NewElementName);
+                    
+                    ElseIf SetName = "Regions" then
+                    	AddElementFunction(Regions,NewElementName);
+                    ElseIf SetName = "Scenarios" then
+                    	AddElementFunction(Scenarios,NewElementName);
+                    ElseIf SetName = "Facilities" then
+                    	AddElementFunction(Facilities,NewElementName);
+                    ElseIf SetName = "Recipes" then
+                    	AddElementFunction(Recipes,NewElementName);
+                    ElseIf SetName = "Configurations" then
+                    	AddElementFunction(Configurations,NewElementName);
+                    ElseIf SetName = "Markets" then
+                    	AddElementFunction(Markets,NewElementName);
+                    else
+                            DialogError("No action defined for the set '" + SetName + "'","Error");
+                    endif;
+                    
+                    s := FormatString("'%s' has been added to the set: %s \n\n",NewElementName,SetName);
+                    if setname = "Products" or SetName = "Residuals" then
+                    	s += FormatString("'%s' has also been added to product and residual groups\n\nPlease check product/group relation",NewElementName);
+                    endif;
+                    
+                    DialogMessage(s,"New Element Added");
+                    
+                    return 1;
+                }
+                StringParameter s;
+            }
+            Procedure DeleteSetMember {
+                Body: {
+                    !DebuggerBreakpoint;
+                    If SetName = "Bioforms" then
+                    	_b := ElementCast(Bioforms, Current_etd,0);
+                    	DeleteElementFunction(Bioforms,_b);
+                    ElseIf SetName = "GUIRegionBioforms" then
+                    	_br := ElementCast(GUIRegionBioforms, Current_etd,0);
+                    	DeleteElementFunction(GUIRegionBioforms,_br);
+                    ElseIf SetName = "GUIRecipeInBioforms" then
+                    	_bKin := ElementCast(GUIRecipeInBioforms, Current_etd,0);
+                    	DeleteElementFunction(GUIRecipeInBioforms,_bKin);
+                    ElseIf SetName = "GUIRecipeOutBioforms" then
+                    	_bKout := ElementCast(GUIRecipeOutBioforms, Current_etd,0);
+                    	DeleteElementFunction(GUIRecipeOutBioforms,_bKout);
+                    ElseIf SetName = "GUIMarketBioforms" then
+                    	_bM := ElementCast(GUIMarketBioforms, Current_etd,0);
+                    	DeleteElementFunction(GUIMarketBioforms,_bm);
+                    
+                    ElseIf SetName = "Regions" then
+                    	_r := ElementCast(Regions, Current_etd,0);
+                    	DeleteElementFunction(Regions,_r);
+                    ElseIf SetName = "Scenarios" then
+                    	_s := ElementCast(Scenarios, Current_etd,0);
+                    	DeleteElementFunction(Scenarios,_s);
+                    ElseIf SetName = "Facilities" then
+                    	_f := ElementCast(Facilities, Current_etd,0);
+                    	DeleteElementFunction(Facilities,_f);
+                    ElseIf SetName = "Recipes" then
+                    	_k := ElementCast(Recipes, Current_etd,0);
+                    	DeleteElementFunction(Recipes,_k);
+                    ElseIf SetName = "Configurations" then
+                    	_c := ElementCast(Configurations, Current_etd,0);
+                    	DeleteElementFunction(Configurations,_c);
+                    ElseIf SetName = "Markets" then
+                    	_m := ElementCast(Markets, Current_etd,0);
+                    	DeleteElementFunction(Markets,_m);
+                    
+                    
+                    /*
+                    ElseIf SetName = "Management Units" then
+                            Current_mu := ElementCast(ManagementUnits,Current_etd,0);
+                            ::DeleteElementFunction(ManagementUnits,Current_mu)
+                    ElseIf SetName = "Destinations" then
+                            Current_dest := ElementCast(Destinations,Current_etd,0);
+                            ::DeleteElementFunction(Destinations,Current_dest)
+                    ElseIf SetName = "CostCentres" then
+                    		_Cost := ElementCast(CostCentres, Current_etd,0);
+                    		::DeleteElementFunction(CostCentres,_Cost)
+                    ElseIf SetName = "Products" then
+                            Current_prd := ElementCast(Products,Current_etd,0);
+                    
+                    ElseIf SetName = "Residuals" then
+                            Current_res := ElementCast(Residuals,Current_etd,0);
+                            ::DeleteElementFunction(Residuals,Current_res)
+                    ElseIf SetName = "Sectors" then
+                            _Sect := ElementCast(Sectors,Current_etd,0);
+                            ::DeleteElementFunction(Sectors,_Sect)
+                    ElseIf SetName = "ProductGroups" then
+                            ! Don't allow deletion of singleton Product Groups
+                            if (ElementCast(ProductGroupsSingle,Current_etd,0) <> '') or (ElementCast(ResidualGroupsSingle,Current_etd,0) <> '')  then
+                            	DialogError(FormatString("%e represents a single product/residual and cannot be deleted",Current_etd),"Can't delete element");
+                            	return 0;
+                            endif;
+                    
+                    
+                            _gPrGrp := ElementCast(AllProductGroups,Current_etd,0);
+                    
+                            ! OK to delete
+                            ::DeleteElementFunction(AllProductGroups,_gPrGrp)
+                            */
+                     else
+                            DialogError("No action defined for the set '" + setname + "'","DeleteSetMember Error");
+                    endif;
+                }
+            }
+            Procedure RenameSetMember {
+                Body: {
+                    if PageGetFocus(Pagename,Tagname) = 0 then
+                    !	halt with "RenameSetMember: Can't get Focus";
+                    endif;
+                    
+                    if TagName = "" then
+                    	if DialogGetElement("For which set would you like to rename an element?",_stcbr) = 0 then
+                    		return -1;
+                    	else
+                    		Tagname := FormatString("%e",_stcbr);
+                    	endif;
+                    else
+                    	TagName := "nsm::"+TagName;
+                    	_stcbr := StringToElement(SetsThatCanBeRenamed,Tagname,0);
+                    	if _stcbr = '' then
+                    		halt with "Can't find set matching " + Tagname ;
+                    	endif;
+                    endif;
+                    block ! Strip nsm:: prefix
+                    	i := FindString(TagName,"::");
+                    	if i>0 then
+                    		Tagname := SubString(TagName,i+2,StringLength(TagName) );
+                    	endif;
+                    
+                    endblock;
+                    
+                    
+                    !DebuggerBreakpoint;
+                    If TagName = "Bioforms" then
+                    	RenameSetMemberFunction(Bioforms,"Bioform",_b);
+                    ElseIf TagName = "Regions" then
+                    	RenameSetMemberFunction(Regions,"Region",_r);
+                    ElseIf TagName = "Scenarios" then
+                    	RenameSetMemberFunction(Scenarios,"Scenario",_s);
+                    ElseIf TagName = "Facilities" then
+                    	RenameSetMemberFunction(Facilities,"Facility",_f);
+                    ElseIf TagName = "Recipes" then
+                    	RenameSetMemberFunction(Recipes,"Recipe",_k);
+                    ElseIf TagName = "Configurations" then
+                    	RenameSetMemberFunction(Configurations,"Configuration",_c);
+                    ElseIf TagName = "Markets" then
+                    	RenameSetMemberFunction(Markets,"Market",_m);
+                     else
+                            DialogError("No action defined for the set '" + TagName + "'","RenameSetMember Error");
+                    endif;
+                }
+                StringParameter PageName;
+                StringParameter TagName;
+                ElementParameter _Setname {
+                    Range: AllSets;
+                }
+                Parameter i;
+            }
+            Procedure RenameSetMemberFunction {
+                Arguments: (ArgumentSet,SetName,ArgumentElement);
+                Body: {
+                    if Card(ArgumentSet) = 1 then
+                    	ArgumentElement := first(ArgumentSet);
+                    
+                    elseif DialogGetElement("Which '"+SetName+"' would you like to rename?",ArgumentElement) = 0 then
+                    	return 0;
+                    endif;
+                    
+                    NewName := FormatString("%e",ArgumentElement);
+                    if DialogGetString("Enter new name for '"+ArgumentElement+"'",NewName,"Enter Value") = 0 then
+                    	return 0; endif;
+                    
+                    if NewName = FormatString("%e",ArgumentElement) then
+                    	return 1;
+                    endif;
+                    
+                    if SetElementRename(ArgumentSet,ArgumentElement,NewName) = 0 then
+                    	halt with "Can't rename element";
+                    endif;
+                    
+                    return 1;
+                }
+                Set ArgumentSet {
+                    Property: InOut;
+                }
+                ElementParameter ArgumentElement {
+                    Range: ArgumentSet;
+                    Property: InOut;
+                }
+                StringParameter NewName;
+                StringParameter SetName {
+                    Property: Input;
+                }
+            }
+        }
+    }
+    Section NS_Results_Section {
+        Set Exec_Variables {
+            SubsetOf: AllIdentifiers;
+            Index: iev;
+            Property: NoSave;
+            Definition: 'obj' +AllVariables * Defined_Variable_Declaration - 'Aprod';
+        }
+        ElementParameter _Exec_SelVar {
+            Range: Exec_Variables;
+            Property: NoSave;
+        }
+        ElementParameter _Exec_ParamToDisplay {
+            IndexDomain: (iev);
+            Range: AllIdentifiers;
+            Property: NoSave;
+            Definition: {
+                data
+                {  'nsm::MarkRev'  : 'nsm::MarkRev_Detail'
+                ,  'nsm::Scencost' : 'nsm::ScenCost_Detail'
+                ,  'nsm::tcostRF'  : 'nsm::tCostRF_Detail'
+                ,  'nsm::tcostRM'  : ''
+                ,  'nsm::tcostFF'  : 'nsm::tCostFF_Detail'
+                ,  'nsm::tcostFM'  : 'nsm::tCostFM_Detail'
+                ,  'nsm::fFxCst'   : 'nsm::fFxCst_Detail'
+                ,  'nsm::rVarCst'  : 'nsm::rVarCst_Detail'
+                }
+            }
+        }
+        DeclarationSection Exec_Param_Declaration {
+            Set Exec_ParamToDisplay {
+                SubsetOf: AllIdentifiers;
+                Parameter: _iExecParam;
+                Property: NoSave;
+                Definition: {
+                    { IndexIdentifiers |
+                    !IndexIdentifiers in (AllParameters * Exec_Param_Declaration)
+                    !and
+                    IndexIdentifiers = _Exec_ParamToDisplay(_Exec_SelVar)
+                    }
+                }
+            }
+            Parameter MarkRev_Detail {
+                IndexDomain: (b,m);
+                Text: "Revenue to market \'m\' from bioform \'b\'";
+                Unit: k$;
+                Property: NoSave;
+                Definition: sum[ (p) , PrcM(b,m,p) * sMP(b,m,p) ];
+            }
+            Parameter ScenCost_Detail {
+                IndexDomain: (s);
+                Text: "Cost of scenario s";
+                Unit: k$;
+                Property: NoSave;
+                Definition: sum[ (r) ,  ScenFixCst(r, s) * yS(r, s) ];
+            }
+            Parameter tCostRF_Detail {
+                IndexDomain: (r,f);
+                Text: "Transport cost from r to f";
+                Unit: k$;
+                Property: NoSave;
+                Definition: {
+                    sum[ (b), (0 [$/k_m3] + tcostBRF(b, r, f)) * xRF(b, r, f) ];
+                }
+            }
+            Parameter tCostFF_Detail {
+                IndexDomain: (f1,f);
+                Text: "Transport cost from f1 to f";
+                Unit: k$;
+                Property: NoSave;
+                Definition: sum[ (b) , tcostBFF(b, f1, f) * zFF(b, f1, f) ];
+            }
+            Parameter tCostFM_Detail {
+                IndexDomain: (f,m);
+                Text: "Transport cost from f to m";
+                Unit: k$;
+                Property: NoSave;
+                Definition: sum[ (b) , tcostBFM(b, f, m) * zFM(b, f, m) ];
+            }
+            Parameter fFxCst_Detail {
+                IndexDomain: (f);
+                Text: "Fixed and Operating costs for f";
+                Unit: k$;
+                Property: NoSave;
+                Definition: sum[ (c) , (confCost(f, c) + fxOpCst(f, c) ) * yFC(f, c) ];
+            }
+            Parameter rVarCst_Detail {
+                IndexDomain: (f,k);
+                Text: "Variable costs for f (recipe k)";
+                Unit: k$;
+                Property: NoSave;
+                Definition: sum[ (c) ,  recVarCst(f, c, k) * rF(f, c, k) ];
+            }
+        }
+    }
+    Section NS_Database_Section {
+        Set NSData {
+            SubsetOf: AllIdentifiers;
+            Text: "NSData to import";
+            Index: iNS;
+            Definition: {
+                AllParameters * AllParameters * Section_1_README
+                - { IndexParameters | SubString( FormatString("%e", IndexParameters),-3,-1)= "Nam" }
+            }
+        }
+        StringParameter sSQL {
+            IndexDomain: (iNS);
+        }
+        StringParameter SQLQuery;
+        Procedure ReadNSData {
+            Body: {
+                ! read parameter data from access database
+                ! use codes rather than integers for regions, scenarios, etc.
+                if MSAccess_filename = "" then
+                	halt;
+                endif;
+                
+                block !Bioforms Regions Scenarios and Forest Volume
+                	SQLQuery := "Select bf_code as b, bf_code, bf_type, bf_unit from bioforms";
+                		read from table DB_Bioforms ;
+                	SQLQuery := "Select Reg_Name as r, reg_name, Reg_Name as RegCod from regions";
+                		read from table DB_Regions;
+                	SQLQuery := "SELECT Reg_Name, Scen_Name, Scen_FxCost FROM regions as R , regscen AS S WHERE R.Reg_ID = S.Reg_ID";
+                		read from table DB_Scenarios;
+                	SQLQuery := "SELECT TB.BF_Code AS B, TR.Reg_Name as R, TS.Scen_Name as S, TV.BF_Vol "
+                				+ " FROM Bioforms as TB, Regions as TR, Regscenhv as TV, regscen AS TS "
+                				+ " WHERE (((TR.Reg_ID)=[TS].[reg_id]) AND ((TS.Reg_ID)=[tv].[reg_id]) AND ((TS.Scen_ID)=[tv].[scen_id]) AND ((TV.BF_ID)=[tb].[bf_id]))";
+                		read ProdB from table DB_ProdB_B_R_S;
+                endblock;
+                
+                block !Facilities
+                SQLQuery := "select F_Name as f, F_Name from Facilities";
+                	read from table DB_Facilities;
+                
+                SQLQuery := "select F_Name as f, FC_Name as c, fc_Name as confName,  F_Name ,  fxCapCost as confCost, fxopercost as fxOpCst, fc_exist as fc_ex ,fc_capacity as fc_cap "
+                				+ "from FacConfig, facilities, facconfigrec"
+                				+ " WHERE Facilities.F_ID = FacConfig.F_ID AND Facilities.F_ID = FacConfigrec.F_ID"
+                				+ " AND facconfig.c_id = facconfigrec.c_id"
+                				;
+                	read confNam, confCost, fxOpCst, FC_Ex, FC_Cap from table DB_Configurations;
+                
+                SQLQuery := "select K_name as k, K_Name from recipes";
+                	read from table DB_Recipes;
+                
+                SQLQuery := "SELECT facilities.F_Name AS F, facconfig.FC_Name AS c, recipes.K_Name AS K, facconfigrec.FCK_Max as fckMax, facconfigrec.FCapConsumption AS fckCConsum, facconfigrec.VarRecCost AS recVarCst"
+                			+ " FROM facilities INNER JOIN (recipes INNER JOIN (facconfig INNER JOIN facconfigrec ON (facconfig.C_ID = facconfigrec.C_ID) "
+                			+ " AND (facconfig.F_ID = facconfigrec.F_ID)) ON recipes.K_ID = facconfigrec.K_ID) ON facilities.F_ID = facconfig.F_ID";
+                	read fckMax,fckCConsum,recVarCst from table DB_F_C_K;
+                
+                SQLQuery := "SELECT bioforms.BF_Code AS B, recipes.K_Name AS K, recipein.BFInMIN AS recinLL, recipein.BFInMAX AS recinUL, recipein.InCF AS recINCF "
+                			+ " FROM recipes INNER JOIN (bioforms INNER JOIN recipein ON bioforms.BF_ID = recipein.BFIn_ID) ON recipes.K_ID = recipein.K_ID";
+                	read  recInLL,recInUL,recInCF from table DB_B_K_IN;
+                
+                SQLQuery := "SELECT bioforms.BF_Code AS B, recipes.K_Name AS K, recipeout.BFOut_Pct as recOutAlpha, recipeout.OutCF "
+                			+ " FROM recipes INNER JOIN (bioforms INNER JOIN recipeout ON bioforms.BF_ID = recipeout.BFOut_ID) ON recipes.K_ID = recipeout.K_ID";
+                	read recOutAlpha from table DB_B_K_Out;
+                
+                endblock;
+                
+                block !Markets
+                	SQLQuery := "Select m_Name as m, m_Name, M_Type  from markets";
+                		read from table DB_Markets;
+                
+                	SQLQuery := "SELECT bioforms.BF_Code AS b, markets.M_Name AS M, marketsinput.PrR_ID as P, marketsinput.Price AS PrcM, marketsinput.BFMIN AS LLM, marketsinput.BFMAX AS ULM "
+                				+ " FROM markets INNER JOIN (bioforms INNER JOIN marketsinput ON bioforms.BF_ID = marketsinput.BF_ID) ON markets.M_ID = marketsinput.M_ID";
+                		read PrcM, LLM,	ULM	 from table DB_B_M_P;
+                endblock;
+                
+                block !Transport Costs
+                SQLQuery := "SELECT bioforms.BF_Code AS B, regions.Reg_Name AS R, facilities.F_Name AS F, trancost_r_f.Cost AS tcostBRF "
+                			+" FROM facilities INNER JOIN (regions INNER JOIN (bioforms INNER JOIN trancost_r_f ON bioforms.BF_ID = trancost_r_f.BF_ID) ON regions.Reg_ID = trancost_r_f.From_RegID) ON facilities.F_ID = trancost_r_f.To_FID";
+                	read tcostBRF from table DB_B_R_F;
+                
+                SQLQuery := "SELECT bioforms.BF_Code AS B, regions.Reg_Name AS R, markets.M_Name AS M, trancost_r_m.Cost AS tcostBRM "
+                			+" FROM regions INNER JOIN ((trancost_r_m INNER JOIN bioforms ON trancost_r_m.BF_ID = bioforms.BF_ID) INNER JOIN markets ON trancost_r_m.To_MID = markets.M_ID) ON regions.Reg_ID = trancost_r_m.From_Reg_ID;";
+                	read tcostBRM from table DB_B_R_M;
+                
+                SQLQuery := "SELECT bioforms.BF_Code AS b, facilities.F_Name AS fa, facilities.F_Name AS fb, trancost_FA_FB.Cost AS tcostBFF "
+                			+" FROM ((trancost_FA_FB INNER JOIN bioforms ON trancost_FA_FB.BF_ID = bioforms.BF_ID) "
+                			+" INNER JOIN facilities ON trancost_FA_FB.From_F_ID = facilities.F_ID) INNER JOIN facilities AS facilities_1 ON trancost_FA_FB.To_F_ID = facilities_1.F_ID;";
+                	read tcostBFF from table DB_B_F_F;
+                
+                SQLQuery := "SELECT bioforms.BF_Code AS B, facilities.F_Name AS F, markets.M_Name AS M, trancost_f_m.Cost AS tcostBFM "
+                			+" FROM ((facilities INNER JOIN trancost_f_m ON facilities.F_ID = trancost_f_m.From_FID) INNER JOIN markets ON trancost_f_m.To_MID = markets.M_ID) INNER JOIN bioforms ON trancost_f_m.BF_ID = bioforms.BF_ID;";
+                	read tcostBFM from table DB_B_F_M;
+                endblock;
+                
+                
+                SQLQuery := "";
+                SQLQuery := "";
+                SQLQuery := "";
+                SQLQuery := "";
+            }
+        }
+        Section dbProcedure_Section {
+            DatabaseProcedure DB_Bioforms {
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "b" 		--> b,
+                    "bf_code" 	--> bfCod(b),
+                    "bf_type"	--> bfNam(b),
+                    "bf_unit"	--> bfUnit(b)
+                }
+                ElementParameter col {
+                    Range: ColumnIDs;
+                }
+            }
+            DatabaseProcedure DB_Regions {
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "r" 		--> r,
+                    "RegCod"	--> regCod(r),
+                    "Reg_Name"	--> regNam(r)
+                }
+                ElementParameter col {
+                    Range: ColumnIDs;
+                }
+            }
+            DatabaseProcedure DB_Scenarios {
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "Reg_Name" --> r,
+                    "Scen_Name" --> s,
+                    "Scen_FxCost" --> ScenFixCst(r, s)
+                }
+                Comment: {
+                    "\"Select Scen_Name , Scen_FxCost from regions\";"
+                }
+                ElementParameter col {
+                    Range: ColumnIDs;
+                }
+            }
+            DatabaseProcedure DB_Markets {
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "m" --> m,
+                    "m_name" --> markNam(m),
+                    "m_type" --> markTyp(m)
+                }
+            }
+            DatabaseProcedure DB_Facilities {
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "f" --> f,
+                    "f_name" --> facNam(f)
+                }
+            }
+            DatabaseProcedure DB_Configurations {
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "f" --> f,
+                    "c" --> c,
+                    "confName"	--> confNam(f, c),
+                    "confCost"	--> confCost(f, c),
+                    "fxOpCst" 	--> fxOpCst(f, c),
+                    "fc_ex"		--> FC_Ex(f, c),
+                    "Fc_Cap"	-->	FC_Cap(f, c)
+                }
+            }
+            DatabaseProcedure DB_Recipes {
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "k"		 --> k,
+                    "k_Name" --> recNam(k)
+                }
+            }
+            DatabaseProcedure DB_ProdB_B_R_S {
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "b"		 --> b,
+                    "r"		--> r,
+                    "s"		--> s,
+                    "BF_Vol" --> ProdB(b, r, s)
+                }
+            }
+            DatabaseProcedure DB_F_C_K {
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "f"		--> f,
+                    "c"		--> c,
+                    "k"		--> k,
+                    "fckMax"		--> fckMax(f, c, k),
+                    "fckCConsum"	--> fckCConsum(f, c, k),
+                    "recVarCst"		--> recVarCst(f, c, k)
+                }
+            }
+            DatabaseProcedure DB_B_K_IN {
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "b"		--> b,
+                    "k"		 --> k,
+                    "recInLL"	--> recInLL(b, k),
+                    "recInUL"	-->	recInUL(b, k),
+                    "recInCF"	--> recInCF(b, k)
+                }
+            }
+            DatabaseProcedure DB_B_K_Out {
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "b"		--> b,
+                    "k"		 --> k,
+                    "recOutAlpha"	--> recOutAlpha(b, k)
+                }
+            }
+            DatabaseProcedure DB_B_M_P {
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "b"		--> b,
+                    "m"		 --> m,
+                    "p"		 --> p,
+                    "PrcM"	--> PrcM(b, m, p),
+                    "LLM"		-->LLM(b, m, p),
+                    "ULM"		--> ULM(b, m, p)
+                }
+            }
+            DatabaseProcedure DB_B_R_F {
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "b"		--> b,
+                    "r"		 --> r,
+                    "f"		 --> f,
+                    "tcostBRF"	--> tcostBRF(b, r, f)
+                }
+            }
+            DatabaseProcedure DB_B_R_M {
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "b"		--> b,
+                    "r"		 --> r,
+                    "m"		 --> m,
+                    "tcostBRM"	--> tcostBRM(b, r, m)
+                }
+            }
+            DatabaseProcedure DB_B_F_M {
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "b"		--> b,
+                    "m"		 --> m,
+                    "f"		 --> f,
+                    "tcostBFM"	--> tcostBFM(b, f, m)
+                }
+            }
+            DatabaseProcedure DB_B_F_F {
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "b"		--> b,
+                    "Fa"		 --> fa,
+                    "fb"		 --> fb,
+                    "tcostBFF"	--> tcostBFF(b, fa, fb)
+                }
+            }
+        }
+        Section Attempted_DBInspector_Sectio {
+            DatabaseProcedure DB_Index1 {
+                Arguments: (col);
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "pk1" --> pk1,
+                    "col1" --> ColumnData1(col, pk1)
+                }
+                Comment: "This database procedure reads data with 1 primary key";
+                ElementParameter col {
+                    Range: ColumnIDs;
+                    Property: InOut;
+                }
+            }
+            DatabaseProcedure DB_Index2 {
+                Arguments: (col);
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "pk1" --> pk1,
+                    "pk2" --> pk2,
+                    "col1" --> ColumnData2(col, pk1,pk2)
+                }
+                Comment: "This database procedure reads data with 1 primary key";
+                ElementParameter col {
+                    Range: ColumnIDs;
+                    Property: InOut;
+                }
+            }
+            DatabaseProcedure DB_Index3 {
+                Arguments: (col);
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "pk1" --> pk1,
+                    "pk2" --> pk2,
+                    "pk3" --> pk3,
+                    "col1" --> ColumnData3(col, pk1,pk2,pk3)
+                }
+                Comment: "This database procedure reads data with 1 primary key";
+                ElementParameter col {
+                    Range: ColumnIDs;
+                    Property: InOut;
+                }
+            }
+            DatabaseProcedure DB_Index4 {
+                Arguments: (col);
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "pk1" --> pk1,
+                    "pk2" --> pk2,
+                    "pk3" --> pk3,
+                    "pk4" --> pk4,
+                    
+                    "col1" --> ColumnData4(col, pk1,pk2,pk3,pk4)
+                }
+                Comment: "This database procedure reads data with 1 primary key";
+                ElementParameter col {
+                    Range: ColumnIDs;
+                    Property: InOut;
+                }
+            }
+            DatabaseProcedure DB_Index5 {
+                Arguments: (col);
+                DataSource: MSAccess_filename;
+                SqlQuery: SQLQuery;
+                Property: UseResultSet;
+                Mapping: {
+                    "pk1" --> pk1,
+                    "pk2" --> pk2,
+                    "pk3" --> pk3,
+                    "pk4" --> pk4,
+                    "pk5" --> pk5,
+                    "col1" --> ColumnData5(col, pk1,pk2,pk3,pk4,pk5)
+                }
+                Comment: "This database procedure reads data with 1 primary key";
+                ElementParameter col {
+                    Range: ColumnIDs;
+                    Property: InOut;
+                }
+            }
+            DeclarationSection Primary_Key_Declaration {
+                Set PKSet1 {
+                    Index: pk1;
+                    Comment: {
+                        "The set corresponding to the first primary key column in the table selected on the View Data page.
+                        The set is filled via the \'ReadData\' procedure."
+                    }
+                }
+                Set PKSet2 {
+                    Index: pk2;
+                    Comment: {
+                        "The set corresponding to the second primary key column in the table selected on the View Data page.
+                        The set is filled via the \'ReadData\' procedure."
+                    }
+                }
+                Set PKSet3 {
+                    Index: pk3;
+                    Comment: {
+                        "The set corresponding to the third primary key column in the table selected on the View Data page.
+                        The set is filled via the \'ReadData\' procedure."
+                    }
+                }
+                Set PKSet4 {
+                    Index: pk4;
+                    Comment: {
+                        "The set corresponding to the fourth primary key column in the table selected on the View Data page.
+                        The set is filled via the \'ReadData\' procedure."
+                    }
+                }
+                Set PKSet5 {
+                    Index: pk5;
+                    Comment: {
+                        "The set corresponding to the fifth primary key column in the table selected on the View Data page.
+                        The set is filled via the \'ReadData\' procedure."
+                    }
+                }
+                Set ColumnIDs {
+                    SubsetOf: Integers;
+                    Index: col, col2;
+                    Parameter: _TheColumn;
+                    InitialData: {
+                        { 1..17 }
+                    }
+                    Comment: "Set of columns. The set contains the column numbers available in the tables in the databases.";
+                }
+                ElementParameter PK1Column {
+                    IndexDomain: (col);
+                    Range: ColumnIDs;
+                    Comment: "The first primary key column.";
+                }
+                ElementParameter PK2Column {
+                    IndexDomain: (col);
+                    Range: ColumnIDs;
+                    Comment: "The second primary key column.";
+                }
+                ElementParameter PK3Column {
+                    IndexDomain: (col);
+                    Range: ColumnIDs;
+                    Comment: "The third primary key column.";
+                }
+                ElementParameter PK4Column {
+                    IndexDomain: (col);
+                    Range: ColumnIDs;
+                    Comment: "The fourth primary key column.";
+                }
+                ElementParameter PK5Column {
+                    IndexDomain: (col);
+                    Range: ColumnIDs;
+                    Comment: "The fifth primary key column.";
+                }
+                StringParameter ColumnData1 {
+                    IndexDomain: (col,pk1);
+                    Comment: "The identifier that contains the column data of tables with one primary key column.";
+                }
+                StringParameter ColumnData2 {
+                    IndexDomain: (col,pk1,pk2);
+                    Comment: "The identifier that contains the column data of tables with two primary key columns.";
+                }
+                StringParameter ColumnData3 {
+                    IndexDomain: (col,pk1,pk2,pk3);
+                    Comment: "The identifier that contains the column data of tables with three primary key columns.";
+                }
+                StringParameter ColumnData4 {
+                    IndexDomain: (col,pk1,pk2,pk3,pk4);
+                    Comment: "The identifier that contains the column data of tables with four primary key columns.";
+                }
+                StringParameter ColumnData5 {
+                    IndexDomain: (col,pk1,pk2,pk3,pk4,pk5);
+                    Comment: "The identifier that contains the column data of tables with five primary key columns.";
+                }
+            }
+        }
+    }
+    Module EndUser_Code_Module {
+        Prefix: eu;
+        Public: data { RunTimeBody };
+        Procedure UserDefinedRuntime {
+            Body: {
+                block ! Validation
+                	if eu::RunTimeBody="" then
+                		DialogError("No text for process to run","User-Define Code");
+                		return 0;
+                	endif
+                endblock;
+                
+                if DialogAsk("Do you want to execute the user-defined procedure?","Yes","No","Cancel","Confirm Action") <> 1 then return 0; endif;
+                
+                
+                !==================================================================
+                !If there already exists an identifier with the name
+                !RuntimeLibrary, we must delete it first
+                if 'RuntimeLibrary' in AllIdentifiers then
+                	me::Delete('RuntimeLibrary') ;
+                endif ;
+                
+                !Now we create the runtime library
+                eu::epRuntimeLibrary := me::CreateLibrary(
+                	libraryName : "RuntimeLibrary" ,
+                	prefixName  : "rtl") ;
+                
+                if eu::epRuntimeLibrary='' then
+                	DialogError("Can't create Library","Error");
+                	return 0;
+                endif;
+                
+                !Now we create the runtime procedure
+                eu::epRuntimeProcedure := me::Create(
+                	name     : "prUserRuntimeProcedure" ,
+                	newType  : 'Procedure' ,
+                	parentId : eu::epRuntimeLibrary ,
+                	pos      : 0 ) ;
+                
+                	empty eu::psRuntimeProcedureBody ;
+                
+                block	!create the body for this procedure
+                		eu::psRuntimeProcedureBody :=  eu::RunTimeBody;
+                endblock;
+                
+                block !Now set the body of the runtime procedure
+                	me::SetAttribute(
+                		runtimeId : eu::epRuntimeProcedure ,
+                		attr      : 'body' ,
+                		txt       : eu::psRuntimeProcedureBody ) ;
+                
+                	!Now compile the runtime library
+                	if me::Compile( eu::epRuntimeLibrary ) <> 1 then
+                		DialogError(CurrentErrorMessage,"Can't create runtime procedure");
+                		return 0 ;
+                	endif;
+                
+                	!And run the procedure via the apply statement
+                	apply(eu::epRuntimeProcedure) ;
+                
+                	me::Delete(eu::epRuntimeLibrary);
+                endblock;
+                
+                return 1;
+            }
+            Comment: "dk: 2014 May";
+        }
+        Procedure DummyProcedure;
+        DeclarationSection EndUser_Code_Module_declaration_1 {
+            StringParameter RunTimeBody {
+                Property: NoSave;
+            }
+            Parameter i {
+                Property: NoSave;
+            }
+            Parameter x {
+                Property: NoSave;
+            }
+            Parameter n {
+                Property: NoSave;
+            }
+            StringParameter s {
+                Property: NoSave;
+            }
+            StringParameter t {
+                Property: NoSave;
+            }
+        }
+        DeclarationSection EndUser_Code_Module_declaration_2 {
+            ElementParameter epRuntimeLibrary {
+                Range: AllIdentifiers;
+            }
+            ElementParameter epRuntimeProcedure {
+                Range: AllIdentifiers;
+                Default: 'nsm::eu::DummyProcedure';
+            }
+            StringParameter psRuntimeProcedureBody;
+            ElementParameter epRuntimeParameter {
+                Range: AllIdentifiers;
+            }
+            ElementParameter epRuntimeDeclaration {
+                Range: AllIdentifiers;
+            }
+            ElementParameter epRuntimeSection {
+                Range: AllIdentifiers;
+            }
+            ElementParameter epRuntimeSet {
+                Range: AllIdentifiers;
+            }
+            ElementParameter epRuntimeCallableProcedure {
+                Range: AllProcedures;
+                Default: 'nsm::eu::DummyProcedure';
+            }
+            StringParameter errorMessage;
+        }
+    }
+    Set SuperSet {
+        Definition: Subset1 + Subset2;
+    }
+    Set Subset1 {
+        SubsetOf: SuperSet;
+        Index: iSubset1;
+        Parameter: _iSubset1;
+    }
+    Set Subset2 {
+        SubsetOf: SuperSet;
+        Index: iSubset2;
+        Parameter: _iSubset2;
+    }
+    Procedure testSuperSet {
+        Body: {
+            SetElementAdd(Subset1,_iSubset1,"A") ;
+            SetElementAdd(Subset1,_iSubset1,"B") ;
+            SetElementAdd(Subset1,_iSubset1,"C") ;
+            
+            SetElementAdd(Subset2,_iSubset2,"X") ;
+            SetElementAdd(Subset2,_iSubset2,"Y") ;
+            SetElementAdd(Subset2,_iSubset2,"Z") ;
+        }
+    }
+    Procedure LibraryInitialization {
+        Body: {
+            SetElementAdd(Bioforms,_b,"SPF") ;
+            SetElementAdd(Bioforms,_b,"SPFLog") ;
+            SetElementAdd(Bioforms,_b,"SPFRwd") ;
+            SetElementAdd(Bioforms,_b,"ConChips" ) ;
+            SetElementAdd(Bioforms,_b, "BioFibre") ;
+            
+            SetElementAdd(Regions,_r,"Reg1") ;
+            SetElementAdd(Regions,_r,"Reg2" );
+            
+            SetElementAdd(Scenarios,_s, "CC-Regular" ) ;
+            SetElementAdd(Scenarios,_s, "Bioharvest" ) ;
+            SetElementAdd(Scenarios,_s, "CC-Biofibre") ;
+            
+            SetElementAdd(Facilities,_f, "SawMill1") ;
+            SetElementAdd(Facilities,_f, "PulpMill2" ) ;
+            
+            SetElementAdd(Configurations,_c, "Sawmill" ) ;
+            SetElementAdd(Configurations,_c, "ChipNSaw" ) ;
+            SetElementAdd(Configurations,_c, "PulpMill" ) ;
+            
+            SetElementAdd(Markets,_m, "Lumber" ) ;
+            SetElementAdd(Markets,_m, "Energy" ) ;
+            SetElementAdd(Markets,_m, "Pulp" ) ;
+            SetElementAdd(Markets,_m, "Paper" ) ;
+            
+            SetElementAdd(PrcRng,_p, "Low" ) ;
+            SetElementAdd(PrcRng,_p, "Average" ) ;
+            SetElementAdd(PrcRng,_p, "High" ) ;
+            
+            
+            cleandependents SetsThatCanBeRenamed ;
+        }
+    }
+    Procedure LibraryTermination {
+        Body: {
+            return 1 ;
+        }
+    }
+}

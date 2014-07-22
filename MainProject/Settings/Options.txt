@@ -1,0 +1,45 @@
+﻿* AIMMS
+accept_basis 0
+case_compression_level 9
+case_ensure_subset_consistency_method insert_elements_into_domain_sets
+infeasibility_finder on
+negate_objective_coefficient_modifications 1
+rounding_compatibility Aimms_3_7
+variable_default_range_type nonnegative
+warning_in_source_text warning_handle
+warning_unnecessary_unit_overwrite off
+* AOA
+* CPLEX 12.4
+"CPLEX 12.4".lp_method 5
+"CPLEX 12.4".global_thread_limit 12
+* CPLEX 12.6
+"CPLEX 12.6".lp_method 5
+"CPLEX 12.6".global_thread_limit 12
+"CPLEX 12.6".tree_memory_limit 128
+"CPLEX 12.6".tuning_time_limit 10000
+* CPLEX 12.3
+"CPLEX 12.3".lp_method 5
+* CPLEX 12.1
+"CPLEX 12.1".lp_method 5
+"CPLEX 12.1".postsolve_continuous_variables 1
+* CPLEX 11.1
+"CPLEX 11.1".lp_method 5
+"CPLEX 11.1".memory_emphasis 1
+"CPLEX 11.1".postsolve_continuous_variables 2
+"CPLEX 11.1".presolve 0
+* CPLEX 11.0
+"CPLEX 11.0".lp_method 5
+"CPLEX 11.0".memory_emphasis 1
+"CPLEX 11.0".postsolve_continuous_variables 2
+* NETSOL
+* Environment
+Project_Title "MarketFlow 2014 Jul 16a (AIMMS 4.0.0)"
+Startup_Procedure "MainStartup"
+Startup_Page "nsm::NS Main Page"
+Startup_Case "DummyData_Simple"
+Application_Help_file "Help\MarketFlow_Help.chm"
+Default_Batch_Procedure "fro::BatchExecution"
+Identifiers_In_Model_Tree 4
+Identifiers_In_Model_Text 4
+Use_SubPage_Resize_Delay 1
+Data_Management_Style 1

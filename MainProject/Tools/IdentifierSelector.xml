@@ -1,0 +1,501 @@
+<?xml version="1.0"?>
+<Node>
+	<ChildNodes>
+		<Node Type="Conditional" Name="Pages" Operation="Intersect" DefaultViewName="Domain - Text" />
+		<Node Type="Conditional" Name="ColorSetOrder Body" Operation="Intersect">
+			<Conditions>
+				<Attribute>body</Attribute>
+				<AttributeMatch>ContainsText</AttributeMatch>
+				<Text>ColorSetOrder</Text>
+			</Conditions>
+			<ChildNodes>
+				<Node Type="Conditional" Name="ColorSetOrder Definition" Operation="Add">
+					<Conditions>
+						<Attribute>definition</Attribute>
+						<AttributeMatch>ContainsText</AttributeMatch>
+						<Text>ColorSetOrder Body</Text>
+					</Conditions>
+				</Node>
+			</ChildNodes>
+		</Node>
+		<Node Type="Conditional" Name="Identifiers with Index Domain" Operation="Intersect">
+			<Conditions>
+				<Attribute>index domain</Attribute>
+				<AttributeMatch>IsNonEmpty</AttributeMatch>
+			</Conditions>
+			<ChildNodes>
+				<DuplicateNode Original="Contraints, Nodes" />
+				<DuplicateNode Original="Variables, Arcs" />
+				<Node Type="Conditional" Name="ValidRoutes" Operation="Intersect" DefaultViewName="Domain - Definition">
+					<Conditions>
+						<Attribute>index domain</Attribute>
+						<AttributeMatch>ContainsText</AttributeMatch>
+						<Text>ValidRoutes</Text>
+					</Conditions>
+				</Node>
+			</ChildNodes>
+		</Node>
+		<Node Type="Conditional" Name="Identifiers with Colour" Operation="Intersect">
+			<ChildNodes>
+				<Node Type="Conditional" Name="Identifiers with Color" Operation="Add" DefaultViewName="Domain - Definition" />
+			</ChildNodes>
+		</Node>
+		<Node Type="Conditional" Name="IndexDomain" Operation="Intersect">
+			<Conditions>
+				<IdentifierTypes>[Variable,Constraint]</IdentifierTypes>
+				<Attribute>index domain</Attribute>
+				<AttributeMatch>ContainsText</AttributeMatch>
+				<Text>EquivalentProducts</Text>
+			</Conditions>
+		</Node>
+		<Node Type="Conditional" Name="Sets, Calendars, Horizons" Operation="Intersect">
+			<Conditions>
+				<IdentifierTypes>[Set,Calendar,Horizon]</IdentifierTypes>
+			</Conditions>
+			<ChildNodes>
+				<Node Type="Set-Dependency" Name="Set-Dependency Destinations" Operation="Intersect" DefaultViewName="Subset of - Index - Definition">
+					<Dependency>
+						<SetName>Destinations</SetName>
+						<IfInSubset>true</IfInSubset>
+						<IfInSuperSet>true</IfInSuperSet>
+						<ExcludeIndirectReferences>false</ExcludeIndirectReferences>
+					</Dependency>
+				</Node>
+				<Node Type="Set-Dependency" Name="Set-Dependency AllLocations" Operation="Intersect" DefaultViewName="Subset of - Index - Definition">
+					<Dependency>
+						<SetName>AllLocations</SetName>
+						<IfInSubset>true</IfInSubset>
+						<IfInSuperSet>true</IfInSuperSet>
+						<ExcludeIndirectReferences>false</ExcludeIndirectReferences>
+					</Dependency>
+				</Node>
+				<Node Type="Conditional" Name="Subsets" Operation="Intersect" DefaultViewName="Domain - Subset">
+					<Conditions>
+						<Attribute>subset of</Attribute>
+						<AttributeMatch>IsNonEmpty</AttributeMatch>
+					</Conditions>
+				</Node>
+				<Node Type="Conditional" Name="HaveIndex" Operation="Intersect" DefaultViewName="Subset of - Index - Definition">
+					<Conditions>
+						<Attribute>index</Attribute>
+						<AttributeMatch>IsNonEmpty</AttributeMatch>
+					</Conditions>
+					<ChildNodes>
+						<Node Type="Conditional" Name="Define_Dest" Operation="Intersect" DefaultViewName="Subset of - Index - Definition">
+							<Conditions>
+								<Attribute>definition</Attribute>
+								<AttributeMatch>ContainsText</AttributeMatch>
+								<Text>dest</Text>
+							</Conditions>
+						</Node>
+					</ChildNodes>
+				</Node>
+			</ChildNodes>
+		</Node>
+		<Node Type="Conditional" Name="Parameters" Operation="Intersect">
+			<Conditions>
+				<IdentifierTypes>[Parameter,Element Parameter,String Parameter,Unit Parameter]</IdentifierTypes>
+			</Conditions>
+			<ChildNodes>
+				<Node Type="Conditional" Name="Domain Parameters" Operation="Intersect">
+					<Conditions>
+						<IdentifierTypes>[Parameter]</IdentifierTypes>
+					</Conditions>
+				</Node>
+			</ChildNodes>
+		</Node>
+		<Node Type="Conditional" Name="Variables, Arcs" Operation="Intersect">
+			<Conditions>
+				<IdentifierTypes>[Variable,Arc]</IdentifierTypes>
+			</Conditions>
+			<ChildNodes>
+				<Node Type="Conditional" Name="Decision,No Definition" Operation="Intersect" DefaultViewName="Domain - Definition">
+					<Conditions>
+						<Attribute>definition</Attribute>
+						<AttributeMatch>IsEmpty</AttributeMatch>
+					</Conditions>
+				</Node>
+				<Node Type="Conditional" Name="HaulTime" Operation="Intersect">
+					<Conditions>
+						<Attribute>index domain</Attribute>
+						<AttributeMatch>ContainsText</AttributeMatch>
+						<Text>haultime</Text>
+					</Conditions>
+				</Node>
+				<Node Type="Node Selector" Name="Node Selector 1" Operation="Intersect" DefaultViewName="Domain - Text">
+					<Selection>
+						<Section>Main_Tenure</Section>
+					</Selection>
+				</Node>
+			</ChildNodes>
+		</Node>
+		<Node Type="Conditional" Name="Contraints, Nodes" Operation="Intersect">
+			<Conditions>
+				<IdentifierTypes>[Constraint,Node]</IdentifierTypes>
+			</Conditions>
+			<ChildNodes>
+				<DuplicateNode Original="HaulTime" />
+				<DuplicateNode Original="Node Selector 1" />
+			</ChildNodes>
+		</Node>
+		<Node Type="Conditional" Name="Constraints and Variables" Operation="Intersect" DefaultViewName="Domain - Definition">
+			<Conditions>
+				<IdentifierTypes>[Variable,Arc,Constraint,Node]</IdentifierTypes>
+			</Conditions>
+			<ChildNodes>
+				<Node Type="Conditional" Name="InitialGS Domain" Operation="Intersect" DefaultViewName="Domain - Definition">
+					<Conditions>
+						<Attribute>index domain</Attribute>
+						<AttributeMatch>ContainsText</AttributeMatch>
+						<Text>InitialGS</Text>
+					</Conditions>
+				</Node>
+				<Node Type="Conditional" Name="InitialGS Definition" Operation="Intersect" DefaultViewName="Domain - Definition">
+					<Conditions>
+						<IdentifierTypes>[Variable,Constraint]</IdentifierTypes>
+						<Attribute>definition</Attribute>
+						<AttributeMatch>ContainsText</AttributeMatch>
+						<Text>InitialGS</Text>
+					</Conditions>
+				</Node>
+				<Node Type="Conditional" Name="blk in Domain" Operation="Intersect">
+					<Conditions>
+						<Attribute>index domain</Attribute>
+						<AttributeMatch>ContainsText</AttributeMatch>
+						<Text>blk</Text>
+					</Conditions>
+				</Node>
+				<Node Type="Conditional" Name="dest in Domain" Operation="Intersect" DefaultViewName="Domain - Text">
+					<Conditions>
+						<Attribute>index domain</Attribute>
+						<AttributeMatch>ContainsText</AttributeMatch>
+						<Text>dest</Text>
+					</Conditions>
+				</Node>
+			</ChildNodes>
+		</Node>
+		<Node Type="Conditional" Name="Database Tables" Operation="Intersect" DefaultViewName="Domain - Definition">
+			<Conditions>
+				<IdentifierTypes>[Database Table]</IdentifierTypes>
+			</Conditions>
+			<ChildNodes>
+				<Node Type="Conditional" Name="customer" Operation="Intersect" DefaultViewName="Mapping">
+					<Conditions>
+						<Attribute>data source</Attribute>
+						<AttributeMatch>ContainsText</AttributeMatch>
+						<Text>"TenureDatabse.udl"</Text>
+					</Conditions>
+				</Node>
+			</ChildNodes>
+		</Node>
+		<Node Type="Conditional" Name="Procedures and Functions" Operation="Intersect" DefaultViewName="Body">
+			<Conditions>
+				<IdentifierTypes>[Macro,Function,External Function]</IdentifierTypes>
+			</Conditions>
+			<ChildNodes>
+				<Node Type="Conditional" Name="Initialization" Operation="Intersect" DefaultViewName="Body" />
+				<Node Type="Conditional" Name="Tooltip" Operation="Intersect" DefaultViewName="Body" />
+			</ChildNodes>
+		</Node>
+		<Node Type="Conditional" Name="Assertions" Operation="Intersect">
+			<Conditions>
+				<IdentifierTypes>[Assertion]</IdentifierTypes>
+			</Conditions>
+		</Node>
+		<Node Type="Conditional" Name="Identifiers with Definition" Operation="Intersect">
+			<Conditions>
+				<Attribute>definition</Attribute>
+				<AttributeMatch>IsNonEmpty</AttributeMatch>
+			</Conditions>
+		</Node>
+		<Node Type="Conditional" Name="Identifiers without Definition" Operation="Intersect">
+			<Conditions>
+				<Attribute>definition</Attribute>
+				<AttributeMatch>IsEmpty</AttributeMatch>
+			</Conditions>
+			<ChildNodes>
+				<DuplicateNode Original="Sets, Calendars, Horizons" />
+				<DuplicateNode Original="Parameters" />
+				<DuplicateNode Original="Variables, Arcs" />
+				<DuplicateNode Original="Contraints, Nodes" />
+			</ChildNodes>
+		</Node>
+		<Node Type="Conditional" Name="Identifiers with Text" Operation="Intersect">
+			<Conditions>
+				<Attribute>text</Attribute>
+				<AttributeMatch>IsNonEmpty</AttributeMatch>
+			</Conditions>
+			<ChildNodes>
+				<DuplicateNode Original="Sets, Calendars, Horizons" />
+				<DuplicateNode Original="Parameters" />
+				<DuplicateNode Original="Variables, Arcs" />
+				<DuplicateNode Original="Contraints, Nodes" />
+			</ChildNodes>
+		</Node>
+		<Node Type="Conditional" Name="Identifiers without Text" Operation="Intersect">
+			<Conditions>
+				<Attribute>text</Attribute>
+				<AttributeMatch>IsEmpty</AttributeMatch>
+			</Conditions>
+			<ChildNodes>
+				<DuplicateNode Original="Sets, Calendars, Horizons" />
+				<DuplicateNode Original="Parameters" />
+				<DuplicateNode Original="Variables, Arcs" />
+				<DuplicateNode Original="Contraints, Nodes" />
+			</ChildNodes>
+		</Node>
+		<Node Type="Conditional" Name="Procedures" Operation="Intersect">
+			<Conditions>
+				<IdentifierTypes>[Procedure,External Procedure,Function]</IdentifierTypes>
+			</Conditions>
+		</Node>
+		<Node Type="Conditional" Name="MillIsAvailable" Operation="Intersect" DefaultViewName="Domain - Definition">
+			<Conditions>
+				<Attribute>definition</Attribute>
+				<AttributeMatch>ContainsText</AttributeMatch>
+				<Text>MillIsAvailable</Text>
+			</Conditions>
+		</Node>
+		<Node Type="Conditional" Name="OLD" Operation="Intersect">
+			<ChildNodes>
+				<Node Type="Conditional" Name="Definition" Operation="Add" DefaultViewName="Domain - Definition">
+					<Conditions>
+						<IdentifierTypes>[Set,Parameter,Variable,Constraint]</IdentifierTypes>
+						<Attribute>definition</Attribute>
+						<AttributeMatch>ContainsText</AttributeMatch>
+						<Text>OLD</Text>
+					</Conditions>
+				</Node>
+			</ChildNodes>
+		</Node>
+		<Node Type="Conditional" Name="_MeetVolumeTargets" Operation="Intersect">
+			<Conditions>
+				<Attribute>index domain</Attribute>
+				<AttributeMatch>ContainsText</AttributeMatch>
+				<Text>_MeetVolumeTargets</Text>
+			</Conditions>
+		</Node>
+		<Node Type="Conditional" Name="Identifiers with Subset Index Domain" Operation="Intersect">
+			<Conditions>
+				<Attribute>index domain</Attribute>
+				<AttributeMatch>IsNonEmpty</AttributeMatch>
+			</Conditions>
+			<ChildNodes>
+				<Node Type="Conditional" Name="TimePeriods" Operation="Intersect">
+					<Conditions>
+						<Attribute>index domain</Attribute>
+						<AttributeMatch>ContainsText</AttributeMatch>
+						<Text>tp</Text>
+					</Conditions>
+					<ChildNodes>
+						<Node Type="Conditional" Name="Blocks" Operation="Add">
+							<Conditions>
+								<Attribute>index domain</Attribute>
+								<AttributeMatch>ContainsText</AttributeMatch>
+								<Text>blk</Text>
+							</Conditions>
+							<ChildNodes>
+								<Node Type="Set-Dependency" Name="Set-Dependency" Operation="Add">
+									<Dependency>
+										<SetName>Destinations</SetName>
+										<IfInDomain>true</IfInDomain>
+										<IfInRange>true</IfInRange>
+										<ExcludeIndirectReferences>false</ExcludeIndirectReferences>
+									</Dependency>
+								</Node>
+							</ChildNodes>
+						</Node>
+					</ChildNodes>
+				</Node>
+				<Node Type="Conditional" Name="Copy Variables, Arcs" Operation="Intersect">
+					<Conditions>
+						<IdentifierTypes>[Variable,Arc]</IdentifierTypes>
+					</Conditions>
+					<ChildNodes>
+						<Node Type="Conditional" Name="Copy Decision,No Definition" Operation="Intersect" DefaultViewName="Domain - Definition">
+							<Conditions>
+								<Attribute>definition</Attribute>
+								<AttributeMatch>IsEmpty</AttributeMatch>
+							</Conditions>
+						</Node>
+						<Node Type="Conditional" Name="Copy HaulTime" Operation="Intersect">
+							<Conditions>
+								<Attribute>index domain</Attribute>
+								<AttributeMatch>ContainsText</AttributeMatch>
+								<Text>haultime</Text>
+							</Conditions>
+						</Node>
+					</ChildNodes>
+				</Node>
+				<Node Type="Conditional" Name="Copy ValidRoutes" Operation="Intersect" DefaultViewName="Domain - Definition">
+					<Conditions>
+						<Attribute>index domain</Attribute>
+						<AttributeMatch>ContainsText</AttributeMatch>
+						<Text>ValidRoutes</Text>
+					</Conditions>
+				</Node>
+			</ChildNodes>
+		</Node>
+		<Node Type="Conditional" Name="ObjSel_Definition" Operation="Intersect">
+			<Conditions>
+				<Attribute>definition</Attribute>
+				<AttributeMatch>ContainsText</AttributeMatch>
+				<Text>obj_Sel</Text>
+			</Conditions>
+			<ChildNodes>
+				<Node Type="Conditional" Name="ObjSel_IndexDomain" Operation="Add">
+					<Conditions>
+						<Attribute>index domain</Attribute>
+						<AttributeMatch>ContainsText</AttributeMatch>
+						<Text>obj_sel</Text>
+					</Conditions>
+					<ChildNodes>
+						<Node Type="Conditional" Name="objSel_Body" Operation="Add">
+							<Conditions>
+								<Attribute>body</Attribute>
+								<AttributeMatch>ContainsText</AttributeMatch>
+								<Text>objSel</Text>
+							</Conditions>
+							<ChildNodes>
+								<Node Type="Conditional" Name="objSel_Mapping" Operation="Add">
+									<Conditions>
+										<Attribute>name</Attribute>
+										<AttributeMatch>ContainsText</AttributeMatch>
+										<Text>objSel</Text>
+									</Conditions>
+								</Node>
+							</ChildNodes>
+						</Node>
+					</ChildNodes>
+				</Node>
+			</ChildNodes>
+		</Node>
+		<Node Type="Conditional" Name="EvenFlow" Operation="Intersect" />
+		<Node Type="Conditional" Name="TruckRate" Operation="Intersect">
+			<Conditions>
+				<Attribute>definition</Attribute>
+				<AttributeMatch>ContainsText</AttributeMatch>
+				<Text>TruckRate</Text>
+			</Conditions>
+		</Node>
+		<Node Type="Set-Dependency" Name="Set-Residuals Dependency" Operation="Intersect" DefaultViewName="Domain - Range - Definition - body">
+			<Dependency>
+				<SetName>Residuals</SetName>
+				<IfInDomain>true</IfInDomain>
+				<IfInRange>true</IfInRange>
+				<IfInSubset>true</IfInSubset>
+				<ExcludeIndirectReferences>false</ExcludeIndirectReferences>
+			</Dependency>
+		</Node>
+		<Node Type="Conditional" Name="Element Current_res Definition" Operation="Intersect">
+			<Conditions>
+				<Attribute>definition</Attribute>
+				<AttributeMatch>ContainsText</AttributeMatch>
+				<Text>Current_res</Text>
+			</Conditions>
+			<ChildNodes>
+				<Node Type="Conditional" Name="Element Current_res Index domain" Operation="Add">
+					<Conditions>
+						<Attribute>index domain</Attribute>
+						<AttributeMatch>ContainsText</AttributeMatch>
+						<Text>current_res</Text>
+					</Conditions>
+					<ChildNodes>
+						<Node Type="Conditional" Name="Element Current_res Body" Operation="Add">
+							<Conditions>
+								<Attribute>body</Attribute>
+								<AttributeMatch>ContainsText</AttributeMatch>
+								<Text>Element Current_res Definition</Text>
+							</Conditions>
+						</Node>
+					</ChildNodes>
+				</Node>
+			</ChildNodes>
+		</Node>
+		<Node Type="Conditional" Name="MaxAllowedHaultime" Operation="Intersect">
+			<Conditions>
+				<Attribute>definition</Attribute>
+				<AttributeMatch>ContainsText</AttributeMatch>
+				<Text>MaxAllowedHaultime</Text>
+			</Conditions>
+		</Node>
+		<Node Type="Node Selector" Name="Node Selector" Operation="Intersect" DefaultViewName="Property">
+			<Selection>
+				<Section>Users_and_Groups_Section</Section>
+			</Selection>
+			<ChildNodes>
+				<Node Type="Node Selector" Name="NotProcedures" Operation="Subtract">
+					<Selection>
+						<Section>UpdateProductsToMap</Section>
+						<Section>InitializeAllSourcesMU</Section>
+						<Section>InitializeMapSelectors</Section>
+						<Section>UpdateMinimumVolumeToMap</Section>
+						<Section>ReadWriteXYdata</Section>
+						<Section>ResetMapEditMode</Section>
+						<Section>InitializeColourOrder</Section>
+						<Section>InitializeColourSetOrder</Section>
+						<Section>ApplyColourOrder</Section>
+						<Section>ZoomToDeliverExtent</Section>
+						<Section>ZoomToDeliverExtent_Mill</Section>
+						<Section>ZoomToDeliverExtent_MU</Section>
+						<Section>ZoomToExtent_MU</Section>
+					</Selection>
+					<ChildNodes>
+						<DuplicateNode Original="PropertyNoSave" />
+					</ChildNodes>
+				</Node>
+			</ChildNodes>
+		</Node>
+		<Node Type="Conditional" Name="PropertyNoSave" Operation="Subtract">
+			<Conditions>
+				<Attribute>property</Attribute>
+				<AttributeMatch>ContainsText</AttributeMatch>
+				<Text>NoSave</Text>
+			</Conditions>
+			<ChildNodes>
+				<DuplicateNode Original="Identifiers with Definition" />
+			</ChildNodes>
+		</Node>
+		<Node Type="Conditional" Name="Element Parameters" Operation="Intersect" DefaultViewName="Domain - Range - Definition - body">
+			<Conditions>
+				<IdentifierTypes>[Element Parameter]</IdentifierTypes>
+			</Conditions>
+			<ChildNodes>
+				<Node Type="Conditional" Name="Conditional" Operation="Intersect">
+					<Conditions>
+						<Attribute>definition</Attribute>
+						<AttributeMatch>ContainsText</AttributeMatch>
+						<Text>for</Text>
+					</Conditions>
+				</Node>
+			</ChildNodes>
+		</Node>
+		<Node Type="Conditional" Name="Macros" Operation="Intersect" DefaultViewName="Domain - Definition">
+			<Conditions>
+				<IdentifierTypes>[Macro]</IdentifierTypes>
+			</Conditions>
+		</Node>
+		<Node Type="Conditional" Name="FindString Ref" Operation="Intersect" DefaultViewName="Domain - Definition - Mapping - Body">
+			<Conditions>
+				<Attribute>body</Attribute>
+				<AttributeMatch>ContainsText</AttributeMatch>
+				<Text>FindAnyString</Text>
+			</Conditions>
+		</Node>
+		<Node Type="Conditional" Name="IncludeOnlyAvailableMills" Operation="Intersect" DefaultViewName="Domain - Definition">
+			<Conditions>
+				<IdentifierTypes>[Set,Parameter,Element Parameter,Variable,Constraint]</IdentifierTypes>
+				<Attribute>definition</Attribute>
+				<AttributeMatch>ContainsText</AttributeMatch>
+				<Text>IsSelected(__IncludeOnlyAvailableMills)</Text>
+			</Conditions>
+		</Node>
+		<Node Type="Conditional" Name="Conditional 1" Operation="Intersect" DefaultViewName="Domain - Unit">
+			<Conditions>
+				<Attribute>unit</Attribute>
+				<AttributeMatch>ContainsText</AttributeMatch>
+				<Text>market</Text>
+			</Conditions>
+		</Node>
+	</ChildNodes>
+</Node>

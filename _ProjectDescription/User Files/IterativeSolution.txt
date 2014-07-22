@@ -1,0 +1,47 @@
+INTRODUCTION
+
+One way in which can use FindWood is as follows:
+
+1) Include only a specified number of projects, and solve the model
+2) For each of the projects selected, Accept the results (i.e the projects selected and the volumes allocated to them)
+3) add additional projects, and resolve
+4) Repeat steps 2 and 3 until no more projects are selected
+
+To specify which projects are included in the model, users check the 'Included' box beside the project name on the Project Summary page (Inputs Dashboard).
+
+Users accept projects on the Accepted Projects page of the Results Dashboard.
+
+The Iterative Solution automates the above procedure, using project ranking (based on evaluation score) to determine which projects to include.  In addition, users have the option of accepting the allocations, or only the project selection.
+
+ITERATIVE SOLUTION
+The inputs on this page let you automatically resolve the model, including additional projects at each solve and "locking in" the ones that are selected.
+The projects include in a given solution must:
+
+a) be "included" (before you click solve) on the Inputs Dashboard
+b) have a desired ranking (e.g. the top 7 projects will include ranks 1 to 7)
+
+The iterative solutions does not change the status of accepted projects.
+
+
+RANK THRESHOLD
+The iterative solution uses a rank threshold to determine which projects are included in a given iteration.  All included projects whose rank is better than or equal (i.e <=) to the rank threshold are considered in a given iteration.
+
+For the first iteration, the rank threshold is specified by the user (Initially consider Projects up to this Rank).  For subsequent iterations, the rank threshold is incremented by a user-specified amount.
+
+NOTE:  If multiple projects have the same ranking (i.e. the same evaluation score) then the number of projects included in a solve could exceed the Rank Threshold.  For example assume that 3 projects are ranked #5.  If the rank threshold is 5, then 7 projects will meet the threshold:  1-4 and the three #5s.
+
+ACCEPTING ALLOCATION FOR SELECTED PROJECTS
+After each iteration, the projects that were selected are "locked in" for all subsequent iterations.  However, the allocation results (i.e. how much wood each project receives from each MU), is NOT locked in unless you check the "Accept Allocation For Selected Projects" option.)
+
+If the project is locked in, but its allocation isn't, then the model can change the allocation details during subsequent iterations.  The amount by which the allocation changes is controlled by 
+
+a) how much wood is available (i.e. competition among projects)
+b) the cost of the allocation
+c) the Optimization inputs:  Slack Variable weights, Proportion of Minimum target to meet, and supply cost tolerances.
+
+These parameters are constant for all iterations.
+
+The use must decide what best meets her requirements.  It's a tradeoff between
+
+i) locking in allocations, but removing flexibility for additional projects
+ii) not locking in, and changing (possibly reducing the volume and increasing the cost) the allocation during subsequent iterations.

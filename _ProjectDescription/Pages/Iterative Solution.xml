@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="22" left="4" bottom="848" right="1024" />
+	<PageEditSize Type="Inherited">
+		<Size Width="1028" Height="826" />
+	</PageEditSize>
+	<ProjectUUID>AFC769D1-1A59-4B68-8228-6B4C103C5DC8</ProjectUUID>
+	<TemplatesTabOrderPosition>2</TemplatesTabOrderPosition>
+	<ResizeData>
+		<MainArea Line="FixedFromTop" Value="33">
+			<TopArea Line="FixedFromRight" Value="70" />
+		</MainArea>
+	</ResizeData>
+	<Background>
+		<UserColor GUID="33BB2465-9D09-4035-9765-4D4D12BABAAE">white</UserColor>
+	</Background>
+	<PageObject Type="Rectangle">
+		<Location top="6" left="18" bottom="30" right="714" />
+		<FillColor RGB="#bab6e0" />
+		<LineColor RGB="#bab6e0" />
+	</PageObject>
+	<PageObject Type="Scalar">
+		<Location top="36" left="12" bottom="798" right="1020" />
+		<TabOrder>1</TabOrder>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<BackgroundColor RGB="#ffffff" />
+		<TextColor RGB="#0000a0" />
+		<Layout>MultipleLineEditField</Layout>
+		<VerticalScrollbar>true</VerticalScrollbar>
+		<DisplayTextFile>true</DisplayTextFile>
+		<SeparatorSign>=</SeparatorSign>
+		<ExplicitIdentifier>
+			<Identifier>pd::IterativeSolutionFile</Identifier>
+			<NumberFormat Width="15" Decimals="0" Alignment="Left" ShowDefaults="true" />
+		</ExplicitIdentifier>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="6" left="24" bottom="30" right="582" />
+		<StaticText>Sequentially Selecting More Projects</StaticText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextColor RGB="#0000a0" />
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>pd::IterativeSolutionFile</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="29" left="4" bottom="696" right="1072" />
+	<PageEditSize Type="Inherited">
+		<Size Width="900" Height="706" />
+	</PageEditSize>
+	<ProjectUUID>B2FACAE1-6EEE-4497-BF6D-B115323573E2</ProjectUUID>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<ResizeData>
+		<MainArea Line="FixedFromTop" Value="76">
+			<TopArea Line="FixedFromRight" Value="74">
+				<LeftArea Line="FixedFromLeft" Value="323" />
+			</TopArea>
+			<BottomArea Line="FixedFromTop" Value="48">
+				<BottomArea Line="FixedFromLeft" Value="135" />
+			</BottomArea>
+		</MainArea>
+	</ResizeData>
+	<Background Inherited="true" />
+	<HelpTopic>"Supply Chains"</HelpTopic>
+	<Action>
+		<EntryProcedure>nsm::InitGUIBioforms</EntryProcedure>
+	</Action>
+	<PageObject Type="Pivot Table">
+		<Location top="144" left="144" bottom="606" right="874" />
+		<TabOrder>2</TabOrder>
+		<ObjectUUID>37A1CE49-DFE8-4C19-A7EA-53250C60EF3F</ObjectUUID>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<Contents>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::pSc_Br_R_M( nsm::br, nsm::r, nsm::m )</Identifier>
+				<Title ID="4120">"Region -&gt; Market"</Title>
+				<Is_Hidden ID="4124">VALUE := card(SCForRegionBioform_R_M)=0</Is_Hidden>
+				<Colors>
+					<Background_Color ID="4160">nsm::_colSc_Br_R_M( nsm::br, nsm::r, nsm::m )</Background_Color>
+				</Colors>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::pSc_Br_R_F_M( nsm::r, nsm::bKin, nsm::f, nsm::bM, nsm::m )</Identifier>
+				<Title ID="4120">"Region -&gt; Facility -&gt; Market"</Title>
+				<Is_Hidden ID="4124">VALUE := card(SCForBioform_R_F_M)=0</Is_Hidden>
+				<Colors>
+					<Background_Color ID="4160">nsm::_colSc_Br_R_F_M( nsm::r, nsm::bKin, nsm::f, nsm::bM, nsm::m )</Background_Color>
+				</Colors>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::pSc_Br_R_F_F_M( nsm::r, nsm::bKin, nsm::f, nsm::bKout, nsm::f1, nsm::bM, nsm::m )</Identifier>
+				<Title ID="4120">"Region -&gt; Mill1 -&gt; Mill2 -&gt; Market"</Title>
+				<Is_Hidden ID="4124">VALUE := card(SCForBioform_R_F_F_M)=0</Is_Hidden>
+				<Colors>
+					<Background_Color ID="4160">nsm::_colpSc_Br_R_F_F_M( nsm::r, nsm::bKin, nsm::f, nsm::bKout, nsm::f1, nsm::bM, nsm::m )</Background_Color>
+				</Colors>
+			</Explicit_Identifier>
+			<Defaults>
+				<Show_Unit>
+					<Show_Unit ID="4051">"Show per value"</Show_Unit>
+				</Show_Unit>
+				<Format>
+					<Decimal_Places ID="4212">1</Decimal_Places>
+					<Show_1000_seperator ID="4213">"Yes"</Show_1000_seperator>
+					<Show_Checkboxes ID="4215">"Yes"</Show_Checkboxes>
+				</Format>
+			</Defaults>
+		</Contents>
+		<Indices>
+			<Defaults>
+				<Location_in_Initial_View ID="6160">"In Rows"</Location_in_Initial_View>
+			</Defaults>
+			<Explicit_Index>
+				<Index ID="6510">nsm::r</Index>
+			</Explicit_Index>
+			<Explicit_Index>
+				<Index ID="6510">nsm::br</Index>
+				<Header_Title ID="6530">"Bioform"</Header_Title>
+			</Explicit_Index>
+			<Explicit_Index>
+				<Index ID="6510">nsm::bKin</Index>
+				<Header_Title ID="6530">"Input"</Header_Title>
+			</Explicit_Index>
+			<Explicit_Index>
+				<Index ID="6510">nsm::f</Index>
+			</Explicit_Index>
+			<Explicit_Index>
+				<Index ID="6510">nsm::bKout</Index>
+				<Header_Title ID="6530">"Output"</Header_Title>
+			</Explicit_Index>
+			<Explicit_Index>
+				<Index ID="6510">nsm::bM</Index>
+				<Header_Title ID="6530">"Product"</Header_Title>
+			</Explicit_Index>
+			<Explicit_Index>
+				<Index ID="6510">nsm::m</Index>
+				<Header_Title ID="6530">"Market"</Header_Title>
+				<Location_in_Initial_View ID="6560">"In Columns"</Location_in_Initial_View>
+			</Explicit_Index>
+			<Identifier_Index>
+				<Header_Title ID="6230">"Supply Chain To Show"</Header_Title>
+				<Location_in_Initial_View ID="6260">"As Outer Index"</Location_in_Initial_View>
+				<Hide_if_Single_Identifier ID="6270">"No"</Hide_if_Single_Identifier>
+			</Identifier_Index>
+		</Indices>
+		<General>
+			<Dense_Aggregation_restricts_to_Domain ID="1022">"Yes"</Dense_Aggregation_restricts_to_Domain>
+		</General>
+		<Row_Area>
+			<Background_Color ID="2010">RGB&lt;255,255,200&gt;</Background_Color>
+			<Text_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2020">"default selection"</Text_Color>
+			<Headers>
+				<Background_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2120">"default selection"</Background_Color>
+				<Text_Color ID="2130">RGB&lt;255,255,255&gt;</Text_Color>
+				<Show_Sub_Headers ID="2150">"No"</Show_Sub_Headers>
+			</Headers>
+			<Grid_Focus_Indicator>
+				<Background_Color ID="2270">RGB&lt;0,0,168&gt;</Background_Color>
+				<Text_Color ID="2280">RGB&lt;255,255,200&gt;</Text_Color>
+			</Grid_Focus_Indicator>
+		</Row_Area>
+		<Grid_Area>
+			<Background_Color ID="5010">RGB&lt;255,255,255&gt;</Background_Color>
+			<Alternating_Background_Color ID="5011">RGB&lt;225,225,225&gt;</Alternating_Background_Color>
+			<Aggregators>
+				<Background_Color ID="5220">RGB&lt;255,128,128&gt;</Background_Color>
+			</Aggregators>
+			<Sub_Header_Row_or_Column>
+				<Background_Color ID="5320">RGB&lt;255,255,200&gt;</Background_Color>
+			</Sub_Header_Row_or_Column>
+		</Grid_Area>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="126" left="153" bottom="144" right="164" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<TabOrder>4</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"Supply chain has valid costs"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="ABB4A8BD-7798-41D3-BA43-C629DFC98735">green</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="126" left="185" bottom="144" right="196" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<TabOrder>3</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"Transport costs missing for part of supply chain"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="8C1FFC91-A781-4272-831D-2D86F23592E4">red</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>nsm::f</Symbol>
+			<Symbol>nsm::m</Symbol>
+			<Symbol>nsm::r</Symbol>
+			<Symbol>nsm::bM</Symbol>
+			<Symbol>nsm::br</Symbol>
+			<Symbol>nsm::f1</Symbol>
+			<Symbol>nsm::bKin</Symbol>
+			<Symbol>nsm::_colSc_Br_R_F_M</Symbol>
+			<Symbol>nsm::SCForBioform_R_F_M</Symbol>
+			<Symbol>nsm::InitGUIBioforms</Symbol>
+			<Symbol>nsm::pSc_Br_R_M</Symbol>
+			<Symbol>nsm::_colpSc_Br_R_F_F_M</Symbol>
+			<Symbol>nsm::bKout</Symbol>
+			<Symbol>nsm::SCForBioform_R_F_F_M</Symbol>
+			<Symbol>nsm::SCForRegionBioform_R_M</Symbol>
+			<Symbol>nsm::pSc_Br_R_F_M</Symbol>
+			<Symbol>nsm::_colSc_Br_R_M</Symbol>
+			<Symbol>nsm::pSc_Br_R_F_F_M</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

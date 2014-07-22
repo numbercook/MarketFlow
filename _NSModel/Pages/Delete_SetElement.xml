@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<PageEditSize Type="Inherited" />
+	<ProjectUUID>B2FACAE1-6EEE-4497-BF6D-B115323573E2</ProjectUUID>
+	<Title>"Delete Element"</Title>
+	<IsDialogPage>true</IsDialogPage>
+	<UpdateAllIdentifiers>true</UpdateAllIdentifiers>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<Background Inherited="true" />
+	<Action>
+		<EntryProcedure>nsm::InitializeElementsToDelete</EntryProcedure>
+		<UpdateAllIdentifiers>true</UpdateAllIdentifiers>
+		<SystemClose Action="Ignore" />
+	</Action>
+	<PageObject Type="Text">
+		<Location top="36" left="24" bottom="60" right="60" />
+		<StaticText>Name:</StaticText>
+		<Font GUID="52DB758F-6678-4679-88AE-B237437EE7AD" Name="Main Button Text" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Button" Tag="Add">
+		<Location top="42" left="240" bottom="66" right="294" />
+		<TabOrder>1</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Delete"</Title>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>nsm::DeleteSetMember</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+			<Action Type="ClosePage" />
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button" Tag="Cancel">
+		<Location top="72" left="240" bottom="96" right="294" />
+		<TabOrder>2</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Cancel"</Title>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="ClosePage" />
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Scalar">
+		<Location top="6" left="6" bottom="36" right="276" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<TabOrder>4</TabOrder>
+		<TabStop>false</TabStop>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="None" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<BackgroundColor Transparent="true" />
+		<Layout>Text-Value</Layout>
+		<SeparatorSign>none</SeparatorSign>
+		<ExplicitIdentifier>
+			<Identifier>SetName</Identifier>
+			<NumberFormat Width="15" Decimals="0" Alignment="Left" ShowDefaults="true" />
+			<Title>"Delete Element from the set:  "</Title>
+		</ExplicitIdentifier>
+	</PageObject>
+	<PageObject Type="Selection Object">
+		<SelectionType>DropDownList</SelectionType>
+		<Location top="66" left="24" bottom="102" right="210" />
+		<TabOrder>5</TabOrder>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextShown>ElementName</TextShown>
+		<Border Style="None" />
+		<BackgroundColor RGB="#c0c0c0" />
+		<ExplicitIdentifier>
+			<Identifier>nsm::Current_etd</Identifier>
+		</ExplicitIdentifier>
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>SetName</Symbol>
+			<Symbol>nsm::Current_etd</Symbol>
+			<Symbol>nsm::InitializeElementsToDelete</Symbol>
+			<Symbol>nsm::DeleteSetMember</Symbol>
+			<Symbol>nsm::DummySet_ElementsToDelete</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

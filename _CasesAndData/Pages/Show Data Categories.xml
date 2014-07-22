@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="35" left="48" bottom="684" right="578" />
+	<PageEditSize Type="Inherited" />
+	<ProjectUUID>A3D1EE48-DA66-4320-8819-5B8DAAA33B9E</ProjectUUID>
+	<IsDialogPage>true</IsDialogPage>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<Background Inherited="true" />
+	<HelpTopic>"Datasets"</HelpTopic>
+	<Action>
+		<EntryProcedure>cad::GetDataCategoryContents</EntryProcedure>
+	</Action>
+	<HorizontalGridDistance>-6</HorizontalGridDistance>
+	<VerticalGridDistance>-6</VerticalGridDistance>
+	<PageObject Type="Pivot Table">
+		<Location top="27" left="11" bottom="631" right="478" />
+		<TabOrder>1</TabOrder>
+		<ObjectUUID>86EC2C2A-6C62-4894-9F7E-877A8DE136F1</ObjectUUID>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="3" MarginLeft="3" />
+		<Contents>
+			<Explicit_Identifier>
+				<Identifier ID="4110">cad::DataCategoryIdentifiers( IndexDataCategories, AllIdentifiers )</Identifier>
+			</Explicit_Identifier>
+		</Contents>
+		<Indices>
+			<Explicit_Index>
+				<Index ID="6510">IndexDataCategories</Index>
+				<Header_Title ID="6530">"Category"</Header_Title>
+				<Location_in_Initial_View ID="6560">"In Rows"</Location_in_Initial_View>
+			</Explicit_Index>
+			<Explicit_Index>
+				<Index ID="6510">AllIdentifiers( cad::IndexMyIdentifiers )</Index>
+				<Header_Title ID="6530">"Input"</Header_Title>
+			</Explicit_Index>
+		</Indices>
+		<General>
+			<Dense_Aggregation_restricts_to_Domain ID="1022">"Yes"</Dense_Aggregation_restricts_to_Domain>
+			<Save_Layout_State>
+				<By_End_User ID="1040">"No"</By_End_User>
+			</Save_Layout_State>
+		</General>
+		<Row_Area>
+			<Background_Color ID="2010">RGB&lt;255,255,200&gt;</Background_Color>
+			<Text_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2020">"default selection"</Text_Color>
+			<Headers>
+				<Background_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2120">"default selection"</Background_Color>
+				<Text_Color ID="2130">RGB&lt;255,255,255&gt;</Text_Color>
+			</Headers>
+			<Grid_Focus_Indicator>
+				<Background_Color ID="2270">RGB&lt;0,0,168&gt;</Background_Color>
+				<Text_Color ID="2280">RGB&lt;255,255,200&gt;</Text_Color>
+			</Grid_Focus_Indicator>
+		</Row_Area>
+		<Grid_Area>
+			<Background_Color ID="5010">RGB&lt;255,255,255&gt;</Background_Color>
+			<Alternating_Background_Color ID="5011">RGB&lt;225,225,225&gt;</Alternating_Background_Color>
+			<Aggregators>
+				<Background_Color ID="5220">RGB&lt;255,128,128&gt;</Background_Color>
+			</Aggregators>
+			<Sub_Header_Row_or_Column>
+				<Background_Color ID="5320">RGB&lt;255,255,200&gt;</Background_Color>
+			</Sub_Header_Row_or_Column>
+		</Grid_Area>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="3" left="11" bottom="42" right="477" />
+		<StaticText>Parameters in Each Dataset Category</StaticText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="1" left="456" bottom="26" right="526" />
+		<TabOrder>3</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Close"</Title>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="ClosePage" />
+		</ActionSequence>
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>AllIdentifiers</Symbol>
+			<Symbol>IndexDataCategories</Symbol>
+			<Symbol>cad::IndexMyIdentifiers</Symbol>
+			<Symbol>cad::DataCategoryIdentifiers</Symbol>
+			<Symbol>cad::GetDataCategoryContents</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

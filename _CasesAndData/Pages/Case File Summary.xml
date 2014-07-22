@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="22" left="4" bottom="848" right="1024" />
+	<PageEditSize Type="Inherited" />
+	<ProjectUUID>A3D1EE48-DA66-4320-8819-5B8DAAA33B9E</ProjectUUID>
+	<TemplatesTabOrderPosition>2</TemplatesTabOrderPosition>
+	<Background RGB="#c0c0c0" />
+	<HorizontalGridDistance>-3</HorizontalGridDistance>
+	<VerticalGridDistance>-3</VerticalGridDistance>
+	<PageObject Type="Composite Table">
+		<Location top="7" left="12" bottom="700" right="995" />
+		<TabOrder>1</TabOrder>
+		<PopupMenu ProjectUUID="A3D1EE48-DA66-4320-8819-5B8DAAA33B9E" MenuUUID="103A8F82-E539-45AF-B67C-5CDD0A3C76B9" />
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="3" MarginLeft="3" />
+		<BackgroundColor RGB="#ffffff" />
+		<Domain>
+			<Identifier>cad::DatafileNames( IndexCases -&gt; CurrentCase )</Identifier>
+			<Index Name="IndexCases">
+				<Hidden>0</Hidden>
+				<TitleText>"Case"</TitleText>
+				<SortingOrder>1</SortingOrder>
+				<Color>ELEMENT( IndexCases )-&gt;AllColors := if IndexCases = CurrentCase then 'Active Case'
+elseif DatafileNames( IndexCases  ) = StartupCaseName then 'Default Case'
+else 'default foreground' endif</Color>
+			</Index>
+		</Domain>
+		<ExplicitIdentifier>
+			<Identifier>cad::CaseIsSelected( IndexCases -&gt; cad::SelCase )</Identifier>
+			<NumberFormat Width="3" Decimals="0" Alignment="Right" Binary="true" />
+			<TitleText>"Selected"</TitleText>
+			<Color>ELEMENT( IndexCases )-&gt;AllColors := if IndexCases = CurrentCase then 'Active Case'
+elseif DatafileNames( IndexCases  ) = StartupCaseName then 'Default Case'
+else 'default foreground' endif</Color>
+			<Readonly>0</Readonly>
+		</ExplicitIdentifier>
+		<ExplicitIdentifier>
+			<Identifier>cad::FileFolderNames( IndexCases -&gt; cad::SelCase )</Identifier>
+			<NumberFormat Width="15" Decimals="0" Alignment="Left" />
+			<TitleText>"Folder"</TitleText>
+			<Color>ELEMENT( IndexCases )-&gt;AllColors := if IndexCases = CurrentCase then 'Active Case'
+elseif DatafileNames( IndexCases  ) = StartupCaseName then 'Default Case'
+else 'default foreground' endif</Color>
+			<Readonly>1</Readonly>
+		</ExplicitIdentifier>
+		<ExplicitIdentifier>
+			<Identifier>cad::DatafileNames( IndexCases -&gt; cad::SelCase )</Identifier>
+			<NumberFormat Width="15" Decimals="0" Alignment="Left" />
+			<TitleText>"Name"</TitleText>
+			<Color>ELEMENT( IndexCases )-&gt;AllColors := if IndexCases = CurrentCase then 'Active Case'
+elseif DatafileNames( IndexCases  ) = StartupCaseName then 'Default Case'
+else 'default foreground' endif</Color>
+			<Readonly>1</Readonly>
+		</ExplicitIdentifier>
+		<ExplicitIdentifier>
+			<Identifier>cad::FileAcronym( IndexCases -&gt; cad::SelCase )</Identifier>
+			<NumberFormat Width="15" Decimals="0" Alignment="Left" />
+			<TitleText>"Acronym"</TitleText>
+			<Color>ELEMENT( IndexCases )-&gt;AllColors := if IndexCases = CurrentCase then 'Active Case'
+elseif DatafileNames( IndexCases  ) = StartupCaseName then 'Default Case'
+else 'default foreground' endif</Color>
+			<Readonly>0</Readonly>
+			<ProcedureUponChange>cad::Set_FormChanged</ProcedureUponChange>
+		</ExplicitIdentifier>
+		<ExplicitIdentifier>
+			<Identifier>cad::FileReadWrite( IndexCases -&gt; cad::SelCase )</Identifier>
+			<NumberFormat Width="15" Decimals="0" Alignment="Left" />
+			<TitleText>"R/W"</TitleText>
+			<Color>ELEMENT( IndexCases )-&gt;AllColors := if IndexCases = CurrentCase then 'Active Case'
+elseif DatafileNames( IndexCases  ) = StartupCaseName then 'Default Case'
+else 'default foreground' endif</Color>
+		</ExplicitIdentifier>
+		<ExplicitIdentifier>
+			<Identifier>cad::FileComments( IndexCases -&gt; cad::SelCase )</Identifier>
+			<NumberFormat Width="15" Decimals="0" Alignment="Left" />
+			<TitleText>"Comments"</TitleText>
+			<Color>ELEMENT( IndexCases )-&gt;AllColors := if IndexCases = CurrentCase then 'Active Case'
+elseif DatafileNames( IndexCases  ) = StartupCaseName then 'Default Case'
+else 'default foreground' endif</Color>
+			<Readonly>0</Readonly>
+			<ProcedureUponChange>cad::Set_FormChanged</ProcedureUponChange>
+		</ExplicitIdentifier>
+		<ExplicitIdentifier>
+			<Identifier>cad::FileOwner( IndexCases -&gt; cad::SelCase )</Identifier>
+			<NumberFormat Width="15" Decimals="0" Alignment="Left" />
+			<TitleText>"Own"</TitleText>
+			<Color>ELEMENT( IndexCases )-&gt;AllColors := if IndexCases = CurrentCase then 'Active Case'
+elseif DatafileNames( IndexCases  ) = StartupCaseName then 'Default Case'
+else 'default foreground' endif</Color>
+		</ExplicitIdentifier>
+		<ExplicitIdentifier>
+			<Identifier>cad::FileGroup( IndexCases -&gt; cad::SelCase )</Identifier>
+			<NumberFormat Width="15" Decimals="0" Alignment="Left" />
+			<TitleText>"Group"</TitleText>
+			<Color>ELEMENT( IndexCases )-&gt;AllColors := if IndexCases = CurrentCase then 'Active Case'
+elseif DatafileNames( IndexCases  ) = StartupCaseName then 'Default Case'
+else 'default foreground' endif</Color>
+		</ExplicitIdentifier>
+		<ExplicitIdentifier>
+			<Identifier>cad::FileTime( IndexCases -&gt; cad::SelCase )</Identifier>
+			<NumberFormat Width="15" Decimals="0" Alignment="Left" />
+			<Color>ELEMENT( IndexCases )-&gt;AllColors := if IndexCases = CurrentCase then 'Active Case'
+elseif DatafileNames( IndexCases  ) = StartupCaseName then 'Default Case'
+else 'default foreground' endif</Color>
+		</ExplicitIdentifier>
+		<ExplicitIdentifier>
+			<Identifier>cad::FileCategories( IndexCases -&gt; cad::SelCase )</Identifier>
+			<NumberFormat Width="15" Decimals="0" Alignment="Left" />
+			<TitleText>"Category"</TitleText>
+			<Color>ELEMENT( IndexCases )-&gt;AllColors := if IndexCases = CurrentCase then 'Active Case'
+elseif DatafileNames( IndexCases  ) = StartupCaseName then 'Default Case'
+else 'default foreground' endif</Color>
+		</ExplicitIdentifier>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="29" left="1002" bottom="47" right="1020" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<TabOrder>3</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"Default Case"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="B26042D7-DF6D-4F84-B645-AB25804EDF16">Default Case</UserColor>
+		</BackgroundColor>
+		<Font GUID="AA5FC319-34D1-4D05-A06C-BF4D3B89EA34" Name="Heading Subpage" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="11" left="1002" bottom="29" right="1020" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<TabOrder>2</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"Active Case"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="A89CB79D-D36D-4373-8285-942F131307E5">Active Case</UserColor>
+		</BackgroundColor>
+		<Font GUID="AA5FC319-34D1-4D05-A06C-BF4D3B89EA34" Name="Heading Subpage" />
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>AllDataFiles</Symbol>
+			<Symbol>CurrentCase</Symbol>
+			<Symbol>AllColors</Symbol>
+			<Symbol>IndexCases</Symbol>
+			<Symbol>cad::FileCategories</Symbol>
+			<Symbol>cad::CaseIsSelected</Symbol>
+			<Symbol>cad::FileOwner</Symbol>
+			<Symbol>cad::SelCase</Symbol>
+			<Symbol>cad::FileGroup</Symbol>
+			<Symbol>cad::FileReadWrite</Symbol>
+			<Symbol>cad::DatafileNames</Symbol>
+			<Symbol>cad::StartupCaseName</Symbol>
+			<Symbol>cad::Set_FormChanged</Symbol>
+			<Symbol>cad::FileAcronym</Symbol>
+			<Symbol>cad::FileFolderNames</Symbol>
+			<Symbol>cad::FileComments</Symbol>
+			<Symbol>cad::FileTime</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

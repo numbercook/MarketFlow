@@ -1,0 +1,46 @@
+LOCATIONS
+This model uses a variety of sets to specify locations of supply and demand centres.   The sets, subsets and indices shown below.  Note that subsets are shown using indentation.
+
+AllLocations(loc)
+	-> Blocks(blk)			parts of forest that contain product
+	-> Destinations (dest)		mills that use products and produce residual products
+	-> AllSources(src) 		all blocks and those destinations that produce residuals
+		-> MUSources(MuSrc)	all sources that are blocks
+		-> MillSources(MillSrc)	all mills that produce residuals
+		
+Management Units are associated with blocks -MU_Block_Relation(mu,blk)-.  But MUs are used primarily for mapping, not in the mathematical model.
+
+SUPPLY
+Supply is stated as an amount of product available (See below) from a source (See above).  Sources can be either blocks (i.e. parts of a management unit) or Mills that produce residual products. 
+
+SUPPLY PRODUCTS
+Each indivicual products represents a combination of species and a merchandising standard, e.g. Pwr_logs. A product can be either a regular product (from a forest) or a residual product (produced by a facility).  The Sets associated with products are:
+
+AllProducts(gpr)
+-> Products(prd)	from the forest (blk)
+-> Residuals(res)	from destinations (dest)
+-> ResidualGroupProducts(gRes)	All products that can occur in residual groups
+
+For Blocks (blk), source volume is specified by InitialGS(blk,prd) .. initial growing stock. Users can specify the percent of Initial Growing Stock available in each block.  (This permits examination of 'what if " scenarios.)
+
+For Destinations, source volume is specified by ResidualsProduced(dest,prd,res), i.e. the amount of residual (res) produced for each unit of product(prd) used by mill (dest).  Note that a mill could use a residual product and product another residual product.
+
+	
+DEMAND
+Demand is stated for each Destination by Product Group. Products are associated with Product Groups (Parameter cPrG(gPrGrp,gpr) ) such that any product in a given product group (gPrGrp) can meet the demand for the product group.
+
+DEMAND PRODUCT GROUPS
+Demand is specified by Product Groups (PrGrp).  A product group may be associated with 1 or more products, and may contain regular products or residual products.  Sets associated with product groups are as follows:
+
+AllProductGroups(gPrGrp)
+-> AllProductGroupsSingle(gPrGrpS)	group contains a single product or residual
+-> AllProductGroupsMulti(gPrGrpM)	groups contains multiple products or residuals
+	
+-> ProductGroups(PrGrp)		a group of regular products (prd)
+-> ProductGroupsSingle(PrGrpS)	a group containing a single regular product
+-> ProductGroupsMulti(PrGrpM)	a group containing multiple regular products
+	
+-> ResidualGroups(ResGrp)	a group of residual products (res)
+-> ResidualGroupsSingle(ResGrpS)	a group containing a single residual product
+-> ResidualGroupsMulti(ResGrpM)	a group containing multiple residual products
+	

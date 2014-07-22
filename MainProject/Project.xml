@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Project AimmsVersion="4.0.0.699 unicode x86" ProjectUUID="80728F41-021F-4EE1-8508-79294300DEB2">
+	<ModelFileName>MarketFlow.ams</ModelFileName>
+	<AutoSaveAndBackup>
+		<DataBackup AtRegularInterval="true" EveryNMinutes="15" NumBackupsDatedToday="3" NumDaysBeforeToday="3" />
+	</AutoSaveAndBackup>
+	<UserManagement File="MarketFlowUsers.usr" InternalFileId="-649430339" />
+</Project>

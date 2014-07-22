@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="14" left="67" bottom="618" right="901" />
+	<PageEditSize Type="Inherited" />
+	<ProjectUUID>B2FACAE1-6EEE-4497-BF6D-B115323573E2</ProjectUUID>
+	<IsDialogPage>true</IsDialogPage>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<Background Inherited="true" />
+	<HelpTopic>"End-User Procedure"</HelpTopic>
+	<HorizontalGridDistance>-6</HorizontalGridDistance>
+	<VerticalGridDistance>-6</VerticalGridDistance>
+	<PageObject Type="Text">
+		<Location top="28" left="35" bottom="57" right="756" />
+		<StaticText>End-User Procedure</StaticText>
+		<Alignment>Center</Alignment>
+		<Font GUID="98B1D76A-C11C-4BD0-B6AE-5B5A18B4A7B2" Name="Page Title" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="5" left="773" bottom="34" right="821" />
+		<TabOrder>3</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Close"</Title>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="ClosePage" />
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="135" left="56" bottom="154" right="314" />
+		<StaticText>Procedure Code</StaticText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="53" left="784" bottom="83" right="817" />
+		<TabOrder>4</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Bitmap</ButtonType>
+		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:MyBitmaps\Help.png"</BitmapFile>
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<ActionSequence>
+			<Action Type="Help">
+				<HelpOn>PageKeyWord</HelpOn>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="539" left="663" bottom="593" right="823" />
+		<TabOrder>7</TabOrder>
+		<TabStop>false</TabStop>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Run It!"</Title>
+		<TooltipText>"Execute the Procedure Code"</TooltipText>
+		<ForegroundColor>
+			<UserColor GUID="FC1F3FC6-60B3-4FB3-9165-795D7981C6FF">Corresponding</UserColor>
+		</ForegroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>nsm::eu::UserDefinedRuntime</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="59" left="35" bottom="111" right="756" />
+		<StaticText>Warning:  This page gives you the opportunity to really mess things up!</StaticText>
+		<Alignment>Center</Alignment>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextColor>
+			<UserColor GUID="8C1FFC91-A781-4272-831D-2D86F23592E4">red</UserColor>
+		</TextColor>
+	</PageObject>
+	<PageObject Type="Scalar">
+		<Location top="165" left="55" bottom="526" right="810" />
+		<TabOrder>8</TabOrder>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="3" MarginLeft="3" />
+		<BackgroundColor RGB="#ffffff" />
+		<Layout>MultipleLineEditField</Layout>
+		<VerticalScrollbar>true</VerticalScrollbar>
+		<HorizontalScrollbar>true</HorizontalScrollbar>
+		<SeparatorSign>=</SeparatorSign>
+		<ExplicitIdentifier>
+			<Identifier>nsm::RunTimeBody</Identifier>
+			<NumberFormat Width="15" Decimals="0" Alignment="Left" ShowDefaults="true" />
+		</ExplicitIdentifier>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="137" left="322" bottom="156" right="580" />
+		<StaticText>use Ctrl-Enter to enter a new line</StaticText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>nsm::RunTimeBody</Symbol>
+			<Symbol>nsm::eu::UserDefinedRuntime</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<TemplateManager>
+	<Template Name="MarketFlow Header" PageGUID="86AC20A4-BEB9-4450-811A-CD8F495E4326">
+		<Template Name="New Main Button Bar" PageGUID="E144086A-0987-4D79-9A29-4BA13DB75AA2">
+			<Template Name="Side Navigation All" PageGUID="1EF2A193-5595-40E7-9B37-5983B68CBFCD">
+				<Template Name="Refresh Bioforms" PageGUID="AA925081-DA9F-418D-AA4F-EBBBFBF9F98D">
+					<Template Name="Side Navigation Regions" PageGUID="183DD039-7B15-488A-BBC8-5ABEFC497AC4">
+						<Page Name="Regions" PageGUID="760EF87A-BAA3-4353-ACF2-AC5702A3D69D" />
+						<Page Name="Supply" PageGUID="DFB6C66C-884F-4366-802C-92978A5E62F6" />
+						<Page Name="Regions and Scenarios" PageGUID="EA663673-7F6C-4829-BBF0-EC00BA045FAF" />
+					</Template>
+					<Template Name="Side Navigation Facilities" PageGUID="4A7A84C2-9265-4096-9541-21D1AD28F330">
+						<Page Name="Facilities Separator" PageGUID="F3723983-218D-428B-917D-379E31A326A3" />
+						<Page Name="Facilities" PageGUID="A2BE2FA8-BA6D-46EC-8D7C-321D89B066FC" />
+						<Page Name="Recipes" PageGUID="F956642D-9023-480F-B5E6-BFE7EA848F0E" />
+						<Page Name="Configurations" PageGUID="E9CBA8A6-6B6E-4B62-8F05-9FCD4CD3E012" />
+						<Page Name="Mill Trans Costs" PageGUID="756FE01A-D631-455A-98A6-5D57C9FEC9C5" />
+						<Page Name="Mill Diagram" PageGUID="55E4C4AB-18BC-4003-A2BB-53AC931212F5" />
+					</Template>
+					<Template Name="Side Navigation Markets" PageGUID="2C5479E3-F843-4BAF-BE86-BC1AFA0D017C">
+						<Page Name="Markets" PageGUID="6FDF063C-EF23-454D-BF99-5B603E93249B" />
+						<Page Name="Market Trans Costs" PageGUID="AF4E0DCC-79E4-4A1B-BC84-9725D8723D84" />
+					</Template>
+				</Template>
+				<Template Name="Side Navigation Exec" PageGUID="8564FFA5-301D-4018-BC1C-34784A5841AB">
+					<Page Name="Exec Separator" PageGUID="0CE57B5D-3C28-450D-8DB0-14B9C088BFBC" />
+					<Page Name="Exec" PageGUID="93A79F49-73BB-496B-8117-ED3769C2EC81" />
+					<Page Name="Supply Chains" PageGUID="64136215-C684-4836-972B-CA2A133A7668" />
+				</Template>
+				<Template Name="Side Navigation Results" PageGUID="8878F85A-94D6-4881-9B5A-5400B5910E6F">
+					<Page Name="Results" PageGUID="196485EE-77C0-4F12-B4F9-5FF9C60EF529" />
+				</Template>
+				<Template Name="Side Navigation Maps" PageGUID="F723A1CD-BE13-4C1C-AA49-D21E6F47AD7D">
+					<Page Name="Maps" PageGUID="76DDA7D2-4344-47A9-BCB3-C7B4D9B96D62" />
+				</Template>
+			</Template>
+			<Page Name="NS Main Page" PageGUID="332F56D1-4746-40E7-AE17-04A6E92E7763" />
+		</Template>
+	</Template>
+	<Template Name="No Header" PageGUID="2C885BF1-587A-48A0-83DE-250A59B3A07F" CrossLibraryDuplicate="80728F41-021F-4EE1-8508-79294300DEB2|67C56F4C-0BAA-4A77-802E-51459240F9A5|No Header">
+		<Template Name="No Header Separator" PageGUID="68CC0824-D7BF-4BB3-8A11-BD073EBD7031" CrossLibraryDuplicate="80728F41-021F-4EE1-8508-79294300DEB2|2873821B-B0F7-4952-B28D-B41663F9E88D|No Header Separator">
+			<Page Name="Add_DeleteDialogs" PageGUID="33365685-1FE1-46A4-B86B-043BED05B371" />
+			<Page Name="Add_SetElement" PageGUID="2578A002-E78B-47F3-A1EC-11CED6B8032C" />
+			<Page Name="Delete_SetElement" PageGUID="ACB0B287-352F-4619-A745-CEFF3E11F7C0" />
+		</Template>
+	</Template>
+	<Page Name="Auxiliary Pages" PageGUID="CB731056-EB61-49A8-9B4D-A5AF500C024C" />
+	<Page Name="All Data Pages" PageGUID="D0461A0B-BF85-4FBF-82E7-CCA26353EC50" />
+	<Page Name="[Data Page] nsm ProdB" PageGUID="263E65B5-7084-47B3-A147-0CB6B712EF91" />
+	<Page Name="[Data Page] nsm BioformUnit" PageGUID="11228BD2-770F-48BC-A497-9EDAFCD5EFE7" />
+	<Page Name="[Data Page] nsm F_C_K" PageGUID="A254197B-E7E7-4FE4-8F1E-B7CF295C1F22" />
+	<Page Name="[Data Page] nsm MillConfigurationRecipe" PageGUID="D3A12198-6A08-4581-B730-AC22FA8061A1" />
+	<Page Name="[Data Page] nsm Regions" PageGUID="AB758D0A-65E8-493F-B3FF-F657A62D7119" />
+	<Page Name="[Data Page] nsm MillConfigurationRecipes" PageGUID="FA78A286-1196-4BCE-BD22-A261F6A39695" />
+	<Page Name="[Data Page] nsm PrcM" PageGUID="916C2B0B-F4CA-47F3-9623-F34DBF2AC395" />
+	<Page Name="[Data Page] nsm inB_F_C_K" PageGUID="1BA9CCFC-FBDE-4B7A-A3FB-2CEC5A7F5A75" />
+	<Page Name="[Data Page] nsm tcostBFF" PageGUID="A4A2D890-5C19-4186-83FE-3C0095402F1B" />
+	<Page Name="[Data Page] nsm GUI_B_R_F_Dom" PageGUID="4E84FA07-40FF-44E2-BF8C-E4E7C5A89FC7" />
+	<Page Name="[Data Page] nsm GUI_B_F_F_Dom" PageGUID="E2C4AB87-A316-467A-A0FF-70CFDA0622A8" />
+	<Page Name="[Data Page] nsm GUI_B_F_M_Dom" PageGUID="4B20F29F-F630-4265-A2D4-387F5E8162BD" />
+	<Page Name="[Data Page] nsm GUI_B_P_M_Dom" PageGUID="FC09D0F2-93E3-4861-9328-07EEE07ADFFB" />
+	<Page Name="[Data Page] nsm B_M_P" PageGUID="4667FE04-6F62-46EF-BAAB-AE0B4FEC470B" />
+	<Page Name="[Data Page] nsm LLM" PageGUID="5DCB1CD7-F8DB-466D-91DB-8BBB94C29F1B" />
+	<Page Name="[Data Page] nsm ULM" PageGUID="763F3019-4361-4BBB-8BE1-182C76AA0A5C" />
+	<Page Name="[Data Page] nsm tB_R_F" PageGUID="0B9A3CFF-0293-4CCF-A2FB-19AA84A64761" />
+	<Page Name="[Data Page] nsm tB_R_M" PageGUID="A4392853-0BF1-4F9A-B96E-08AF61DCA2D8" />
+	<Page Name="[Data Page] nsm tranB_F_F" PageGUID="EF8CD66A-4943-46D2-BBB2-9F03B87BE9C3" />
+	<Page Name="[Data Page] nsm tranB_F_M" PageGUID="FEC1EED5-6902-4C7B-9504-0537E65C5280" />
+	<Page Name="[Data Page] nsm tcostBRF" PageGUID="434B0E9C-4C5C-47A0-AEC7-247E019812F1" />
+	<Page Name="[Data Page] nsm sMP" PageGUID="38884EA1-D2CC-422A-A258-83F82C294D97" />
+	<Page Name="[Data Page] nsm Harv" PageGUID="06D913F0-3003-4958-8240-876A4339FFA5" />
+	<Page Name="[Data Page] nsm xRF" PageGUID="B37780C3-B412-463F-880D-496415735F40" />
+	<Page Name="Show Recipe Output Bioforms" PageGUID="71C4877B-1796-4121-B173-0B110EB9260E" />
+	<Page Name="[Data Page] nsm fckMax" PageGUID="30295657-8D02-474C-98FE-1282D644E3EA" />
+	<Page Name="[Data Page] nsm B_R_F" PageGUID="B68712EC-5C3A-40BB-BA5B-C564601BF898" />
+	<Page Name="[Data Page] nsm B_R_S" PageGUID="0B9AB591-F0CA-4CB2-B5FA-7903B755079A" />
+	<Page Name="[Data Page] nsm zFF" PageGUID="BC92AC07-2639-40F7-A674-09AABDCBC2D0" />
+	<Page Name="[Data Page] nsm zFM" PageGUID="EC312F0B-FB88-4FD8-97E4-69D08448A04B" />
+	<Page Name="[Data Page] nsm xRM" PageGUID="44839397-1D26-4C4D-ABFB-C081D069D76A" />
+	<Page Name="[Data Page] nsm oF_" PageGUID="6E90856C-64BE-46F4-8C8E-35967FEF38BC" />
+	<Page Name="[Data Page] nsm iF_" PageGUID="129188AA-00F2-4869-AA38-DF908CE0FA24" />
+	<Page Name="[Data Page] nsm inB_F_K" PageGUID="7355AFF0-93C9-4DAD-A1CB-FECBE4B847B2" />
+	<Page Name="[Data Page] nsm tcostBFM" PageGUID="DB147763-B49F-4BE7-9970-574C1E55DA1A" />
+	<Page Name="[Data Page] nsm rF" PageGUID="FCFCBA70-56F1-4DB7-8E2B-72153BF43EC8" />
+	<Page Name="[Data Page] nsm SCForSelectedRegionBioform_R_F_M" PageGUID="1D4F2D3C-6534-4A0D-9D6B-964D23987E68" />
+	<Page Name="[Data Page] nsm MarkRev_Detail" PageGUID="28927F94-006E-4E46-B5B7-EFFA941ADC55" />
+	<Page Name="[Data Page] nsm SCForSelectedRegionBioform_R_M" PageGUID="1064F058-FB17-4AA0-84D1-08A9218D619B" />
+	<Page Name="[Data Page] nsm SCForRegionBioform_R_M" PageGUID="D5CBC5FE-1235-4335-A664-CED6C4E89000" />
+	<Page Name="[Data Page] nsm SCForBioform_R_F_M" PageGUID="86383CCF-B07B-47B2-8B2A-E37E6E3D332D" />
+	<Page Name="[Data Page] nsm SCForBioform_R_F_F_M" PageGUID="D1947C38-D72D-4B39-82BA-CB82F7E18BD4" />
+	<Page Name="[Data Page] nsm recOutAlpha" PageGUID="BE1AFC08-45CA-4B5A-A460-0FAA22157BCE" />
+	<Page Name="[Data Page] nsm GUIrecOutAlphaPC" PageGUID="8121E424-D93C-4A09-8536-23F79F072402" />
+	<Page Name="[Data Page] nsm GUIrecOutAlpha" PageGUID="D5DC8CAE-853C-41B1-84D2-D8B7FA89DD34" />
+	<Page Name="Output Bioform Details" PageGUID="7773283F-9E2A-4428-B683-17056B832A26" />
+	<Page Name="[Data Page] nsm _B_M_P_NoULM" PageGUID="A5C97942-96F9-487E-B737-E8D121E82071" />
+	<Page Name="[Data Page] nsm tB_F_M" PageGUID="527765C1-D935-4B28-96C9-ADD381226E86" />
+	<Page Name="Runtime User Procedure" PageGUID="49F28C9A-1A53-4FCE-ACC5-91DEB481E3F8" />
+	<Page Name="[Data Page] nsm _fcCorresponding" PageGUID="82F072F4-734C-452B-B2DF-394BD2C00217" />
+</TemplateManager>

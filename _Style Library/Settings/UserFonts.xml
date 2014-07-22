@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<UserFonts>
+	<UserFont Name="Heading Subpage" FaceName="Comic Sans MS" PointSize="100" Bold="true" UUID="AA5FC319-34D1-4D05-A06C-BF4D3B89EA34" />
+	<UserFont Name="Copy Main Font" FaceName="Arial" PointSize="80" UUID="566AF7CB-F855-43CB-BE0E-C210BC82B31B" InternalID="1" />
+	<UserFont Name="Report Table Header" FaceName="Comic Sans MS" PointSize="100" Bold="true" UUID="9F22B913-8DD0-4AF8-9C85-607F7AF27A0A" InternalID="2" />
+	<UserFont Name="Report Table Grid" FaceName="Comic Sans MS" PointSize="100" UUID="3111AFC4-70E6-4B85-AA6A-4FE99584BD1B" InternalID="3" />
+	<UserFont Name="Regular Main Font" FaceName="Comic Sans MS" PointSize="100" UUID="51E67888-F03E-44CA-A991-9A6FA452F2A9" InternalID="4" />
+	<UserFont Name="Table Header" FaceName="Comic Sans MS" PointSize="90" Bold="true" UUID="D4B56511-5B40-437C-B20D-EEF4998164BF" InternalID="5" />
+</UserFonts>

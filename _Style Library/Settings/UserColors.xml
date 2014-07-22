@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<UserColors LastKnownInternalId="58">
+	<UserColor Name="Button Error" RGB="#ff0000" UUID="BF0AF5BE-4463-43D5-88AC-AFF774C703EF" InternalID="32" />
+	<UserColor Name="Button Active" RGB="#ffff00" UUID="AA565D1C-956B-4852-9572-09CE4F7C5E07" InternalID="33" />
+	<UserColor Name="Button Inactive" RGB="#80ff80" UUID="05B4163B-58C7-4FB0-BC02-7E4B4FAD026E" InternalID="34" />
+	<UserColor Name="Button Bar" RGB="#d9d9ff" UUID="EB9E6E2E-3764-4AB3-890F-AA330B5D0D62" InternalID="35" />
+	<UserColor Name="Text Blue" RGB="#0000a0" UUID="3C3FA5F7-0DE7-48BB-AEDD-84C051BE898E" InternalID="36" />
+	<UserColor Name="Corresponding" RGB="#ff8040" UUID="FC1F3FC6-60B3-4FB3-9165-795D7981C6FF" InternalID="37" />
+	<UserColor Name="Grid Focus" RGB="#ff8040" UUID="F28C0EB2-1ACE-45AA-9EBB-BB5DBE4F23D1" InternalID="39" />
+	<UserColor Name="PT Value Bar" RGB="#80ffff" UUID="D9A94D2A-2BAA-4EFB-AE59-63E305677456" InternalID="40" />
+	<UserColor Name="Has Help Background" RGB="#d1ddcc" UUID="F9BBB2FB-E950-4D01-84F6-C90EA058632E" InternalID="41" />
+	<UserColor Name="Product" RGB="#a5c7ac" UUID="B4CDB992-7838-4B94-9EE7-4C587E0F62CC" InternalID="42" />
+	<UserColor Name="Residual" RGB="#aba39a" UUID="0A3A2C40-FC1D-4933-83D0-D08E1215327E" InternalID="43" />
+	<UserColor Name="Button Green" RGB="#008040" UUID="391F08C8-DB60-4153-AF59-F1A2C3CB8123" InternalID="44" />
+	<UserColor Name="Report Background" RGB="#ffffff" UUID="2176D529-EB14-4A61-BCE4-9ECDBE653C58" InternalID="49" />
+	<UserColor Name="Report Text" RGB="#000000" UUID="92FBBD6E-6B63-4C8D-85DE-F6ACFFBB4187" InternalID="50" />
+	<UserColor Name="Report Selection" RGB="#c0c0c0" UUID="8B9F0EA8-C3AD-4D2E-8E53-DD02991E8CDF" InternalID="51" />
+	<UserColor Name="Side Button Bar" RGB="#804000" UUID="CB316F4F-9E6D-49C3-977E-53640CBF2B1F" InternalID="52" />
+	<UserColor Name="Zone Tradeoff" RGB="#ff0000" UUID="570FB91F-9D38-42E3-97B5-8CA9C27A7B77" InternalID="53" />
+	<UserColor Name="Zone Recovery" RGB="#804040" UUID="53163EA8-B222-40D2-81EE-918F85E0ECE8" InternalID="54" />
+	<UserColor Name="Zone LowRec" RGB="#ff8040" UUID="F3419C0B-2C85-4A90-8357-813526749C1A" InternalID="55" />
+	<UserColor Name="Zone LowCost" RGB="#80ff80" UUID="C777DE07-8754-449D-BDB8-A2D7A2CBB4E2" InternalID="56" />
+	<UserColor Name="Zone LowLim" RGB="#ffff00" UUID="22C3E96B-3675-4581-8C52-A070AE500296" InternalID="57" />
+	<UserColor Name="Zone Altern" RGB="#c0c0c0" UUID="F0F347B1-0905-4C67-ADB3-66EB3FE08ABA" InternalID="58" />
+</UserColors>

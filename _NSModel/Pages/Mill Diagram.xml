@@ -1,0 +1,439 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="29" left="4" bottom="696" right="1072" />
+	<PageEditSize Type="Inherited">
+		<Size Width="900" Height="706" />
+	</PageEditSize>
+	<ProjectUUID>B2FACAE1-6EEE-4497-BF6D-B115323573E2</ProjectUUID>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<ResizeData>
+		<MainArea Line="FixedFromTop" Value="76">
+			<TopArea Line="FixedFromRight" Value="74">
+				<LeftArea Line="FixedFromLeft" Value="323" />
+			</TopArea>
+			<BottomArea Line="FixedFromTop" Value="48">
+				<BottomArea Line="FixedFromLeft" Value="135" />
+			</BottomArea>
+		</MainArea>
+	</ResizeData>
+	<Background Inherited="true" />
+	<HelpTopic>"Mill Diagram"</HelpTopic>
+	<PageObject Type="Text">
+		<Location top="132" left="144" bottom="156" right="318" />
+		<HelpTag>"General MUs"</HelpTag>
+		<StaticText>Facility</StaticText>
+		<Font GUID="98B1D76A-C11C-4BD0-B6AE-5B5A18B4A7B2" Name="Page Title" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="162" left="144" bottom="186" right="493" />
+		<HelpTag>"General MUs"</HelpTag>
+		<StaticText>Mill Configurations</StaticText>
+		<Font GUID="98B1D76A-C11C-4BD0-B6AE-5B5A18B4A7B2" Name="Page Title" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Selection Object">
+		<SelectionType>DropDownList</SelectionType>
+		<Location top="132" left="273" bottom="156" right="512" />
+		<TabOrder>10</TabOrder>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextShown>ElementName</TextShown>
+		<Border Style="None" />
+		<BackgroundColor RGB="#c0c0c0" />
+		<ProcedureUponChange>nsm::GUIUpdate_FCK</ProcedureUponChange>
+		<ExplicitIdentifier>
+			<Identifier>nsm::_f</Identifier>
+		</ExplicitIdentifier>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="162" left="519" bottom="186" right="867" />
+		<HelpTag>"General MUs"</HelpTag>
+		<StaticText>Mill Configuration Recipes</StaticText>
+		<Font GUID="98B1D76A-C11C-4BD0-B6AE-5B5A18B4A7B2" Name="Page Title" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Pivot Table">
+		<Location top="450" left="164" bottom="648" right="461" />
+		<TabOrder>11</TabOrder>
+		<ObjectUUID>0450B1E0-F30C-407C-87A4-8FEB72BBC118</ObjectUUID>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<Contents>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::recInLL( nsm::b, nsm::_GUI_k )</Identifier>
+				<Domain ID="4123">nsm::RecipeUsesBioform( nsm::b, nsm::_GUI_k )</Domain>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::recInUL( nsm::b, nsm::_GUI_k )</Identifier>
+				<Domain ID="4123">nsm::RecipeUsesBioform( nsm::b, nsm::_GUI_k )</Domain>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::recInCF( nsm::b, nsm::_GUI_k )</Identifier>
+				<Domain ID="4123">nsm::RecipeUsesBioform( nsm::b, nsm::_GUI_k )</Domain>
+			</Explicit_Identifier>
+			<Defaults>
+				<Show_Unit>
+					<Show_Unit ID="4051">"Show in header"</Show_Unit>
+				</Show_Unit>
+				<Format>
+					<Alignment ID="4230">"Center"</Alignment>
+				</Format>
+				<Readonly ID="4052">1</Readonly>
+				<Colors>
+					<Background_Color ID="4170">ELEMENT( nsm::b, nsm::k:nsm::_k )-&gt;AllColors := if k=_k then 'corresponding' endif</Background_Color>
+				</Colors>
+			</Defaults>
+		</Contents>
+		<Indices>
+			<Explicit_Index>
+				<Index ID="6510">nsm::b</Index>
+			</Explicit_Index>
+			<Identifier_Index>
+				<Hide_if_Single_Identifier ID="6270">"No"</Hide_if_Single_Identifier>
+			</Identifier_Index>
+		</Indices>
+		<General>
+			<Dense_Aggregation_restricts_to_Domain ID="1022">"Yes"</Dense_Aggregation_restricts_to_Domain>
+		</General>
+		<Row_Area>
+			<Background_Color ID="2010">RGB&lt;255,255,200&gt;</Background_Color>
+			<Text_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2020">"default selection"</Text_Color>
+			<Headers>
+				<Background_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2120">"default selection"</Background_Color>
+				<Text_Color ID="2130">RGB&lt;255,255,255&gt;</Text_Color>
+				<Show_Sub_Headers ID="2150">"No"</Show_Sub_Headers>
+			</Headers>
+			<Grid_Focus_Indicator>
+				<Background_Color ID="2270">RGB&lt;0,0,168&gt;</Background_Color>
+				<Text_Color ID="2280">RGB&lt;255,255,200&gt;</Text_Color>
+			</Grid_Focus_Indicator>
+		</Row_Area>
+		<Grid_Area>
+			<Background_Color ID="5010">RGB&lt;255,255,255&gt;</Background_Color>
+			<Alternating_Background_Color ID="5011">RGB&lt;225,225,225&gt;</Alternating_Background_Color>
+			<Aggregators>
+				<Background_Color ID="5220">RGB&lt;255,128,128&gt;</Background_Color>
+			</Aggregators>
+			<Sub_Header_Row_or_Column>
+				<Background_Color ID="5320">RGB&lt;255,255,200&gt;</Background_Color>
+			</Sub_Header_Row_or_Column>
+		</Grid_Area>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="420" left="157" bottom="444" right="461" />
+		<HelpTag>"General MUs"</HelpTag>
+		<SourceType>StringParameter</SourceType>
+		<StringParameter>STRING := formatstring("Recipe '%e' inputs",_k)</StringParameter>
+		<Font GUID="98B1D76A-C11C-4BD0-B6AE-5B5A18B4A7B2" Name="Page Title" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Pivot Table">
+		<Location top="186" left="144" bottom="402" right="461" />
+		<TabOrder>12</TabOrder>
+		<ObjectUUID>37D6D366-F0B8-4FE6-B979-0CB256DFE995</ObjectUUID>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<Contents>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::confNam( nsm::_f, nsm::c )</Identifier>
+				<Title ID="4120">"Configuration Name"</Title>
+				<Domain ID="4123">nsm::FC_Ex( nsm::_f, nsm::c )</Domain>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::confCost( nsm::_f, nsm::c )</Identifier>
+				<Title ID="4120">"Configuration Cost"</Title>
+				<Domain ID="4123">nsm::FC_Ex( nsm::_f, nsm::c )</Domain>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::FC_Cap( nsm::_f, nsm::c )</Identifier>
+				<Title ID="4120">"Config Capacity"</Title>
+				<Domain ID="4123">nsm::FC_Ex( nsm::_f, nsm::c )</Domain>
+				<Colors>
+					<Background_Color ID="4160">nsm::_F_C_NoCap( nsm::_f, nsm::c )</Background_Color>
+				</Colors>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::fxOpCst( nsm::_f, nsm::c )</Identifier>
+				<Title ID="4120">"Config Operating Cost"</Title>
+				<Domain ID="4123">nsm::FC_Ex( nsm::_f, nsm::c )</Domain>
+			</Explicit_Identifier>
+			<Defaults>
+				<Colors>
+					<Background_Color ID="4170">ELEMENT( nsm::c )-&gt;AllColors := if c=_Gui_C then 'corresponding' endif</Background_Color>
+				</Colors>
+			</Defaults>
+		</Contents>
+		<Indices>
+			<Defaults>
+				<Header_Width ID="6180">25</Header_Width>
+			</Defaults>
+			<Explicit_Index>
+				<Index ID="6510">nsm::c</Index>
+				<Link_to_Element_Parameter ID="6515">nsm::_c</Link_to_Element_Parameter>
+				<Header_Title ID="6530">"Configurations (c)"</Header_Title>
+				<Location_in_Initial_View ID="6560">"In Columns"</Location_in_Initial_View>
+			</Explicit_Index>
+			<Identifier_Index>
+				<Header_Title ID="6230">"Parameters"</Header_Title>
+				<Location_in_Initial_View ID="6260">"In Rows"</Location_in_Initial_View>
+				<Hide_if_Single_Identifier ID="6270">"No"</Hide_if_Single_Identifier>
+			</Identifier_Index>
+		</Indices>
+		<General>
+			<Dense_Aggregation_restricts_to_Domain ID="1022">"Yes"</Dense_Aggregation_restricts_to_Domain>
+		</General>
+		<Row_Area>
+			<Background_Color ID="2010">RGB&lt;255,255,200&gt;</Background_Color>
+			<Text_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2020">"default selection"</Text_Color>
+			<Headers>
+				<Background_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2120">"default selection"</Background_Color>
+				<Text_Color ID="2130">RGB&lt;255,255,255&gt;</Text_Color>
+				<Show_Sub_Headers ID="2150">"No"</Show_Sub_Headers>
+			</Headers>
+			<Grid_Focus_Indicator>
+				<Background_Color ID="2270">RGB&lt;0,0,168&gt;</Background_Color>
+				<Text_Color ID="2280">RGB&lt;255,255,200&gt;</Text_Color>
+			</Grid_Focus_Indicator>
+		</Row_Area>
+		<Grid_Area>
+			<Background_Color ID="5010">RGB&lt;255,255,255&gt;</Background_Color>
+			<Alternating_Background_Color ID="5011">RGB&lt;225,225,225&gt;</Alternating_Background_Color>
+			<Aggregators>
+				<Background_Color ID="5220">RGB&lt;255,128,128&gt;</Background_Color>
+			</Aggregators>
+			<Sub_Header_Row_or_Column>
+				<Background_Color ID="5320">RGB&lt;255,255,200&gt;</Background_Color>
+			</Sub_Header_Row_or_Column>
+		</Grid_Area>
+	</PageObject>
+	<PageObject Type="Pivot Table">
+		<Location top="450" left="506" bottom="690" right="893" />
+		<HelpTag>"Recipe Bioforms"</HelpTag>
+		<TabOrder>9</TabOrder>
+		<PopupMenu None="true" />
+		<ObjectUUID>8C5593C1-51DB-494A-A866-B1F9548B7733</ObjectUUID>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<Contents>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::recOutAlpha( nsm::b1, nsm::_GUI_k )</Identifier>
+				<Show_Unit>
+					<Show_Unit ID="4112">"Show per value"</Show_Unit>
+				</Show_Unit>
+				<Tooltip_Text ID="4125">STRING( nsm::b1 ) := formatstring("%% of all inputs converted to %e under %e",b1,_k)</Tooltip_Text>
+			</Explicit_Identifier>
+			<Defaults>
+				<Show_Unit>
+					<Show_Unit ID="4051">"Show in header"</Show_Unit>
+				</Show_Unit>
+				<Readonly ID="4052">1</Readonly>
+				<Colors>
+					<Background_Color ID="4170">ELEMENT( nsm::b, nsm::k )-&gt;AllColors := if recInLL(b,k) or recInUL(b,k) or recInCF(b,k) or recOutAlpha(b,k) then
+_bkCorresponding( b, k )
+else 'red'
+endif</Background_Color>
+				</Colors>
+			</Defaults>
+		</Contents>
+		<Indices>
+			<Explicit_Index>
+				<Index ID="6510">nsm::b1</Index>
+				<Link_to_Element_Parameter ID="6515">nsm::_b</Link_to_Element_Parameter>
+				<Location_in_Initial_View ID="6560">"In Rows"</Location_in_Initial_View>
+			</Explicit_Index>
+			<Identifier_Index>
+				<Location_in_Initial_View ID="6260">"In Columns"</Location_in_Initial_View>
+			</Identifier_Index>
+		</Indices>
+		<General>
+			<Dense_Aggregation_restricts_to_Domain ID="1022">"Yes"</Dense_Aggregation_restricts_to_Domain>
+			<User_Modifications>
+				<Insert_Row_or_Column ID="1242">"Allowed"</Insert_Row_or_Column>
+			</User_Modifications>
+		</General>
+		<Row_Area>
+			<Background_Color ID="2010">RGB&lt;255,255,200&gt;</Background_Color>
+			<Text_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2020">"default selection"</Text_Color>
+			<Headers>
+				<Background_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2120">"default selection"</Background_Color>
+				<Text_Color ID="2130">RGB&lt;255,255,255&gt;</Text_Color>
+			</Headers>
+			<Grid_Focus_Indicator>
+				<Background_Color ID="2270">RGB&lt;0,0,168&gt;</Background_Color>
+				<Text_Color ID="2280">RGB&lt;255,255,200&gt;</Text_Color>
+			</Grid_Focus_Indicator>
+		</Row_Area>
+		<Grid_Area>
+			<Background_Color ID="5010">RGB&lt;255,255,255&gt;</Background_Color>
+			<Alternating_Background_Color ID="5011">RGB&lt;225,225,225&gt;</Alternating_Background_Color>
+			<Aggregators>
+				<Background_Color ID="5220">RGB&lt;255,128,128&gt;</Background_Color>
+			</Aggregators>
+			<Sub_Header_Row_or_Column>
+				<Background_Color ID="5320">RGB&lt;255,255,200&gt;</Background_Color>
+			</Sub_Header_Row_or_Column>
+		</Grid_Area>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="144" left="757" bottom="180" right="848" />
+		<TabOrder>13</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Refresh"</Title>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>nsm::GUIUpdate_FCK</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="420" left="499" bottom="444" right="803" />
+		<HelpTag>"General MUs"</HelpTag>
+		<StaticText>Outputs per unit of input</StaticText>
+		<Font GUID="98B1D76A-C11C-4BD0-B6AE-5B5A18B4A7B2" Name="Page Title" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Picture">
+		<Location top="504" left="467" bottom="540" right="506" />
+		<FileName LiteralFileName="true">"&lt;prj&gt;:bitmaps\next.bmp"</FileName>
+		<Display>StretchOrShrink</Display>
+		<Center>true</Center>
+		<KeepRatio>true</KeepRatio>
+		<Transparent>true</Transparent>
+		<Intensity>-1</Intensity>
+	</PageObject>
+	<PageObject Type="Pivot Table">
+		<Location top="186" left="506" bottom="348" right="848" />
+		<TabOrder>7</TabOrder>
+		<ObjectUUID>21B1B6E5-4126-4930-B1E9-14A81708503E</ObjectUUID>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<Contents>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::fckMax( nsm::_f, nsm::_GUI_c, nsm::k )</Identifier>
+				<Domain ID="4123">nsm::fck_Ex( nsm::_f, nsm::_GUI_c, nsm::k )</Domain>
+				<Colors>
+					<Background_Color ID="4160">ELEMENT( nsm::f:nsm::_f, nsm::c:nsm::_c, nsm::k )-&gt;AllColors := if f=_f and c=_c and k=_k then 'corresponding' endif</Background_Color>
+				</Colors>
+				<Tooltip_Text ID="4125">"Maximum Capacity"</Tooltip_Text>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::recVarCst( nsm::_f, nsm::_GUI_c, nsm::k )</Identifier>
+				<Domain ID="4123">nsm::fck_Ex( nsm::_f, nsm::_c, nsm::k )</Domain>
+				<Tooltip_Text ID="4125">"variable cost"</Tooltip_Text>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::fckCConsum( nsm::_f, nsm::_GUI_c, nsm::k )</Identifier>
+				<Domain ID="4123">nsm::fck_Ex( nsm::_f, nsm::_c, nsm::k )</Domain>
+				<Tooltip_Text ID="4125">"% capacity consumption "</Tooltip_Text>
+			</Explicit_Identifier>
+			<Defaults>
+				<Show_Unit>
+					<Show_Unit ID="4051">"Show in header"</Show_Unit>
+				</Show_Unit>
+				<Colors>
+					<Background_Color ID="4170">ELEMENT( nsm::f:nsm::_f, nsm::c:nsm::_c, nsm::k )-&gt;AllColors := if f=_f and c=_gui_c and k=_gui_k then 'corresponding' endif</Background_Color>
+				</Colors>
+			</Defaults>
+		</Contents>
+		<Indices>
+			<Explicit_Index>
+				<Index ID="6510">nsm::f</Index>
+			</Explicit_Index>
+			<Explicit_Index>
+				<Index ID="6510">nsm::c</Index>
+			</Explicit_Index>
+			<Explicit_Index>
+				<Index ID="6510">nsm::k</Index>
+				<Link_to_Element_Parameter ID="6515">nsm::_k</Link_to_Element_Parameter>
+			</Explicit_Index>
+			<Identifier_Index>
+				<Hide_if_Single_Identifier ID="6270">"No"</Hide_if_Single_Identifier>
+			</Identifier_Index>
+		</Indices>
+		<General>
+			<Dense_Aggregation_restricts_to_Domain ID="1022">"Yes"</Dense_Aggregation_restricts_to_Domain>
+			<User_Modifications>
+				<Insert_Row_or_Column ID="1242">"Allowed"</Insert_Row_or_Column>
+				<Delete_Row_or_Column ID="1244">"Allowed"</Delete_Row_or_Column>
+			</User_Modifications>
+		</General>
+		<Row_Area>
+			<Background_Color ID="2010">RGB&lt;255,255,200&gt;</Background_Color>
+			<Text_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2020">"default selection"</Text_Color>
+			<Headers>
+				<Background_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2120">"default selection"</Background_Color>
+				<Text_Color ID="2130">RGB&lt;255,255,255&gt;</Text_Color>
+				<Show_Sub_Headers ID="2150">"No"</Show_Sub_Headers>
+			</Headers>
+			<Grid_Focus_Indicator>
+				<Background_Color ID="2270">RGB&lt;0,0,168&gt;</Background_Color>
+				<Text_Color ID="2280">RGB&lt;255,255,200&gt;</Text_Color>
+			</Grid_Focus_Indicator>
+		</Row_Area>
+		<Grid_Area>
+			<Background_Color ID="5010">RGB&lt;255,255,255&gt;</Background_Color>
+			<Alternating_Background_Color ID="5011">RGB&lt;225,225,225&gt;</Alternating_Background_Color>
+			<Aggregators>
+				<Background_Color ID="5220">RGB&lt;255,128,128&gt;</Background_Color>
+			</Aggregators>
+			<Sub_Header_Row_or_Column>
+				<Background_Color ID="5320">RGB&lt;255,255,200&gt;</Background_Color>
+			</Sub_Header_Row_or_Column>
+		</Grid_Area>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="162" left="435" bottom="180" right="454" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>8</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"No capacity specified for configuration"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="8C1FFC91-A781-4272-831D-2D86F23592E4">red</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>AllColors</Symbol>
+			<Symbol>nsm::RecipeUnit</Symbol>
+			<Symbol>nsm::recOutAlpha</Symbol>
+			<Symbol>nsm::b</Symbol>
+			<Symbol>nsm::c</Symbol>
+			<Symbol>nsm::f</Symbol>
+			<Symbol>nsm::k</Symbol>
+			<Symbol>nsm::b1</Symbol>
+			<Symbol>nsm::fck_Ex</Symbol>
+			<Symbol>nsm::FC_Cap</Symbol>
+			<Symbol>nsm::Bioforms</Symbol>
+			<Symbol>nsm::Recipes</Symbol>
+			<Symbol>nsm::recVarCst</Symbol>
+			<Symbol>nsm::_bkCorresponding</Symbol>
+			<Symbol>nsm::fxOpCst</Symbol>
+			<Symbol>nsm::recInCF</Symbol>
+			<Symbol>nsm::fckMax</Symbol>
+			<Symbol>nsm::confNam</Symbol>
+			<Symbol>nsm::_b</Symbol>
+			<Symbol>nsm::_c</Symbol>
+			<Symbol>nsm::_f</Symbol>
+			<Symbol>nsm::_k</Symbol>
+			<Symbol>nsm::_F_C_NoCap</Symbol>
+			<Symbol>nsm::confCost</Symbol>
+			<Symbol>nsm::recInLL</Symbol>
+			<Symbol>nsm::BioformOutUnit</Symbol>
+			<Symbol>nsm::fckCConsum</Symbol>
+			<Symbol>nsm::Facilities</Symbol>
+			<Symbol>nsm::FC_Ex</Symbol>
+			<Symbol>nsm::recInUL</Symbol>
+			<Symbol>nsm::_GUI_c</Symbol>
+			<Symbol>nsm::_GUI_k</Symbol>
+			<Symbol>nsm::RecipeUsesBioform</Symbol>
+			<Symbol>nsm::GUIUpdate_FCK</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

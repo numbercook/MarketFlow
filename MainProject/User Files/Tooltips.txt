@@ -1,0 +1,29 @@
+
+    ToolTip(ipage,iTag) := data table 
+             Overview                                            'General Data'                                    
+          !  --------------------------------------------------  --------------------------------------------------
+   Overview  "Provides a description of the project and model"   "Sets: MUs, blocks, products"                     
+         QA  "Provides a description of the project and model"   "Sets: MUs, blocks, products"                     
+'Main Page'  "Provides a description of the project and model"   "Sets: MUs, blocks, products"                     
+
+          +  Supply                                              Mills                                             
+          !  --------------------------------------------------  --------------------------------------------------
+   Overview  "Product Groups, Available Volume"                  "Mill List and Product requirements"              
+         QA  "Product Groups, Available Volume"                  "Mill List and Product requirements"              
+'Main Page'  "Product Groups, Available Volume"                  "Mill List and Product requirements"              
+
+          +  Costs                                               'QA Exec'                                         
+          !  --------------------------------------------------  --------------------------------------------------
+   Overview  "Haultimes, Rates, Transport Costs"                 "Objective Function definition, Various selectors"
+         QA  "Haultimes, Rates, Transport Costs"                 "Objective Function definition, Various selectors"
+'Main Page'  "Haultimes, Rates, Transport Costs"                 "Objective Function definition, Various selectors"
+
+          +  Results                                             'Whats New'                                       
+          !  --------------------------------------------------  --------------------------------------------------
+   Overview  "Results, Infeasibilities, Comparison"              "Project happening"                               
+         QA  "Results, Infeasibilities, Comparison"              "Project happening"                               
+'Main Page'  "Results, Infeasibilities, Comparison"              "Project happening"                               
+
+    ;
+
+

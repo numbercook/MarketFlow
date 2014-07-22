@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<StandardNumberFormat Name="NoDecimals" InternalID="0">
+	<NumberFormat Width="7" Decimals="0" Scientific="IfTooSmallorLarge" ThousandSeparator="true" />
+</StandardNumberFormat>

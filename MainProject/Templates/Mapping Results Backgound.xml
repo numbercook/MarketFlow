@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15" NeedsCompiledModel="false">
+	<Location top="22" left="4" bottom="822" right="1024" />
+	<PageEditSize Type="Inherited" />
+	<ProjectUUID>80728F41-021F-4EE1-8508-79294300DEB2</ProjectUUID>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<Background Inherited="true" />
+	<PageObject Type="Text">
+		<Location top="12" left="12" bottom="36" right="240" />
+		<StaticText>1. Link to Database</StaticText>
+		<Font GUID="AA5FC319-34D1-4D05-A06C-BF4D3B89EA34" Name="Heading Subpage" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="42" left="12" bottom="72" right="258" />
+		<StaticText>2. Select "additional" data to read</StaticText>
+		<Font GUID="AA5FC319-34D1-4D05-A06C-BF4D3B89EA34" Name="Heading Subpage" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="72" left="12" bottom="96" right="216" />
+		<StaticText>3. Read Wood Flow data</StaticText>
+		<Font GUID="AA5FC319-34D1-4D05-A06C-BF4D3B89EA34" Name="Heading Subpage" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="102" left="12" bottom="126" right="222" />
+		<StaticText>4. Build Proxy MUs</StaticText>
+		<Font GUID="AA5FC319-34D1-4D05-A06C-BF4D3B89EA34" Name="Heading Subpage" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="132" left="12" bottom="156" right="222" />
+		<StaticText>5. Create MU-Block Relation</StaticText>
+		<Font GUID="AA5FC319-34D1-4D05-A06C-BF4D3B89EA34" Name="Heading Subpage" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Rectangle">
+		<Location top="12" left="6" bottom="36" right="276" />
+		<Shape>Out-Shadow</Shape>
+		<FillColor RGB="#c0c0c0" />
+		<LineColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Rectangle">
+		<Location top="42" left="6" bottom="66" right="276" />
+		<Shape>Out-Shadow</Shape>
+		<FillColor RGB="#c0c0c0" />
+		<LineColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Rectangle">
+		<Location top="72" left="6" bottom="96" right="276" />
+		<Shape>Out-Shadow</Shape>
+		<FillColor RGB="#c0c0c0" />
+		<LineColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Rectangle">
+		<Location top="102" left="6" bottom="126" right="276" />
+		<Shape>Out-Shadow</Shape>
+		<FillColor RGB="#c0c0c0" />
+		<LineColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Rectangle">
+		<Location top="132" left="6" bottom="156" right="276" />
+		<Shape>Out-Shadow</Shape>
+		<FillColor RGB="#c0c0c0" />
+		<LineColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Rectangle">
+		<Location top="180" left="30" bottom="204" right="276" />
+		<Shape>Out-Shadow</Shape>
+		<FillColor RGB="#c0c0c0" />
+		<LineColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="216" left="6" bottom="240" right="276" />
+		<TabOrder>3</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Invisible</ButtonType>
+		<TooltipText>"Register Background Map to Mill, MU, and Block XY"</TooltipText>
+		<BackgroundColor RGB="#00ffff" />
+		<ForegroundColor RGB="#000000" />
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="LinkedPage" />
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Rectangle">
+		<Location top="216" left="6" bottom="240" right="276" />
+		<Shape>Out-Shadow</Shape>
+		<FillColor RGB="#c0c0c0" />
+		<LineColor RGB="#000000" />
+	</PageObject>
+	<UsedReferences>
+		<Model />
+	</UsedReferences>
+</Page>

@@ -1,0 +1,128 @@
+## ams_version=1.0
+
+LibraryModule DataEntry {
+    Prefix: de;
+    Interface: data { GetNumber };
+    Set ButtonActions {
+        Parameter: _ButtonAction;
+        Property: NoSave;
+        Definition: {
+            { 'OK', 'Cancel' }
+        }
+    }
+    StringParameter EntryString;
+    Parameter CanClickMinus {
+        Range: binary;
+    }
+    Parameter CanClickDecimal {
+        Range: binary;
+    }
+    StringParameter C;
+    Procedure TestGetNumber {
+        Body: {
+            Localunit := [%];
+            MyNumber := 45 [ Localunit ];
+            
+            GetNumber(MyNumber,LocalUnit);
+            
+            DialogMessage(" Returning " + MyNumber + LocalUnit);
+        }
+        Parameter MyNumber {
+            Unit: LocalUnit;
+        }
+        UnitParameter LocalUnit;
+        UnitParameter _Percent {
+            Quantity: Unitless;
+            InitialData: [%];
+        }
+    }
+    Procedure GetNumber {
+        Arguments: (ParameterName,ParameterUnit);
+        Body: {
+            empty EntryString, _ButtonAction;
+            CanClickMinus := 1;	!- is valid char at beginning of EntryString
+            CanClickDecimal :=1;
+            
+            !testing
+            LocalUnit := ParameterUnit;
+            OrigValue := ParameterName;
+            EntryString := ParameterName;
+            
+            ! The page "Keypad" is a dialog page so execution will wait until after it is closed.
+            PageOpen("Keypad");
+            
+            switch (_ButtonAction) do
+            	'Cancel':
+            		ParameterName := OrigValue;
+            		!DialogMessage("Cancel pressed; return "+ParameterName);
+            	'OK':
+            		ParameterName := ( val(EntryString) ) [ ParameterUnit ];
+            		!DialogMessage(" Returning " + ParameterName);
+            	default:
+            
+            endswitch;
+            
+            !DialogMessage("EntryString is: "+EntryString);
+        }
+        Parameter OrigValue {
+            Unit: LocalUnit;
+        }
+        Parameter NewValue {
+            Unit: LocalUnit;
+        }
+        Parameter ParameterName {
+            Unit: LocalUnit;
+            Property: InOut;
+        }
+        UnitParameter ParameterUnit {
+            Property: Input;
+        }
+        UnitParameter LocalUnit;
+    }
+    Procedure AddCharToString {
+        Body: {
+            EntryString += c;
+            
+            if FindString("0123456789.-",c) then		! "-" invalid after digit or decimal
+            	CanClickMinus := 0;
+            	if c = "." then
+            		CanClickDecimal := 0;			! stop multiple decimals
+            	endif;
+            elseif FindString("e",c) then		! "-"
+            	CanClickMinus := 1;			! "-" valid after E
+            	CanClickDecimal := 0;		! no decimals in exponent
+            endif;
+        }
+    }
+    Procedure BackSpace {
+        Body: {
+            
+            len := StringLength(EntryString);
+            if len > 0 then
+            	c := SubString(EntryString,-1, -1);		! -1 means from end of string
+            	EntryString := SubString(EntryString, 1, len-1) ;
+            
+            	! handle CanClick... controls
+            	if c = "." then
+            		CanClickDecimal := 1;
+            		if FindString(EntryString, "-") then CanClickMinus := 0; endif;
+            	elseif c = "-" then
+            		CanClickMinus := 1;
+            	endif;
+            else
+            	empty EntryString;
+            	CanClickDecimal := 1;
+            	CanClickMinus :=1;
+            endif;
+        }
+        Parameter len;
+        StringParameter c;
+    }
+    Procedure Cancel;
+    Procedure LibraryInitialization;
+    Procedure LibraryTermination {
+        Body: {
+            return 1 ;
+        }
+    }
+}

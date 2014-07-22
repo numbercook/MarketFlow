@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="29" left="4" bottom="696" right="1072" />
+	<PageEditSize Type="Inherited">
+		<Size Width="900" Height="706" />
+	</PageEditSize>
+	<ProjectUUID>B2FACAE1-6EEE-4497-BF6D-B115323573E2</ProjectUUID>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<ResizeData>
+		<MainArea Line="FixedFromTop" Value="76">
+			<TopArea Line="FixedFromRight" Value="74">
+				<LeftArea Line="FixedFromLeft" Value="323" />
+			</TopArea>
+			<BottomArea Line="FixedFromTop" Value="48">
+				<BottomArea Line="FixedFromLeft" Value="135" />
+			</BottomArea>
+		</MainArea>
+	</ResizeData>
+	<Background Inherited="true" />
+	<HelpTopic>"Mill Transportation Costs"</HelpTopic>
+	<PageObject Type="Text">
+		<Location top="126" left="153" bottom="150" right="351" />
+		<HelpTag>"General MUs"</HelpTag>
+		<StaticText>Transportation Costs</StaticText>
+		<Font GUID="98B1D76A-C11C-4BD0-B6AE-5B5A18B4A7B2" Name="Page Title" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="126" left="344" bottom="144" right="357" />
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>6</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Bitmap</ButtonType>
+		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\Add_sign.bmp"</BitmapFile>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>SetName</Identifier>
+				<AssignedValue>"Configurations"</AssignedValue>
+			</Action>
+			<Action Type="Assignment">
+				<Identifier>NewElementName</Identifier>
+				<AssignedValue>""</AssignedValue>
+			</Action>
+			<Action Type="LinkedPage">
+				<Page PageGUID="2578A002-E78B-47F3-A1EC-11CED6B8032C" Name="Add_SetElement" />
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="126" left="370" bottom="144" right="383" />
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>8</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Bitmap</ButtonType>
+		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\minus_sign.bmp"</BitmapFile>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Assignment">
+				<Identifier>SetName</Identifier>
+				<AssignedValue>"Configurations"</AssignedValue>
+			</Action>
+			<Action Type="LinkedPage">
+				<Page PageGUID="ACB0B287-352F-4619-A745-CEFF3E11F7C0" Name="Delete_SetElement" />
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="156" left="377" bottom="174" right="396" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>5</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"Available and Associated with Block(s)"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="ABB4A8BD-7798-41D3-BA43-C629DFC98735">green</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="156" left="351" bottom="174" right="370" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>3</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"Only partly available"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="FC1F3FC6-60B3-4FB3-9165-795D7981C6FF">Corresponding</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="156" left="325" bottom="174" right="344" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>7</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"No associated blocks"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="8C1FFC91-A781-4272-831D-2D86F23592E4">red</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="426" left="867" bottom="444" right="887" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>4</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<TooltipText>"Available and Associated with Block(s)"</TooltipText>
+		<BackgroundColor>
+			<UserColor GUID="ABB4A8BD-7798-41D3-BA43-C629DFC98735">green</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+	</PageObject>
+	<PageObject Type="Pivot Table">
+		<Location top="180" left="144" bottom="702" right="848" />
+		<TabOrder>9</TabOrder>
+		<ObjectUUID>56FC010E-8DCC-41A9-B4BC-F8C415D7470E</ObjectUUID>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
+		<Contents>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::tcostBRF( nsm::br, nsm::r, nsm::f )</Identifier>
+				<Show_Unit>
+					<Show_Unit ID="4112">"Show in header"</Show_Unit>
+				</Show_Unit>
+				<Domain ID="4123">nsm::GUI_B_R_F_Dom( nsm::br, nsm::r, nsm::f )</Domain>
+				<Colors>
+					<Background_Color ID="4160">ELEMENT( nsm::br, nsm::r, nsm::f )-&gt;AllColors := if not GUI_B_R_F_Dom( br, r, f ) then 'grey' endif</Background_Color>
+				</Colors>
+			</Explicit_Identifier>
+			<Explicit_Identifier>
+				<Identifier ID="4110">nsm::tcostBFF( nsm::b, nsm::f1, nsm::f2 )</Identifier>
+				<Show_Unit>
+					<Show_Unit ID="4112">"Show in header"</Show_Unit>
+				</Show_Unit>
+				<Domain ID="4123">nsm::GUI_B_F_F_Dom( nsm::b, nsm::f1, nsm::f2 )</Domain>
+				<Colors>
+					<Background_Color ID="4160">ELEMENT( nsm::b, nsm::f1, nsm::f2 )-&gt;AllColors := if not GUI_B_F_F_Dom( b, f1, f2 ) then 'grey' endif</Background_Color>
+				</Colors>
+			</Explicit_Identifier>
+			<Defaults>
+				<Show_Unit>
+					<Show_Unit ID="4051">"Show in header"</Show_Unit>
+				</Show_Unit>
+			</Defaults>
+		</Contents>
+		<Indices>
+			<Identifier_Index>
+				<Column_Width ID="6255">25</Column_Width>
+				<Hide_if_Single_Identifier ID="6270">"No"</Hide_if_Single_Identifier>
+			</Identifier_Index>
+		</Indices>
+		<General>
+			<Dense_Aggregation_restricts_to_Domain ID="1022">"Yes"</Dense_Aggregation_restricts_to_Domain>
+		</General>
+		<Row_Area>
+			<Background_Color ID="2010">RGB&lt;255,255,200&gt;</Background_Color>
+			<Text_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2020">"default selection"</Text_Color>
+			<Headers>
+				<Background_Color ExtraInfo="D4F48705-BFDF-4DF8-8E1F-D38EFF981024" ID="2120">"default selection"</Background_Color>
+				<Text_Color ID="2130">RGB&lt;255,255,255&gt;</Text_Color>
+				<Show_Sub_Headers ID="2150">"No"</Show_Sub_Headers>
+			</Headers>
+			<Grid_Focus_Indicator>
+				<Background_Color ID="2270">RGB&lt;0,0,168&gt;</Background_Color>
+				<Text_Color ID="2280">RGB&lt;255,255,200&gt;</Text_Color>
+			</Grid_Focus_Indicator>
+		</Row_Area>
+		<Grid_Area>
+			<Background_Color ID="5010">RGB&lt;255,255,255&gt;</Background_Color>
+			<Alternating_Background_Color ID="5011">RGB&lt;225,225,225&gt;</Alternating_Background_Color>
+			<Aggregators>
+				<Background_Color ID="5220">RGB&lt;255,128,128&gt;</Background_Color>
+			</Aggregators>
+			<Sub_Header_Row_or_Column>
+				<Background_Color ID="5320">RGB&lt;255,255,200&gt;</Background_Color>
+			</Sub_Header_Row_or_Column>
+		</Grid_Area>
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="132" left="493" bottom="168" right="706" />
+		<StaticText>enter zero if there is no cost, but the "route" is valid</StaticText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>NewElementName</Symbol>
+			<Symbol>SetName</Symbol>
+			<Symbol>AllColors</Symbol>
+			<Symbol>nsm::b</Symbol>
+			<Symbol>nsm::f</Symbol>
+			<Symbol>nsm::r</Symbol>
+			<Symbol>nsm::GUI_B_R_F_Dom</Symbol>
+			<Symbol>nsm::br</Symbol>
+			<Symbol>nsm::Bioforms</Symbol>
+			<Symbol>nsm::f1</Symbol>
+			<Symbol>nsm::f2</Symbol>
+			<Symbol>nsm::tcostBRF</Symbol>
+			<Symbol>nsm::tcostBFF</Symbol>
+			<Symbol>nsm::GUI_B_F_F_Dom</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

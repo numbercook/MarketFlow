@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15" NeedsCompiledModel="false">
+	<Location top="29" left="4" bottom="696" right="1072" />
+	<PageEditSize Type="Inherited">
+		<Size Width="900" Height="706" />
+	</PageEditSize>
+	<ProjectUUID>B2FACAE1-6EEE-4497-BF6D-B115323573E2</ProjectUUID>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<ResizeData>
+		<MainArea Line="FixedFromTop" Value="76">
+			<TopArea Line="FixedFromRight" Value="74">
+				<LeftArea Line="FixedFromLeft" Value="323" />
+			</TopArea>
+			<BottomArea Line="FixedFromTop" Value="48" />
+		</MainArea>
+	</ResizeData>
+	<Background Inherited="true" />
+	<PageObject Type="Button">
+		<Location top="474" left="38" bottom="510" right="76" />
+		<HelpTag>"General MUs"</HelpTag>
+		<TabOrder>2</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Bitmap</ButtonType>
+		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:MyBitmaps\Help.png"</BitmapFile>
+		<TooltipText>"Get Help about this page"</TooltipText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Help">
+				<HelpOn>PageKeyWord</HelpOn>
+				<Keyword>"GeneralBlocks"</Keyword>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<UsedReferences>
+		<Model />
+	</UsedReferences>
+</Page>

@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+	<Location top="29" left="4" bottom="696" right="1072" />
+	<PageEditSize Type="Inherited">
+		<Size Width="846" Height="706" />
+	</PageEditSize>
+	<ProjectUUID>80728F41-021F-4EE1-8508-79294300DEB2</ProjectUUID>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
+	<MenuBar Default="true" />
+	<ToolBar Default="true" />
+	<ResizeData>
+		<MainArea Line="FixedFromTop" Value="76">
+			<TopArea Line="FixedFromRight" Value="74">
+				<LeftArea Line="FixedFromLeft" Value="323" />
+			</TopArea>
+		</MainArea>
+	</ResizeData>
+	<Background>
+		<UserColor GUID="4C29CF98-3E51-4BAA-8563-90FCE3E3DF3B">default background</UserColor>
+	</Background>
+	<PageObject Type="Button">
+		<Location top="36" left="810" bottom="54" right="846" />
+		<ReadOnly>RegularUserMode</ReadOnly>
+		<Hidden>HIDE_IsAuthorized( CurrentAuthorizationLevel, 'Develop' )</Hidden>
+		<TabOrder>2</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"F8"</Title>
+		<BackgroundColor RGB="#80ffff" />
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<ActionSequence>
+			<Action Type="MenuCommand">
+				<Command>Tools-Model Explorer</Command>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="54" left="774" bottom="72" right="846" />
+		<Hidden>HIDE_IsAuthorized( CurrentAuthorizationLevel, 'Develop' )</Hidden>
+		<TabOrder>1</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Pages"</Title>
+		<BackgroundColor RGB="#8000ff" />
+		<Font GUID="9BEEFE4F-46C6-44A6-A886-EEDE63DD0BC0" Name="Button Text" />
+		<ActionSequence>
+			<Action Type="MenuCommand">
+				<Command>Tools-Page Manager</Command>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Scalar">
+		<Location top="0" left="330" bottom="42" right="486" />
+		<ReadOnly>"Yes"</ReadOnly>
+		<TabOrder>3</TabOrder>
+		<TabStop>false</TabStop>
+		<PopupMenu ProjectUUID="80728F41-021F-4EE1-8508-79294300DEB2" MenuUUID="29E672F1-17F5-42F7-BAEF-36F8B45AF46C" />
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<Border Style="None" />
+		<BackgroundColor>
+			<UserColor GUID="4C29CF98-3E51-4BAA-8563-90FCE3E3DF3B">default background</UserColor>
+		</BackgroundColor>
+		<Layout>Text-Value</Layout>
+		<SeparatorSign>:</SeparatorSign>
+		<ExplicitIdentifier>
+			<Identifier>CurrentUser</Identifier>
+			<NumberFormat Width="15" Decimals="0" Alignment="Left" ShowDefaults="true" />
+			<Title>"User"</Title>
+		</ExplicitIdentifier>
+		<ExplicitIdentifier>
+			<Identifier>CurrentGroup</Identifier>
+			<NumberFormat Width="15" Decimals="0" Alignment="Left" ShowDefaults="true" />
+			<Title>"Group"</Title>
+			<Hidden>IsNotAuthorized( __ADevelop )</Hidden>
+		</ExplicitIdentifier>
+		<ExplicitIdentifier>
+			<Identifier>CurrentAuthorizationLevel</Identifier>
+			<NumberFormat Width="15" Decimals="0" Alignment="Left" ShowDefaults="true" />
+			<Title>"Level"</Title>
+			<Hidden>IsNotAuthorized( __ADevelop )</Hidden>
+		</ExplicitIdentifier>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="36" left="774" bottom="54" right="804" />
+		<Hidden>IsNotAuthorized( 'Develop' )</Hidden>
+		<TabOrder>4</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"MPI"</Title>
+		<BackgroundColor>
+			<UserColor GUID="FC1F3FC6-60B3-4FB3-9165-795D7981C6FF">Corresponding</UserColor>
+		</BackgroundColor>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="MenuCommand">
+				<Command>Tools-Diagnostic Tools-Math Program Inspector</Command>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Button">
+		<Location top="6" left="774" bottom="30" right="840" />
+		<Hidden>IsNotAuthorized( 'Develop' )</Hidden>
+		<TabOrder>5</TabOrder>
+		<LeaveOnEnter>false</LeaveOnEnter>
+		<ButtonType>Text</ButtonType>
+		<Title>"Help"</Title>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<ActionSequence>
+			<Action Type="Run">
+				<RunWhat>SpecificProcecure</RunWhat>
+				<Procedure>EditHelpFile</Procedure>
+				<AbortOnError>true</AbortOnError>
+			</Action>
+		</ActionSequence>
+	</PageObject>
+	<PageObject Type="Picture">
+		<Location top="0" left="6" bottom="60" right="324" />
+		<FileName LiteralFileName="true">"&lt;prj&gt;:MyBitmaps\MarketFlow Header.png"</FileName>
+		<Display>StretchOrShrink</Display>
+		<KeepRatio>true</KeepRatio>
+		<Transparent>true</Transparent>
+	</PageObject>
+	<UsedReferences>
+		<Model>
+			<Symbol>HIDE_IsAuthorized</Symbol>
+			<Symbol>EditHelpFile</Symbol>
+			<Symbol>CurrentGroup</Symbol>
+			<Symbol>CurrentUser</Symbol>
+			<Symbol>IsNotAuthorized</Symbol>
+			<Symbol>RegularUserMode</Symbol>
+			<Symbol>CurrentAuthorizationLevel</Symbol>
+			<Symbol>__ADevelop</Symbol>
+		</Model>
+	</UsedReferences>
+</Page>

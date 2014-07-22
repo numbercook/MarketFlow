@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<TemplateManager>
+	<Template Name="WoodFlow Header" PageGUID="BB3A7C1A-E6CF-4BC8-B705-7C8D520BC73C" />
+	<Template Name="Tabbed Page Background" PageGUID="44EE0598-BFAD-4F85-BCDF-44274324ECA7" />
+	<Template Name="Mapping Results Backgound" PageGUID="2841DFDB-A377-4072-8C63-E57D66616CBF" />
+	<Template Name="No Header" PageGUID="67C56F4C-0BAA-4A77-802E-51459240F9A5">
+		<Template Name="No Header Separator" PageGUID="2873821B-B0F7-4952-B28D-B41663F9E88D" />
+		<Template Name="No Header Separator NEW" PageGUID="9F867132-6D22-483C-A352-1A67347E3CF7" />
+	</Template>
+	<Template Name="TESTING NO HEADER" PageGUID="970EBE45-BCFC-4690-BCB5-201300BCF2A2" />
+	<Template Name="AllDataPages" PageGUID="08F07814-820F-4145-9D62-A0F438653E1F" />
+	<PrintTemplate Name="Print Template" PageGUID="11075793-A3F5-4677-847C-C84BD0C3A34B" />
+</TemplateManager>
