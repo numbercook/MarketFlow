@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+<Page Version="4000" TimeStamp="2014-07-24 14:09:38" NeedsCompiledModel="false">
 	<Location top="29" left="4" bottom="696" right="1072" />
 	<PageEditSize Type="Inherited">
 		<Size Width="900" Height="706" />
@@ -15,12 +15,7 @@
 		</MainArea>
 	</ResizeData>
 	<Background Inherited="true" />
-	<Action>
-		<EntryProcedure>OpenParentPage</EntryProcedure>
-	</Action>
 	<UsedReferences>
-		<Model>
-			<Symbol>OpenParentPage</Symbol>
-		</Model>
+		<Model />
 	</UsedReferences>
 </Page>

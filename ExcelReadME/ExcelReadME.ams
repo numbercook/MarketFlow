@@ -1,8 +1,8 @@
 ## ams_version=1.0
 
 LibraryModule Library_ExcelReadME {
-    Prefix: XLrm;
-    Interface: data { Params_From_Excel, WorkbookName };
+    Prefix: XL;
+    Interface: data { ReadParameterFromExcel };
     Comment: {
         "from google group post
         
@@ -12,7 +12,8 @@ LibraryModule Library_ExcelReadME {
         SubsetOf: AllParameters;
         Index: pfe;
         InitialData: {
-            { 'nsm::FC_Ex'	,	'nsm::FC_Cap'	,	'nsm::fxOpCst'	}
+            { 'nsm::FacilityXY'	,	'nsm::RegionXY'	,	'nsm::MarketXY'	}
+            !{ 'nsm::FC_Ex'	,	'nsm::FC_Cap'	,	'nsm::fxOpCst'	}
         }
     }
     Parameter ParamsToRead {
@@ -21,20 +22,28 @@ LibraryModule Library_ExcelReadME {
         Unit: 1;
         Default: 1;
     }
-    StringParameter WorkbookName;
-    StringParameter DataRange {
-        IndexDomain: pfe;
+    StringParameter sWorkbookName {
+        InitialData: "D:\\My Documents\\Book1.xlsx";
     }
-    StringParameter RowsRange {
-        IndexDomain: pfe;
+    StringParameter sSheetName {
+        InitialData: "Sheet1";
     }
-    StringParameter ColsRange {
+    StringParameter sDataRange {
         IndexDomain: pfe;
+        InitialData: data { 'nsm::RegionXY' : "RegionXYData",  'nsm::FacilityXY' : "FacilityXYData",  'nsm::MarketXY' : "MarketXYData" };
+    }
+    StringParameter sRowsRange {
+        IndexDomain: pfe;
+        InitialData: data { 'nsm::RegionXY' : "RegionRows",  'nsm::FacilityXY' : "FacilityRows",  'nsm::MarketXY' : "MarketRows" };
+    }
+    StringParameter sColsRange {
+        IndexDomain: pfe;
+        InitialData: data { 'nsm::RegionXY' : "MyColsRange",  'nsm::FacilityXY' : "MyColsRange",  'nsm::MarketXY' : "MyColsRange" };
     }
     StringParameter runtime_body_code;
     ElementParameter erp {
         Range: AllIdentifiers;
-        Default: 'XLrm::CreateRuntimeBodyForExcel_Read';
+        Default: 'XL::CreateRuntimeBodyForExcel_Read';
     }
     Procedure LibraryInitialization;
     Procedure LibraryTermination {
@@ -45,21 +54,30 @@ LibraryModule Library_ExcelReadME {
     Procedure CreateRuntimeBodyForExcel_Read {
         Body: {
             block ! Data validation
-            	if runtime_body_code = "" then
-            		halt with "Runtime library not defined"; endif;
+            !	if runtime_body_code = "" then
+            !		halt with "Runtime library not defined"; endif;
             
-            	if WorkbookName = "" then
+            	if sWorkbookName = "" then
             		halt with "Workbook not defined"; endif;
             
-            	if not FileExists(WorkbookName) then
-            		halt with "Cannot find file '"+WorkbookName+"'" ; endif;
+            	if sSheetName = "" then
+            		halt with "Sheet not defined"; endif;
+            
+            	if not FileExists(sWorkbookName) then
+            		halt with "Cannot find file '"+sWorkbookName+"'" ; endif;
             endblock;
             
-            !pfe is the index of the set params_from_excel, which is a subset of AllParameters. These are the parameters that I want to populate from excel.
+            !pfe is the index of the set params_from_excel, which is a subset of AllParameters.
+            !These are the parameters that I want to populate from excel.
             
-            !The loop below constructs a string called runtime_body_code which contains the code to perform a number of consecutive spreadsheet::RetrieveTable commands.
+            !The loop below constructs a string called runtime_body_code which contains the code
+            !to perform a number of consecutive spreadsheet::RetrieveTable commands.
+            
+            ! Adjust WorkBookName to deal with "\"
+            MyWorkbookName := FindReplaceStrings(sWorkbookName , "\\", "\\\\");
             
             !-------------
+            empty runtime_body_code;
             for(pfe | pfe in params_from_excel and ParamsToRead(pfe) ) do
             !
             !	dataRange := formatstring(<snip - code to determine where the data is in the excel sheet>)
@@ -69,36 +87,44 @@ LibraryModule Library_ExcelReadME {
             !	colsRange := formatstring(<snip - code to determine where the columns range is in the excel sheet>
             
             	!construct the line of code that will read in this parameter
-            	runtime_body_code += FormatString("Spreadsheet::RetrieveTable(\"%s\", %s, DataRange:\"%s\", RowsRange:\"%s\", ColumnsRange:\"%s\", AutomaticallyExtendSets: 1);\n",
-            						WorkbookName,
+            	runtime_body_code += FormatString("Spreadsheet::RetrieveTable(\"%s\", %s, DataRange:\"%s\", RowsRange:\"%s\", ColumnsRange:\"%s\",Sheet: \"%s\", AutomaticallyExtendSets: 1);\n",
+            						MyWorkbookName,
             						pfe,
-            						DataRange(pfe),
-            						RowsRange(pfe),
-            						ColsRange(pfe) );
+            						sDataRange(pfe),
+            						sRowsRange(pfe),
+            						sColsRange(pfe),
+            						sSheetName );
             endfor;
         }
+        StringParameter MyWorkbookName;
     }
     Procedure CreateRuntimeLibrary {
         Body: {
             block ! Data validation
             	if runtime_body_code = "" then
-            		halt with "Runtime library not defined"; endif;
+            		halt with "Runtime library code not defined"; endif;
             
-            	if WorkbookName = "" then
+            	if sWorkbookName = "" then
             		halt with "Workbook not defined"; endif;
             
-            	if not FileExists(WorkbookName) then
-            		halt with "Cannot find file '"+WorkbookName+"'" ; endif;
+            	if not FileExists(sWorkbookName) then
+            		halt with "Cannot find file '"+sWorkbookName+"'" ; endif;
             endblock;
             
             
             !create a new runtime library called "excel_read"
+            !If there already exists an identifier with the name
+            !RuntimeLibrary, we must delete it first
+            if 'excel_read' in AllIdentifiers then
+            	me::Delete('excel_read') ;
+            endif ;
             erp := me::CreateLibrary("excel_read", "er");
             
             !create a procedure called "import" in the excel_read library
             erp := me::Create("import",'procedure','excel_read',0);
             
             !erp is the procedure created above. set the body of the procedure to the string runtime_body_code
+            
             me::SetAttribute(erp, 'body', runtime_body_code);
             
             !compile the library before running
@@ -109,6 +135,53 @@ LibraryModule Library_ExcelReadME {
             
             !delete the library once we are done
             me::Delete('excel_read');
+        }
+    }
+    Procedure ReadParameterFromExcel {
+        Arguments: (ParameterToRead,WorkbookName,SheetName,DataRange,RowsRange,ColumnsRange);
+        Body: {
+            Params_From_Excel := ParameterToRead ;
+            sWorkbookName	:= WorkbookName;
+            sSheetName 		:= SheetName;
+            sDataRange(ParameterToRead)	:= DataRange;
+            sRowsRange(ParameterToRead)	:= RowsRange;
+            sColsRange(ParameterToRead)	:= ColumnsRange;
+            
+            CreateRuntimeBodyForExcel_Read ;
+            
+            CreateRuntimeLibrary;
+            
+            return 1;
+        }
+        ElementParameter ParameterToRead {
+            Range: AllParameters;
+            Property: Input;
+        }
+        StringParameter WorkbookName {
+            Property: Input;
+        }
+        StringParameter SheetName {
+            Property: Input;
+        }
+        StringParameter DataRange {
+            Property: Input;
+        }
+        StringParameter RowsRange {
+            Property: Input;
+        }
+        StringParameter ColumnsRange {
+            Property: Input;
+        }
+    }
+    Procedure Test_ReadParameterFromExcel {
+        Body: {
+            ReadParameterFromExcel(
+            	ParameterToRead :  'nsm::RegionXY'	,
+            	WorkbookName    :  "D:\\My Documents\\Book1.xlsx",
+            	SheetName       :  "Sheet1",
+            	DataRange       :   "RegionXYData",
+            	RowsRange       :  "RegionRows",
+            	ColumnsRange    :  "MyColsRange") ;
         }
     }
 }

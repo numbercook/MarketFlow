@@ -2,7 +2,7 @@
 
 LibraryModule NSMarketModel {
     Prefix: nsm;
-    Interface: data { SolveNSModel };
+    Interface: data { SolveNSModel, SetXY, RegionXY, FacilityXY, MarketXY };
     Section Unit_Section {
         UnitParameter BioformUnit {
             IndexDomain: (b);
@@ -66,7 +66,7 @@ LibraryModule NSMarketModel {
                 IndexDomain: (s);
             }
             Set Regions {
-                Index: r;
+                Index: r, r1;
                 Parameter: _r;
                 InitialData: data { Mu1, Mu2 };
             }
@@ -92,14 +92,14 @@ LibraryModule NSMarketModel {
             }
             Set Facilities {
                 Index: f, fa, fb, f1, f2;
-                Parameter: _f;
+                Parameter: _f, _f1;
                 InitialData: data { Mill1_Saw, Mill2_Pulp };
             }
             StringParameter facNam {
                 IndexDomain: (f);
             }
             Set Markets {
-                Index: m;
+                Index: m, m1;
                 Parameter: _m;
                 InitialData: data { Pulp, Lumber };
             }
@@ -472,10 +472,45 @@ LibraryModule NSMarketModel {
             Text: "transport cost of bioform b from facility f to market m";
             Unit: k$/MarketUnit(m);
         }
+        Section XY_Section {
+            DeclarationSection XY_Declaration {
+                Set SetXY {
+                    Index: xy;
+                    Property: NoSave;
+                    Definition: data { X, Y };
+                }
+                Parameter RegionXY {
+                    IndexDomain: (r,xy);
+                }
+                Parameter FacilityXY {
+                    IndexDomain: (f,xy);
+                }
+                Parameter MarketXY {
+                    IndexDomain: (m,xy);
+                }
+            }
+            Procedure CalcAllDistances {
+                Body: {
+                    block ! Update the set AllLocations
+                    	for (r) do
+                    		_loc := ElementCast(AllLocations , r , 1) ;
+                    	endfor;
+                    	for (f) do
+                    		_loc := ElementCast(AllLocations , f , 1) ;
+                    	endfor;
+                    endblock;
+                    
+                    block ! calc euclid distances
+                    
+                    endblock;
+                }
+            }
+        }
     }
     Section Model_Section {
         DeclarationSection Model_Declaration {
             Variable obj {
+                Text: "Net Profit";
                 Range: free;
                 Unit: k$;
                 Definition: {
@@ -1318,6 +1353,50 @@ LibraryModule NSMarketModel {
                 }
             }
         }
+        Section Exec_Mapping_Section {
+            Parameter FlowRF {
+                IndexDomain: (r,f);
+                Unit: FacilityUnit(f);
+                Property: NoSave;
+                Definition: sum[ b , xRF(nsm::b, nsm::r, nsm::f) ];
+            }
+            Parameter FlowRM {
+                IndexDomain: (r,m);
+                Unit: MarketUnit(m);
+                Definition: sum[b , xRM(b,r,m)];
+            }
+            Parameter FlowFF {
+                IndexDomain: (f,f2);
+                Unit: FacilityUnit(f);
+                Definition: sum[b , zFF(b,f,f2)];
+            }
+            Parameter FlowFM {
+                IndexDomain: (f,m);
+                Unit: MarketUnit(m);
+                Definition: sum[b, zFM(b, f,m)];
+            }
+            Parameter PCMax_FlowRF {
+                IndexDomain: (r,f);
+                Unit: %;
+                Property: NoSave;
+                Definition: FlowRF(r,f)/$max[(r1,f1), FlowRF(r1,f1)];
+            }
+            Parameter PCMax_FlowRM {
+                IndexDomain: (r,m);
+                Unit: %;
+                Definition: FlowRM(r,m) /$ max[(r1,m1) , FlowRM(r1,m1)];
+            }
+            Parameter PCMax_FlowFF {
+                IndexDomain: (f,f2);
+                Unit: %;
+                Definition: FlowFF(f,f2) /$ max[(fa,fb) , FlowFF(fa,fb) ];
+            }
+            Parameter PCMax_FlowFM {
+                IndexDomain: (f,m);
+                Unit: %;
+                Definition: FlowFM(f,m) /$ max[(f1,m1) , FlowFM(f1,m1)];
+            }
+        }
         Set DerivedSets {
             SubsetOf: AllSets;
             Index: ids;
@@ -1412,6 +1491,24 @@ LibraryModule NSMarketModel {
                     endif
                 }
             }
+            ElementParameter _ff2Corresponding {
+                IndexDomain: (f,f2);
+                Range: AllColors;
+                Property: NoSave;
+                Definition: {
+                    !> '' and c=_c then __CCorresp endif
+                    _2Corresponding(f,_f, f2 , _f1)
+                }
+            }
+            ElementParameter _rfCorresponding {
+                IndexDomain: (r,f);
+                Range: AllColors;
+                Property: NoSave;
+                Definition: {
+                    !> '' and c=_c then __CCorresp endif
+                    _2Corresponding(r,_r, f , _f)
+                }
+            }
             ElementParameter _bkCorresponding {
                 IndexDomain: (b,k);
                 Range: AllColors;
@@ -1455,6 +1552,15 @@ LibraryModule NSMarketModel {
                 Definition: {
                     
                     _1Corresponding(bm,_bm)
+                }
+            }
+            ElementParameter _fmCorresponding {
+                IndexDomain: (f,m);
+                Range: AllColors;
+                Property: NoSave;
+                Definition: {
+                    
+                    _2Corresponding(f,_f,m,_m)
                 }
             }
             Macro _1Corresponding {
@@ -1954,12 +2060,16 @@ LibraryModule NSMarketModel {
                     	*/
                     ElseIf SetName = "GUIRegionBioforms" then
                     	AddElementFunction(GUIRegionBioforms,NewElementName);
+                    	AddElementFunction(Bioforms,NewElementName);
                     ElseIf SetName = "GUIRecipeInBioforms" then
                     	AddElementFunction(GUIRecipeInBioforms,NewElementName);
+                    	AddElementFunction(Bioforms,NewElementName);
                     ElseIf SetName = "GUIRecipeOutBioforms" then
                     	AddElementFunction(GUIRecipeOutBioforms,NewElementName);
+                    	AddElementFunction(Bioforms,NewElementName);
                     ElseIf SetName = "GUIMarketBioforms" then
                     	AddElementFunction(GUIMarketBioforms,NewElementName);
+                    	AddElementFunction(Bioforms,NewElementName);
                     
                     ElseIf SetName = "Regions" then
                     	AddElementFunction(Regions,NewElementName);

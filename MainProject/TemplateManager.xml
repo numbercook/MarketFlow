@@ -1,13 +1,15 @@
 <?xml version="1.0"?>
 <TemplateManager>
-	<Template Name="WoodFlow Header" PageGUID="BB3A7C1A-E6CF-4BC8-B705-7C8D520BC73C" />
-	<Template Name="Tabbed Page Background" PageGUID="44EE0598-BFAD-4F85-BCDF-44274324ECA7" />
-	<Template Name="Mapping Results Backgound" PageGUID="2841DFDB-A377-4072-8C63-E57D66616CBF" />
-	<Template Name="No Header" PageGUID="67C56F4C-0BAA-4A77-802E-51459240F9A5">
-		<Template Name="No Header Separator" PageGUID="2873821B-B0F7-4952-B28D-B41663F9E88D" />
-		<Template Name="No Header Separator NEW" PageGUID="9F867132-6D22-483C-A352-1A67347E3CF7" />
+	<Template Name="WoodFlow Header" PageGUID="085437E9-837C-41DD-B16E-79B4B4028BB0" />
+	<Template Name="Tabbed Page Background" PageGUID="21A1E3DD-C42D-4EC2-909B-AFCB3944DEB7" />
+	<Template Name="Mapping Results Backgound" PageGUID="74245AF0-DAD0-4159-B6A1-66B2C17216B0" />
+	<Template Name="No Header" PageGUID="E37B0801-DA02-4AC9-81A6-F863700CC11F">
+		<Template Name="No Header Separator" PageGUID="7C773839-69EC-4DD4-B3DF-74F253408902" />
+		<Template Name="No Header Separator NEW" PageGUID="28D519BC-5D04-4A1D-8DBF-108B9EC62C62" />
 	</Template>
-	<Template Name="TESTING NO HEADER" PageGUID="970EBE45-BCFC-4690-BCB5-201300BCF2A2" />
-	<Template Name="AllDataPages" PageGUID="08F07814-820F-4145-9D62-A0F438653E1F" />
-	<PrintTemplate Name="Print Template" PageGUID="11075793-A3F5-4677-847C-C84BD0C3A34B" />
+	<Template Name="TESTING NO HEADER" PageGUID="973E86A5-366E-4CCA-9032-13279F40E9D1" />
+	<Template Name="AllDataPages" PageGUID="85C49F62-0A7B-4354-8B75-FB60F2A9F480" />
+	<PrintTemplate Name="Print Template" PageGUID="B3D0D012-45CD-44ED-986D-B91BEAFC6D4D" />
+	<Page Name="All Data Pages" PageGUID="CEC21D48-A909-4EF5-8FC1-C937835749E0" />
+	<Page Name="[Data Page] GUIParentChildPages" PageGUID="916DA755-E6A6-41E6-80A8-D810F36B05B2" />
 </TemplateManager>

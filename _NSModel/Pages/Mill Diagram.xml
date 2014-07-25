@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+<Page Version="4000" TimeStamp="2014-07-24 14:09:38">
 	<Location top="29" left="4" bottom="696" right="1072" />
 	<PageEditSize Type="Inherited">
 		<Size Width="900" Height="706" />
@@ -18,6 +18,9 @@
 	</ResizeData>
 	<Background Inherited="true" />
 	<HelpTopic>"Mill Diagram"</HelpTopic>
+	<Action>
+		<EntryProcedure>SetLastViewedChildPage</EntryProcedure>
+	</Action>
 	<PageObject Type="Text">
 		<Location top="132" left="144" bottom="156" right="318" />
 		<HelpTag>"General MUs"</HelpTag>
@@ -35,7 +38,7 @@
 	<PageObject Type="Selection Object">
 		<SelectionType>DropDownList</SelectionType>
 		<Location top="132" left="273" bottom="156" right="512" />
-		<TabOrder>10</TabOrder>
+		<TabOrder>5</TabOrder>
 		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
 		<TextShown>ElementName</TextShown>
 		<Border Style="None" />
@@ -54,7 +57,7 @@
 	</PageObject>
 	<PageObject Type="Pivot Table">
 		<Location top="450" left="164" bottom="648" right="461" />
-		<TabOrder>11</TabOrder>
+		<TabOrder>6</TabOrder>
 		<ObjectUUID>0450B1E0-F30C-407C-87A4-8FEB72BBC118</ObjectUUID>
 		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
 		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
@@ -129,7 +132,7 @@
 	</PageObject>
 	<PageObject Type="Pivot Table">
 		<Location top="186" left="144" bottom="402" right="461" />
-		<TabOrder>12</TabOrder>
+		<TabOrder>7</TabOrder>
 		<ObjectUUID>37D6D366-F0B8-4FE6-B979-0CB256DFE995</ObjectUUID>
 		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
 		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
@@ -209,7 +212,7 @@
 	<PageObject Type="Pivot Table">
 		<Location top="450" left="506" bottom="690" right="893" />
 		<HelpTag>"Recipe Bioforms"</HelpTag>
-		<TabOrder>9</TabOrder>
+		<TabOrder>4</TabOrder>
 		<PopupMenu None="true" />
 		<ObjectUUID>8C5593C1-51DB-494A-A866-B1F9548B7733</ObjectUUID>
 		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
@@ -276,7 +279,7 @@ endif</Background_Color>
 	</PageObject>
 	<PageObject Type="Button">
 		<Location top="144" left="757" bottom="180" right="848" />
-		<TabOrder>13</TabOrder>
+		<TabOrder>8</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Text</ButtonType>
 		<Title>"Refresh"</Title>
@@ -307,7 +310,7 @@ endif</Background_Color>
 	</PageObject>
 	<PageObject Type="Pivot Table">
 		<Location top="186" left="506" bottom="348" right="848" />
-		<TabOrder>7</TabOrder>
+		<TabOrder>2</TabOrder>
 		<ObjectUUID>21B1B6E5-4126-4930-B1E9-14A81708503E</ObjectUUID>
 		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
 		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
@@ -389,7 +392,7 @@ endif</Background_Color>
 		<Location top="162" left="435" bottom="180" right="454" />
 		<ReadOnly>"Yes"</ReadOnly>
 		<HelpTag>"General MUs"</HelpTag>
-		<TabOrder>8</TabOrder>
+		<TabOrder>3</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Text</ButtonType>
 		<TooltipText>"No capacity specified for configuration"</TooltipText>
@@ -401,39 +404,40 @@ endif</Background_Color>
 	<UsedReferences>
 		<Model>
 			<Symbol>AllColors</Symbol>
+			<Symbol>SetLastViewedChildPage</Symbol>
+			<Symbol>nsm::BioformOutUnit</Symbol>
 			<Symbol>nsm::RecipeUnit</Symbol>
-			<Symbol>nsm::recOutAlpha</Symbol>
-			<Symbol>nsm::b</Symbol>
-			<Symbol>nsm::c</Symbol>
-			<Symbol>nsm::f</Symbol>
-			<Symbol>nsm::k</Symbol>
-			<Symbol>nsm::b1</Symbol>
-			<Symbol>nsm::fck_Ex</Symbol>
-			<Symbol>nsm::FC_Cap</Symbol>
 			<Symbol>nsm::Bioforms</Symbol>
 			<Symbol>nsm::Recipes</Symbol>
-			<Symbol>nsm::recVarCst</Symbol>
-			<Symbol>nsm::_bkCorresponding</Symbol>
-			<Symbol>nsm::fxOpCst</Symbol>
-			<Symbol>nsm::recInCF</Symbol>
-			<Symbol>nsm::fckMax</Symbol>
-			<Symbol>nsm::confNam</Symbol>
-			<Symbol>nsm::_b</Symbol>
-			<Symbol>nsm::_c</Symbol>
-			<Symbol>nsm::_f</Symbol>
-			<Symbol>nsm::_k</Symbol>
-			<Symbol>nsm::_F_C_NoCap</Symbol>
-			<Symbol>nsm::confCost</Symbol>
-			<Symbol>nsm::recInLL</Symbol>
-			<Symbol>nsm::BioformOutUnit</Symbol>
-			<Symbol>nsm::fckCConsum</Symbol>
 			<Symbol>nsm::Facilities</Symbol>
+			<Symbol>nsm::confNam</Symbol>
+			<Symbol>nsm::confCost</Symbol>
 			<Symbol>nsm::FC_Ex</Symbol>
-			<Symbol>nsm::recInUL</Symbol>
-			<Symbol>nsm::_GUI_c</Symbol>
-			<Symbol>nsm::_GUI_k</Symbol>
+			<Symbol>nsm::FC_Cap</Symbol>
+			<Symbol>nsm::fxOpCst</Symbol>
+			<Symbol>nsm::fckMax</Symbol>
+			<Symbol>nsm::fck_Ex</Symbol>
+			<Symbol>nsm::fckCConsum</Symbol>
+			<Symbol>nsm::recVarCst</Symbol>
 			<Symbol>nsm::RecipeUsesBioform</Symbol>
+			<Symbol>nsm::recInLL</Symbol>
+			<Symbol>nsm::recInUL</Symbol>
+			<Symbol>nsm::recInCF</Symbol>
+			<Symbol>nsm::recOutAlpha</Symbol>
+			<Symbol>nsm::_bkCorresponding</Symbol>
+			<Symbol>nsm::_F_C_NoCap</Symbol>
+			<Symbol>nsm::_GUI_k</Symbol>
+			<Symbol>nsm::_GUI_c</Symbol>
 			<Symbol>nsm::GUIUpdate_FCK</Symbol>
+			<Symbol>nsm::b</Symbol>
+			<Symbol>nsm::b1</Symbol>
+			<Symbol>nsm::_b</Symbol>
+			<Symbol>nsm::k</Symbol>
+			<Symbol>nsm::_k</Symbol>
+			<Symbol>nsm::f</Symbol>
+			<Symbol>nsm::_f</Symbol>
+			<Symbol>nsm::c</Symbol>
+			<Symbol>nsm::_c</Symbol>
 		</Model>
 	</UsedReferences>
 </Page>

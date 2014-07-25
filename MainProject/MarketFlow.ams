@@ -1,6 +1,6 @@
 ## ams_version=1.0
 
-Model Main_Tenure {
+Model Main_MarketFlow {
     Section Main_Procedures {
         Parameter IsEndUserMode {
             Range: binary;
@@ -3385,7 +3385,6 @@ Model Main_Tenure {
                         sum(dest,DeliveredVolume(term,blk,dest,prd))
                         <=
                         HarvestVolume(term,blk,prd)
-
                     }
                 }
                 Constraint NoOverDeliveryResidual {
@@ -5059,7 +5058,7 @@ Model Main_Tenure {
                             
                             !	if src='Bonifer' and dest = 'ACC_FF' then DebuggerBreakpoint; endif;
                              	!--- find the nearest MU to src
-                             	Dist := FindNearestMU(Millxy(src,xy),NearestMU);
+                             	Dist := FindNearestMU(Millxy(src,ixy),NearestMU);
                             
                              	!--- calculate the average Haultime from all blocks in MU to dest
                              	if count [blk | MU_Block_Relation(NearestMU,blk) and HaulTime(blk,dest) ] then
@@ -5167,7 +5166,7 @@ Model Main_Tenure {
                             return Dist;
                         }
                         Parameter P {
-                            IndexDomain: xy;
+                            IndexDomain: ixy;
                             Property: Input;
                         }
                         ElementParameter Nearest {
@@ -5199,7 +5198,7 @@ Model Main_Tenure {
                             return Dist;
                         }
                         Parameter P {
-                            IndexDomain: xy;
+                            IndexDomain: ixy;
                             Property: Input;
                         }
                         ElementParameter Nearest {
@@ -8070,7 +8069,7 @@ Model Main_Tenure {
                         /* set map extent to be the same as the blocks in Current_mu
                         /**/
                         !--- Check that Blkxy exists
-                        if count((blk,xy) | BLKxy(blk, xy)) = 0 then
+                        if count((blk,ixy) | BLKxy(blk, ixy)) = 0 then
                         	switch(DialogAsk("Do you wish to load coordinates for Blocks?","Yes","No","Cancel","Missing XYs")) do
                         	1:
                         		if DatasetLoadCurrent(data_category :  'MapXY', dataset:  cad::_DataSet,dialog:  1) <> 1 then return 0; endif;
@@ -8165,7 +8164,7 @@ Model Main_Tenure {
                         endif;
                         
                         !--- Check that Blkxy exists
-                        if count((blk,xy) | BLKxy(blk, xy)) = 0 then
+                        if count((blk,ixy) | BLKxy(blk, ixy)) = 0 then
                         	switch(DialogAsk("Do you wish to load coordinates for Blocks?","Yes","No","Cancel","Missing XYs")) do
                         	1:
                         		if DatasetLoadCurrent(data_category :  'MapXY', dataset:  cad::_DataSet,dialog:  1) <> 1 then return 0; endif;
@@ -8333,13 +8332,13 @@ Model Main_Tenure {
                         
                         		!Move points into new extent
                         		for dest do
-                        			MovePoint( Millxy(dest, xy) , Extent , ImageMarkersXY );
+                        			MovePoint( Millxy(dest, ixy) , Extent , ImageMarkersXY );
                         		endfor;
                         		for blk do
-                        			MovePoint( BLKxy(blk, xy) , Extent , ImageMarkersXY );
+                        			MovePoint( BLKxy(blk, ixy) , Extent , ImageMarkersXY );
                         		endfor;
                         		for mu do
-                        			MovePoint( MUxy(mu, xy) , Extent , ImageMarkersXY );
+                        			MovePoint( MUxy(mu, ixy) , Extent , ImageMarkersXY );
                         		endfor;
                         
                         		!Clip - use portion of image between markers as background
@@ -8374,56 +8373,56 @@ Model Main_Tenure {
                     }
                     StringParameter msg;
                     Parameter Extent {
-                        IndexDomain: (mark,xy);
+                        IndexDomain: (mark,ixy);
                     }
                     Parameter NewExtent {
-                        IndexDomain: (mark,xy);
+                        IndexDomain: (mark,ixy);
                     }
                 }
                 Procedure MovePoint {
                     Arguments: (P,Extent,NewExtent);
                     Body: {
-                        NewExtentRange(xy) := [ NewExtent('topright', xy) - NewExtent('bottomleft', xy) ];
-                        ExtentRange(xy) := [ Extent('topright', xy) - Extent('bottomleft', xy) ];
+                        NewExtentRange(ixy) := [ NewExtent('topright', ixy) - NewExtent('bottomleft', ixy) ];
+                        ExtentRange(ixy) := [ Extent('topright', ixy) - Extent('bottomleft', ixy) ];
                         
-                        Ratio(xy) := [P(xy) - Extent('bottomleft', xy)] / ExtentRange(xy);
-                        P(xy) := Ratio(xy) * NewExtentRange(xy) + NewExtent('bottomleft',xy);
+                        Ratio(ixy) := [P(ixy) - Extent('bottomleft', ixy)] / ExtentRange(ixy);
+                        P(ixy) := Ratio(ixy) * NewExtentRange(ixy) + NewExtent('bottomleft',ixy);
                     }
                     Comment: "Translate point P(xy) from Extent(mark,xy) to NewExtent(mark,xy)";
                     Parameter ExtentRange {
-                        IndexDomain: (xy);
+                        IndexDomain: (ixy);
                     }
                     Parameter NewExtentRange {
-                        IndexDomain: (xy);
+                        IndexDomain: (ixy);
                     }
                     Parameter Ratio {
-                        IndexDomain: (xy);
+                        IndexDomain: (ixy);
                     }
                     Parameter P {
-                        IndexDomain: (xy);
+                        IndexDomain: (ixy);
                         Property: InOut;
                     }
                     Parameter Extent {
-                        IndexDomain: (mark,xy);
+                        IndexDomain: (mark,ixy);
                         Property: Input;
                     }
                     Parameter NewExtent {
-                        IndexDomain: (mark,xy);
+                        IndexDomain: (mark,ixy);
                         Property: Input;
                     }
                 }
                 Procedure JUNK_TestMovePoint {
                     Body: {
-                        Extent(mark,xy) := {
+                        Extent(mark,ixy) := {
                          ('topright', __x)		: 10,
                          ('topright', __y)		: 10,
                          ('bottomleft', __x)	: 0,
                          ('bottomleft', __y)	: 0
                         } ;
                         
-                        P(xy) := {__x: 5	,	__y:	5 } ;
+                        P(ixy) := {__x: 5	,	__y:	5 } ;
                         
-                        NewExtent(mark,xy) := {
+                        NewExtent(mark,ixy) := {
                          ('topright', __x)		: 30,
                          ('topright', __y)		: 40,
                          ('bottomleft', __x)	: -40,
@@ -8441,13 +8440,13 @@ Model Main_Tenure {
                     }
                     Comment: "Translate point P(xy) from Extent(mark,xy) to NewExtent(mark,xy)";
                     Parameter Extent {
-                        IndexDomain: (mark,xy);
+                        IndexDomain: (mark,ixy);
                     }
                     Parameter NewExtent {
-                        IndexDomain: (mark,xy);
+                        IndexDomain: (mark,ixy);
                     }
                     Parameter P {
-                        IndexDomain: (xy);
+                        IndexDomain: (ixy);
                     }
                     StringParameter s;
                 }
@@ -8549,7 +8548,7 @@ Model Main_Tenure {
                         endrepeat;
                     }
                     Parameter LatLong {
-                        IndexDomain: (xy);
+                        IndexDomain: (ixy);
                     }
                     StringParameter Address;
                 }
@@ -8574,10 +8573,10 @@ Model Main_Tenure {
                         !
                     }
                     Parameter m {
-                        IndexDomain: (xy);
+                        IndexDomain: (ixy);
                     }
                     Parameter b {
-                        IndexDomain: (xy);
+                        IndexDomain: (ixy);
                     }
                 }
                 Set Markers {
@@ -8588,7 +8587,7 @@ Model Main_Tenure {
                     }
                 }
                 Parameter ImageMarkersXY {
-                    IndexDomain: (mark,xy);
+                    IndexDomain: (mark,ixy);
                 }
                 Parameter MapExtent_Default {
                     IndexDomain: (iMS);
@@ -8603,22 +8602,22 @@ Model Main_Tenure {
                     }
                 }
                 Parameter ImageMarkerBottomLeft {
-                    IndexDomain: (xy);
+                    IndexDomain: (ixy);
                     Property: NoSave;
                 }
                 Parameter ImageMarkerTopRight {
-                    IndexDomain: (xy);
+                    IndexDomain: (ixy);
                     Property: NoSave;
                 }
                 Parameter ExtentMarkersXY {
-                    IndexDomain: (mark,xy);
+                    IndexDomain: (mark,ixy);
                 }
                 Parameter ExtentMarkerBottomLeft {
-                    IndexDomain: (xy);
+                    IndexDomain: (ixy);
                     Property: NoSave;
                 }
                 Parameter ExtentMarkerTopRight {
-                    IndexDomain: (xy);
+                    IndexDomain: (ixy);
                     Property: NoSave;
                 }
                 Parameter MoveFactor {
@@ -8699,31 +8698,31 @@ Model Main_Tenure {
                 }
             }
             Set XYs {
-                Index: xy;
+                Index: ixy;
                 Property: NoSave;
                 Definition: data { X, Y };
             }
             Parameter MUxy {
-                IndexDomain: (mu,xy);
+                IndexDomain: (mu,ixy);
             }
             Parameter BLKxy {
-                IndexDomain: (blk,xy);
+                IndexDomain: (blk,ixy);
             }
             Parameter MapAllSourcexy {
-                IndexDomain: (MapSrc,xy);
+                IndexDomain: (MapSrc,ixy);
                 Property: NoSave;
                 Definition: {
                     ! Watch that mu's and dest have unique names or the xy will be added!
-                    sum[ (dest)| cDestMapsrc(MapSrc,dest) and  ProducesResiduals(dest), Millxy(dest,xy) ]
+                    sum[ (dest)| cDestMapsrc(MapSrc,dest) and  ProducesResiduals(dest), Millxy(dest,ixy) ]
                     +
-                    sum[ (mu)| cMuMapmu(MapSrc,mu) , MUxy(mu,xy) ]
+                    sum[ (mu)| cMuMapmu(MapSrc,mu) , MUxy(mu,ixy) ]
                 }
             }
             Parameter Millxy {
-                IndexDomain: (dest,xy);
+                IndexDomain: (dest,ixy);
             }
             Parameter XXtestP {
-                IndexDomain: (xy);
+                IndexDomain: (ixy);
                 Property: NoSave;
             }
             ElementParameter _XXMill {
@@ -8774,7 +8773,7 @@ Model Main_Tenure {
                 Property: NoSave;
             }
             Parameter Map_VisibleArea {
-                IndexDomain: (bmo,mc,xy);
+                IndexDomain: (bmo,mc,ixy);
                 Property: NoSave;
                 Definition: {
                     !if bmo = 'Mill' then
@@ -9287,7 +9286,7 @@ Model Main_Tenure {
                     }
                     Unit: 1000 * _ProductDefaultUnit;
                     Property: NoSave;
-                    Definition: 	sum [(PrGrp), DeliveredVolumeToMapNEW_Detail(MapSrc,dest,PrGrp)];
+                    Definition: sum [(PrGrp), DeliveredVolumeToMapNEW_Detail(MapSrc,dest,PrGrp)];
                 }
                 Parameter DeliveredVolumeToMapRES {
                     IndexDomain: {
@@ -9357,11 +9356,11 @@ Model Main_Tenure {
                 }
                 Parameter sel_MillXy {
                     IndexDomain: {
-                        (dest,xy) | dest = _MillToMap
+                        (dest,ixy) | dest = _MillToMap
                         or sum[MapSrc, DeliveredVolumeToMapRESSent(MapSrc,dest)]
                     }
                     Property: NoSave;
-                    Definition: Millxy(dest,xy);
+                    Definition: Millxy(dest,ixy);
                 }
                 ElementParameter DeliveryColourRamp {
                     IndexDomain: (mu,dest);
@@ -9676,17 +9675,17 @@ Model Main_Tenure {
                 }
                 Parameter sel_MUMillXy {
                     IndexDomain: {
-                        (dest,xy) | dest = _MillToMap
+                        (dest,ixy) | dest = _MillToMap
                         or sum[ (MapSrc,gPrGrp), DeliveredMUVolumeToMap_Detail(MapSrc,dest,gPrGrp)]
                     }
                     Text: "Mill receiving wood directly or indirectly from c_MapSrcMu";
                     Property: NoSave;
-                    Definition: Millxy(dest,xy);
+                    Definition: Millxy(dest,ixy);
                 }
                 Parameter sel_MuXy {
-                    IndexDomain: (mu,xy) | formatstring("%e",mu) = FormatString("%e", c_MapSrcMu);
+                    IndexDomain: (mu,ixy) | formatstring("%e",mu) = FormatString("%e", c_MapSrcMu);
                     Property: NoSave;
-                    Definition: Muxy(mu,xy);
+                    Definition: Muxy(mu,ixy);
                 }
                 Parameter ProportionMUDeliveredVolumeToMap {
                     IndexDomain: (MapSrc,dest)| MapSrc = c_MapSrcMu;
@@ -9786,7 +9785,7 @@ Model Main_Tenure {
                     /* set map extent to be the same as the blocks in Current_mu
                     /**/
                     !--- Check that Blkxy exists
-                    if count((blk,xy) | BLKxy(blk, xy)) = 0 then
+                    if count((blk,ixy) | BLKxy(blk, ixy)) = 0 then
                     	switch(DialogAsk("Do you wish to load coordinates for Blocks?","Yes","No","Cancel","Missing XYs")) do
                     	1:
                     		if DatasetLoadCurrent(data_category :  'MapXY', dataset:  cad::_DataSet,dialog:  1) <> 1 then return 0; endif;
@@ -10509,8 +10508,8 @@ Model Main_Tenure {
                     TableName: AccessTableNames('MUxy');
                     Mapping: {
                         "mu" --> mu,
-                        "xy" --> xy,
-                        "MUxy"--> MUxy(mu,xy)
+                        "xy" --> ixy,
+                        "MUxy"--> MUxy(mu,ixy)
                     }
                 }
                 DatabaseTable dbBLKxy {
@@ -10518,8 +10517,8 @@ Model Main_Tenure {
                     TableName: AccessTableNames('BLKxy');
                     Mapping: {
                         "BLK" --> blk,
-                        "xy" --> xy,
-                        "BLKxy"--> BLKxy(blk, xy)
+                        "xy" --> ixy,
+                        "BLKxy"--> BLKxy(blk, ixy)
                     }
                 }
                 DatabaseTable dbMillxy {
@@ -10527,8 +10526,8 @@ Model Main_Tenure {
                     TableName: AccessTableNames('Millxy');
                     Mapping: {
                         "dest" --> dest,
-                        "xy" --> xy,
-                        "Millxy"--> Millxy(dest,xy)
+                        "xy" --> ixy,
+                        "Millxy"--> Millxy(dest,ixy)
                     }
                 }
                 DatabaseTable dbEquivalentProducts {
@@ -14101,7 +14100,6 @@ Model Main_Tenure {
                 fileEdit(WhatsNew);
             }
         }
-        Procedure AddsetMembers;
     }
     Section Page_Management_Section {
         Comment: {
@@ -14250,6 +14248,7 @@ Model Main_Tenure {
                 			_pag := StringToElement(PageSet,PageName,0);
                 			GUIParentChildPages += { ( _gpag,_pag) };
                 			retval := PageGetNext(PageName,Pagename,0);
+                			PageName := sLib + PageName;	!add library prefix
                 			break when (retval=0);
                 		endrepeat;
                 	endif;
@@ -14350,6 +14349,12 @@ Model Main_Tenure {
                 
                 !-- If the main page is opened by clicking on a side navigation bar (FromHeader=0) then open the page
                 !-- otherwise open the last opened child page
+                block ! Check that Pagesets have been initialized
+                	if card(GUIPagesWithChildren)=0 then
+                		InitializePageSet;
+                	endif;
+                endblock;
+                
                 
                 if PageGetActive(PageName)=0 then return 0; endif;
                 
@@ -14363,20 +14368,21 @@ Model Main_Tenure {
                 endblock;
                 
                 
-                
+                ! check if current page is a header page ... _gpag <> ''
                 _gpag := StringToElement(GUIPagesWithChildren, GetPagenameWithLibraryPrefix(PageName),0);
-                ResetReadOnlyPages;
+                
+                ResetReadOnlyPages;		! for pages with checkboxes, turn on read-only mode
                 
                 block ! Parent Page Handler
-                	!-- check if current page is a parent page
-                	if _gpag = '' then !PageName is a Parent Page
+                	!-- check if current page is a child or parent page
+                	if _gpag = '' then !PageName is a Child Page
                 		AssignCurrentButton;
                 		return 1;
-                	elseif FromHeader=0 then
+                	elseif FromHeader=0 then !Parent Page opened by clicking side navigation button
                 		empty _LastViewedChildPage(_gpag);
                 		AssignCurrentButton;
                 		return 1;
-                	else
+                	else ! Parent page opened by clicking main button
                 		FromHeader:=0;
                 	endif;
                 endblock;
@@ -14403,16 +14409,16 @@ Model Main_Tenure {
         Procedure SetLastViewedChildPage {
             Body: {
                 !*** Sets the appropriate element parameter _LastViewedChildPage when the child page is opened
+                !*** executed when a page is opened from Side Navigation Button
                 
                 
                 
-                if PageGetActive(Pagename) = 0 then
-                	return 0;
-                endif;
+                if PageGetActive(Pagename) = 0 then return 0; endif;
                 
+                ! check if current page is a child page
                 _pag := StringToElement(GUIChildPages,GetPagenameWithLibraryPrefix(PageName),0);
                 
-                PageGetParent(PageName,ParentPage,0);
+                PageGetParent(PageName,ParentPage,0); !no library prefix required here
                 _gpag := StringToElement(GUIPagesWithChildren, GetPagenameWithLibraryPrefix(ParentPage),0);
                 
                 !DebuggerBreakpoint;
@@ -14458,7 +14464,7 @@ Model Main_Tenure {
                 		endswitch;
                 	endfor;
                 else
-                	_pag := StringToElement(PageSet,PageName,0);
+                	_pag := StringToElement(PageSet,GetPagenameWithLibraryPrefix(PageName),0);
                 	for iROP in ReadOnlyParameters | (_pag,iROP)  in PagesWithReadOnlyParameters do
                 		switch iROP do
                 		'MillEdit_On':		empty MillEdit_On;

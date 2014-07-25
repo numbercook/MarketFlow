@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+<Page Version="4000" TimeStamp="2014-07-23 19:14:41">
 	<PageEditSize Type="Inherited" />
 	<ProjectUUID>B2FACAE1-6EEE-4497-BF6D-B115323573E2</ProjectUUID>
 	<IsDialogPage>true</IsDialogPage>
@@ -50,7 +50,7 @@
 				<AssignedValue>"GUIRecipeOutBioforms"</AssignedValue>
 			</Action>
 			<Action Type="LinkedPage">
-				<Page PageGUID="ACB0B287-352F-4619-A745-CEFF3E11F7C0" Name="Delete_SetElement" />
+				<Page PageGUID="AB0EB109-4578-4700-81BB-2670DB04D943" Name="Delete_SetElement" />
 			</Action>
 		</ActionSequence>
 	</PageObject>

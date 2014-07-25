@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+<Page Version="4000" TimeStamp="2014-07-23 19:14:41">
 	<Location top="29" left="4" bottom="696" right="1072" />
 	<PageEditSize Type="Inherited">
 		<Size Width="846" Height="706" />
@@ -390,7 +390,7 @@ Use the buttons to open a dataset</StaticText>
 		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
 		<ActionSequence>
 			<Action Type="LinkedPage">
-				<Page PageGUID="13CA113E-5531-4F40-A0C9-FDECFEC56CAC" Name="Create Scenario Wizard" />
+				<Page PageGUID="5E6261E1-021D-4CBF-BBE3-19AF7EF15348" Name="Create Scenario Wizard" />
 			</Action>
 		</ActionSequence>
 	</PageObject>

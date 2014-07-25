@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+<Page Version="4000" TimeStamp="2014-07-24 14:09:38" NeedsCompiledModel="false">
 	<Location top="29" left="4" bottom="696" right="1072" />
 	<PageEditSize Type="Inherited">
 		<Size Width="900" Height="706" />
@@ -35,22 +35,22 @@
 		</InputColor>
 		<NavigationData>
 			<ReferencePage>Other</ReferencePage>
-			<OtherPage PageGUID="0CE57B5D-3C28-450D-8DB0-14B9C088BFBC" Name="Exec Separator" />
+			<OtherPage PageGUID="BACE208A-1AC3-4C20-8AFF-24CE023968D4" Name="Exec Separator" />
 			<NumberOfGenerations>1</NumberOfGenerations>
 			<ActionSequence>
-				<Action Type="ClosePage" />
 				<Action Type="GotoNavigationPage" />
-				<Action Type="Run">
-					<RunWhat>SpecificProcecure</RunWhat>
-					<Procedure>SetLastViewedChildPage</Procedure>
-					<AbortOnError>true</AbortOnError>
-				</Action>
+				<Action Type="ClosePage" />
 			</ActionSequence>
 		</NavigationData>
 	</PageObject>
+	<PageObject Type="Rectangle">
+		<Location top="108" left="414" bottom="126" right="546" />
+		<FillColor>
+			<UserColor GUID="257CED91-8909-41AC-BED6-911268D7BBCE">blue</UserColor>
+		</FillColor>
+		<LineColor RGB="#000000" />
+	</PageObject>
 	<UsedReferences>
-		<Model>
-			<Symbol>SetLastViewedChildPage</Symbol>
-		</Model>
+		<Model />
 	</UsedReferences>
 </Page>

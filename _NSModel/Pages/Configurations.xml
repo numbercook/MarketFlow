@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+<Page Version="4000" TimeStamp="2014-07-24 14:09:38">
 	<Location top="29" left="4" bottom="696" right="1072" />
 	<PageEditSize Type="Inherited">
 		<Size Width="900" Height="706" />
@@ -18,6 +18,9 @@
 	</ResizeData>
 	<Background Inherited="true" />
 	<HelpTopic>"Configurations"</HelpTopic>
+	<Action>
+		<EntryProcedure>SetLastViewedChildPage</EntryProcedure>
+	</Action>
 	<PageObject Type="Text">
 		<Location top="126" left="153" bottom="150" right="551" />
 		<HelpTag>"General MUs"</HelpTag>
@@ -28,7 +31,7 @@
 	<PageObject Type="Pivot Table">
 		<Location top="150" left="144" bottom="360" right="887" />
 		<HelpTag>"General MUs"</HelpTag>
-		<TabOrder>9</TabOrder>
+		<TabOrder>7</TabOrder>
 		<PopupMenu None="true" />
 		<ObjectUUID>D821DDB2-A67A-4974-AE97-9DE8CB3BC7CC</ObjectUUID>
 		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
@@ -123,7 +126,7 @@ endif</Background_Color>
 		<ReadOnly>"Yes"</ReadOnly>
 		<Hidden>"Yes"</Hidden>
 		<HelpTag>"General MUs"</HelpTag>
-		<TabOrder>6</TabOrder>
+		<TabOrder>4</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Text</ButtonType>
 		<TooltipText>"Available and Associated with Block(s)"</TooltipText>
@@ -136,7 +139,7 @@ endif</Background_Color>
 		<Location top="126" left="842" bottom="144" right="861" />
 		<ReadOnly>"Yes"</ReadOnly>
 		<HelpTag>"General MUs"</HelpTag>
-		<TabOrder>4</TabOrder>
+		<TabOrder>2</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Text</ButtonType>
 		<TooltipText>"Corresponding"</TooltipText>
@@ -149,7 +152,7 @@ endif</Background_Color>
 		<Location top="126" left="817" bottom="144" right="835" />
 		<ReadOnly>"Yes"</ReadOnly>
 		<HelpTag>"General MUs"</HelpTag>
-		<TabOrder>8</TabOrder>
+		<TabOrder>6</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Text</ButtonType>
 		<TooltipText>"No recipes specified for ( facility , configuration)"</TooltipText>
@@ -163,7 +166,7 @@ endif</Background_Color>
 		<ReadOnly>"Yes"</ReadOnly>
 		<Hidden>"Yes"</Hidden>
 		<HelpTag>"General MUs"</HelpTag>
-		<TabOrder>5</TabOrder>
+		<TabOrder>3</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Text</ButtonType>
 		<TooltipText>"Available and Associated with Block(s)"</TooltipText>
@@ -181,7 +184,7 @@ endif</Background_Color>
 	</PageObject>
 	<PageObject Type="Pivot Table">
 		<Location top="420" left="151" bottom="690" right="887" />
-		<TabOrder>10</TabOrder>
+		<TabOrder>8</TabOrder>
 		<ObjectUUID>31705AFE-B014-4D91-996C-A375DE0118EA</ObjectUUID>
 		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
 		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
@@ -283,7 +286,7 @@ endif</Background_Color>
 		<Location top="396" left="835" bottom="414" right="854" />
 		<ReadOnly>"Yes"</ReadOnly>
 		<HelpTag>"General MUs"</HelpTag>
-		<TabOrder>7</TabOrder>
+		<TabOrder>5</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Text</ButtonType>
 		<TooltipText>"No Maximum specified for facility , configuration , recipe"</TooltipText>
@@ -295,25 +298,26 @@ endif</Background_Color>
 	<UsedReferences>
 		<Model>
 			<Symbol>AllColors</Symbol>
-			<Symbol>nsm::c</Symbol>
-			<Symbol>nsm::f</Symbol>
-			<Symbol>nsm::k</Symbol>
-			<Symbol>nsm::__CCorresp</Symbol>
-			<Symbol>nsm::fck_Ex</Symbol>
-			<Symbol>nsm::_F_C_NoRecipe</Symbol>
-			<Symbol>nsm::recVarCst</Symbol>
-			<Symbol>nsm::fckMax</Symbol>
+			<Symbol>SetLastViewedChildPage</Symbol>
 			<Symbol>nsm::confNam</Symbol>
-			<Symbol>nsm::_fcCorresponding</Symbol>
-			<Symbol>nsm::_c</Symbol>
-			<Symbol>nsm::_f</Symbol>
-			<Symbol>nsm::_k</Symbol>
-			<Symbol>nsm::_fCorresponding</Symbol>
 			<Symbol>nsm::confCost</Symbol>
-			<Symbol>nsm::_kCorresponding</Symbol>
-			<Symbol>nsm::fckCConsum</Symbol>
 			<Symbol>nsm::FC_Ex</Symbol>
+			<Symbol>nsm::fckMax</Symbol>
+			<Symbol>nsm::fck_Ex</Symbol>
+			<Symbol>nsm::fckCConsum</Symbol>
+			<Symbol>nsm::recVarCst</Symbol>
+			<Symbol>nsm::__CCorresp</Symbol>
+			<Symbol>nsm::_fCorresponding</Symbol>
+			<Symbol>nsm::_fcCorresponding</Symbol>
+			<Symbol>nsm::_kCorresponding</Symbol>
+			<Symbol>nsm::_F_C_NoRecipe</Symbol>
 			<Symbol>nsm::__F_C_K_NoMax</Symbol>
+			<Symbol>nsm::k</Symbol>
+			<Symbol>nsm::_k</Symbol>
+			<Symbol>nsm::f</Symbol>
+			<Symbol>nsm::_f</Symbol>
+			<Symbol>nsm::c</Symbol>
+			<Symbol>nsm::_c</Symbol>
 		</Model>
 	</UsedReferences>
 </Page>

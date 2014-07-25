@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+<Page Version="4000" TimeStamp="2014-07-23 19:14:41">
 	<Location top="29" left="4" bottom="696" right="1072" />
 	<PageEditSize Type="Inherited">
 		<Size Width="900" Height="706" />
@@ -56,7 +56,7 @@
 				<AssignedValue>""</AssignedValue>
 			</Action>
 			<Action Type="LinkedPage">
-				<Page PageGUID="2578A002-E78B-47F3-A1EC-11CED6B8032C" Name="Add_SetElement" />
+				<Page PageGUID="69B33AAE-54EB-4CD6-BF05-1C8BF7420311" Name="Add_SetElement" />
 			</Action>
 		</ActionSequence>
 	</PageObject>
@@ -75,7 +75,7 @@
 				<AssignedValue>"Scenarios"</AssignedValue>
 			</Action>
 			<Action Type="LinkedPage">
-				<Page PageGUID="ACB0B287-352F-4619-A745-CEFF3E11F7C0" Name="Delete_SetElement" />
+				<Page PageGUID="AB0EB109-4578-4700-81BB-2670DB04D943" Name="Delete_SetElement" />
 			</Action>
 		</ActionSequence>
 	</PageObject>
@@ -97,7 +97,7 @@
 				<AssignedValue>""</AssignedValue>
 			</Action>
 			<Action Type="LinkedPage">
-				<Page PageGUID="2578A002-E78B-47F3-A1EC-11CED6B8032C" Name="Add_SetElement" />
+				<Page PageGUID="69B33AAE-54EB-4CD6-BF05-1C8BF7420311" Name="Add_SetElement" />
 			</Action>
 		</ActionSequence>
 	</PageObject>
@@ -115,7 +115,7 @@
 				<AssignedValue>"Regions"</AssignedValue>
 			</Action>
 			<Action Type="LinkedPage">
-				<Page PageGUID="ACB0B287-352F-4619-A745-CEFF3E11F7C0" Name="Delete_SetElement" />
+				<Page PageGUID="AB0EB109-4578-4700-81BB-2670DB04D943" Name="Delete_SetElement" />
 			</Action>
 		</ActionSequence>
 	</PageObject>
@@ -432,7 +432,7 @@
 				<AssignedValue>""</AssignedValue>
 			</Action>
 			<Action Type="LinkedPage">
-				<Page PageGUID="2578A002-E78B-47F3-A1EC-11CED6B8032C" Name="Add_SetElement" />
+				<Page PageGUID="69B33AAE-54EB-4CD6-BF05-1C8BF7420311" Name="Add_SetElement" />
 			</Action>
 		</ActionSequence>
 	</PageObject>
@@ -450,7 +450,7 @@
 				<AssignedValue>"GUIRegionBioforms"</AssignedValue>
 			</Action>
 			<Action Type="LinkedPage">
-				<Page PageGUID="ACB0B287-352F-4619-A745-CEFF3E11F7C0" Name="Delete_SetElement" />
+				<Page PageGUID="AB0EB109-4578-4700-81BB-2670DB04D943" Name="Delete_SetElement" />
 			</Action>
 		</ActionSequence>
 	</PageObject>

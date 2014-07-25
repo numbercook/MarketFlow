@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+<Page Version="4000" TimeStamp="2014-07-24 14:09:38">
 	<Location top="29" left="4" bottom="696" right="1072" />
 	<PageEditSize Type="Inherited">
 		<Size Width="900" Height="706" />
 	</PageEditSize>
 	<ProjectUUID>B2FACAE1-6EEE-4497-BF6D-B115323573E2</ProjectUUID>
-	<TemplatesTabOrderPosition>4</TemplatesTabOrderPosition>
+	<TemplatesTabOrderPosition>1</TemplatesTabOrderPosition>
 	<ResizeData>
 		<MainArea Line="FixedFromTop" Value="76">
 			<TopArea Line="FixedFromRight" Value="74">
@@ -23,7 +23,7 @@
 	<Background Inherited="true" />
 	<HelpTopic>"Recipes"</HelpTopic>
 	<Action>
-		<EntryProcedure>nsm::InitGUIBioforms</EntryProcedure>
+		<EntryProcedure>SetLastViewedChildPage</EntryProcedure>
 	</Action>
 	<PageObject Type="Text">
 		<Location top="415" left="150" bottom="440" right="571" />
@@ -35,7 +35,7 @@
 	<PageObject Type="Pivot Table">
 		<Location top="440" left="144" bottom="689" right="450" />
 		<HelpTag>"Recipe Bioforms"</HelpTag>
-		<TabOrder>11</TabOrder>
+		<TabOrder>7</TabOrder>
 		<PopupMenu None="true" />
 		<ObjectUUID>BD1BC784-2249-440B-9469-D62648ACF175</ObjectUUID>
 		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
@@ -126,7 +126,7 @@ endif</Background_Color>
 		<ReadOnly>"Yes"</ReadOnly>
 		<Hidden>"Yes"</Hidden>
 		<HelpTag>"General MUs"</HelpTag>
-		<TabOrder>6</TabOrder>
+		<TabOrder>2</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Text</ButtonType>
 		<TooltipText>"Corresponding"</TooltipText>
@@ -140,7 +140,7 @@ endif</Background_Color>
 		<ReadOnly>"Yes"</ReadOnly>
 		<Hidden>"Yes"</Hidden>
 		<HelpTag>"General MUs"</HelpTag>
-		<TabOrder>7</TabOrder>
+		<TabOrder>3</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Text</ButtonType>
 		<TooltipText>"No associated blocks"</TooltipText>
@@ -159,7 +159,7 @@ endif</Background_Color>
 	<PageObject Type="Button">
 		<Location top="131" left="338" bottom="148" right="357" />
 		<HelpTag>"General MUs"</HelpTag>
-		<TabOrder>8</TabOrder>
+		<TabOrder>4</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Bitmap</ButtonType>
 		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\Add_sign.bmp"</BitmapFile>
@@ -174,14 +174,14 @@ endif</Background_Color>
 				<AssignedValue>""</AssignedValue>
 			</Action>
 			<Action Type="LinkedPage">
-				<Page PageGUID="2578A002-E78B-47F3-A1EC-11CED6B8032C" Name="Add_SetElement" />
+				<Page PageGUID="69B33AAE-54EB-4CD6-BF05-1C8BF7420311" Name="Add_SetElement" />
 			</Action>
 		</ActionSequence>
 	</PageObject>
 	<PageObject Type="Button">
 		<Location top="131" left="364" bottom="148" right="383" />
 		<HelpTag>"General MUs"</HelpTag>
-		<TabOrder>12</TabOrder>
+		<TabOrder>8</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Bitmap</ButtonType>
 		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\minus_sign.bmp"</BitmapFile>
@@ -192,14 +192,14 @@ endif</Background_Color>
 				<AssignedValue>"Recipes"</AssignedValue>
 			</Action>
 			<Action Type="LinkedPage">
-				<Page PageGUID="ACB0B287-352F-4619-A745-CEFF3E11F7C0" Name="Delete_SetElement" />
+				<Page PageGUID="AB0EB109-4578-4700-81BB-2670DB04D943" Name="Delete_SetElement" />
 			</Action>
 		</ActionSequence>
 	</PageObject>
 	<PageObject Type="Pivot Table">
 		<Location top="182" left="144" bottom="386" right="887" />
 		<HelpTag>"General MUs"</HelpTag>
-		<TabOrder>14</TabOrder>
+		<TabOrder>10</TabOrder>
 		<PopupMenu None="true" />
 		<ObjectUUID>DA1EA6EF-2B12-4740-AE02-5E0EF92FFF01</ObjectUUID>
 		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
@@ -281,7 +281,7 @@ endif</Background_Color>
 	<PageObject Type="Pivot Table">
 		<Location top="440" left="482" bottom="689" right="893" />
 		<HelpTag>"Recipe Bioforms"</HelpTag>
-		<TabOrder>9</TabOrder>
+		<TabOrder>5</TabOrder>
 		<PopupMenu None="true" />
 		<ObjectUUID>608E1EB9-66EF-4F9E-8F64-609E9BEF10D4</ObjectUUID>
 		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
@@ -377,7 +377,7 @@ endif</Background_Color>
 	<PageObject Type="Button">
 		<Location top="154" left="338" bottom="171" right="357" />
 		<HelpTag>"General MUs"</HelpTag>
-		<TabOrder>10</TabOrder>
+		<TabOrder>6</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Bitmap</ButtonType>
 		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\Add_sign.bmp"</BitmapFile>
@@ -385,7 +385,7 @@ endif</Background_Color>
 		<ActionSequence>
 			<Action Type="Assignment">
 				<Identifier>SetName</Identifier>
-				<AssignedValue>"GUIRegionBioforms"</AssignedValue>
+				<AssignedValue>"GUIRecipeInBioforms"</AssignedValue>
 			</Action>
 			<Action Type="Assignment">
 				<Identifier>NewElementName</Identifier>
@@ -401,7 +401,7 @@ endif</Background_Color>
 	<PageObject Type="Button">
 		<Location top="154" left="364" bottom="171" right="383" />
 		<HelpTag>"General MUs"</HelpTag>
-		<TabOrder>13</TabOrder>
+		<TabOrder>9</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Bitmap</ButtonType>
 		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\minus_sign.bmp"</BitmapFile>
@@ -412,13 +412,13 @@ endif</Background_Color>
 				<AssignedValue>"GUIRecipeInBioforms"</AssignedValue>
 			</Action>
 			<Action Type="LinkedPage">
-				<Page PageGUID="ACB0B287-352F-4619-A745-CEFF3E11F7C0" Name="Delete_SetElement" />
+				<Page PageGUID="AB0EB109-4578-4700-81BB-2670DB04D943" Name="Delete_SetElement" />
 			</Action>
 		</ActionSequence>
 	</PageObject>
 	<PageObject Type="Button">
 		<Location top="409" left="482" bottom="434" right="544" />
-		<TabOrder>15</TabOrder>
+		<TabOrder>11</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Bitmap</ButtonType>
 		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\ButtonPlusMinus.png"</BitmapFile>
@@ -426,50 +426,50 @@ endif</Background_Color>
 		<Font GUID="6FE37651-7EC5-4E8D-AB97-567B36B673BB" Name="Button Text - small" />
 		<ActionSequence>
 			<Action Type="LinkedPage">
-				<Page PageGUID="71C4877B-1796-4121-B173-0B110EB9260E" Name="Show Recipe Output Bioforms" />
+				<Page PageGUID="0FC5E30A-968A-49BC-8434-29F597728BF2" Name="Show Recipe Output Bioforms" />
 			</Action>
 		</ActionSequence>
 	</PageObject>
 	<PageObject Type="Button">
 		<Location top="408" left="822" bottom="434" right="886" />
-		<TabOrder>16</TabOrder>
+		<TabOrder>12</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Text</ButtonType>
 		<Title>"Details"</Title>
 		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
 		<ActionSequence>
 			<Action Type="LinkedPage">
-				<Page PageGUID="7773283F-9E2A-4428-B683-17056B832A26" Name="Output Bioform Details" />
+				<Page PageGUID="BAF716B9-8F3D-4ACB-94FF-FC9996C77A3D" Name="Output Bioform Details" />
 			</Action>
 		</ActionSequence>
 	</PageObject>
 	<UsedReferences>
 		<Model>
-			<Symbol>NewElementName</Symbol>
-			<Symbol>SetName</Symbol>
 			<Symbol>AllColors</Symbol>
+			<Symbol>SetName</Symbol>
+			<Symbol>NewElementName</Symbol>
+			<Symbol>SetLastViewedChildPage</Symbol>
+			<Symbol>nsm::BioformOutUnit</Symbol>
 			<Symbol>nsm::RecipeUnit</Symbol>
-			<Symbol>nsm::recOutAlpha</Symbol>
-			<Symbol>nsm::b</Symbol>
-			<Symbol>nsm::k</Symbol>
-			<Symbol>nsm::__CCorresp</Symbol>
 			<Symbol>nsm::Bioforms</Symbol>
 			<Symbol>nsm::Recipes</Symbol>
-			<Symbol>nsm::bKin</Symbol>
-			<Symbol>nsm::_bkCorresponding</Symbol>
-			<Symbol>nsm::recInCF</Symbol>
-			<Symbol>nsm::GUIRecipeInBioforms</Symbol>
-			<Symbol>nsm::InitGUIBioforms</Symbol>
-			<Symbol>nsm::_bKin</Symbol>
-			<Symbol>nsm::_k</Symbol>
-			<Symbol>nsm::AddRecipeMarketBioform</Symbol>
-			<Symbol>nsm::bKout</Symbol>
-			<Symbol>nsm::_kCorresponding</Symbol>
-			<Symbol>nsm::recInLL</Symbol>
-			<Symbol>nsm::BioformOutUnit</Symbol>
 			<Symbol>nsm::recNam</Symbol>
-			<Symbol>nsm::recInUL</Symbol>
 			<Symbol>nsm::RecipeUsesBioform</Symbol>
+			<Symbol>nsm::recInLL</Symbol>
+			<Symbol>nsm::recInUL</Symbol>
+			<Symbol>nsm::recInCF</Symbol>
+			<Symbol>nsm::recOutAlpha</Symbol>
+			<Symbol>nsm::AddRecipeMarketBioform</Symbol>
+			<Symbol>nsm::GUIRecipeInBioforms</Symbol>
+			<Symbol>nsm::__CCorresp</Symbol>
+			<Symbol>nsm::_bkCorresponding</Symbol>
+			<Symbol>nsm::_kCorresponding</Symbol>
+			<Symbol>nsm::b</Symbol>
+			<Symbol>nsm::k</Symbol>
+			<Symbol>nsm::_k</Symbol>
+			<Symbol>nsm::bKin</Symbol>
+			<Symbol>nsm::_bKin</Symbol>
+			<Symbol>nsm::bKout</Symbol>
 			<Symbol>nsm::_bKout</Symbol>
 		</Model>
 	</UsedReferences>

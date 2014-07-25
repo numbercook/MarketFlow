@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<UserMenuTree Version="4000" TimeStamp="2014-07-16 13:34:15">
+<UserMenuTree Version="4000" TimeStamp="2014-07-23 19:14:41">
 	<Menu Name="Case Management" UUID="103A8F82-E539-45AF-B67C-5CDD0A3C76B9">
 		<MenuItem Name="Load Case Without Prompt ..." UUID="D6B7D278-38FB-48B2-8569-C49D11F1ECA2" IsDefaultItem="true">
 			<ActionSequence>
@@ -121,7 +121,7 @@
 		<MenuItem Name="Show Dataset Contents" UUID="9EE82444-D027-414A-B5A2-D8EFFF7E5D45">
 			<ActionSequence>
 				<Action Type="LinkedPage">
-					<Page PageGUID="E58950C0-4760-4C9C-A505-EF9EB1115724" Name="Show Data Categories" />
+					<Page PageGUID="DFEF7FDE-8056-4C9F-8D77-6D824CE5E631" Name="Show Data Categories" />
 				</Action>
 			</ActionSequence>
 		</MenuItem>

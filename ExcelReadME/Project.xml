@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <LibraryProject AimmsVersion="4.0.0.699 unicode x86" ProjectUUID="F7AC0431-7C7B-4311-A268-7AD111E1A887">
 	<ModelFileName>ExcelReadME.ams</ModelFileName>
-	<Prefix>XLrm</Prefix>
+	<Prefix>XL</Prefix>
 	<DisplayName>ExcelReadME</DisplayName>
 </LibraryProject>

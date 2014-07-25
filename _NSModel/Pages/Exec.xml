@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+<Page Version="4000" TimeStamp="2014-07-24 14:09:38">
 	<Location top="29" left="4" bottom="696" right="1072" />
 	<PageEditSize Type="Inherited">
 		<Size Width="900" Height="706" />
@@ -17,6 +17,10 @@
 		</MainArea>
 	</ResizeData>
 	<Background Inherited="true" />
+	<HelpTopic>"Execution"</HelpTopic>
+	<Action>
+		<EntryProcedure>SetLastViewedChildPage</EntryProcedure>
+	</Action>
 	<PageObject Type="Button">
 		<Location top="138" left="738" bottom="192" right="880" />
 		<TabOrder>2</TabOrder>
@@ -33,7 +37,7 @@
 		</ActionSequence>
 	</PageObject>
 	<PageObject Type="Pivot Table">
-		<Location top="144" left="144" bottom="504" right="338" />
+		<Location top="168" left="144" bottom="528" right="338" />
 		<TabOrder>3</TabOrder>
 		<ObjectUUID>234EB1A1-0E27-4D91-8A2C-E89C2C9BC71A</ObjectUUID>
 		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
@@ -41,30 +45,39 @@
 		<Contents>
 			<Explicit_Identifier>
 				<Identifier ID="4110">nsm::obj</Identifier>
+				<Tooltip_Text ID="4125">"Net Profit"</Tooltip_Text>
 			</Explicit_Identifier>
 			<Explicit_Identifier>
 				<Identifier ID="4110">nsm::MarkRev</Identifier>
+				<Tooltip_Text ID="4125">"Market Revenue"</Tooltip_Text>
 			</Explicit_Identifier>
 			<Explicit_Identifier>
 				<Identifier ID="4110">nsm::Scencost</Identifier>
+				<Tooltip_Text ID="4125">"Scenario Cost"</Tooltip_Text>
 			</Explicit_Identifier>
 			<Explicit_Identifier>
 				<Identifier ID="4110">nsm::tcostRF</Identifier>
+				<Tooltip_Text ID="4125">"Transport Cost: Region--&gt;Facilities"</Tooltip_Text>
 			</Explicit_Identifier>
 			<Explicit_Identifier>
 				<Identifier ID="4110">nsm::tcostRM</Identifier>
+				<Tooltip_Text ID="4125">"Transport Cost: Region--&gt;Markets"</Tooltip_Text>
 			</Explicit_Identifier>
 			<Explicit_Identifier>
 				<Identifier ID="4110">nsm::tcostFF</Identifier>
+				<Tooltip_Text ID="4125">"Transport Cost: Facilities--&gt;Facilities"</Tooltip_Text>
 			</Explicit_Identifier>
 			<Explicit_Identifier>
 				<Identifier ID="4110">nsm::tcostFM</Identifier>
+				<Tooltip_Text ID="4125">"Transport Cost: Facilities--&gt;Markets"</Tooltip_Text>
 			</Explicit_Identifier>
 			<Explicit_Identifier>
 				<Identifier ID="4110">nsm::fFxCst</Identifier>
+				<Tooltip_Text ID="4125">"Facility Fixed Cost"</Tooltip_Text>
 			</Explicit_Identifier>
 			<Explicit_Identifier>
 				<Identifier ID="4110">nsm::rVarCst</Identifier>
+				<Tooltip_Text ID="4125">"Recipe Variable Cost"</Tooltip_Text>
 			</Explicit_Identifier>
 			<Defaults>
 				<Show_Unit>
@@ -161,7 +174,7 @@
 	</PageObject>
 	<PageObject Type="Selection Object">
 		<SelectionType>DropDownList</SelectionType>
-		<Location top="138" left="364" bottom="168" right="712" />
+		<Location top="168" left="348" bottom="198" right="696" />
 		<TabOrder>5</TabOrder>
 		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
 		<TextShown>ElementName</TextShown>
@@ -171,23 +184,36 @@
 			<Identifier>nsm::_Exec_SelVar</Identifier>
 		</ExplicitIdentifier>
 	</PageObject>
+	<PageObject Type="Text">
+		<Location top="132" left="348" bottom="162" right="696" />
+		<StaticText>"For more details, select the variable in the drop-down box"</StaticText>
+		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
+		<TextColor RGB="#000000" />
+	</PageObject>
+	<PageObject Type="Text">
+		<Location top="132" left="144" bottom="162" right="336" />
+		<StaticText>Variables</StaticText>
+		<Font GUID="AA5FC319-34D1-4D05-A06C-BF4D3B89EA34" Name="Heading Subpage" />
+		<TextColor RGB="#000000" />
+	</PageObject>
 	<UsedReferences>
 		<Model>
 			<Symbol>AllIdentifiers</Symbol>
-			<Symbol>nsm::Scencost</Symbol>
+			<Symbol>SetLastViewedChildPage</Symbol>
 			<Symbol>nsm::obj</Symbol>
-			<Symbol>nsm::Exec_ParamToDisplay</Symbol>
 			<Symbol>nsm::MarkRev</Symbol>
-			<Symbol>nsm::SolveNSModel</Symbol>
-			<Symbol>nsm::rVarCst</Symbol>
-			<Symbol>nsm::_Exec_SelVar</Symbol>
-			<Symbol>nsm::_iExecParam</Symbol>
-			<Symbol>nsm::Exec_Variables</Symbol>
-			<Symbol>nsm::fFxCst</Symbol>
-			<Symbol>nsm::tcostFF</Symbol>
-			<Symbol>nsm::tcostFM</Symbol>
+			<Symbol>nsm::Scencost</Symbol>
 			<Symbol>nsm::tcostRF</Symbol>
 			<Symbol>nsm::tcostRM</Symbol>
+			<Symbol>nsm::tcostFF</Symbol>
+			<Symbol>nsm::tcostFM</Symbol>
+			<Symbol>nsm::fFxCst</Symbol>
+			<Symbol>nsm::rVarCst</Symbol>
+			<Symbol>nsm::SolveNSModel</Symbol>
+			<Symbol>nsm::Exec_Variables</Symbol>
+			<Symbol>nsm::_Exec_SelVar</Symbol>
+			<Symbol>nsm::Exec_ParamToDisplay</Symbol>
+			<Symbol>nsm::_iExecParam</Symbol>
 		</Model>
 	</UsedReferences>
 </Page>

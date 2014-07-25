@@ -1,1 +1,6 @@
 <?xml version="1.0"?>
+<PageManager>
+	<Page Name="All Data Pages" PageGUID="CEC21D48-A909-4EF5-8FC1-C937835749E0">
+		<Page Name="[Data Page] GUIParentChildPages" PageGUID="916DA755-E6A6-41E6-80A8-D810F36B05B2" />
+	</Page>
+</PageManager>

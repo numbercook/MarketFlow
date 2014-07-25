@@ -6,7 +6,7 @@
 </ViewDefinition>
 <ViewDefinition Name="Domain - Definition">
 	<IdentifierColumnWidth>165</IdentifierColumnWidth>
-	<Column Attribute="index domain" ColumnWidth="304" />
+	<Column Attribute="index domain" ColumnWidth="95" />
 	<Column Attribute="definition" ColumnWidth="367" />
 </ViewDefinition>
 <ViewDefinition Name="Domain - Unit">

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+<Page Version="4000" TimeStamp="2014-07-24 14:09:38">
 	<Location top="29" left="4" bottom="696" right="1072" />
 	<PageEditSize Type="Inherited">
 		<Size Width="900" Height="706" />
@@ -35,17 +35,17 @@
 		</InputColor>
 		<NavigationData>
 			<ReferencePage>Other</ReferencePage>
-			<OtherPage PageGUID="76DDA7D2-4344-47A9-BCB3-C7B4D9B96D62" Name="Maps" />
+			<OtherPage PageGUID="A8D5AFAC-BC08-4250-9738-27202DAC18F0" Name="Maps" />
 			<NumberOfGenerations>1</NumberOfGenerations>
 			<NumberOfAncestors>1</NumberOfAncestors>
 			<ActionSequence>
-				<Action Type="ClosePage" />
 				<Action Type="GotoNavigationPage" />
 				<Action Type="Run">
 					<RunWhat>SpecificProcecure</RunWhat>
 					<Procedure>SetLastViewedChildPage</Procedure>
 					<AbortOnError>true</AbortOnError>
 				</Action>
+				<Action Type="ClosePage" />
 			</ActionSequence>
 		</NavigationData>
 	</PageObject>

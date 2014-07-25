@@ -1,17 +1,33 @@
 <?xml version="1.0"?>
 <ExportSettings>
+	<ExcludedFile>.git</ExcludedFile>
 	<ExcludedFile>_CasesAndData\CasesAndData.aim</ExcludedFile>
 	<ExcludedFile>_DataEntry\DataEntry.aim</ExcludedFile>
-	<ExcludedFile>_FlowRO</ExcludedFile>
+	<ExcludedFile>_DbInspector\DbInspector.aim</ExcludedFile>
+	<ExcludedFile>_DbInspector\DbInspector.amb</ExcludedFile>
+	<ExcludedFile>_DbInspector\DbInspector.libprj</ExcludedFile>
+	<ExcludedFile>_FlowRO\FlowRO.aim</ExcludedFile>
 	<ExcludedFile>_NSModel\NSModel.aim</ExcludedFile>
+	<ExcludedFile>_Pivot Table State Manager\Pivot Table State Manager.aim</ExcludedFile>
+	<ExcludedFile>_Pivot Table State Manager\Pivot Table State Manager.amb</ExcludedFile>
+	<ExcludedFile>_Pivot Table State Manager\Pivot Table State Manager.libprj</ExcludedFile>
 	<ExcludedFile>_ProjectDescription\ProjectDescription.aim</ExcludedFile>
 	<ExcludedFile>_Style Library\Style Library.aim</ExcludedFile>
 	<ExcludedFile>backup</ExcludedFile>
+	<ExcludedFile>ErrorReports</ExcludedFile>
+	<ExcludedFile>Graphic Files</ExcludedFile>
 	<ExcludedFile>log</ExcludedFile>
+	<ExcludedFile>.gitignore</ExcludedFile>
+	<ExcludedFile>EndUserModule.amb</ExcludedFile>
+	<ExcludedFile>Git AIMMS MarketFlow.lnk</ExcludedFile>
 	<ExcludedFile>MarketFlow.aim</ExcludedFile>
 	<ExcludedFile>MarketFlowDatabase.udl</ExcludedFile>
 	<ExcludedFile>MarketFlowUsersX.usr</ExcludedFile>
 	<ExcludedFile>marketPages.pag</ExcludedFile>
+	<ExcludedFile>muBigger_BW.png</ExcludedFile>
+	<ExcludedFile>NSModel.amb</ExcludedFile>
+	<ExcludedFile>RuntimePage.pag</ExcludedFile>
 	<ExcludedFile>SCSection.amb</ExcludedFile>
+	<ExcludedFile>VCO.LNK</ExcludedFile>
 	<IncludedFile>ExcelReadME\ExcelReadME.aim</IncludedFile>
 </ExportSettings>

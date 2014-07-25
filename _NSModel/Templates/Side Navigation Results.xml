@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+<Page Version="4000" TimeStamp="2014-07-24 14:09:38">
 	<Location top="29" left="4" bottom="696" right="1072" />
 	<PageEditSize Type="Inherited">
 		<Size Width="900" Height="706" />
@@ -35,19 +35,26 @@
 		</InputColor>
 		<NavigationData>
 			<ReferencePage>Other</ReferencePage>
-			<OtherPage PageGUID="196485EE-77C0-4F12-B4F9-5FF9C60EF529" Name="Results" />
+			<OtherPage PageGUID="0C873CE0-11BB-44CE-BFF5-8F95EC60A341" Name="Results" />
 			<NumberOfGenerations>1</NumberOfGenerations>
 			<NumberOfAncestors>1</NumberOfAncestors>
 			<ActionSequence>
-				<Action Type="ClosePage" />
 				<Action Type="GotoNavigationPage" />
 				<Action Type="Run">
 					<RunWhat>SpecificProcecure</RunWhat>
 					<Procedure>SetLastViewedChildPage</Procedure>
 					<AbortOnError>true</AbortOnError>
 				</Action>
+				<Action Type="ClosePage" />
 			</ActionSequence>
 		</NavigationData>
+	</PageObject>
+	<PageObject Type="Rectangle">
+		<Location top="108" left="546" bottom="126" right="678" />
+		<FillColor>
+			<UserColor GUID="257CED91-8909-41AC-BED6-911268D7BBCE">blue</UserColor>
+		</FillColor>
+		<LineColor RGB="#000000" />
 	</PageObject>
 	<UsedReferences>
 		<Model>

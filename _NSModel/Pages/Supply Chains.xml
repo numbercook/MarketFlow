@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+<Page Version="4000" TimeStamp="2014-07-24 14:09:38">
 	<Location top="29" left="4" bottom="696" right="1072" />
 	<PageEditSize Type="Inherited">
 		<Size Width="900" Height="706" />
@@ -19,7 +19,7 @@
 	<Background Inherited="true" />
 	<HelpTopic>"Supply Chains"</HelpTopic>
 	<Action>
-		<EntryProcedure>nsm::InitGUIBioforms</EntryProcedure>
+		<EntryProcedure>SetLastViewedChildPage</EntryProcedure>
 	</Action>
 	<PageObject Type="Pivot Table">
 		<Location top="144" left="144" bottom="606" right="874" />
@@ -153,24 +153,24 @@
 	</PageObject>
 	<UsedReferences>
 		<Model>
-			<Symbol>nsm::f</Symbol>
-			<Symbol>nsm::m</Symbol>
-			<Symbol>nsm::r</Symbol>
-			<Symbol>nsm::bM</Symbol>
-			<Symbol>nsm::br</Symbol>
-			<Symbol>nsm::f1</Symbol>
-			<Symbol>nsm::bKin</Symbol>
-			<Symbol>nsm::_colSc_Br_R_F_M</Symbol>
-			<Symbol>nsm::SCForBioform_R_F_M</Symbol>
-			<Symbol>nsm::InitGUIBioforms</Symbol>
-			<Symbol>nsm::pSc_Br_R_M</Symbol>
-			<Symbol>nsm::_colpSc_Br_R_F_F_M</Symbol>
-			<Symbol>nsm::bKout</Symbol>
-			<Symbol>nsm::SCForBioform_R_F_F_M</Symbol>
+			<Symbol>SetLastViewedChildPage</Symbol>
 			<Symbol>nsm::SCForRegionBioform_R_M</Symbol>
+			<Symbol>nsm::SCForBioform_R_F_M</Symbol>
+			<Symbol>nsm::SCForBioform_R_F_F_M</Symbol>
+			<Symbol>nsm::pSc_Br_R_M</Symbol>
 			<Symbol>nsm::pSc_Br_R_F_M</Symbol>
-			<Symbol>nsm::_colSc_Br_R_M</Symbol>
 			<Symbol>nsm::pSc_Br_R_F_F_M</Symbol>
+			<Symbol>nsm::_colSc_Br_R_M</Symbol>
+			<Symbol>nsm::_colSc_Br_R_F_M</Symbol>
+			<Symbol>nsm::_colpSc_Br_R_F_F_M</Symbol>
+			<Symbol>nsm::r</Symbol>
+			<Symbol>nsm::f</Symbol>
+			<Symbol>nsm::f1</Symbol>
+			<Symbol>nsm::m</Symbol>
+			<Symbol>nsm::br</Symbol>
+			<Symbol>nsm::bKin</Symbol>
+			<Symbol>nsm::bKout</Symbol>
+			<Symbol>nsm::bM</Symbol>
 		</Model>
 	</UsedReferences>
 </Page>

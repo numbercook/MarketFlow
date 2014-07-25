@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Page Version="4000" TimeStamp="2014-07-16 13:34:15">
+<Page Version="4000" TimeStamp="2014-07-24 14:09:38">
 	<Location top="29" left="4" bottom="696" right="1072" />
 	<PageEditSize Type="Inherited">
 		<Size Width="900" Height="706" />
@@ -18,6 +18,9 @@
 	</ResizeData>
 	<Background Inherited="true" />
 	<HelpTopic>"Mill Transportation Costs"</HelpTopic>
+	<Action>
+		<EntryProcedure>SetLastViewedChildPage</EntryProcedure>
+	</Action>
 	<PageObject Type="Text">
 		<Location top="126" left="153" bottom="150" right="351" />
 		<HelpTag>"General MUs"</HelpTag>
@@ -28,7 +31,7 @@
 	<PageObject Type="Button">
 		<Location top="126" left="344" bottom="144" right="357" />
 		<HelpTag>"General MUs"</HelpTag>
-		<TabOrder>6</TabOrder>
+		<TabOrder>5</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Bitmap</ButtonType>
 		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\Add_sign.bmp"</BitmapFile>
@@ -43,14 +46,14 @@
 				<AssignedValue>""</AssignedValue>
 			</Action>
 			<Action Type="LinkedPage">
-				<Page PageGUID="2578A002-E78B-47F3-A1EC-11CED6B8032C" Name="Add_SetElement" />
+				<Page PageGUID="69B33AAE-54EB-4CD6-BF05-1C8BF7420311" Name="Add_SetElement" />
 			</Action>
 		</ActionSequence>
 	</PageObject>
 	<PageObject Type="Button">
 		<Location top="126" left="370" bottom="144" right="383" />
 		<HelpTag>"General MUs"</HelpTag>
-		<TabOrder>8</TabOrder>
+		<TabOrder>7</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Bitmap</ButtonType>
 		<BitmapFile LiteralFileName="true">"&lt;prj&gt;:bitmaps\minus_sign.bmp"</BitmapFile>
@@ -61,7 +64,7 @@
 				<AssignedValue>"Configurations"</AssignedValue>
 			</Action>
 			<Action Type="LinkedPage">
-				<Page PageGUID="ACB0B287-352F-4619-A745-CEFF3E11F7C0" Name="Delete_SetElement" />
+				<Page PageGUID="AB0EB109-4578-4700-81BB-2670DB04D943" Name="Delete_SetElement" />
 			</Action>
 		</ActionSequence>
 	</PageObject>
@@ -69,7 +72,7 @@
 		<Location top="156" left="377" bottom="174" right="396" />
 		<ReadOnly>"Yes"</ReadOnly>
 		<HelpTag>"General MUs"</HelpTag>
-		<TabOrder>5</TabOrder>
+		<TabOrder>4</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Text</ButtonType>
 		<TooltipText>"Available and Associated with Block(s)"</TooltipText>
@@ -82,7 +85,7 @@
 		<Location top="156" left="351" bottom="174" right="370" />
 		<ReadOnly>"Yes"</ReadOnly>
 		<HelpTag>"General MUs"</HelpTag>
-		<TabOrder>3</TabOrder>
+		<TabOrder>2</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Text</ButtonType>
 		<TooltipText>"Only partly available"</TooltipText>
@@ -95,7 +98,7 @@
 		<Location top="156" left="325" bottom="174" right="344" />
 		<ReadOnly>"Yes"</ReadOnly>
 		<HelpTag>"General MUs"</HelpTag>
-		<TabOrder>7</TabOrder>
+		<TabOrder>6</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Text</ButtonType>
 		<TooltipText>"No associated blocks"</TooltipText>
@@ -108,7 +111,7 @@
 		<Location top="426" left="867" bottom="444" right="887" />
 		<ReadOnly>"Yes"</ReadOnly>
 		<HelpTag>"General MUs"</HelpTag>
-		<TabOrder>4</TabOrder>
+		<TabOrder>3</TabOrder>
 		<LeaveOnEnter>false</LeaveOnEnter>
 		<ButtonType>Text</ButtonType>
 		<TooltipText>"Available and Associated with Block(s)"</TooltipText>
@@ -119,7 +122,7 @@
 	</PageObject>
 	<PageObject Type="Pivot Table">
 		<Location top="180" left="144" bottom="702" right="848" />
-		<TabOrder>9</TabOrder>
+		<TabOrder>8</TabOrder>
 		<ObjectUUID>56FC010E-8DCC-41A9-B4BC-F8C415D7470E</ObjectUUID>
 		<Font GUID="00000000-0000-0000-0000-000000000001" Name="Main Font" />
 		<Border Style="InShadow" Width="2" MarginTop="5" MarginRight="5" MarginBottom="5" MarginLeft="5" />
@@ -191,20 +194,21 @@
 	</PageObject>
 	<UsedReferences>
 		<Model>
-			<Symbol>NewElementName</Symbol>
-			<Symbol>SetName</Symbol>
 			<Symbol>AllColors</Symbol>
-			<Symbol>nsm::b</Symbol>
-			<Symbol>nsm::f</Symbol>
-			<Symbol>nsm::r</Symbol>
-			<Symbol>nsm::GUI_B_R_F_Dom</Symbol>
-			<Symbol>nsm::br</Symbol>
+			<Symbol>SetName</Symbol>
+			<Symbol>NewElementName</Symbol>
+			<Symbol>SetLastViewedChildPage</Symbol>
 			<Symbol>nsm::Bioforms</Symbol>
-			<Symbol>nsm::f1</Symbol>
-			<Symbol>nsm::f2</Symbol>
 			<Symbol>nsm::tcostBRF</Symbol>
 			<Symbol>nsm::tcostBFF</Symbol>
+			<Symbol>nsm::GUI_B_R_F_Dom</Symbol>
 			<Symbol>nsm::GUI_B_F_F_Dom</Symbol>
+			<Symbol>nsm::b</Symbol>
+			<Symbol>nsm::r</Symbol>
+			<Symbol>nsm::f</Symbol>
+			<Symbol>nsm::f1</Symbol>
+			<Symbol>nsm::f2</Symbol>
+			<Symbol>nsm::br</Symbol>
 		</Model>
 	</UsedReferences>
 </Page>
